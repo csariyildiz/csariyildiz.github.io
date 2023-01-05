@@ -1,9 +1,9 @@
-title                   : "Barebone Jekyll"
-author                  : "YourName"
+title                   : "csariyildiz.github.io"
+author                  : "Çağrı"
 email                   : your_email@example.com
-description             : "Heiswayi Nrird's Barebone Jekyll theme"
+description             : "Csariyildiz Personal Blog"
 twitter_username        : your_twitter_username
-github_username         : hn-barebone
+github_username         : csariyildiz
 
 google_fonts            :
 
@@ -13,7 +13,7 @@ destination             : ./_site
 permalink               : /:title
 markdown                : kramdown
 highlighter             : rouge
-timezone                : Asia/Kuala_Lumpur
+timezone                : Asia/Istanbul
 
 include:
   - _redirects
