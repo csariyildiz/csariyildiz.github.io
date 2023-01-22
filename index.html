@@ -22,79 +22,58 @@ layout: compress
 {% endfor %}
 
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 
   <head>
   {% include head.html %}
-  <style>
-      #main {
-          line-height: 1.4;
-      }
-      #main a {
-          text-decoration: none;
-      }
-      #main a:hover {
-          background-color: #06b;
-          color: #fff;
-      }
-      .year {
-          margin-top: 1.618rem;
-          font-size: 1.2rem;
-          font-family: monospace;
-          opacity: 0.5;
-	  margin-bottom: 1rem;
-      }
-      .post-date {
-          font-family: monospace;
-          text-transform: uppercase;
-          word-break: keep-all;
-          margin-left: 0.5rem;
-          opacity: 0.5;
-      }
-      .project-label {
-          font-family: monospace;
-      }
-	  
-   .post-meta {
-          margin-bottom: 1rem;
-      }
-	  
-   
-  </style>
+ 
   </head>
 
   <body>
-<div class="ui container">
-    {% include header.html %}
+	  
 
-    <div id="main" role="main" style=" font-size: 14px; font-family: serif; padding-bottom:20px;" class="ui container">
-    {% for post in site.posts %}
-				
-        {% unless post.next %}
-            <div class="year">{{ post.date | date: '%Y' }}</div>
-        {% else %}
-            {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-            {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-            {% if year != nyear %}
-                <div class="year">{{ post.date | date: '%Y' }}</div>
-            {% endif %}
-        {% endunless %}
-
-        <div class="post-index">
-            <div class="post-meta">
-                <span class="post-title">
-                    <a href="{{ post.url | prepend: site.baseurl | prepend: site.url }}">
-                        {{ post.title | strip }}
-                    </a>
-                </span>
-                <small class="post-date">{{ post.date | date: "%b&middot;%d" }}</small>
-            </div>
-        </div>
-
-    {% endfor %}
+	  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+      <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      Bootstrap
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
- </div>
-    {% include footer.html %}
-
+  </div>
+</nav>
+	  
+	  
+	
   </body>
 </html>
