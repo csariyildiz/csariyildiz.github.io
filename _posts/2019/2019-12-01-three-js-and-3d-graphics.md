@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Creating Interactive 3D Graphics with Three.js: A Beginner's Guide
+title: A Beginner's Guide To Creating Interactive 3D Graphics with Three.js
 ---
 
 ### What is Three.js?
