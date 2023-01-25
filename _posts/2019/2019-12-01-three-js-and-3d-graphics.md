@@ -13,11 +13,12 @@ Three.js provides a simple, object-oriented API for creating and manipulating 3D
 
 To get started with Three.js, the first step is to include the library in your HTML file:
 
-Copy code
+```
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r112/three.min.js"></script>
+```
 Next, we need to set up the scene, camera, and renderer. Here's an example of how to do that:
 
-Copy code
+```
 // Create a scene
 var scene = new THREE.Scene();
 
@@ -28,17 +29,20 @@ var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHe
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
+```
 Now that we have the basic setup in place, we can add some 3D objects to the scene. For example, to add a simple cube to the scene, we can do the following:
 
-Copy code
+```
 // Create a cube
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 var cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
+```
+
 Finally, we need to render the scene and update it on every frame. Here's an example of how to do that:
 
-Copy code
+```
 // Render the scene
 renderer.render( scene, camera );
 
@@ -50,4 +54,5 @@ function animate() {
     renderer.render( scene, camera );
 }
 animate();
+```
 This is just a basic example of what you can do with Three.js. With this library, you can create a wide range of interactive 3D experiences, from simple animations to complex games and visualizations. With a vast ecosystem of community-contributed examples, plugins and tutorials, three.js makes it easy to learn and implement 3D graphics on your website.
