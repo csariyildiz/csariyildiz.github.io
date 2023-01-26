@@ -56,7 +56,17 @@ layout: compress
 	
 <main style="border: 1px solid black; margin-bottom: 1rem; padding: 1rem;">
     <div class="row">
-      <div class="col-md-6">
+
+      
+      <div class="col-md-3">
+          <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </div>
+    </div>
+
+          <div class="col-md-9">
             {% for post in site.posts %}
 				
         {% unless post.next %}
@@ -82,16 +92,6 @@ layout: compress
 
     {% endfor %}
       </div>
-      
-      <div class="col-md-3">
-          <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-      </div>
-    </div>
-
-    
 
     
   </main>
