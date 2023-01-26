@@ -20,73 +20,93 @@ layout: compress
 		{% endunless %}
 	{% endif %}
 {% endfor %}
-
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="en" class="h-100">
   <head>
-  {% include head.html %}
-	  <style>
-		  .post-meta{
-		  margin-bottom: 0.5rem;
-		  }
-		  
-		  .year {
-    font-size: 1.2rem;
-    font-family: monospace;
-    opacity: 0.5;
-    margin-bottom: 0.5rem;
-}
-		.post-date {
-    font-family: monospace;
-    text-transform: uppercase;
-    word-break: keep-all;
-    margin-left: 0.5rem;
-    opacity: 0.5;
-}  
-	.post-title a{text-decoration: none;
-		color: #4183c4;}
-	  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="generator" content="">
+    <title>Sticky Footer Navbar Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
   </head>
-  <body>
-	
-	  
-	   {% include nav.html %}
-<div class="container" style="max-width: 1127px; padding-top: 1rem;">
-	
-
-	
-<main style="margin-bottom: 1rem;padding: 1rem;">
-    <div class="row" style="margin-left: 0.1rem;margin-right: 0.1rem;">
-
-      
-      <div class="col-md-2" style="padding-top: 1rem;padding-bottom: 1rem;">
-	      <div style="padding: 1rem;">
-        <ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Coding</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Web</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Tools</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Notes</a>
-  </li>
-
-</ul>
-		      
+  <body class="d-flex flex-column h-100">
+    
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Fixed navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
       </div>
-	       </div>
+    </div>
+  </nav>
+</header>
 
-	
-	
-
-          <div class="col-md-10" style="padding-top: 1rem;padding-bottom: 1rem;">
-		  <div style="padding: 1rem;">
-            {% for post in site.posts %}
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+  <div class="container">
+    <h1 class="mt-5">Sticky footer with fixed navbar</h1>
+    <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code class="small">padding-top: 60px;</code> on the <code class="small">main &gt; .container</code>.</p>
+    <p>Back to <a href="/docs/5.0/examples/sticky-footer/">the default sticky footer</a> minus the navbar.</p>
+	  
+	  
+  {% for post in site.posts %}
 				
         {% unless post.next %}
             <div class="year">{{ post.date | date: '%Y' }}</div>
@@ -110,18 +130,20 @@ layout: compress
         </div>
 
     {% endfor %}
-			  </div>
-     </div>
-			  
-			  
-			  
-</div>
-
-    
-  </main>
-</div>
-	
 	  
-	
+	  
+  </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>
+
+
+    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+      
   </body>
 </html>
