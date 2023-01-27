@@ -4,22 +4,11 @@
   <body class="d-flex flex-column h-100">
   {% include nav.html %}
 
-
 <main class="flex-shrink-0">
   <div class="container" style="width: auto; max-width: 680px; padding: 0 15px; padding-top: 54px;">
   
 
-<nav class="navbar navbar-light mt-4">
- <div class="container" style="max-width: 512px;margin-left: 0px;padding-left: 0px;">
- <button type="button" class="btn btn-sm btn-light navbtna">👨‍💻 Coding</button>
-<button type="button" class="btn btn-sm btn-light navbtna">Web</button>
-<button type="button" class="btn btn-sm btn-light navbtna">Notes</button>
-<button type="button" class="btn btn-sm btn-light navbtna">Projects</button>
-<button type="button" class="btn btn-sm btn-light navbtna">Tags</button>
-<button type="button" class="btn btn-sm btn-light navbtna">Archive</button>
-
- </div>
-</nav>
+ {% include nav2.html %}
 
 
    {{ content }}
@@ -28,12 +17,7 @@
     <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
   <p>Back to <a href="../sticky-footer/">the default sticky footer</a> minus the navbar.</p>
  
-
- </div>
-  
-  
-  
-  
+ </div> 
 </main>
 
  {% include footer.html %}
