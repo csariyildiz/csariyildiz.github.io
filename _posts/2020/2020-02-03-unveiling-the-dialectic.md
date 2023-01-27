@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Unveiling the Dialectic: An Exploration of Hegel's Philosophy"
+title: "Unveiling the Dialectic, An Exploration of Hegel's Philosophy"
+category: main
 ---
 
 In this blog post, we will delve into the complex and often misunderstood philosophy of Georg Wilhelm Friedrich Hegel. Known for his use of dialectic method, Hegel's ideas have had a profound impact on the development of modern philosophy, politics, and history. From his early work on the concept of Spirit to his later writings on the state and society, Hegel's thought is both challenging and rewarding for those willing to take the time to understand it. In the following paragraphs, we will explore some of the key concepts and ideas that make up the Hegelian system, and attempt to make sense of this often dense and difficult philosophy.
