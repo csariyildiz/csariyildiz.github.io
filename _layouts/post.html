@@ -2,8 +2,10 @@
 <html lang="en" class="h-100">
   {% include head.html %}
   <body class="d-flex flex-column h-100">
+    
+    
 <main class="flex-shrink-0">
-  <div class="container" style="width: auto; max-width: 680px; padding: 0 15px; padding-top: 54px;">
+  <div class="container">
      <article class="content" itemscope itemtype="http://schema.org/BlogPosting">
     <h1 class="mt-5">{{ page.title | escape }}</h1>
        <small class="content-meta">
@@ -11,7 +13,7 @@
            {{ page.date | date: "%B %d, %Y" }}
           </time>
         </small>
-       <div class="mt-3">
+       <div class="mt-3 mb-3">
      {{ content }}
        </div>
           </article>
