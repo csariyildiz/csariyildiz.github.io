@@ -1,34 +1,27 @@
----
-layout: compress
----
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
+<!doctype html>
+<html lang="en" class="h-100">
   {% include head.html %}
-  </head>
-
-  <body>
+  <body class="d-flex flex-column h-100">
+  {% include nav.html %}
+<main class="flex-shrink-0">
+  <div class="container" style="width: auto; max-width: 680px; padding: 0 15px; padding-top: 54px;">
+  
+    <h1 class="mt-5">{{ page.title | escape }}</h1>
+     {{ content }}
     
-   <a class="show-on-focus" href="#main">Skip to content</a>
-    <div class="ui container">
-    <div id="main" role="main" style="margin-top:30px;">
-      <div class="back"><a href="{{ '/' | prepend: site.baseurl | prepend: site.url }}">index/</a></div>
-      <article class="content" itemscope itemtype="http://schema.org/BlogPosting">
+ </div>
+  
+</main>
 
-        <h1 class="content-title" itemprop="name headline">{{ page.title | escape }}</h1>
-
-        <hr class="divider"/>
-      
-        <div itemprop="articleBody" class="content-body">
-          {{ content }}
-        </div>
-      
-      </article>
-    </div>
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container" style="max-width: 680px;">
+    <span class="text-muted">Place footer content here. csariyildiz.github.io</span>
   </div>
-    {% include footer.html %}
+</footer>
 
+
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
   </body>
 </html>
