@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Discovering the Historic Charm of Zeyrek Mosque
+title: Discovering the Historic Charm of Zeyrek
 ---
 
 The Zeyrek Mosque, also known as the Monastery of the Pantocrator, is a historical mosque located in Istanbul, Turkey. It is one of the oldest and most important examples of Byzantine architecture in the city, and is a must-see attraction for any visitor.
