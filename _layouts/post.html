@@ -11,12 +11,16 @@
       <div class="row">
     <div class="col-md-9">
          <article class="content" itemscope itemtype="http://schema.org/BlogPosting">
-    <h1 class="mt-5">{{ page.title | escape }}</h1>
+   <div class="article-head">
+           <h1 class="mt-5">{{ page.title | escape }}</h1>
        <small class="content-meta">
           <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
            {{ page.date | date: "%B %d, %Y" }}
           </time>
         </small>
+           
+           </div>     
+           
        <div class="mt-3 mb-3">
      {{ content }}
        </div>
