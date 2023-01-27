@@ -2,12 +2,9 @@
 <html lang="en" class="h-100">
   {% include head.html %}
   <body class="d-flex flex-column h-100">
-  {% include nav.html %}
 <main class="flex-shrink-0">
   <div class="container" style="width: auto; max-width: 680px; padding: 0 15px; padding-top: 54px;">
      <article class="content" itemscope itemtype="http://schema.org/BlogPosting">
-
-
     <h1 class="mt-5">{{ page.title | escape }}</h1>
        <small class="content-meta">
           <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
