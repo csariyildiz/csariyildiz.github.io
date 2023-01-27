@@ -1,37 +1,38 @@
----
-layout: compress
----
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
+<!doctype html>
+<html lang="en" class="h-100">
   {% include head.html %}
-  </head>
+  <body class="d-flex flex-column h-100">
+  {% include nav.html %}
+<main class="flex-shrink-0">
+  <div class="container" style="width: auto; max-width: 680px; padding: 0 15px; padding-top: 54px;">
+     <article class="content" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <body>
- 
-    <div id="main" role="main" class="ui container" style="margin-top:30px">
-      <div class="back"><a href="{{ '/' | prepend: site.baseurl | prepend: site.url }}">index/</a></div>
-      <article class="content" itemscope itemtype="http://schema.org/BlogPosting">
 
-        <h1 class="content-title" itemprop="name headline">{{ page.title | escape }}</h1>
-        <small class="content-meta">
+    <h1 class="mt-5">{{ page.title | escape }}</h1>
+       <small class="content-meta">
           <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
            {{ page.date | date: "%B %d, %Y" }}
           </time>
         </small>
+     {{ content }}
+          </article>
+ </div>
+  
+</main>
 
-        <hr class="divider"/>
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container" style="max-width: 680px;">
+    <span class="text-muted">Place footer content here. csariyildiz.github.io</span>
+  </div>
+</footer>
+
+
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
       
-        <div itemprop="articleBody" class="content-body">
-          {{ content }}
-        </div>
-      
-      </article>
-    </div>
-
-    {% include footer.html %}
-
   </body>
 </html>
+
+
+
+
