@@ -4,19 +4,22 @@ title: Discovering the Historic Charm of Zeyrek
 category: main
 ---
 
-The Zeyrek Mosque, also known as the Monastery of the Pantocrator, is a historical mosque located in Istanbul, Turkey. It is one of the oldest and most important examples of Byzantine architecture in the city, and is a must-see attraction for any visitor.
+The Zeyrek Mosque, also known as the Monastery of the Pantocrator, is a formidable structure of historical significance located in Istanbul, Turkey. 
+I understand the importance of preserving the past and this mosque serves as a powerful reminder of the rich cultural heritage of the region. 
+As one of the oldest and most significant examples of Byzantine architecture in the city, it is a must-visit destination for anyone seeking to deepen their understanding of the history of Istanbul and the surrounding area.
 
 The mosque was originally built as a Byzantine church in the 12th century, and was dedicated to the Pantocrator, a Greek term for "ruler of all." The church was later converted into a mosque by the Ottomans in the 15th century, and was used as a mosque until the 19th century.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/02_zeyrek.png" class="img-fluid" alt="Zeyrek">
 
-The Zeyrek Mosque is notable for its impressive architecture, which features a combination of Byzantine and Ottoman styles. The mosque has two main sections: the first is the "imaret," or the soup kitchen and hospice, and the second is the "kulliye," or the complex of buildings surrounding the mosque.
+The Zeyrek Mosque is notable for its impressive architecture, which features a combination of Byzantine and Ottoman styles.
+
+The mosque has two main sections: the first is the "imaret," or the soup kitchen and hospice, and the second is the "kulliye," or the complex of buildings surrounding the mosque.
 
 The imaret section of the mosque is particularly impressive, with its high ceilings and intricate tilework. The kulliye section is also worth visiting, as it features a library, a madrasa (Islamic school), and a tomb.
 
 The Zeyrek Mosque is open to visitors daily, and there is no entrance fee. Visitors are welcome to explore the mosque and its grounds, but should dress modestly and remove their shoes before entering.
 
-Overall, the Zeyrek Mosque is a must-see destination for anyone interested in history, architecture, or religion. The mosque provides a unique look into the rich cultural heritage of Istanbul and offers visitors a glimpse into the city's past.
 
 The Byzantine Empire was a major power in the Mediterranean world for over a thousand years, from the 4th century to the 15th century. The empire was founded by the Roman Emperor Constantine the Great, who moved the capital of the Roman Empire from Rome to the ancient city of Byzantium and renamed it Constantinople.
 
@@ -30,4 +33,4 @@ As for the Zeyrek Mosque, it is a great example of Byzantine architecture, the c
 
 The architectural style of the mosque is a combination of Byzantine and Ottoman styles, reflecting the rich history and cultural heritage of the city. The intricate tilework and the high ceilings of the imaret section of the mosque are the best examples of the Byzantine influence on the building.
 
-In summary, the Zeyrek Mosque is a valuable historical monument that reflects the rich cultural heritage of the Byzantine Empire and its architectural achievements, it offers a unique glimpse into the past and helps to understand the history of the city and the empire.
+The Zeyrek Mosque is a valuable historical monument that reflects the rich cultural heritage of the Byzantine Empire and its architectural achievements, it offers a unique glimpse into the past and helps to understand the history of the city and the empire.
