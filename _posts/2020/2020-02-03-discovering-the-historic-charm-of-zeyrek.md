@@ -8,6 +8,8 @@ The Zeyrek Mosque, also known as the Monastery of the Pantocrator, is a historic
 
 The mosque was originally built as a Byzantine church in the 12th century, and was dedicated to the Pantocrator, a Greek term for "ruler of all." The church was later converted into a mosque by the Ottomans in the 15th century, and was used as a mosque until the 19th century.
 
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/01_zeyrek.png" class="img-fluid" alt="Zeyrek">
+
 The Zeyrek Mosque is notable for its impressive architecture, which features a combination of Byzantine and Ottoman styles. The mosque has two main sections: the first is the "imaret," or the soup kitchen and hospice, and the second is the "kulliye," or the complex of buildings surrounding the mosque.
 
 The imaret section of the mosque is particularly impressive, with its high ceilings and intricate tilework. The kulliye section is also worth visiting, as it features a library, a madrasa (Islamic school), and a tomb.
