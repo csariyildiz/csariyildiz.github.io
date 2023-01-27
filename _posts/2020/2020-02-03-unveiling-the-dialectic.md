@@ -4,6 +4,8 @@ title: "Unveiling the Dialectic, An Exploration of Hegel's Philosophy"
 category: main
 ---
 
+As my curiosity about Hegel continued to pique, I felt compelled to delve deeper into his work. One of the main drivers behind my interest is the fact that he is a philosopher who has had a significant impact on the current century. Additionally, popular philosopher Slavoj Zizek has noted that he draws heavily from the philosophies of both Hegel and Lacan in his own work.
+
 In this blog post, we will delve into the complex and often misunderstood philosophy of Georg Wilhelm Friedrich Hegel. Known for his use of dialectic method, Hegel's ideas have had a profound impact on the development of modern philosophy, politics, and history. From his early work on the concept of Spirit to his later writings on the state and society, Hegel's thought is both challenging and rewarding for those willing to take the time to understand it. In the following paragraphs, we will explore some of the key concepts and ideas that make up the Hegelian system, and attempt to make sense of this often dense and difficult philosophy.
 
 The dialectic, as the self-developing method of understanding, is the means by which the Idea, in its progress, comprehends itself. This dialectical process, as the unfolding of the Idea, is a triadic movement from thesis to antithesis to synthesis. The thesis, as the initial positing of an idea or concept, gives rise to its opposite, the antithesis. The collision between thesis and antithesis results in a higher understanding, the synthesis, which leads to a new level of the Idea's self-comprehension.
