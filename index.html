@@ -9,7 +9,7 @@ layout: default
     
     {% for post in site.categories.main %}
             {% if post.url %}  
-  <li class="list-group-item d-flex justify-content-between align-items-center">
+  <li class="list-group-item d-flex justify-content-between align-items-center" style="margin-bottom: 12px;background-color: whitesmoke;border:none;border-radius: 5px;font-size: 13px;">
     <a href="{{ post.url }}" style="text-decoration: none; color: black; "> {{ post.title }}</a>
   </li>
 
