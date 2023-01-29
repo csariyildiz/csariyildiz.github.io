@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Image caption implementation in Jekyll site using Liquid syntax
+title: Unveiling the Dialectic, An Exploration of Hegel's Philosophy
 ---
 
 I must say that Hegel and his philosophy have intrigued me for some time. One of the main drivers behind my interest is the fact that he is a philosopher who has had a significant impact on the current century. Additionally, popular philosopher Slavoj Zizek has noted that he draws heavily from the philosophies of both Hegel and Lacan in his own work.
