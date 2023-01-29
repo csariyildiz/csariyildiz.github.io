@@ -5,7 +5,7 @@ layout: default
 <div class="container mt-4">
 	    
 
-  
+	<p>Latest Posts:</p>
   
   <ul class="list-group">
     
@@ -24,27 +24,3 @@ layout: default
 
 	  
     </div>
-
-<div class="container" style="">
-	
-
-  <div class="panel panel-primary mt-3 mb-4" style="border: 1px solid #E5E9EF;border-radius: 5px;padding-left: 0px;padding-right: 0px;margin:12px;">
-   
-        <div class="panel-heading">Latest posts</div>
-
-          {% for post in site.categories.main %}
-            {% if post.url %}
-       
-               <a href="{{ post.url }}" class="list-group-item pjaxlink clearfix lista">
-                  {{ post.title }}
-                    <span class="badge">2022-05-28</span>
-                  </a>
-
-            {% endif %}
-          {% endfor %}
-    
-
-
-</div>
-
-  </div>
