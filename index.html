@@ -2,14 +2,10 @@
 layout: default
 ---
 
-  
-
-
-  <div class="panel panel-primary mt-3" style=" border: 1px solid #E5E9EF; border-radius: 5px; ">
-      <div class="panel-heading">Latest posts</div>
-          
-    
+  <div class="panel panel-primary mt-3 mb-4" style=" border: 1px solid #E5E9EF; border-radius: 5px; ">
    
+        <div class="panel-heading">Latest posts</div>
+
           {% for post in site.categories.main %}
             {% if post.url %}
        
@@ -20,9 +16,5 @@ layout: default
 
             {% endif %}
           {% endfor %}
-
     
-      
     </div>
-
- 
