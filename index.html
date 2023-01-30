@@ -3,14 +3,14 @@ layout: default
 ---
 
 <div class="container mb-2">
-	<p style="padding-bottom:5px;margin-bottom: 5px;font-size: 13px;">Latest Posts</p>
+	<h5 style="padding-bottom:5px;margin-bottom: 5px;font-size: 15px;">Latest Posts</h5>
   
   <ul class="list-group" style=" border-bottom: 1px solid #f8f9fa; border-radius: 0px; padding-top: 12px; border-top: 1px solid #f8f9fa; ">
     
     {% for post in site.categories.main %}
             {% if post.url %}  
   <li class="list-group-item d-flex justify-content-between align-items-center" style="margin-bottom: 12px;background-color: whitesmoke;border:none;border-radius: 5px;font-size: 13px;">
-    <a href="{{ post.url }}" style="text-decoration: none; color: black; "> {{ post.title }}</a>
+    <a href="{{ post.url }}" style="text-decoration: none;color: black;font-weight: 500;"> {{ post.title }}</a>
   </li>
 
           {% endif %}
