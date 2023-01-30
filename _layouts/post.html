@@ -5,7 +5,7 @@ layout: default
 
 
              <article class="content" itemscope itemtype="http://schema.org/BlogPosting" style="background: #fff;transition: all 0.2s ease;border-radius: 5px;box-shadow: 0 5px 10px rgb(0 0 0 / 12%);box-sizing: border-box;color: #000;background-color: #fff;border: 1px solid transparent;width: auto;height: auto;margin-top: 50px;padding-top: 20px;padding-left: 20px;padding-right: 20px;">
-   <div class="article-head mt-2 mb-2" style="padding: 2rem;">
+   <div class="article-head mt-2 mb-2" style="padding: 2rem;padding-bottom:0rem;">
            <h1>{{ page.title | escape }}</h1>
        <small class="content-meta">
           <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
@@ -15,7 +15,7 @@ layout: default
            <hr/>
            </div>     
            
-       <div class="mt-3 mb-3" style="padding:12px;">
+       <div class="mt-3 mb-3" style="padding:2rem;padding-top:0rem;">
      {{ content }}
        </div>
           </article>
