@@ -1,4 +1,4 @@
-I did some projects with Arduino and Raspberry Pi when I was in college. The Raspberry Pi 2 Model B I bought at that time is still at home. Sometimes I do little experiments on it. I wanted to boot it and see if I could use it. In this article, I wanted to share my experience.
+I did some projects with Arduino and Raspberry Pi when I was in college. The Raspberry Pi 2 Model B I bought at that time is still at home. Sometimes I do little experiments on it. I wanted to boot it and see if I could use it.
 
 Model that I bought years ago is a "Raspberry Pi 2 Model B". Initialized in 2015 model comes with these technical details:
 
@@ -21,4 +21,9 @@ Revision 1.2 featured a 900 MHz 64-bit quad-core ARM Cortex-A53 processor (the s
 There are several options for an operating system on pi.
 
 There are several use cases for pi.
+
+## What I Want?
+* Access from internet.
+* Deploying apps and scripts I wrote.
+* Using in as a file server.
 
