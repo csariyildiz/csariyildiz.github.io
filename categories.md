@@ -1,19 +1,8 @@
 ---
-layout: default2
+layout: page
+title: Categories
 ---
 
-  <div class="list-group w-auto">
-	   {% for post in site.categories.main %}  {% if post.url %}  
-  <a href="{{ post.url }}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-    <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
-    <div class="d-flex gap-2 w-100 justify-content-between">
-      <div>
-        <h6 class="mb-0">{{ post.title }}</h6>
-        <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
-      </div>
-      <small class="opacity-50 text-nowrap">{{ post.date }}"</small>
-    </div>
-  </a>
-	   {% endif %}
-          {% endfor %}
-</div>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel eros eleifend, fringilla lectus sit amet, facilisis risus. Integer urna tellus, dignissim vel nunc vitae, iaculis semper quam. Nullam a lacus euismod, convallis diam ac, malesuada justo. Aenean feugiat sollicitudin est, eget bibendum purus ornare vitae. Donec sed nunc nunc. Sed in rutrum dui. Donec quis tortor vestibulum, efficitur neque vel, euismod lectus. Proin rhoncus nisl nisi, vitae fermentum risus sollicitudin a. In hac habitasse platea dictumst.
+
+Pellentesque bibendum enim iaculis velit dapibus, in dignissim eros vulputate. Aliquam eu bibendum neque, vel imperdiet justo. Quisque vel facilisis elit, quis finibus elit. Nunc quam ipsum, tempor sed leo ut, condimentum gravida sem. Morbi ut cursus ligula, sed sollicitudin risus. Integer interdum ante quis purus ultricies cursus. Curabitur condimentum et quam et mollis. Nullam a elit dolor. Vestibulum vitae placerat diam. Nam fringilla lorem convallis lectus iaculis, vitae commodo tellus scelerisque.
