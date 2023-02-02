@@ -4,14 +4,14 @@ layout: default2
 <div>
   <div class="row">
   <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
+  <ol class="breadcrumb" style="float:left;">
     <li class="breadcrumb-item"><a href="#">About</a></li>
     <li class="breadcrumb-item" aria-current="page">Categories</li>
       <li class="breadcrumb-item" aria-current="page">Tags</li>
     <li class="breadcrumb-item" aria-current="page">Turkish</li>
   
   </ol>
-    <div>
+    <div style=" display: flex; float: right; ">
         <small class="content-meta">
           <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
            {{ page.date | date: "%B %d, %Y" }}
@@ -27,8 +27,6 @@ layout: default2
              <article class="content" itemscope itemtype="http://schema.org/BlogPosting" style="">
    <div class="article-head mt-2 mb-2" style="padding: 2rem;padding-bottom:0rem;padding-left: 0px;padding-top: 0rem;">
            <h3>{{ page.title | escape }}</h1>
-   
-           <hr/>
            </div>     
            
        <div class="mt-3 mb-3" style="padding:2rem;padding-top:0rem;padding-left: 0px;">
