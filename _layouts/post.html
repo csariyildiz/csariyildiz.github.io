@@ -1,7 +1,8 @@
 ---
 layout: default2
 ---
-
+<div>
+  <div class="row">
   <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">About</a></li>
@@ -10,17 +11,23 @@ layout: default2
     <li class="breadcrumb-item" aria-current="page">Turkish</li>
   
   </ol>
-</nav>
-
-
-             <article class="content" itemscope itemtype="http://schema.org/BlogPosting" style="">
-   <div class="article-head mt-2 mb-2" style="padding: 2rem;padding-bottom:0rem;padding-left: 0px;padding-top: 0rem;">
-           <h3>{{ page.title | escape }}</h1>
-       <small class="content-meta">
+    <div>
+        <small class="content-meta">
           <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
            {{ page.date | date: "%B %d, %Y" }}
           </time>
         </small>
+    </div>
+</nav>
+    
+  </div>
+
+  <div class="row">
+
+             <article class="content" itemscope itemtype="http://schema.org/BlogPosting" style="">
+   <div class="article-head mt-2 mb-2" style="padding: 2rem;padding-bottom:0rem;padding-left: 0px;padding-top: 0rem;">
+           <h3>{{ page.title | escape }}</h1>
+   
            <hr/>
            </div>     
            
@@ -28,8 +35,7 @@ layout: default2
      {{ content }}
        </div>
           </article>
+  </div>
 
-
-
-
+</div>
  
