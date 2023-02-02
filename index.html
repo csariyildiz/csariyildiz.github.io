@@ -1,24 +1,19 @@
 ---
-layout: default
+layout: default2
 ---
 
-<div class="container mb-2 mt-2 mb-5" style=" border: 1px solid #D0D7DE; border-radius: 5px; padding-top: 2rem; padding-bottom: 2rem; padding-left: 2rem; padding-right: 2rem;">
-<h5 style="padding-bottom:5px;margin-bottom: 5px;font-size: 15px;">Latest Posts</h5>
-  
-  <ul class="list-group" style=" border-bottom: 1px solid #f8f9fa; border-radius: 0px; padding-top: 12px; border-top: 1px solid #f8f9fa; ">
-    
-    {% for post in site.categories.main %}
-            {% if post.url %}  
-  <li class="list-group-item d-flex justify-content-between align-items-center" style="margin-bottom: 12px;border:none;font-size: 13px;">
-    <a href="{{ post.url }}" style="text-decoration: none;color: black;font-weight: 500;"> {{ post.title }}</a>
-  </li>
-
-          {% endif %}
+  <div class="list-group w-auto">
+	   {% for post in site.categories.main %}  {% if post.url %}  
+  <a href="{{ post.url }}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+    <img src="https://github.com/twbs.png" alt="twbs" width="32" height="32" class="rounded-circle flex-shrink-0">
+    <div class="d-flex gap-2 w-100 justify-content-between">
+      <div>
+        <h6 class="mb-0">{{ post.title }}</h6>
+        <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+      </div>
+      <small class="opacity-50 text-nowrap">now</small>
+    </div>
+  </a>
+	   {% endif %}
           {% endfor %}
-    
-    
-</ul>
-  
-
-	</div>  
-
+</div>
