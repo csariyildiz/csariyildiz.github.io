@@ -21,4 +21,12 @@ Datanın yayınlanan versiyonu 423 MB tar ve gzip ile sıkıştırılmış. Sık
 
 Örn ilk satır <code>allen-p/_sent_mail/1.</code> ve <code>Message-ID: \<18782981.1075855378110.JavaMail.evans@thyme\> Date: Mon, 14 May 2001 16:39:00 -0700 (PDT...</code> gibi bir şekilde ayrılmış.
   
+Burada daha detaylı bir şekilde text ve diğer verileri ayırmamız gerekiyor.
+  
+## Google Colab
+* Bunun için bir google colab defteri açıyorum.
+* Yardım kısmından dilini İngilizce yapalım. 
+
+  <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/goruntu1.png" class="img-fluid" alt="Enron Google Colab">
+
   
