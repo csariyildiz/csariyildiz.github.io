@@ -1,0 +1,14 @@
+---
+layout: page
+title: Shorts
+---
+
+* Potsdam Giants
+* Dual Process Theory
+
+
+
+
+https://en.wikipedia.org/wiki/Potsdam_Giants
+https://en.wikipedia.org/wiki/Dual_process_theory
+
