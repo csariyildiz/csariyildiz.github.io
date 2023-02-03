@@ -1,5 +1,4 @@
-!! NLP data is changing.
-
+* NLP is a dynamic area and constantly changing. 
 * spaCy is a popular open-source library for natural language processing (NLP) in Python. 
 * It is designed specifically for production use and helps developers to perform common NLP tasks such as tokenization, stemming, and named entity recognition. 
 * spaCy is fast and efficient, and it is optimized for performance, which makes it well-suited for large-scale NLP projects.
