@@ -1,46 +1,38 @@
-<div style=" max-width: 920px; margin: auto; padding-top: 30px; ">
+<div style="max-width: 920px; margin: auto; padding-top: 30px;">
   <canvas id="myChart"></canvas>
 </div>
-
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
   $(document).ready(function() {
     var myData;
-    const lls = [];
+    const lbs = [];
     const dta = [];
     $.getJSON('/assets/data/enron.json', function(data) {
-        myData = data;
-        myData.forEach(function(dataPoint) {
-          lbs.push(dataPoint.user_folder);
-          dta.push(dataPoint.count);
-        });
-        
-        const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: lls,
-      datasets: [{
-        label: '# of Votes',
-        data: dta,
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
+      myData = data;
+      for (myvariable in myData) {
+        lbs.push(myData[myvariable].user_folder);
+        dta.push(myData[myvariable].count);
       }
-    }
-  });
-      
+      const ctx = document.getElementById('myChart');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: lbs,
+          datasets: [{
+            label: '# of Votes',
+            data: dta,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
     });
-});
-  
-
+  });
 </script>
- 
