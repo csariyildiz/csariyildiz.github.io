@@ -10,7 +10,7 @@
     var myItems;
 
     $.getJSON('/assets/data/enron.json', function(data) {
-        myItems = data.items;
+        myItems = data;
         console.log(myItems);
       
         const ctx = document.getElementById('myChart');
