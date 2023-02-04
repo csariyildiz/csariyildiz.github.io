@@ -7,11 +7,11 @@
 
 <script>
   $(document).ready(function() {
-    var myItems;
+    var myData;
 
     $.getJSON('/assets/data/enron.json', function(data) {
-        myItems = data;
-        console.log(myItems);
+        myData = data;
+        console.log(myData);
       
         const ctx = document.getElementById('myChart');
 
