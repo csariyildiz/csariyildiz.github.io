@@ -11,7 +11,7 @@
 
     $.getJSON('/assets/data/enron.json', function(data) {
         myData = data;
-        console.log(myData.user_folder);
+        console.log(myData[0][0]);
       
         const ctx = document.getElementById('myChart');
 
