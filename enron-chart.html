@@ -8,20 +8,20 @@
 <script>
   $(document).ready(function() {
     var myData;
-    const lbs = [];
+    const lls = [];
     const dta = [];
     $.getJSON('/assets/data/enron.json', function(data) {
         myData = data;
         for (myvariable in myData)
           lls.push(myData[myvariable].user_folder);
-          lls.push(myData[myvariable].count);
+          dta.push(myData[myvariable].count);
         
         const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: lbs,
+      labels: lls,
       datasets: [{
         label: '# of Votes',
         data: dta,
