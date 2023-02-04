@@ -1,11 +1,10 @@
 <div style="max-width: 920px; margin: auto; padding-top: 30px;">
   <canvas id="myChart"></canvas>
   <div><h1>Enron Dataset</h1></div>
-  
   <div>
     <p>Total number of documents: 517401</p>  
   <table>
-  <tr><td>0</td><td>kitchen-l</td><td>5546</td><tr>
+<tr><td>0</td><td>kitchen-l</td><td>5546</td><tr>
 <tr><td>1</td><td>symes-k</td><td>10827</td><tr>
 <tr><td>2</td><td>germany-c</td><td>12436</td><tr>
 <tr><td>3</td><td>lavorato-j</td><td>4685</td><tr>
@@ -158,8 +157,6 @@
   </table>
   </div>
 </div>
-<h1>Enron Data</h1>
-<div #dtable></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -174,15 +171,7 @@
         dta.push(dataPoint.count);
       });
       
-      /* Show Data As Yable*/
-var content = "<table>"
-for(i=0; i<150; i++){
-    content += '<tr><td>' + 'result ' +  i + '</td></tr>';
-}
-content += "</table>"
-
-$('#dtable').append(content);
-      
+  
       
 const ctx = document.getElementById('myChart');
 new Chart(ctx, {
