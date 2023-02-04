@@ -12,9 +12,10 @@
     const dta = [];
     $.getJSON('/assets/data/enron.json', function(data) {
         myData = data;
-        for (myvariable in myData)
-          lls.push(myData[myvariable].user_folder);
-          dta.push(myData[myvariable].count);
+        myData.forEach(function(dataPoint) {
+          lbs.push(dataPoint.user_folder);
+          dta.push(dataPoint.count);
+        });
         
         const ctx = document.getElementById('myChart');
 
