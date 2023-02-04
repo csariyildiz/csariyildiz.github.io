@@ -12,7 +12,7 @@
     $.getJSON('/assets/data/enron.json', function(data) {
         myData = data;
         for (myvariable in myData)
-          console.log(myvariable);
+          console.log(myData[myvariable].user_folder);
       
         
         const ctx = document.getElementById('myChart');
