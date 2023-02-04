@@ -8,8 +8,8 @@
 <script>
   $(document).ready(function() {
     var myData;
-    var lbs = [];
-    var dta = [];
+    const lbs = [];
+    const dta = [];
     $.getJSON('/assets/data/enron.json', function(data) {
         myData = data;
         for (myvariable in myData)
