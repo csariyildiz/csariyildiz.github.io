@@ -14,25 +14,29 @@
         lbs.push(dataPoint.user_folder);
         dta.push(dataPoint.count);
       });
-      const ctx = document.getElementById('myChart');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: lbs,
-          datasets: [{
-            label: 'count of messages by user_folder',
-            data: dta,
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      });
+const ctx = document.getElementById('myChart');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: lbs,
+    datasets: [{
+      label: 'count of messages by user_folder',
+      data: dta,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+      
     });
   });
 </script>
+
+
