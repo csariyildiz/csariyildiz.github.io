@@ -16,6 +16,20 @@ h2{
 
 }
 
+body{
+
+	    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--white-color);
+    color: var(--primary-text-color);
+    font-family: Muli,sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    transition: background-color .3s var(--animation-base);
+    word-break: break-word;
+}
+
 .post-meta-item+.post-meta-item:before {
     content: "\02022";
     font-family: serif;
