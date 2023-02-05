@@ -5,6 +5,17 @@
     margin-right: -15px;
 }
 
+h2{
+
+    font-weight: 800;
+    margin-top: 40px !important;
+    line-height: 1.3;
+    margin: 0 0 15px;
+    position: relative;
+
+
+}
+
 .post-meta-item+.post-meta-item:before {
     content: "\02022";
     font-family: serif;
