@@ -5,6 +5,12 @@
     margin-right: -15px;
 }
 
+.post-meta-item+.post-meta-item:before {
+    content: "\02022";
+    font-family: serif;
+    padding: 0 4px;
+}
+
 .container{
 
 	margin-left: auto;
