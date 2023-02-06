@@ -17,7 +17,14 @@ layout: default2
     <div class="d-flex gap-2 w-100 justify-content-between">
       <div>
         <h6 class="mb-0" style=" font-weight: 600; margin-top: 10px; ">{{ post.title }}</h6>
-        <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+	      	  {% if post.excerpt %}
+	  
+	  <p class="mb-0 opacity-75"> {{ post.excerpt }}</p>
+	  {% else %}
+	    <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+	  {% endif %}
+	      
+       
       </div>
 	    <div class="badge bg-dark" style="max-height: 20px;">{{ post.date | date: "%d-%m-%Y"}}</div>
     </div>
