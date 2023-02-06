@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Unveiling the Dialectic, An Exploration of Hegel's Philosophy"
-category: main
+category: philosophy
 thumb: hegel-12
 ---
 
