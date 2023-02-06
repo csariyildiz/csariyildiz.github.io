@@ -5,8 +5,6 @@ category: main
 thumb: three_js
 ---
 
-### What is Three.js?
-
 Three.js is a JavaScript library that allows developers to easily create and display 3D graphics in web browsers using WebGL. With Three.js, developers can create a variety of interactive 3D experiences, from simple animations to complex games and visualizations. Whether you're a seasoned developer or just getting started with 3D programming, Three.js provides a convenient and powerful toolset for creating engaging and immersive web experiences.
 
 One of the key features of Three.js is its ability to abstract away the complexities of WebGL, making it accessible to developers of all skill levels. With Three.js, you can create 3D scenes using a simple, object-oriented API, which allows you to focus on the creative aspects of your project rather than the technical details of rendering. Additionally, Three.js also provides a wide range of built-in objects and materials, such as cameras, lights, and textures, which can be easily added to your scenes. With a vast ecosystem of community-contributed examples, plugins and tutorials, three.js makes it easy to learn and implement 3D graphics on your website.
