@@ -1,4 +1,3 @@
 ---
-layout: default
-category: tr
+layout: tr
 ---
