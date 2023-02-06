@@ -1,35 +1,22 @@
-<!doctype html>
-<html lang="en">
-  {% include head.html %}
-  <body>
+  <div class="list-group w-auto">
+	   {% for post in site.categories.main %}  {% if post.url %}  
+  <a href="{{ post.url }}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+	  {% if post.thumb %}
+	  
+	    <img src="/img/{{ post.thumb}}.png" style=" border-radius: 5px; " alt="{{ post.title }}" width="160" height="79">
     
-              {% include nav.html %}
-    
-    <div class="container mt-3 mb-4" style="">
-  
-    
-      <div class="row">
-        
-        <div class="col-xs-12 col-sm-12 col-md-9">
-          {{ content }}
-        
-        </div>
-
-<div class="col-md-3 d-none d-md-block">
-  <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-      </ul>
-
-        </div>
-      
-      
+	  {% else %}
+	     <img src="/img/bt_1.png" style=" border-radius: 5px; " alt="{{ post.title }}" width="160" height="79">
+	  {% endif %}
+	  
+    <div class="d-flex gap-2 w-100 justify-content-between">
+      <div>
+        <h6 class="mb-0" style=" font-weight: 600; margin-top: 10px; ">{{ post.title }}</h6>
+        <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
       </div>
-     
-   </div>
-   {% include footer.html %}
-  </body>
-</html>
+	    <div class="badge bg-dark" style="max-height: 20px;">{{ post.date | date: "%d-%m-%Y"}}</div>
+    </div>
+  </a>
+	   {% endif %}
+          {% endfor %}
+</div>
