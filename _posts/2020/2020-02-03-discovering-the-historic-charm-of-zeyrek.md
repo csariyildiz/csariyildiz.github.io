@@ -3,6 +3,7 @@ layout: post
 title: Discovering the Historic Charm of Zeyrek
 category: main
 thumb: zyrk-1
+excerpt: "The Zeyrek Mosque, also known as the Monastery of the Pantocrator, is a formidable structure of historical significance located in Istanbul, Turkey." 
 ---
 
 The Zeyrek Mosque, also known as the Monastery of the Pantocrator, is a formidable structure of historical significance located in Istanbul, Turkey. 
