@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Detailed Exploration Of Enron Dataset"
-category: main
 thumb: "enrona_1"
 ---
 
