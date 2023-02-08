@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Importing Enron Mail Dataset To MongoDB"
-category: main
 thumb: "enrona_1"
 ---
 
