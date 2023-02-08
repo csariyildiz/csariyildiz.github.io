@@ -5,6 +5,8 @@ category: main
 thumb: "enrona_1"
 ---
 
+Enron dataset is very commonly used by scientific community or any researcher who wants to use it. One of the popular corpus used in NLP projects.
+
 * Importing Enron Mail Dataset To MongoDB
 * Basic Concepts & Tools In NLP
 * First Tests
