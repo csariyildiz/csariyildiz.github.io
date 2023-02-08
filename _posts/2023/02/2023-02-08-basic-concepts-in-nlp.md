@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Basic Concepts And Tools In NLP"
-category: main
 thumb: "enrona_1"
 ---
 
