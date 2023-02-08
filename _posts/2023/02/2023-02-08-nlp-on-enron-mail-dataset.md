@@ -5,9 +5,9 @@ category: main
 thumb: "enrona_1"
 ---
 
-Enron dataset is very commonly used by scientific community or any researcher who wants to use it. 
+The Enron dataset is a widely utilized resource for scientists and researchers seeking to apply natural language processing techniques. 
 
-One of the popular corpus used in NLP projects.
+In this article, we will explore the dataset using state-of-the-art NLP tools and concepts.
 
 * [Importing Enron Mail Dataset To MongoDB](/importing-enron-mail-dataset-to-mongodb)
 * [Basic Concepts & Tools In NLP]()
