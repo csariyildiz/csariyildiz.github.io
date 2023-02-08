@@ -38,12 +38,6 @@ body{
 
 .container{
 
-	margin-left: auto;
-    margin-right: auto;
-    max-width: calc(1140px + 8vw);
-    padding-left: 4vw;
-    padding-right: 4vw;
-    width: 100%;
 }
 
    .bd-placeholder-img {
