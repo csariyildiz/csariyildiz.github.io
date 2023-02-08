@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Efforts To Create Knowledge Base"
-category: main
 thumb: "enrona_1"
 ---
 
