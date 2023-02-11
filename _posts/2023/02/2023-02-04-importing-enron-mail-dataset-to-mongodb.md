@@ -57,11 +57,11 @@ It takes 3-4 minutes to get all of it by using the code above.
 
 * We dont need unparsed "message" field since we have the "body" field. I delete it using this MongoDB query.
 
-db.enronmails.updateMany({},{$unset: {message:""}})
+<code>db.enronmails.updateMany({},{$unset: {message:""}})</code>
 
 * I change the name of filename field to directory. 
 
-db.enronmails.updateMany({},{$rename: {"file":"directory"}})
+<code>db.enronmails.updateMany({},{$rename: {"file":"directory"}})</code>
 
 ## 4. Exporting A Parsed Data
 
