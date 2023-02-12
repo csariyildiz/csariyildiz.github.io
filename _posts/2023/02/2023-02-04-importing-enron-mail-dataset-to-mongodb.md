@@ -22,11 +22,19 @@ Its possible to find different versions of Enron dataset on the internet.
 
 The official one `May 7, 2015 version` of dataset is accessible form [here](https://www.cs.cmu.edu/~enron/).
 
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/enron_folders1.png" class="img-fluid" alt="Zeyrek">
+
+
+
 The file `enron_mail_20150507.tar.gz` tarred and gzipped and it is `422MB` in size.
 When we open the compressed file, we encounter a folder named `maildir` with a size of `1.4 GB`.
 There are `150` folders in total under this folder. It consists of the abbreviations of the names of the employees. For example like `benson-r` or `davis-d`.
 Under these folders, we see folders such as `to_do`, `tasks`, `sent_items_`, `inbox` and `deleted_items`. The names of the folders can vary.
 For example, like `canada` or `family`.
+
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/enron_folders2.png" class="img-fluid" alt="Zeyrek">
+
+
 
 ### Kaggle Version
 
@@ -43,10 +51,11 @@ We will do extra parsing (using email module of python) and upload the result to
 Instead of editing the `CSV file` with `Python` directly or using a `pandas dataframe`, we can use a database system like `MongoDB`.
 For this purpose I installed mongodb and import rows of csv file.
 
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/enron_mongodb_compass.png" class="img-fluid" alt="Enron MongoDB Compass">
+
 First we create `Enron` database and `enrondatabase` collection through `MongoDBCompass` interface.
 
 After we create the collection I import email data from a CSV file into a MongoDB database by using a Python script.
-
 
 <script src="https://gist.github.com/csariyildiz/cc6824e6f4ef168808cc685e4bff4c75.js"></script>
 
