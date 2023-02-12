@@ -25,17 +25,13 @@ NLP applications can vary according to purpose and use. Its important to note th
 
 ## 1. Getting The Dataset 
 
-Its possible to find different versions of dataset on the internet. 
+Its possible to find different versions of Enron dataset on the internet. 
 
-`May 7, 2015 version` of dataset is accessible form [here](https://www.cs.cmu.edu/~enron/).
+The official one `May 7, 2015 version` of dataset is accessible form [here](https://www.cs.cmu.edu/~enron/).
 
 The file `enron_mail_20150507.tar.gz` tarred and gzipped and it is `422MB` in size.
-
 When we open the compressed file, we encounter a folder named `maildir` with a size of `1.4 GB`.
-
 There are `150` folders in total under this folder. It consists of the abbreviations of the names of the employees. For example like `benson-r` or `davis-d`.
-
-
 Under these folders, we see folders such as `to_do`, `tasks`, `sent_items_`, `inbox` and `deleted_items`. The names of the folders can vary.
 For example, like `canada` or `family`.
 
@@ -51,10 +47,10 @@ We will do extra parsing (using email module of python) and upload the result to
 
 ## 2. Importing CSV File To MongoDB
 
-Instead of editing the CSV file with Python directly or using a pandas dataframe, we can use a database system like MongoDB.
+Instead of editing the `CSV file` with `Python` directly or using a `pandas dataframe`, we can use a database system like `MongoDB`.
 For this purpose I installed mongodb and import rows of csv file.
 
-* First we create "Enron" database and "enrondatabase" collection through MongoDBCompass interface.
+First we create `Enron` database and `enrondatabase` collection through `MongoDBCompass` interface.
 
 After we create the collection I import email data from a CSV file into a MongoDB database by using a Python script.
 
@@ -85,11 +81,13 @@ It takes 3-4 minutes to get all of it by using the code above.
 Now I export to new parsed data to use it as a resource for later work. Also take it as a backup.
 I also sharing it in Kaggle to speed up for anyone working on dataset.
 
-## Lessons Learned
+## Notes
+
+There are some lessons learned & future work.
 
 * It is possible to lose some of the data during preprocessing.
 * Annotation seems to be needed Annotation tools like Prodigy can be useful.
 * It stands out that there can be many different approaches. I create different articles to make these a little clearer.
-* It may be necessary to create a knowledge base, especially on the application side. Databases such as neo4j can be used for this.
+* It may be necessary to create a knowledge base, especially on the application side. Databases such as neo4j can be used for this purposes.
 * It will be beneficial to research sample studies in academic journals.
 
