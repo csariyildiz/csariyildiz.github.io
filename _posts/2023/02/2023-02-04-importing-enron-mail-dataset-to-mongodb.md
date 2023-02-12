@@ -15,7 +15,8 @@ According to [wikipedia article](https://en.wikipedia.org/wiki/Enron_Corpus) The
 Mails are leading up to the company's collapse in `December 2001` and extracted by Federal Energy Regulatory Commission (FERC) during historical investigation.
 There is also a [documentary](https://www.imdb.com/title/tt1016268/) detailing the process leading up to the downfall of the company. 
 
-The general aim of the [project](/nlp-on-enron-mail-dataset) is to reveal the technological interpretations and to form an idea about the technological background of the companies at the relevant time.
+There is also online version of the database can be accessed from [http://archive.enron.email/](archive.enron.email) and we can search on e-mails.
+If we can search a query word like Windows 2000 we can see [mails](http://archive.enron.email/?q=Windows%202000) revealing the software and hardware usage of the company. A software supported by NLP can systematically extract data from dataset. The general aim of the [project](/nlp-on-enron-mail-dataset) is to reveal the technological interpretations and to form an idea about the technological background of the company at the relevant time.
 
 NLP applications can vary according to purpose and use. Its important to note that usage of MongoDB here is a design choice we are making. It is not an only option here but we use it to speed up the process and have a easy accessible version of data. 
 
@@ -41,16 +42,14 @@ For example, like `canada` or `family`.
 
 ### Kaggle Version
 
-There is a [kaggle](https://www.kaggle.com/datasets/wcukierski/enron-email-dataset) version of database which is taken from same May 7, 2015 Version of dataset.
-This is a single csv file named emails.csv sized 1.43 GB. 
+There is a [kaggle](https://www.kaggle.com/datasets/wcukierski/enron-email-dataset) version of database which is taken from same `May 7, 2015 Version` of dataset.
+This is a single csv file named `emails.csv` sized `1.43 GB`. 
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/enron_kaggle.png" class="img-fluid" alt="Enron Kaggle">
 
-This csv file has two columns : file and message. The directory of each file is specified with its text content.
+This csv file has two columns named `file` and `message`. The directory of each file is specified with its text content.
 
-
-
-We will do extra parsing (using email module of python) and upload the result to kaggle. 
+We will do extra parsing (using email module of python) and upload the result to Kaggle. 
 
 ## 2. Importing CSV File To MongoDB
 
