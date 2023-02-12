@@ -16,13 +16,6 @@ The general aim of the project is to reveal the technological interpretations an
 
 NLP applications can vary according to purpose and use. Its important to note that usage of MongoDB here is a design choice we are making. It is not an only option here but we use it to speed up the process and have a easy accessible version of data. 
 
-## Summary
-
-1. Getting The Dataset
-2. Importing CSV File To MongoDB
-3. Parsing Email Data & Editing Fields
-4. Exporting A Parsed Data
-
 ## 1. Getting The Dataset 
 
 Its possible to find different versions of Enron dataset on the internet. 
