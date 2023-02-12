@@ -74,6 +74,8 @@ It takes 3-4 minutes to get all of it by using the code above.
 Now I export to new parsed data to use it as a resource for later work. Also take it as a backup.
 I also sharing it in Kaggle to speed up for anyone working on dataset.
 
+<script src="https://gist.github.com/csariyildiz/9b0b407689e146400ee6e96193013a8e.js"></script>
+
 ## Notes
 
 There are some lessons learned & future work.
