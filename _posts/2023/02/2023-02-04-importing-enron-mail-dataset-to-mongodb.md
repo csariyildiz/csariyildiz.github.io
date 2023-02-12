@@ -16,7 +16,7 @@ Mails are leading up to the company's collapse in `December 2001` and extracted 
 There is also a [documentary](https://www.imdb.com/title/tt1016268/) detailing the process leading up to the downfall of the company. 
 
 There is also online version of the database can be accessed from [http://archive.enron.email/](archive.enron.email) and we can search on e-mails.
-If we can search a query word like Windows 2000 we can see [mails](http://archive.enron.email/?q=Windows%202000) revealing the software and hardware usage of the company. A software supported by NLP can systematically extract data from dataset. The general aim of the [project](/nlp-on-enron-mail-dataset) is to reveal the technological interpretations and to form an idea about the technological background of the company at the relevant time.
+When we search using a query word such as  `Windows` we can see [mails](http://archive.enron.email/?q=Windows%202000) revealing the software and hardware usage of the company. A software supported by NLP can systematically extract data from dataset. The general aim of the [project](/nlp-on-enron-mail-dataset) is to reveal the technological interpretations and to form an idea about the technological background of the company at the relevant time.
 
 NLP applications can vary according to purpose and use. Its important to note that usage of MongoDB here is a design choice we are making. It is not an only option here but we use it to speed up the process and have a easy accessible version of data. 
 
@@ -85,18 +85,22 @@ It takes 3-4 minutes to get all of it by using the code above.
 
 ## 4. Exporting A Parsed Data
 
-Now I export to new parsed data to use it as a resource for later work. Also take it as a backup.
+Now I export to new parsed data to use it as a resource for later posts. Also take it as a backup.
 I also sharing it in Kaggle to speed up for anyone working on dataset.
 
 <script src="https://gist.github.com/csariyildiz/9b0b407689e146400ee6e96193013a8e.js"></script>
 
-## Notes
+## Resources
 
-There are some lessons learned & future work.
+I have listed below the papers and online articles that I used in this online articles and found interesting:
 
-* It is possible to lose some of the data during preprocessing.
-* Annotation seems to be needed Annotation tools like Prodigy can be useful.
-* It stands out that there can be many different approaches. I create different articles to make these a little clearer.
-* It may be necessary to create a knowledge base, especially on the application side. Databases such as neo4j can be used for this purposes.
-* It will be beneficial to research sample studies in academic journals.
+### Online Articles
+* [medium - datadriveninvestor - nlp with lda analyzing topics in the enron email dataset](https://medium.datadriveninvestor.com/nlp-with-lda-analyzing-topics-in-the-enron-email-dataset-20326b7ae36f) Written in 2019 Article implements LDA to evaluate the key topics of the Enron email dataset. Mentions about Gensim, Mallet, Spacy, and NLTK for topic modelling. 
+* [towardsdatascience - custom named entity recognition with bert](https://towardsdatascience.com/custom-named-entity-recognition-with-bert-cf1fd4510804)
+* [towardsdatascience - Keyword Extraction Process In Python With NLP](https://towardsdatascience.com/keyword-extraction-process-in-python-with-natural-language-processing-nlp-d769a9069d5c)
+* [newscatcherapi - Train Custom Named Entity Recognition Ner Model With Spacy v3](https://newscatcherapi.com/blog/train-custom-named-entity-recognition-ner-model-with-spacy-v3)
+* [Papers With Code - Natural Language Processing](https://paperswithcode.com/area/natural-language-processing)
+* [Wiki Data](https://www.wikidata.org/wiki/Wikidata:Main_Page)
+* https://towardsdatascience.com/empirical-analysis-on-email-classification-using-the-enron-dataset-19054d558697
+* https://github.com/coreylynch/EnronTopicModelling
 
