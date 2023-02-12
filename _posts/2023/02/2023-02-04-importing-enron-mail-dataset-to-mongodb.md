@@ -15,20 +15,23 @@ According to [wikipedia article](https://en.wikipedia.org/wiki/Enron_Corpus) The
 Mails are leading up to the company's collapse in `December 2001` and extracted by Federal Energy Regulatory Commission (FERC) during historical investigation.
 There is also a [documentary](https://www.imdb.com/title/tt1016268/) detailing the process leading up to the downfall of the company. 
 
-There is also online version of the database can be accessed from [http://archive.enron.email/](archive.enron.email) and we can search on e-mails.
+There is also online version of the database can be accessed from [archive.enron.email](http://archive.enron.email/) and we can search on e-mails.
 When we search using a query word such as  `Windows` we can see [mails](http://archive.enron.email/?q=Windows%202000) revealing the software and hardware usage of the company. A software supported by NLP can systematically extract data from dataset. The general aim of the [project](/nlp-on-enron-mail-dataset) is to reveal the technological interpretations and to form an idea about the technological background of the company at the relevant time.
 
 NLP applications can vary according to purpose and use. Its important to note that usage of MongoDB here is a design choice we are making. It is not an only option here but we use it to speed up the process and have a easy accessible version of data. 
 
-Within the scope of this article we will get the dataset as a csv file, import it to a MongoDB database, parse it using Python email module and save the result as a seperate csv file.
+Within the scope of this article we will get the dataset as a csv file, import it to a MongoDB database, parse it using Python email module and export the result as a seperate csv file.
 
-I also share the parsed data here on Kaggle.
+I also share the parsed data [here](https://www.kaggle.com/acsariyildiz/the-enron-email-dataset-parsed) on Kaggle for later use.
+
+There is also charts I created from data:
+* [Emails By User Chart](https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/emails_by_user_folder_enron.png), data
 
 ## 1. Getting The Dataset 
 
 Its possible to find different versions of Enron dataset on the internet. 
 
-The official one `May 7, 2015 version` of dataset is accessible form [here](https://www.cs.cmu.edu/~enron/).
+The official one `May 7, 2015 version` of dataset is accessible from [here](https://www.cs.cmu.edu/~enron/). This version has `517.401` emails belonging `150` employees.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/enron_folders1.png" class="img-fluid" alt="Enron Folders 1">
 
