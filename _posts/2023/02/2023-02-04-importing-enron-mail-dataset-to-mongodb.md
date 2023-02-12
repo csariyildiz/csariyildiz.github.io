@@ -19,6 +19,10 @@ The general aim of the [project](/nlp-on-enron-mail-dataset) is to reveal the te
 
 NLP applications can vary according to purpose and use. Its important to note that usage of MongoDB here is a design choice we are making. It is not an only option here but we use it to speed up the process and have a easy accessible version of data. 
 
+Within the scope of this article we will get the dataset as a csv file, import it to a MongoDB database, parse it using Python email module and save the result as a seperate csv file.
+
+I also share the parsed data here on Kaggle.
+
 ## 1. Getting The Dataset 
 
 Its possible to find different versions of Enron dataset on the internet. 
