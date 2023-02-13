@@ -59,34 +59,58 @@ We will do extra parsing (using email module of python) and upload the result to
 Instead of editing the `CSV file` with `Python` directly or using a `pandas dataframe`, we can use a database system like `MongoDB`.
 For this purpose I installed mongodb and import rows of csv file.
 
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/enron_mongodb_compass.png" style="max-width:600px;" class="img-fluid" alt="Enron MongoDB Compass">
-
 First we create `Enron` database and `enrondatabase` collection through `MongoDBCompass` interface.
+
+Second we add an empty document to just see the results. We will delete this empty document and header after.
+
+Make sure database and collection name matches.
+
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/enron_mongodb_compass.png" style="max-width:600px;" class="img-fluid" alt="Enron MongoDB Compass">
 
 After we create the collection I import email data from a CSV file into a MongoDB database by using a Python script.
 
 <script src="https://gist.github.com/csariyildiz/cc6824e6f4ef168808cc685e4bff4c75.js"></script>
 
 When I run the code on my Jupyter notebook instance I can see the inserts from the interface.
+
+Each document should look like this:
+```
+{
+  "_id": {
+    "$oid": "63e97908c56db67dcfb2308f"
+  },
+  "file": "allen-p/_sent_mail/1.",
+  "message": "Message-ID: <18782981.1075855378110.JavaMail.evans@thyme>\nDate: Mon, 14 May 2001 16:39:00 -070...
+}
+```
 It takes 3-4 minutes to get all of it by using the code above.
 
-## 3. Parsing Email Data & Editing Fields
+## 3. Parsing Email Data
 
-* I use Python's email module to parse headers.
+I will delete empty document I created and the header. Total document count is 517401 which is a correct number.
+Now we can do the parsing by calling each document in MongoDB.
+Make sure database and collection name matches again.
+We are using Python's email module to parse headers.
 
 <script src="https://gist.github.com/csariyildiz/05dd402d6deb28d5caf1ae3595794547.js"></script>
 
-### Editing Fields
+### 4. Editing Fields
 
-* We dont need unparsed "message" field since we have the "body" field. I delete it using this MongoDB query.
+We dont need unparsed "message" field since we have the "body" field. I delete it using  query on MongoDB compass interface.
 
 <code>db.enronmails.updateMany({},{$unset: {message:""}})</code>
 
-* I change the name of filename field to directory. 
+I change the name of filename field to directory. 
 
 <code>db.enronmails.updateMany({},{$rename: {"file":"directory"}})</code>
 
-## 4. Exporting A Parsed Data
+And I can edit date by using a script similar to one I used before. 
+I will update dates and also parse path names with using this similar script.
+
+The string format of the date in our dataset is called the "rfc2822" format like "Mon, 14 May 2001 16:39:00 -0700 (PDT)", and it can be parsed using the email.utils module in the Python Standard Library. We use a function that takes a string in this format and returns a string in the universal date format, which is the ISO 8601 format like "2001-05-14T23:39:00"
+
+
+## 5. Exporting A Parsed Data
 
 Now I export to new parsed data to use it as a resource for later posts. Also take it as a backup.
 I also sharing it in Kaggle to speed up for anyone working on dataset.
