@@ -1,3 +1,7 @@
+O görüşme. 
+O taşıma işlemi
+Öğleden sonra izin. 
+Deprem çantası
 Huggingface Transformer Library
 Arabayı götürmek. 
 Nufus yerini taşıtmak
