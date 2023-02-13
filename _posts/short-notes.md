@@ -1,4 +1,6 @@
-
+Arabayı götürmek. 
+Nufus yerini taşıtmak
+İstanbul depremden etkilenme olasılığı yüksek iller
 <div>
   <div>12.02.2023</div><div><a href="https://www.amazon.com/Hackers-Mind-Powerful-Societys-Rules/dp/0393866661">Book: A Hacker's Mind: How the Powerful Bend Society's Rules, and How to Bend them Back</a></div>
 </div>
