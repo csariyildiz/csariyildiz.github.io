@@ -117,7 +117,7 @@ I also sharing it in Kaggle to speed up for anyone working on dataset.
 
 <script src="https://gist.github.com/csariyildiz/9b0b407689e146400ee6e96193013a8e.js"></script>
 
-## Resources
+## Notes & Resources
 
 I have listed below the papers and online articles that I used in this online articles and found interesting:
 
@@ -128,6 +128,64 @@ I have listed below the papers and online articles that I used in this online ar
 * [newscatcherapi - Train Custom Named Entity Recognition Ner Model With Spacy v3](https://newscatcherapi.com/blog/train-custom-named-entity-recognition-ner-model-with-spacy-v3)
 * [Papers With Code - Natural Language Processing](https://paperswithcode.com/area/natural-language-processing)
 * [Wiki Data](https://www.wikidata.org/wiki/Wikidata:Main_Page)
-* https://towardsdatascience.com/empirical-analysis-on-email-classification-using-the-enron-dataset-19054d558697
+* [towardsdatascience.com/empirical-analysis-on-email-classification-using-the-enron-dataset](https://towardsdatascience.com/empirical-analysis-on-email-classification-using-the-enron-dataset-19054d558697)
+* [github.com/coreylynch/EnronTopicModelling](https://github.com/coreylynch/EnronTopicModelling
+* https://arxiv.org/abs/1706.03762
+* https://huggingface.co/
+* neo4j
+* apache jena
+* https://en.wikipedia.org/wiki/Triplestore
+* Google Colab ve Local : GPU kullanımı vs.
+* Spacy Tutorial
+* Enron Dataset Online
+* Papers With Code
+* Experiment With Galactica
+* Spacy ve Prodigy
+* Gensim Topic Modelling
+* LDA Topic Modelling
+* Enron Official Page
+* [Wiki Data](https://www.wikidata.org/wiki/Wikidata:Main_Page)
+* Graph Databases For Representing Data:
+* Trying Topic Classification As A Start With Enrondatabase. LTSM Model Ourperfoms Topic Classification Enron Dataset.
+* Reddit Database Could Also Be Usefull
+* [Prodigy and Transfer Learning](https://www.youtube.com/watch?v=59BKHO_xBPA)
+* http://archive.enron.email/?q=Windows&p=17
+* [BERT](https://www.youtube.com/watch?v=UmyOhl9AciI&ab_channel=NLPandCSS201%3ABeyondtheBasics)
+* Topic Modelling Of Enron Database Using BERTopic
 * https://github.com/coreylynch/EnronTopicModelling
+* Zero Shot Classification
+* How to use google colab with better resources?
+* [Paperswithcode-galai](https://github.com/paperswithcode/galai)
 
+### Papers
+
+* https://link.springer.com/article/10.1007/s11042-022-13428-4
+* https://aclanthology.org/2020.acl-main.443.pdf
+* AgAsk: An Agent to Help Answer Farmer's Questions From Scientific Documents
+* "Topic Modeling in Embedding Spaces" by Adji B. Dieng, Francisco J. R. Ruiz, and David M. Blei
+* Text Mining and Analytics: A Case Study from News Channels Posts on Facebook
+* An Inquiry-Based Teaching Model for Nursing Professional Courses Based on Data Mining and Few-Shot Learning Technology
+* Few-NERD: A Few-Shot Named Entity Recognition Dataset
+* HunFlair: an easy-to-use tool for state-of-the-art biomedical named entity recognition
+* Fine-Tuning Bidirectional Encoder Representations From Transformers (BERT)–Based Models on Large-Scale Electronic Health Record Notes: An Empirical Study
+* Named Entity Recognition Approaches and Their Comparison for Custom NER Model
+* Models of Cross-Situational and Crossmodal Word Learning in Task-Oriented Scenarios
+* Email classification analysis using machine learning techniques
+* E-mail classification with machine learning and word embeddings for improved customer support
+* https://link.springer.com/chapter/10.1007/978-3-030-82136-4_16
+* On the Diversity of Software Package Popularity Metrics: An Empirical Study of npm
+* Named Entity Recognition Based on Reinforcement Learning and Adversarial Training
+* https://github.com/Alibaba-NLP/ACE#requirements
+* A machine learning based help desk system for IT service management
+* Comparison of Named Entity Recognition Tools Applied to News Articles
+* DeNERT-KG: Named Entity and Relation Extraction Model Using DQN, Knowledge Graph, and BERT
+* https://www.youtube.com/watch?v=DQc2Mi7BcuI&t=1006s&ab_channel=rupertai
+* https://medium.datadriveninvestor.com/nlp-with-lda-analyzing-topics-in-the-enron-email-dataset-20326b7ae36f
+* https://github.com/coreylynch/EnronTopicModelling
+* AgAsk: An Agent to Help Answer Farmer's Questions From Scientific Documents
+* http://archive.enron.email/?q=Windows&p=11
+* https://towardsdatascience.com/keyword-extraction-process-in-python-with-natural-language-processing-nlp-d769a9069d5c
+* https://towardsdatascience.com/custom-named-entity-recognition-with-bert-cf1fd4510804
+* https://newscatcherapi.com/blog/train-custom-named-entity-recognition-ner-model-with-spacy-v3
+* https://doi.org/10.1007/978-3-319-67056-0_19
+* https://doi.org/10.1080/0194262X.2020.1759479
