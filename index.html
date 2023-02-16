@@ -32,3 +32,37 @@ layout: default2
 	   {% endif %}
           {% endfor %}
 </div>
+
+<hr>
+<hr>
+
+
+  <div>
+	   {% for post in site.categories.main %}  {% if post.url %}  
+  <a href="{{ post.url }}" aria-current="true">
+	  {% if post.thumb %}
+	  
+	    <img src="/img/{{ post.thumb}}.png" alt="{{ post.title }}" width="160" height="79">
+    
+	  {% else %}
+	     <img src="/img/bt_1.png" alt="{{ post.title }}" width="160" height="79">
+	  {% endif %}
+	  
+    <div>
+      <div>
+        <h6>{{ post.title }}</h6>
+	      	  {% if post.excerpt %}
+	  
+	  <p> {{ post.excerpt }}</p>
+	  {% else %}
+	    <p>Some placeholder content in a paragraph.</p>
+	  {% endif %}
+	      
+       
+      </div>
+	    <div class="badge bg-dark" style="max-height: 20px;">{{ post.date | date: "%d-%m-%Y"}}</div>
+    </div>
+  </a>
+	   {% endif %}
+          {% endfor %}
+</div>
