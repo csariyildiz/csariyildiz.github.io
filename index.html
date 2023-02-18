@@ -45,7 +45,7 @@ layout: default2
 	  <div class="col-3 col-md-2" style=" padding: 0px; ">
 	  {% if post.thumb %}
 	  
-	    <img src="/img/{{ post.thumb}}.png" alt="{{ post.title }}" style="border-radius:6px;width: 100%;">
+	    <img src="/img/{{ post.thumb}}.png" alt="{{ post.title }}" style="border-radius:6px;width: 100%;margin-top: 3px;">
     
 	  {% else %}
 	     <img src="/img/bt_1.png" alt="{{ post.title }}" width="130" height="79">
@@ -55,7 +55,7 @@ layout: default2
 <div class="col-9 col-md-9" style="
     padding-right: 0px;
 ">
-        <h6 class="mb-0" style=" font-weight: 600;">{{ post.title }}</h6>
+        <h6 class="mb-0" style=" font-weight: 600; margin-top: 10px; ">{{ post.title }}</h6>
 	      	  {% if post.excerpt %}  
 	  <p class="mb-0 opacity-75">{{ post.excerpt }}</p>
 	  {% else %}
