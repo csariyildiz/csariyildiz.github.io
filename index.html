@@ -37,7 +37,7 @@ layout: default2
 <hr>
 
 
-
+<div>
 	   {% for post in site.categories.main %}  {% if post.url %}
 
   <a href="{{ post.url }}" class="d-flex flex-row p-3 border list-group-item list-group-item-action" aria-current="true">
@@ -68,3 +68,4 @@ layout: default2
   </a>
 	   {% endif %}
           {% endfor %}
+</div>
