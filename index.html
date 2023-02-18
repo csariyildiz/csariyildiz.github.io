@@ -2,4 +2,38 @@
 layout: default2
 ---
 
-<p>Hi</p>
+<div class="container list-group" style="padding:0px;margin-top: 1rem;">
+	   {% for post in site.categories.main %}  {% if post.url %}
+
+  <a href="{{ post.url }}" class="row list-group-item list-group-item-action p-3" aria-current="true" style="margin:0px;padding-right: 0px !important;">
+
+	  <div class="col-3 col-md-2" style=" padding: 0px; ">
+	  {% if post.thumb %}
+
+	    <img src="/img/{{ post.thumb}}.png" alt="{{ post.title }}" style="border-radius:6px;width: 100%;margin-top: 3px;">
+
+	  {% else %}
+	     <img src="/img/bt_1.png" alt="{{ post.title }}" width="130" height="79">
+	  {% endif %}
+
+		   </div>
+<div class="col-9 col-md-9" style="
+    padding-right: 0px;
+">
+        <h6 class="mb-0" style=" font-weight: 600; margin-top: 10px; ">{{ post.title }}</h6>
+	      	  {% if post.excerpt %}  
+	  <p class="mb-0 opacity-75">{{ post.excerpt }}</p>
+	  {% else %}
+	    <p class="mb-0 opacity-75">Some placeholder content in a paragraph.</p>
+	  {% endif %} 
+	  </div>
+
+	  <div class="col-12 col-md-1" style="
+">
+	    <div class="badge bg-dark" style="max-height: 20px;float:right;">{{ post.date | date: "%d-%m-%Y"}}</div>
+	  </div>
+
+  </a>
+	   {% endif %}
+          {% endfor %}
+</div>
