@@ -42,7 +42,7 @@ layout: default2
 
   <a href="{{ post.url }}" class="d-flex flex-row p-3 border list-group-item list-group-item-action" aria-current="true">
 	  
-	  <div>
+	  <div class="col-12 col-md-2">
 	  {% if post.thumb %}
 	  
 	    <img src="/img/{{ post.thumb}}.png" alt="{{ post.title }}" style="border-radius:6px;" width="130" height="79">
@@ -52,7 +52,7 @@ layout: default2
 	  {% endif %}
 		  
 		   </div>
-<div class="px-2">
+<div class="col-12 col-md-8">
         <h6>{{ post.title }}</h6>
 	      	  {% if post.excerpt %}  
 	  <p >{{ post.excerpt }}</p>
@@ -61,7 +61,7 @@ layout: default2
 	  {% endif %} 
 	  </div>
 
-	  <div>
+	  <div class="col-12 col-md-2">
 	    <div class="badge bg-dark" style="max-height: 20px;">{{ post.date | date: "%d-%m-%Y"}}</div>
 	  </div>
 	  
