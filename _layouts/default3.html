@@ -1,114 +1,106 @@
 <!doctype html>
 <html lang="en">
   {% include head.html %}
+  
+  <style>
+    body {
+  padding-top: 51px;  
+}
+.text-center {
+  padding-top: 20px;
+}
+.col-xs-12 {
+  background-color: #fff;
+}
+#sidebar {
+  height: 100%;
+  padding-right: 0;
+  padding-top: 20px;
+}
+#sidebar .nav {
+  width: 95%;
+}
+#sidebar li {
+  border:0 #f2f2f2 solid;
+  border-bottom-width:1px;
+}
+
+/* collapsed sidebar styles */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -41.6%;
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -41.6%;
+  }
+  .row-offcanvas-right.active {
+    right: 41.6%;
+  }
+  .row-offcanvas-left.active {
+    left: 41.6%;
+  }
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 41.6%;
+  }
+  #sidebar {
+    padding-top:0;
+  }
+}
+
+
+   
+  </style>
 <body class="d-flex flex-column h-100" cz-shortcut-listen="true">
-    
-<header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style=" height: 50px; ">
-    
-    <div class="container-fluid">
-      <div class="row"> 
-        
-      <div class="col-md-3 col-lg-2>
-         <a class="navbar-brand" href="#">csariyildiz.github.io</a>
+<div class="page-container">
+    <!-- top navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Project Name</a>
+            </div>
         </div>
-                                         
-        
-        <div class="col-md-9 col-lg-10">
-               
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        </div>
-      
-      </div>
-      
-
- 
-      </div>
     </div>
-                                                                                    
-                                                                                    
-  </nav>
-</header>
-
-<div class="container-fluid">
-  
-  <div class="row">
-  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-   <div class="position-sticky pt-3">
-  <ul class="nav flex-column">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#"> Dashboard </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"> Orders </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"> Products </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"> Customers </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"> Reports </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"> Integrations </a>
-    </li>
-  </ul>
-  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-    <span>Saved reports</span>
-    <a class="link-secondary" href="#" aria-label="Add a new report"></a>
-  </h6>
-  <ul class="nav flex-column mb-2">
-    <li class="nav-item">
-      <a class="nav-link" href="#"> Current month </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"> Last quarter </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"> Social engagement </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"> Year-end sale </a>
-    </li>
-  </ul>
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-left">
+            <!-- sidebar -->
+            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                <ul class="nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                </ul>
+            </div>
+            <!-- main area -->
+            <div class="col-xs-12 col-sm-9">
+                <h1>Shrink Width to Collapse Sidebar</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in nisi eu arcu tempus vehicula. Nulla faucibus cursus metus in sagittis. Nunc elit leo, imperdiet in ligula in, euismod varius est. Aenean pellentesque lorem a porttitor placerat. Vestibulum placerat nunc ac rutrum fringilla. Donec arcu leo, tempus adipiscing volutpat id, congue in purus. Pellentesque scelerisque mattis nibh vel semper. Sed a risus purus. Fusce pulvinar, velit eget rhoncus facilisis, enim elit vulputate nisl, a euismod diam metus eu enim. Nullam congue justo vitae justo accumsan, sit amet malesuada nulla sagittis. Nam neque tellus, tristique in est vel, sagittis congue turpis. Aliquam nulla lacus, laoreet dapibus odio vitae, posuere volutpat magna. Nam pulvinar lacus in sapien feugiat, sit amet vestibulum enim eleifend. Integer sit amet ante auctor, lacinia sem quis, consectetur nulla.</p>
+                <p>Vestibulum porttitor massa eget pellentesque eleifend. Suspendisse tempor, nisi eu placerat auctor, est erat tempus neque, pellentesque venenatis eros lorem vel quam. Nulla luctus malesuada porttitor. Fusce risus mi, luctus scelerisque hendrerit feugiat, volutpat gravida nisi. Quisque facilisis risus in lacus sagittis malesuada. Suspendisse non purus diam. Nunc commodo felis sit amet tortor adipiscing varius. Fusce commodo nulla quis fermentum hendrerit. Donec vulputate, tellus sed venenatis sodales, purus nibh ullamcorper quam, sit amet tristique justo velit molestie lorem.</p>
+                <p>Fusce sollicitudin lacus lacinia mi tincidunt ullamcorper. Aenean velit ipsum, vestibulum nec tincidunt eu, lobortis vitae erat. Nullam ultricies fringilla ultricies. Sed euismod nibh quis tincidunt dapibus. Nulla quam velit, porta sit amet felis eu, auctor fringilla elit. Donec convallis tincidunt nibh, quis pellentesque sapien condimentum a. Phasellus purus dui, rhoncus id suscipit id, ornare et sem. Duis aliquet posuere arcu a ornare. Pellentesque consequat libero id massa accumsan volutpat. Fusce a hendrerit lacus. Nam elementum ac eros eu porttitor. Phasellus enim mi, auctor sit amet luctus a, commodo fermentum arcu. In volutpat scelerisque quam, nec lacinia libero.</p>
+                <p>Aliquam a lacinia orci, iaculis porttitor neque. Nullam cursus dolor tempus mauris posuere, eu scelerisque sem tincidunt. Praesent blandit sapien at sem pulvinar, vel egestas orci varius. Praesent vitae purus at ante aliquet luctus vel quis nibh. Mauris id nulla vitae est lacinia rhoncus a vel justo. Donec iaculis quis sapien vel molestie. Aliquam sed elementum orci. Vestibulum tristique tempor risus et malesuada. Sed eget ligula sed quam placerat dapibus. Integer accumsan ac massa at tempus.</p>
+            </div><!-- /.col-xs-12 main -->
+        </div>
+        <!--/.row-->
+    </div>
+    <!--/.container-->
 </div>
-    </nav>
-    
-  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <div class="container" style="padding: 60px 15px 0;">
-    <h1 class="mt-5">Sticky footer</h1>
-    <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
-    <p>Use <a href="/docs/5.0/examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p>
-        {{ content }}
-  </div>
-    </main>
-  
-  </div>
-  </div>
-
-<footer class="footer mt-auto py-3 bg-light">
-  <div class="container">
-    <span class="text-muted">Place sticky footer content here.</span>
-  </div>
-</footer>
-
-
+<!--/.page-container-->
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
