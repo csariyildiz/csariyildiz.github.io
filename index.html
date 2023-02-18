@@ -40,7 +40,7 @@ layout: default2
 <div class="container list-group" style="padding:0px;margin-top: 1rem;">
 	   {% for post in site.categories.main %}  {% if post.url %}
 
-  <a href="{{ post.url }}" class="row list-group-item list-group-item-action p-3" aria-current="true" style="margin:0px;padding:0px;">
+  <a href="{{ post.url }}" class="row list-group-item list-group-item-action p-3" aria-current="true" style="margin:0px;padding-right: 0px !important;">
 	  
 	  <div class="col-3 col-md-2" style=" padding: 0px; ">
 	  {% if post.thumb %}
@@ -64,7 +64,6 @@ layout: default2
 	  </div>
 
 	  <div class="col-12 col-md-1" style="
-    padding: 0px;
 ">
 	    <div class="badge bg-dark" style="max-height: 20px;float:right;">{{ post.date | date: "%d-%m-%Y"}}</div>
 	  </div>
