@@ -37,10 +37,10 @@ layout: default2
 <hr>
 
 
-<div class="container">
+<div class="container" style="padding:0px;">
 	   {% for post in site.categories.main %}  {% if post.url %}
 
-  <a href="{{ post.url }}" class="row border list-group-item list-group-item-action" aria-current="true">
+  <a href="{{ post.url }}" class="row border list-group-item list-group-item-action" aria-current="true" style="margin:0px;">
 	  
 	  <div class="col-12 col-md-2">
 	  {% if post.thumb %}
