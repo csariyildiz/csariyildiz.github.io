@@ -4,7 +4,6 @@
 <body class="d-flex flex-column h-100" cz-shortcut-listen="true">
     
 <header>
-  <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Fixed navbar</a>
@@ -32,15 +31,63 @@
   </nav>
 </header>
 
-<!-- Begin page content -->
-<main class="flex-shrink-0">
-  <div class="container">
-    <h1 class="mt-5">Sticky footer with fixed navbar</h1>
-    <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code class="small">padding-top: 60px;</code> on the <code class="small">main &gt; .container</code>.</p>
-    <p>Back to <a href="/docs/5.0/examples/sticky-footer/">the default sticky footer</a> minus the navbar.</p>
-     {{ content }}
+<div class="container-fluid">
+  
+  <div class="row">
+  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+   <div class="position-sticky pt-3">
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#"> Dashboard </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Orders </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Products </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Customers </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Reports </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Integrations </a>
+    </li>
+  </ul>
+  <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+    <span>Saved reports</span>
+    <a class="link-secondary" href="#" aria-label="Add a new report"></a>
+  </h6>
+  <ul class="nav flex-column mb-2">
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Current month </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Last quarter </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Social engagement </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"> Year-end sale </a>
+    </li>
+  </ul>
+</div>
+    </nav>
+    
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="container">
+    <h1 class="mt-5">Sticky footer</h1>
+    <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
+    <p>Use <a href="/docs/5.0/examples/sticky-footer-navbar/">the sticky footer with a fixed navbar</a> if need be, too.</p>
+        {{ content }}
   </div>
-</main>
+    </main>
+  
+  </div>
+  </div>
 
 <footer class="footer mt-auto py-3 bg-light">
   <div class="container">
