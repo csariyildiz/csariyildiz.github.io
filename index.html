@@ -37,9 +37,12 @@ layout: default2
 <hr>
 
 
-  <div>
-	   {% for post in site.categories.main %}  {% if post.url %}  
+
+	   {% for post in site.categories.main %}  {% if post.url %}
+
   <a href="{{ post.url }}" aria-current="true">
+	  
+	  <div>
 	  {% if post.thumb %}
 	  
 	    <img src="/img/{{ post.thumb}}.png" alt="{{ post.title }}" width="160" height="79">
@@ -47,9 +50,9 @@ layout: default2
 	  {% else %}
 	     <img src="/img/bt_1.png" alt="{{ post.title }}" width="160" height="79">
 	  {% endif %}
-	  
-    <div>
-      <div>
+		  
+		   </div>
+<div>
         <h6>{{ post.title }}</h6>
 	      	  {% if post.excerpt %}
 	  
@@ -58,11 +61,12 @@ layout: default2
 	    <p>Some placeholder content in a paragraph.</p>
 	  {% endif %}
 	      
-       
-      </div>
+	  </div>
+
+	  <div>
 	    <div class="badge bg-dark" style="max-height: 20px;">{{ post.date | date: "%d-%m-%Y"}}</div>
-    </div>
+	  </div>
+	  
   </a>
 	   {% endif %}
           {% endfor %}
-</div>
