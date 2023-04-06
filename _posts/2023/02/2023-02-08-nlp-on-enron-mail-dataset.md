@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "NLP On Enron Mail Dataset"
-category: main
+category: none
 thumb: "enrona_1"
 ---
 
