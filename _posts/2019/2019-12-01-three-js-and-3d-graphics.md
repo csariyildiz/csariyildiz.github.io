@@ -1,7 +1,6 @@
 ---
 layout: post
 title: A Beginner's Guide To Creating Interactive 3D Graphics with Three.js
-category: main
 thumb: three_js
 excerpt : Three.js is a JavaScript library that allows developers to easily create and display 3D graphics in web browsers using WebGL.
 ---
