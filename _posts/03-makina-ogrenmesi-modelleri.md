@@ -1,0 +1,152 @@
+Veri setleri kimi zaman anlaşılmasını zorlaştıracak şekilde çok şekilde değer barındırabilir. 
+Bu nedenle verilerin daha rahat anlaşılacak şekilde parçalanarak incelenmesi önemlidir.
+Bu veriler manuel seçilebileceği gibi önceliklendirme için istatistiksel teknikler de kullanılabilir.
+
+Değişkenleri seçmek için veri setindeki tüm sütunların bir listesini görmemiz gerekir. Bu, `DataFrame`in `columns` adlı `property`si ile görüntülenebilir.
+
+```
+import pandas as pd
+
+data_file_path = '../input/my_data.csv'
+df = pd.read_csv(data_file_path) 
+df.columns
+```
+Çıktı: 
+```
+Index(['Adres', 'Odalar', 'Tür', 'Fiyat', 'Yöntem', 'SatıcıG',
+        "Tarih", "Mesafe", "Posta Kodu", "YatakOdası2", "Banyo", "Araba",
+        'Landsize', 'InsaYili', 'Enlem', 'Boylam', 'BolgeAd'"],
+      dtype='object')
+```
+
+Kimi zaman verisetleri `missing values` içerebilir. Bu da bazı değerlerin tanımlı olmadığı anlamına gelir.
+Bunun için bir yaklaşım bu değerlerin silinmesidir. 
+
+```
+df = df.dropna(axis=0)
+```
+
+Verisetinin bir alt kümesini seçmek için bir çok yaklaşım uygulanabilir.
+Fakat burada kullanılacak olan yöntem aşağıdaki gibi olacaktır.
+
+1. Bunlardan biri nokta notasyonu `(dot notation)` kullanılarak tahmin için bir hedef `(prediction target)` oluşturulmasıdır.
+2. Diğeri ise kolon listesi ile seçim yapmaktır. Böylece verinin özellikleri `(features)` belirlenir.
+
+## Tek Bir Tahmin Hedefi Oluşturulması
+
+Nokta notasyonu kullanılarak tek bir değeri seçebiliriz. Bu değer `Series` içerisinde tutulan tek bir kolondur.
+Series için kabaca tek bir data kolonu barındıran bir `DataFrame` denilebilir.
+
+Aşağıdaki gibi bir satırla tahmin etmek istenilen tek bir kolon seçilebilir. Bu kolon tahmin hedefi `(prediction target)` olacaktır.
+Genellikle `y` ile gösterilir.
+
+```
+y = df.Fiyat
+```
+
+Yukarıdaki satır ile `y` tahmin hedefi olarak `Series` tipinde tanımlanmış olacaktır.
+
+## Birden Fazla Hedef Değer (Feature) Tanımlamak
+
+Modelin içerisine tahmin yapılmak üzere yüklenecek kolonlara `feature` adı verilir.
+Bu durumda `Fiyatı` ve belirlemek üzere bu kolonlar kullanılacaktır. 
+
+Bazen bir grup kolonu feature olarak kullanmak yerine hedef hariç tüm kolonlar feature olarak kullanılabilir.
+Kimi zamanlarda ise daha az feature kullanımı daha iyi sonuçlar verebilmektedir.
+
+Burada birkaç feature kullanarak tahmin yapılacaktır. Daha sonra süreç tekrarlanabilir ve modellerin karşılaştırılması yapılabilir.
+
+Aşağıdaki gibi liste tipinde feature'lar tanımlanabilir.
+
+```
+features = ['Rooms', 'Bathroom', 'Landsize', 'Lattitude', 'Longtitude']
+```
+
+Geleneksel olarak `X` ile gösterilir.
+
+Daha sonra bu değerler yeni bir DataFrame olarak alınır.
+
+```
+X = df[features]
+```
+
+`describe` ve `head` metodunu kullanarak özet bilgilerini ve en üsttei verinin bir kısmını görebiliriz.
+
+
+```
+X.describe()
+```
+
+```
+|       | Rooms       | Bathroom    | Landsize     | Lattitude   | Longtitude  |
+|-------|-------------|-------------|--------------|-------------|-------------|
+| count | 6196.000000 | 6196.000000 | 6196.000000  | 6196.000000 | 6196.000000 |
+| mean  | 2.931407    | 1.576340    | 471.006940   | -37.807904  | 144.990201  |
+| std   | 0.971079    | 0.711362    | 897.449881   | 0.075850    | 0.099165    |
+| min   | 1.000000    | 1.000000    | 0.000000     | -38.164920  | 144.542370  |
+| 25%   | 2.000000    | 1.000000    | 152.000000   | -37.855438  | 144.926198  |
+| 50%   | 3.000000    | 1.000000    | 373.000000   | -37.802250  | 144.995800  |
+| 75%   | 4.000000    | 2.000000    | 628.000000   | -37.758200  | 145.052700  |
+| max   | 8.000000    | 8.000000    | 37000.000000 | -37.457090  | 145.526350  |
+```
+
+```
+X.head()
+```
+
+```
+|   | Rooms | Bathroom | Landsize | Lattitude | Longtitude |
+|---|-------|----------|----------|-----------|------------|
+| 1 | 2     | 1.0      | 156.0    | -37.8079  | 144.9934   |
+| 2 | 3     | 2.0      | 134.0    | -37.8093  | 144.9944   |
+| 4 | 4     | 1.0      | 120.0    | -37.8072  | 144.9941   |
+| 6 | 3     | 2.0      | 245.0    | -37.8024  | 144.9993   |
+| 7 | 2     | 1.0      | 256.0    | -37.8060  | 144.9954   |
+```
+
+
+Verilerinizi bu komutlarla görsel olarak kontrol etmek, bir veri bilimcinin işinin önemli bir parçasıdır. 
+Veri kümesinde sık sık daha fazla incelemeyi hak eden sürprizler bulacaksınız.
+
+## Modeli Oluşturmak
+
+`scikit-learn` kütüphanesi modeller oluşturmak için kullanılabilir.
+Kodlama yapılırken örnek kodda görüldüğü gibi kütüphane `sklearn` olarak yazılmıştır. 
+`scikit-learn`, genel olarak DataFrames'te depolanan veri türlerini modellemek için kullanılan en popüler kütüphanedir.
+
+Modeli oluşturmakta kullanılacak aşamalar aşağıdaki gibidir:
+1) Tanımlama (Definition): Ne tür bir model olacak? Bir karar ağacı (decision-tree) mi? Başka bir model türü mü? Model tipinin diğer bazı parametreleri ne olacak?
+2) Yerleştirme (Fitting): Verilerdeki örüntülerin yakalanması. Bu modelleme işleminin en önemli kısmıdır.
+3) Tahmin (Prediction): Değerlerin tahmin edilmesi işlemi.
+4) Değerlendirme (Evaluation): Model tahminlerinin ne kadar isabetli olduğunun ölçülmesi.
+
+Aşağıda `scikit-learn` ile bir karar ağacı modeli tanımlanmasının ve onun özellikler (features) ve hedef değişkenle (target-variable) uydurmanın bir örneği verilmiştir.
+
+```
+from sklearn.tree import DecisionTreeRegressor
+
+# Modelin tanımlanması. Her çalıştırmada aynı sonuçların gelmesini sağlamak için bir random_state belirtilir.
+model = DecisionTreeRegressor(random_state=1)
+
+# Modelin Yerleştirilmesi
+model.fit(X, y)
+```
+Çıktı:
+```
+DecisionTreeRegressor(random_state=1)
+```
+
+Bir çok makine öğrenmesi modeli eğitim esnasında rastlantısallığa izin verir. 
+`random_state` için bir değer belirtilmesi her bir çalıştırmada aynı sonucun alınmasına yardımcı olur.
+Bu iyi bir pratik kabul edilir. 
+
+Gerçekleştirilen `fitting` aşamasından sonra tahminlerde bulunmak için kullanılabilecek uygun bir model oluşturulmuş olur.
+Uygulamada, zaten fiyatlarına sahip olunan daireler yerine piyasaya çıkan yeni daireler için tahminler yapmak istenecektir. 
+Ancak, `predict` fonksiyonunun nasıl çalıştığını görmek için eğitim verilerinin ilk birkaç satırı için tahminler yapılabilir.
+
+```
+print("Aşağıdaki apartman ev için tahmin yapılıyor:")
+print(X.head())
+print("Tahminler:")
+print(model.predict(X.head()))
+```
