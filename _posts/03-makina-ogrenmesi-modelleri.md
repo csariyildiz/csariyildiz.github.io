@@ -1,8 +1,9 @@
 Veri setleri kimi zaman anlaşılmasını zorlaştıracak şekilde çok şekilde değer barındırabilir. 
-Bu nedenle verilerin daha rahat anlaşılacak şekilde parçalanarak incelenmesi önemlidir.
-Bu veriler manuel seçilebileceği gibi önceliklendirme için istatistiksel teknikler de kullanılabilir.
+Bu durum verilerin daha rahat anlaşılacak şekilde parçalanarak incelenmesini önemli hale getirir.
+Veriler manuel seçilebilir ya da önceliklendirme için istatistiksel teknikler kullanılabilir.
 
-Değişkenleri seçmek için veri setindeki tüm sütunların bir listesini görmemiz gerekir. Bu, `DataFrame`in `columns` adlı `property`si ile görüntülenebilir.
+Değişkenlerin manuel olarak seçilmesi için veri setindeki tüm sütunların bir listesinin görülmesi gerekir. 
+Bir `pandas` `DataFrame`i içerisinde `columns` adlı `property` ile sütunların listesi görüntülenebilir.
 
 ```
 import pandas as pd
@@ -19,18 +20,18 @@ Index(['Adres', 'Odalar', 'Tür', 'Fiyat', 'Yöntem', 'SatıcıG',
       dtype='object')
 ```
 
-Kimi zaman verisetleri `missing values` içerebilir. Bu da bazı değerlerin tanımlı olmadığı anlamına gelir.
-Bunun için bir yaklaşım bu değerlerin silinmesidir. 
+Kimi zaman verisetleri kayıp değerler`missing values` içerebilir. Kayıp değerler kolonlar üzerinde kimi değerlerin tanımlı olmadığı anlamına gelir.
+Böyle bir durumda yaklaşımlardan biri değerlerin silinmesidir. 
 
 ```
 df = df.dropna(axis=0)
 ```
 
-Verisetinin bir alt kümesini seçmek için bir çok yaklaşım uygulanabilir.
-Fakat burada kullanılacak olan yöntem aşağıdaki gibi olacaktır.
+Verisetinin bir alt kümesini seçmek için yine bir çok yaklaşım uygulanabilir.
 
-1. Bunlardan biri nokta notasyonu `(dot notation)` kullanılarak tahmin için bir hedef `(prediction target)` oluşturulmasıdır.
-2. Diğeri ise kolon listesi ile seçim yapmaktır. Böylece verinin özellikleri `(features)` belirlenir.
+Fakat burada bir decision-tree modelinin yanı sıra modelin oluşturulmasında kullanılacak olan yöntem aşağıdaki gibi olacaktır.
+1. Nokta notasyonu `(dot-notation)` kullanılarak tahmin için bir hedef `(prediction target)` oluşturulur.
+2. Kullanılacak değerlerin listesi ile seçim yapılır. Böylece verinin özellikleri `features` belirlenir.
 
 ## Tek Bir Tahmin Hedefi Oluşturulması
 
