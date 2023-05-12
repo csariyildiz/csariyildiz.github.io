@@ -14,8 +14,8 @@ df.columns
 Çıktı: 
 ```
 Index(['Adres', 'Odalar', 'Tür', 'Fiyat', 'Yöntem', 'SatıcıG',
-        "Tarih", "Mesafe", "Posta Kodu", "YatakOdası2", "Banyo", "Araba",
-        'Landsize', 'InsaYili', 'Enlem', 'Boylam', 'BolgeAd'"],
+        "Tarih", "Mesafe", "PostaKodu", "YatakOdası", "Banyo", "Araba",
+        'AlanBuyuklugu', 'InsaYili', 'Enlem', 'Boylam', 'BolgeAd'"],
       dtype='object')
 ```
 
@@ -59,68 +59,70 @@ Burada birkaç feature kullanarak tahmin yapılacaktır. Daha sonra süreç tekr
 Aşağıdaki gibi liste tipinde feature'lar tanımlanabilir.
 
 ```
-features = ['Rooms', 'Bathroom', 'Landsize', 'Lattitude', 'Longtitude']
+features = ['Odalar', 'YatakOdasi', 'AlanBuyuklugu', 'Enlem', 'Boylam']
 ```
 
-Geleneksel olarak `X` ile gösterilir.
+Özellikler (`features`) geleneksel olarak `X` ile gösterilir.
 
-Daha sonra bu değerler yeni bir DataFrame olarak alınır.
+Daha sonra bu değerler yeni bir `DataFrame` olarak alınır.
 
 ```
 X = df[features]
 ```
 
-`describe` ve `head` metodunu kullanarak özet bilgilerini ve en üsttei verinin bir kısmını görebiliriz.
+`describe` ve `head` metodunu kullanarak özet bilgilerini ve en üstteki verinin bir kısmı görülebilir.
 
 
 ```
 X.describe()
 ```
+Çıktı:
+```
+|       | Odalar      | YatakOdasi  | AlanBuyuklugu | Enlem       | Boylam      |
+|-------|-------------|-------------|---------------|-------------|-------------|
+| count | 6196.000000 | 6196.000000 | 6196.000000   | 6196.000000 | 6196.000000 |
+| mean  | 2.931407    | 1.576340    | 471.006940    | -37.807904  | 144.990201  |
+| std   | 0.971079    | 0.711362    | 897.449881    | 0.075850    | 0.099165    |
+| min   | 1.000000    | 1.000000    | 0.000000      | -38.164920  | 144.542370  |
+| 25%   | 2.000000    | 1.000000    | 152.000000    | -37.855438  | 144.926198  |
+| 50%   | 3.000000    | 1.000000    | 373.000000    | -37.802250  | 144.995800  |
+| 75%   | 4.000000    | 2.000000    | 628.000000    | -37.758200  | 145.052700  |
+| max   | 8.000000    | 8.000000    | 37000.000000  | -37.457090  | 145.526350  |
+```
 
-```
-|       | Rooms       | Bathroom    | Landsize     | Lattitude   | Longtitude  |
-|-------|-------------|-------------|--------------|-------------|-------------|
-| count | 6196.000000 | 6196.000000 | 6196.000000  | 6196.000000 | 6196.000000 |
-| mean  | 2.931407    | 1.576340    | 471.006940   | -37.807904  | 144.990201  |
-| std   | 0.971079    | 0.711362    | 897.449881   | 0.075850    | 0.099165    |
-| min   | 1.000000    | 1.000000    | 0.000000     | -38.164920  | 144.542370  |
-| 25%   | 2.000000    | 1.000000    | 152.000000   | -37.855438  | 144.926198  |
-| 50%   | 3.000000    | 1.000000    | 373.000000   | -37.802250  | 144.995800  |
-| 75%   | 4.000000    | 2.000000    | 628.000000   | -37.758200  | 145.052700  |
-| max   | 8.000000    | 8.000000    | 37000.000000 | -37.457090  | 145.526350  |
-```
+`head` ile üstteki verinin bir kısmını görüntülenir.
 
 ```
 X.head()
 ```
-
+Çıktı:
 ```
-|   | Rooms | Bathroom | Landsize | Lattitude | Longtitude |
-|---|-------|----------|----------|-----------|------------|
-| 1 | 2     | 1.0      | 156.0    | -37.8079  | 144.9934   |
-| 2 | 3     | 2.0      | 134.0    | -37.8093  | 144.9944   |
-| 4 | 4     | 1.0      | 120.0    | -37.8072  | 144.9941   |
-| 6 | 3     | 2.0      | 245.0    | -37.8024  | 144.9993   |
-| 7 | 2     | 1.0      | 256.0    | -37.8060  | 144.9954   |
+|   | Odalar | YatakOdasi | AlanBuyuklugu | Enlem     | Boylam     |
+|---|--------|------------|---------------|-----------|------------|
+| 1 | 2      | 1.0        | 156.0         | -37.8079  | 144.9934   |
+| 2 | 3      | 2.0        | 134.0         | -37.8093  | 144.9944   |
+| 4 | 4      | 1.0        | 120.0         | -37.8072  | 144.9941   |
+| 6 | 3      | 2.0        | 245.0         | -37.8024  | 144.9993   |
+| 7 | 2      | 1.0        | 256.0         | -37.8060  | 144.9954   |
 ```
 
 
-Verilerinizi bu komutlarla görsel olarak kontrol etmek, bir veri bilimcinin işinin önemli bir parçasıdır. 
-Veri kümesinde sık sık daha fazla incelemeyi hak eden sürprizler bulacaksınız.
+Verilerin bu komutlarla görsel olarak kontrol edilmesi, işlemlerin önemli bir parçasını oluşturur. 
+Veri kümesinde sık sık inceleme yapıldıkça daha fazla incelemeyi hak eden sürprizler bulunabilir.
 
 ## Modeli Oluşturmak
 
-`scikit-learn` kütüphanesi modeller oluşturmak için kullanılabilir.
+Python ile makine öğrenimi kütüphanelerinden biri olan `scikit-learn` modeller oluşturmak için sıklıkla kullanılmaktadır.
 Kodlama yapılırken örnek kodda görüldüğü gibi kütüphane `sklearn` olarak yazılmıştır. 
-`scikit-learn`, genel olarak DataFrames'te depolanan veri türlerini modellemek için kullanılan en popüler kütüphanedir.
+`scikit-learn`, genel olarak `DataFrame` olarak depolanan veri türlerini modellemek için kullanılan en popüler kütüphanedir.
 
-Modeli oluşturmakta kullanılacak aşamalar aşağıdaki gibidir:
+Modeli oluşturmakta takip edilecek aşamalar aşağıdaki gibidir:
 1) Tanımlama (Definition): Ne tür bir model olacak? Bir karar ağacı (decision-tree) mi? Başka bir model türü mü? Model tipinin diğer bazı parametreleri ne olacak?
 2) Yerleştirme (Fitting): Verilerdeki örüntülerin yakalanması. Bu modelleme işleminin en önemli kısmıdır.
 3) Tahmin (Prediction): Değerlerin tahmin edilmesi işlemi.
 4) Değerlendirme (Evaluation): Model tahminlerinin ne kadar isabetli olduğunun ölçülmesi.
 
-Aşağıda `scikit-learn` ile bir karar ağacı modeli tanımlanmasının ve onun özellikler (features) ve hedef değişkenle (target-variable) uydurmanın bir örneği verilmiştir.
+Aşağıda `scikit-learn` ile bir karar ağacı modeli (`decision-tree`) tanımlanmasının ve onun özellikler (`features`) ve hedef değişkenle (`target-variable`) uydurmanın bir örneği verilmiştir.
 
 ```
 from sklearn.tree import DecisionTreeRegressor
@@ -145,8 +147,21 @@ Uygulamada, zaten fiyatlarına sahip olunan daireler yerine piyasaya çıkan yen
 Ancak, `predict` fonksiyonunun nasıl çalıştığını görmek için eğitim verilerinin ilk birkaç satırı için tahminler yapılabilir.
 
 ```
-print("Aşağıdaki apartman ev için tahmin yapılıyor:")
+print("Takip eden 5 apartman için tahmin yapılıyor:")
 print(X.head())
-print("Tahminler:")
+print("Tahminler aşağıdaki gibidir:")
 print(model.predict(X.head()))
+```
+Çıktı aşağıdaki gibi olacaktır.
+
+```
+Takip eden 5 apartman için tahmin yapılıyor:
+     Odalar   YatakOdasi  AlanBuyuklugu   Enlem       Boylam
+1      2       1.0        156.0          -37.8079    144.9934
+2      3       2.0        134.0          -37.8093    144.9944
+4      4       1.0        120.0          -37.8072    144.9941
+6      3       2.0        245.0          -37.8024    144.9993
+7      2       1.0        256.0          -37.8060    144.9954
+Tahminler aşağıdaki gibidir:
+[1035000. 1465000. 1600000. 1876000. 1636000.]
 ```
