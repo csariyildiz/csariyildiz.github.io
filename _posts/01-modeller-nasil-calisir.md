@@ -4,7 +4,7 @@
 O size parayı sağlayacak ve siz de çeşitli evlerin değerini tahmin eden modeller sağlayacaksınız.
 
 Kuzeninize geçmişte gayrimenkul değerlerini nasıl tahmin ettiğini soruyorsunuz ve o bunun sadece bir sezgi olduğunu söylüyor. 
-Ancak daha fazla sorgulama yaptığınızda görüyorsunuz ki geçmişte gördüğü apartman dairelerinin fiyat kalıpları belirlemiş ve bu kalıpları, düşündüğü yeni evler için tahminlerde bulunmak için kullanmış.
+Ancak daha fazla sorgulama yaptığınızda görüyorsunuz ki geçmişte işlem yaptığı apartman daireleri için fiyat kalıpları belirlemiş ve bu kalıpları, düşündüğü yeni evler için tahminlerde bulunmak için kullanmış.
 
 Makine öğrenimi de aynı şekilde çalışır. 
 Karar Ağacı (Decision Tree) adı verilen basit bir model makine öğrenimine örnektir. 
