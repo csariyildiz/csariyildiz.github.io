@@ -1,9 +1,9 @@
 Pandas, Python programlama dilinde veri analizi ve işleme için güçlü bir araçtır.
 Pandas kütüphanesinin özelliklerini ve yeteneklerini bilmek, sayısal tabloları ve zaman serilerini işlemek, veri setine yönelik genel bir bakış edinmek için faydalıdır.
 
-Pandas çeşitli veri yapıları ve fonksiyonlar ile birlikte gelir. Bu fonksiyonlar pandas ve DataFrame objeleridir.
-Pandas ile verisetini csv dosyasından okuyabilir ve onu bir DataFrame olarak tanımlayabiliriz.
-Daha sonra ise describe() metodunu kullanılarak bu veriseti üzerinde özet bilgilere erişebiliriz.
+Pandas çeşitli veri yapıları ve fonksiyonlar ile birlikte gelir. Bu fonksiyonlar `pandas` ve `DataFrame` objeleridir.
+Pandas ile verisetini `csv` dosyasından okuyabilir ve onu bir `DataFrame` olarak tanımlayabiliriz.
+Daha sonra ise `describe()` metodunu kullanılarak bu veriseti üzerinde özet bilgilere erişebiliriz.
 Bu özet bilgiler elimizdeki veri hakkında bir bakış açısı sağlamaktadır.
 
 Öte yandan bu özet bilgileri yorumlayabilmek için ne anlama geldikleri bilinmelidir. 
@@ -86,8 +86,8 @@ Standart sapma veri değerlerinin yayılımının özetlenmesi için kullanılı
 Düşük standart sapma verilerin ortalamaya yakın olarak dağıldığını gösterir.
 Yüksek standart sapma ise değerlerin yayıldığını ve daha geniş bir aralığa dağıldıklarını gösterir.
 
-Örneğin, Fiyat kolonu için std değeri "6.393107e+05", bu da fiyatların "1.075684e+06" ortalama değeri etrafında nispeten geniş bir dağılıma sahip olduğu anlamına gelir. 
-Benzer şekilde, Odalar sütununun std değeri "0,955748"dir; bu, her dairedeki oda sayısının ortalama "2,937997" değerine yakın olma eğiliminde olduğu anlamına gelir.
+Örneğin, Fiyat kolonu için std değeri `6.393107e+05`, bu da fiyatların `1.075684e+06` ortalama değeri etrafında nispeten geniş bir dağılıma sahip olduğu anlamına gelir. 
+Benzer şekilde, Odalar sütununun std değeri `0,955748`dir; bu, her dairedeki oda sayısının ortalama `2,937997` değerine yakın olma eğiliminde olduğu anlamına gelir.
 
 ```
 |       | Odalar       | Fiyat        | Mesafe       | Yatakodasi   | BinaAlani    | BinaSayisi    |
@@ -106,38 +106,38 @@ Benzer şekilde, Odalar sütununun std değeri "0,955748"dir; bu, her dairedeki 
 
 Tabloda sağlanan verilere göre, veri setinin 13.580 daire hakkında bilgi içerdiği görülmektedir.
 
-* Fiyat
-  * Bir dairenin ortalama fiyatı 1.075.684, standart sapması 639.310,7'dir.
-  * Minimum fiyat 85.000 ve maksimum fiyat 9.000.000'dir.
-* Odalar
-  * Bir dairedeki ortalama oda sayısı 0,96 standart sapma ile yaklaşık 2,94'tür.
+* `Fiyat`
+  * Bir dairenin ortalama fiyatı `1.075.684`, standart sapması `639.310,7`dir.
+  * Minimum fiyat `85.000` ve maksimum fiyat `9.000.000`dir.
+* `Odalar`
+  * Bir dairedeki ortalama oda sayısı `0,96` standart sapma ile yaklaşık `2,94`tür.
   * Minimum oda sayısı 1, maksimum oda sayısı 10'dur.
-* Mesafe
-  * Merkezi bir iş bölgesine ortalama uzaklık 5,87 standart sapma ile 10,14'tür.
-  * Minimum mesafe 0 ve maksimum 48,1'dir.
-* YatakOdasi
-  * Bir dairedeki ortalama yatak odası sayısı 0,97 standart sapma ile yaklaşık 2,91'dir.
-  * Minimum yatak odası sayısı 0, maksimum 20'dir.
-* Bina Alanı
-  * BinaAlani kolonu, diğer kolonlara kıyasla daha az veri noktasına (7.130) sahiptir.
-  * Bir apartmanın ortalama bina alanı yaklaşık 151,97'dir ve büyük bir standart sapmaya (541,01) sahiptir.
-  * Minimum bina alanı 0 ve maksimum bina alanı 44.515'tir.
-* BinaSayisi
-  * Ortalama Propertycount değeri, 4.379 standart sapma ile 7.454'tür.
-  * Minimum değer 249 ve maksimum değer 21.650'dir.
+* `Mesafe`
+  * Merkezi bir iş bölgesine ortalama uzaklık `5,87` standart sapma ile `10,14`tür.
+  * Minimum mesafe `0` ve maksimum `48,1`dir.
+* `YatakOdasi`
+  * Bir dairedeki ortalama yatak odası sayısı `0,97` standart sapma ile yaklaşık `2,91`dir.
+  * Minimum yatak odası sayısı `0`, maksimum `20`dir.
+* `Bina Alanı`
+  * BinaAlani kolonu, diğer kolonlara kıyasla daha az veri noktasına `(7.130)` sahiptir.
+  * Bir apartmanın ortalama bina alanı yaklaşık `151,97`dir ve büyük bir standart sapmaya `(541,01)` sahiptir.
+  * Minimum bina alanı `0` ve maksimum bina alanı `44.515`tir.
+* `BinaSayisi`
+  * Ortalama Propertycount değeri, `4.379` standart sapma ile `7.454`tür.
+  * Minimum değer `249` ve maksimum değer `21.650`dir.
 
-%25, %50 ve %75 değerleri fiyat, merkezi iş bölgesine uzaklık, oda ve yatak odası sayısı, bina alanı ve daire sayısı gibi dairelerle ilgili çeşitli değişkenler için özet istatistikler sağlamaktadır.
+`%25, %50 ve %75` değerleri fiyat, merkezi iş bölgesine uzaklık, oda ve yatak odası sayısı, bina alanı ve daire sayısı gibi dairelerle ilgili çeşitli değişkenler için özet istatistikler sağlamaktadır.
 
-%25, %50 ve %75 değerleri, verilerin dağılımını anlamak ve olası aykırı değerleri belirlemek için kullanılabilir.
+`%25, %50 ve %75` değerleri, verilerin dağılımını anlamak ve olası aykırı değerleri belirlemek için kullanılabilir.
 Sırasıyla her sütunun birinci çeyrek (1. quartile) (Q1), ortanca (median) (Q2) ve üçüncü çeyrek (3. quatrile) (Q3). Bu değerler verileri dört eşit parçaya böler.
 
-* İlk Çeyrek (%25) :
+* `İlk Çeyrek (%25) :`
   * İlk çeyrek (Q1), verilerin en düşük %25'ini diğerlerinden ayıran değerdir.
   * Örneğin, Fiyat sütununda dairelerin %25'inin fiyatı 650.000 veya daha düşük.
-* İkinci Çeyrek (%50) :
+* `İkinci Çeyrek (%50) :`
   * Medyan (Q2), verileri iki eşit parçaya ayıran değerdir.
   * Verilerin %50'si bu değerden küçük veya bu değere eşit, verilerin %50'si bu değerden büyük veya ona eşittir.
   * Örneğin, Fiyat sütununda, dairelerin yarısının fiyatı 903.000 veya daha düşük, yarısının fiyatı ise 903.000 veya daha yüksektir.
-* Üçüncü Çeyrek (%75) :
+* `Üçüncü Çeyrek (%75) :`
   * Üçüncü çeyrek (Q3), verilerin en yüksek %25'ini diğerlerinden ayıran değerdir.
   * Örneğin, Fiyat sütununda dairelerin %25'inin fiyatı 1.330.000 veya daha yüksektir.
