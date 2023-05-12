@@ -1,10 +1,11 @@
+Genellikle bir veriseti modelleme için kulanılmadan önce çeşitli araçlarla incelenenir.
 Pandas, Python programlama dilinde veri analizi ve işleme için güçlü bir araçtır.
-Pandas kütüphanesinin özelliklerini ve yeteneklerini bilmek, sayısal tabloları ve zaman serilerini işlemek, veri setine yönelik genel bir bakış edinmek için faydalıdır.
+Pandas kütüphanesinin özelliklerinin kullanılması verisetlerine yönelik genel bir izlenim edinmek için faydalıdır.
 
-Pandas çeşitli veri yapıları ve fonksiyonlar ile birlikte gelir. Bu fonksiyonlar `pandas` ve `DataFrame` objeleridir.
-Pandas ile verisetini `csv` dosyasından okuyabilir ve onu bir `DataFrame` olarak tanımlayabiliriz.
+Pandas çeşitli veri yapıları ve fonksiyonlar ile birlikte gelir. Bu fonksiyonlardan en çok kullanılanları `pandas` ve `DataFrame` objeleridir.
+Pandas ile verisetini `csv` dosyasından okuyabilir ve bir `DataFrame` olarak tanımlayabiliriz.
 Daha sonra ise `describe()` metodunu kullanılarak bu veriseti üzerinde özet bilgilere erişebiliriz.
-Bu özet bilgiler elimizdeki veri hakkında bir bakış açısı sağlamaktadır.
+Bu özet bilgiler eldeki veri hakkında bir bakış edinilmesine olanak sağlar.
 
 Öte yandan bu özet bilgileri yorumlayabilmek için ne anlama geldikleri bilinmelidir. 
 Bu yazıda aşağıdaki sorulara cevap arayacağız.
