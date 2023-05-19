@@ -29,30 +29,47 @@ Now we can see the collections within this database:
 
 We can also access this interface using programming environments such as Python:
 
+<code>db.minimized3.find( { To: ""} ).count()</code>
+
+<code>db.minimized3.aggregate( [{ $count: "Subject" }])</code>
+
+<code>db.minimized3.remove( { match_count:0 } )</code>
+
+<code>db.minimized3.findOne({'token': "onsite"})</code>
+
+<code>db.minimized3.aggregate([{ $out : "enron9" }])</code>
+
+<code>db.minimized3.aggregate([{$out: "minimized5"}])</code>
+
+
 ```
 import pymongo
 
 # Connect to MongoDB
 client = pymongo.MongoClient("mongodb://localhost:27017/")
-db = client["enron"]
-collection = db["enronmails6_tokenized"]
+
+db = client["mydb"]
+minimized2 = db["minimized2"]
 
 # Find all documents in the collection
-documents = collection.find({})
+documents = minimized2.find({})
 
 # Extract tokens from documents and insert into another collection
-new_collection = db["enron8"]
+new_collection  = db["minimized_new"]
+
+i = 0
+x = 0
 
 for doc in documents:
     tokens = doc["tokens"]
     file_name = doc["file"]
-    x = x+1
+    x =  x+1
     for token in tokens:
         new_doc = {
             "id": i,
             "doc" : x,
             "file_name": file_name,
-            "token": token
+            "tokens": tokens
         }
         i = i + 1
         new_collection.insert_one(new_doc)
