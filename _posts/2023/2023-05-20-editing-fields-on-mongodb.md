@@ -68,6 +68,35 @@ I change the name of filename field to directory.
 
 <code>db.enronmails.updateMany({},{$rename: {"file":"directory"}})</code>
 
+Take a copy of 'input_entities' collection.
+
+<code>db.input_entities.aggregate([{$out: "input_entities_cased"}])</code>
+
+Insert one document to a collection.
+
+<code>db.entities.insertOne({"_id" : 1, "entity": "aws"});</code>
+
+Aggregation to list top 1000 documents by c.
+
+<code>[ { '$sort': { 'c': -1    }  },  { '$limit': 1000 }]</code>
+
+To lowercase all name values in the "input_entities_cased" collection, use the following aggregation stages in MongoDB Compass. Change max time ms is 3600000 which 1 hour.
+
+```
+[
+  {
+    $project: {
+      _id: 1,
+      id: 1,
+      name: { $toLower: "$name" },
+      res: 1
+    }
+  },
+  {
+    $out: "entities"
+}
+```
+
 ## Accessing Via Python With Batches
 
 Using batches with a batch size might be useful when dealing large amount of data (ex. 510000 documents).
