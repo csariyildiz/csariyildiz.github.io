@@ -16,6 +16,14 @@ h2{
 
 }
 
+.language-plaintext .highlighter-rouge
+ {
+    border: 1px solid #E8EDEB;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
 body{
 
 	    text-rendering: optimizeLegibility;
