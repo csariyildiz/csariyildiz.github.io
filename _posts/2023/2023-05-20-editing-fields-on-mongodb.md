@@ -64,7 +64,7 @@ for doc in documents:
         new_collection.insert_one(new_doc)
 ```        
 
-### Editing Fields
+## Editing Fields
 
 Lets say dont need unparsed "message" field since we have the "body" field. I delete it using  query on MongoDB compass interface.
 
@@ -116,7 +116,7 @@ To lowercase all name values in the "input_entities_cased" collection, use the f
 <code>db.minimized3.aggregate([{$out: "minimized5"}])</code>
 
 
-## Accessing Via Python With Batches
+## Accessing With Python Using Batches
 
 Using batches with a batch size might be useful when dealing large amount of data (ex. 510000 documents).
 
