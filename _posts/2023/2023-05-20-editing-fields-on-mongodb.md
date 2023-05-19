@@ -6,10 +6,10 @@ thumb: "enrona_1"
 ---
 
 MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases.
+It has free and .. versions.
 In this document we will explore its features and commands which can be useful when we dealing with data.
 
-* Indexes.
-
+* Indexes, 
 
 ## Brief Look To MongoDB
 
