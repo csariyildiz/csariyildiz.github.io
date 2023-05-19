@@ -6,12 +6,13 @@ thumb: "enrona_1"
 ---
 
 MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases including apps and data pipelines.
-It has versions such as Cloud, Enterprise and Community which is free to use. It also has a GUI named MongoDB Compass.
+In this document we will explore its features and commands which can be useful when we dealing with data.
 
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/mongo2.png" class="img-fluid" alt="MongoDB Compass Interface">
+
+It has versions such as Cloud, Enterprise and Community which is free to use. It also has a GUI named MongoDB Compass.
 Because MongoDB is no-sql its data stored in a unstructured or semi-structured way. Differentiating from relational databases such as MSSQL, MySQL or Oracle with its collections and documents instead of structured tables columns and rows.
 MongoDB also has features like Indexing, Replication, Load-Balancing. Its queries are formed as JSON-like make it easy to use and flexible.
-
-In this document we will explore its features and commands which can be useful when we dealing with data.
 
 ## Databases And Collections
 
