@@ -5,13 +5,15 @@ category: main
 thumb: "enrona_1"
 ---
 
-MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases.
-It has free and .. versions.
+MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases including apps and data pipelines.
+It has versions such as Cloud, Enterprise and Community which is free to use. It also has a GUI named MongoDB Compass.
+
+Because MongoDB is no-sql its data stored in a unstructured or semi-structured way. Differentiating from relational databases such as MSSQL, MySQL or Oracle with its collections and documents instead of structured tables columns and rows.
+MongoDB also has features like Indexing, Replication, Load-Balancing. Its queries are formed as JSON-like make it easy to use and flexible.
+
 In this document we will explore its features and commands which can be useful when we dealing with data.
 
-* Indexes, 
-
-## Brief Look To MongoDB
+## Databases And Collections
 
 MongoDB organizes its "documents" as "databases" and "collections". Each document has a collection and a database.
 
@@ -28,19 +30,6 @@ Now we can see the collections within this database:
 <code>show collections</code>
 
 We can also access this interface using programming environments such as Python:
-
-<code>db.minimized3.find( { To: ""} ).count()</code>
-
-<code>db.minimized3.aggregate( [{ $count: "Subject" }])</code>
-
-<code>db.minimized3.remove( { match_count:0 } )</code>
-
-<code>db.minimized3.findOne({'token': "onsite"})</code>
-
-<code>db.minimized3.aggregate([{ $out : "enron9" }])</code>
-
-<code>db.minimized3.aggregate([{$out: "minimized5"}])</code>
-
 
 ```
 import pymongo
@@ -113,6 +102,19 @@ To lowercase all name values in the "input_entities_cased" collection, use the f
     $out: "entities"
 }
 ```
+
+<code>db.minimized3.find( { To: ""} ).count()</code>
+
+<code>db.minimized3.aggregate( [{ $count: "Subject" }])</code>
+
+<code>db.minimized3.remove( { match_count:0 } )</code>
+
+<code>db.minimized3.findOne({'token': "onsite"})</code>
+
+<code>db.minimized3.aggregate([{ $out : "enron9" }])</code>
+
+<code>db.minimized3.aggregate([{$out: "minimized5"}])</code>
+
 
 ## Accessing Via Python With Batches
 
