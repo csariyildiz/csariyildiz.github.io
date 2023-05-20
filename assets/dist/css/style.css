@@ -5,6 +5,12 @@
     margin-right: -15px;
 }
 
+.pre{
+    border: 1px solid #E8EDEB;
+    padding: 14px;
+    font-size: 13px;
+}
+
 h2{
 
     font-weight: 800;
