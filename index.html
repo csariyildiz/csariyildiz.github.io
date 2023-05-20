@@ -16,11 +16,9 @@ layout: default2
 	     <img src="/img/bt_1.png" alt="{{ post.title }}" width="130" height="79">
 	  {% endif %}
 
-		   </div>
-<div class="col-9 col-md-9" style="
-    padding-right: 0px;
-">
-        <h6 class="mb-0" style=" font-weight: 600; margin-top: 10px; ">{{ post.title }}</h6>
+	</div>
+	<div class="col-9 col-md-9 postcolumn" style="padding-right: 0px;">
+        	<h6 class="mb-0" style=" font-weight: 600; margin-top: 10px; ">{{ post.title }}</h6>
 	      	  {% if post.excerpt %}  
 	  <p class="mb-0 opacity-75 posts_excerpt">{{ post.excerpt }}</p>
 	  {% else %}
@@ -28,9 +26,8 @@ layout: default2
 	  {% endif %} 
 	  </div>
 
-	  <div class="col-12 col-md-1" style="
-">
-	    <div class="badge bg-dark" style="max-height: 20px;float:right;">{{ post.date | date: "%d-%m-%Y"}}</div>
+	  <div class="col-12 col-md-1" style="">
+	  	<div class="badge bg-dark" style="max-height: 20px;float:right;">{{ post.date | date: "%d-%m-%Y"}}</div>
 	  </div>
 
   </a>
