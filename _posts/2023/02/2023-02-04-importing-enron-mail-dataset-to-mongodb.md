@@ -3,7 +3,7 @@ layout: post
 title: "Importing Enron Mail Dataset To MongoDB"
 category: main
 thumb: "enrona_1"
-post_category: nlp
+post_category: "nlp"
 ---
 
 Enron dataset is commonly used dataset by scientific community and researchers as a  test or training data for various NLP tasks.
