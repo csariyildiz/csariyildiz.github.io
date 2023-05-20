@@ -13,9 +13,9 @@ In this document we will explore its features and commands which can be useful w
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/mongo2.png" class="img-fluid" alt="MongoDB Compass Interface">
 
-It has versions such as Cloud, Enterprise and Community which is free to use. It also has a GUI named MongoDB Compass.
-Because MongoDB is no-sql its data stored in a unstructured or semi-structured way. Differentiating from relational databases such as MSSQL, MySQL or Oracle with its collections and documents instead of structured tables columns and rows.
-MongoDB also has features like Indexing, Replication, Load-Balancing. Its queries are formed as JSON-like make it easy to use and flexible.
+MongoDB has versions like Cloud (Named Atlas), Enterprise and Community. Community version is free to use. It also has a GUI named MongoDB Compass.
+Because MongoDB is no-sql its data stored as unstructured or semi-structured. Contrasting from relational databases such as MSSQL, MySQL or Oracle with its collections and documents instead of structured tables columns and rows.
+MongoDB has many features like indexing, replication, load-balancing. And its queries are formed in a JSON-like manner which makes flexible and it easy to use.
 
 ## Databases And Collections
 
