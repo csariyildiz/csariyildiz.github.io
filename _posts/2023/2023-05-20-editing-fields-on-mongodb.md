@@ -2,6 +2,7 @@
 layout: post
 title: "Editing Fields On MongoDB"
 category: main
+post_category: Database
 thumb: "enrona_1"
 ---
 
