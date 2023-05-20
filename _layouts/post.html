@@ -13,11 +13,30 @@ layout: default2
 </time>
 </span>
 <span class="post-meta-item post-meta-length">
-5 min read
+
+ {% assign words_per_minute = 200 %}
+{% assign content_words = page.content | number_of_words %}
+{% assign reading_time_minutes = content_words | divided_by: words_per_minute %}
+
+{% if reading_time_minutes == 0 %}
+  {% assign reading_time_minutes = 1 %}
+{% endif %}
+
+{{ reading_time_minutes }} minute{% if reading_time_minutes > 1 %}s{% endif %} min read
+
+ 
 </span>
+ 
 <span class="post-meta-item post-meta-tags">
-<a class="post-tag post-tag-web-development" href="#" style=" color: #00bbff; text-decoration: none; " title="Category">Category</a>
-</span>
+
+ {% if page.post_category.size > 0 %}
+ <a class="post-tag post-tag-web-development" href="#" style=" color: #00bbff; text-decoration: none;">{{ page.post_category.first }}</a>
+ {% else %}
+ <a class="post-tag post-tag-web-development" href="#" style=" color: #00bbff; text-decoration: none;">Category</a>
+ {% endif %}
+ 
+ 
+ </span>
 </div>
 </header>
        <div class="post-content kg-canvas u-text-format" style=" padding:1rem; ">
