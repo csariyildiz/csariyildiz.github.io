@@ -27,12 +27,17 @@ layout: default2
  
 <span class="post-meta-item post-meta-tags">
 
- {% if page.post_category.size > 0 %}
- <a class="post-tag post-tag-web-development" href="#" style=" color: #00bbff; text-decoration: none;">{{ page.post_category.first }}</a>
- {% else %}
- <a class="post-tag post-tag-web-development" href="#" style=" color: #00bbff; text-decoration: none;">Category</a>
- {% endif %}
- 
+{% if page.tags %}
+  {% for tag in page.tags %}
+    <a class="post-tag post-tag-web-development" href="#" style="color: #00bbff; text-decoration: none;">
+      {{ tag }}
+    </a>
+  {% endfor %}
+{% else %}
+  <a class="post-tag post-tag-web-development" href="#" style="color: #00bbff; text-decoration: none;">
+    Category
+  </a>
+{% endif %}
  
  </span>
 </div>
