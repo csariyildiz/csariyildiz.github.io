@@ -6,7 +6,6 @@ category: main
 thumb: "enrona_1"
 tags:
   - database
-  - mongodb
 ---
 
 MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases including apps and data pipelines.
