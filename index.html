@@ -17,14 +17,11 @@ layout: default2
 	  {% endif %}
 
 	</div>
-	<div class="col-9 col-md-9 postcolumn" style="padding-right: 0px;">
-        	<h6 class="mb-0" style=" font-weight: 600;">{{ post.title }}</h6>
-	      	  {% if post.excerpt %}  
-		<div class="mb-0 opacity-75 posts_excerpt">{{ post.excerpt }}</div>
-	  {% else %}
-	    <div class="mb-0 opacity-75 posts_excerpt">Some placeholder content in a paragraph.</div>
-	  {% endif %} 
-	  </div>
+	
+	  <div class="col-9 col-md-9 postcolumn" style="padding-right: 0px;">
+        	<h6 class="mb-0" style="font-weight: 600;">{{ post.title }}</h6>
+	     	{% if post.excerpt %} <div class="mb-0 opacity-75 posts_excerpt">{{ post.excerpt }}</div>{% endif %}
+	 </div>
 
 	  <div class="col-12 col-md-1" style="">
 	  	<div class="badge bg-dark" style="max-height: 20px;float:right;">{{ post.date | date: "%d-%m-%Y"}}</div>
