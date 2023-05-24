@@ -7,6 +7,8 @@ tags:
     - Software
 ---
 
+Digital content creation is very important today. Most of the videos are made using a few industry-standart software. These tools are basis for creative work.
+So much so that if your work gets a little complicated, you definitely need them.
 
 ## What I'm Up To?
 Recently I had a need to make a video for a presentation.
