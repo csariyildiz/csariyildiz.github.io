@@ -1,3 +1,12 @@
+---
+layout: post
+title: "Creating A Video Content"
+category: main
+thumb: "enrona_1"
+tags:
+    - Software
+---
+
 
 ## What I'm Up To?
 Recently I had a need to make a video for a presentation.
