@@ -8,3 +8,8 @@ I had several steps:
 * Editing subtitles. 
 
 During this time, I also had the opportunity to review many software.
+
+* Sony Vegas
+* Audacity
+* Adobe Premiere Pro, Photoshop.
+* https://www.nikse.dk/subtitleedit (Subtitle Edit 3.6.13)
