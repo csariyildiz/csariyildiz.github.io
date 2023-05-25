@@ -72,11 +72,11 @@ for doc in documents:
 
 Lets say dont need unparsed "message" field since we have the "body" field. I delete it using  query on MongoDB compass interface.
 
-<code>db.enronmails.updateMany({},{$unset: {message:""}})</code>
+<code>db.nmails.updateMany({},{$unset: {message:""}})</code>
 
 I change the name of filename field to directory. 
 
-<code>db.enronmails.updateMany({},{$rename: {"file":"directory"}})</code>
+<code>db.mails.updateMany({},{$rename: {"file":"directory"}})</code>
 
 Take a copy of 'input_entities' collection.
 
@@ -106,21 +106,50 @@ To lowercase all name values in the "input_entities_cased" collection, use the f
     $out: "entities"
 }
 ```
+----------------------------------------------------------------
+Querying the collection minimized3 in the database using the find() method:
 
 <code>db.minimized3.find( { To: ""} ).count()</code>
 
+* It searches for documents where the value of the To field is an empty string. 
+* The count() method is then applied to get the count of matching documents.
+
+----------------------------------------------------------------
+
+Aggregation operation on the minimized3 collection:
+
 <code>db.minimized3.aggregate( [{ $count: "Subject" }])</code>
+
+ * The aggregation pipeline consists of a single stage where the $count operator is used to count the number of documents in the collection. 
+ * The resulting count is assigned the label "Subject".
+
+----------------------------------------------------------------
+
+Executing the remove() method on the collection:
 
 <code>db.minimized3.remove( { match_count:0 } )</code>
 
+* It removes documents from the collection that have a match_count field with a value of 0.
+
+----------------------------------------------------------------
+
+Retrieving the first document from the collection that has a token field with the spesific value:
+
 <code>db.minimized3.findOne({'token': "onsite"})</code>
 
-<code>db.minimized3.aggregate([{ $out : "enron9" }])</code>
+* The findOne() method is used to perform this query.
 
-<code>db.minimized3.aggregate([{$out: "minimized5"}])</code>
+----------------------------------------------------------------
 
+Using aggregate() method with an aggregation pipeline containing a single stage to copy collection.
 
-## Accessing With Python Using Batches
+<code>db.minimized3.aggregate([{ $out : "mails" }])</code>
+
+* The $out operator is used to output the result of the aggregation to a new collection named "mails". 
+* This effectively replaces the contents of the "mails" collection with the result of the aggregation.
+
+----------------------------------------------------------------
+## Snippet 1
 
 Using batches with a batch size might be useful when dealing large amount of data (ex. 510000 documents).
 
@@ -131,7 +160,7 @@ from pymongo import MongoClient
 
 # Connect to MongoDB
 client = MongoClient()
-db = client.enron
+db = client.mails
 
 # Get the "mycollection" and "second_collection" collections
 col1 = db.mycollection
@@ -163,4 +192,36 @@ for batch_num in range(num_batches):
 
 # Close the MongoDB connection
 client.close()
+```
+## Snippet 2
+
+```
+
+from pymongo import MongoClient
+
+
+client = MongoClient()
+db = client["mails"]
+collection = db["mails_pass1"]
+
+
+batch_size = 10000
+total_documents = collection.count_documents({})
+total_batches = (total_documents // batch_size) + 1
+
+for batch_number in range(total_batches):
+    documents = collection.find().skip(batch_number * batch_size).limit(batch_size)
+
+    processed_documents = 0
+    for document in documents:
+
+        document["message"] = document["message"].lower()
+        db["mails_pass2"].insert_one(document)
+
+        processed_documents += 1
+    print(f"Processed document {processed_documents} of batch {batch_number + 1}")
+
+
+client.close()
+
 ```
