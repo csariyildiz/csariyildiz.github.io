@@ -2,7 +2,7 @@
 layout: post
 title: "Features of Digital Content Creation Software"
 category: main
-thumb: "enrona_1"
+thumb: "digital_content"
 tags:
     - Software
 ---
