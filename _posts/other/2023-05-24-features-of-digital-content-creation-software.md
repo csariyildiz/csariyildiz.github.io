@@ -11,6 +11,8 @@ Digital content creation has become increasingly significant in today's technolo
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/premiere.png" class="img-fluid" alt="Adobe Premiere">
 
+## Overview
+
 Recently, I found myself needing to create a video for a presentation. To accomplish this, I followed several steps that allowed me to produce a simple video.
 
 It required following stages:
@@ -35,7 +37,8 @@ While working with the video editing program, I often needed other utilities lik
 
 Size of the videos, video formats plays significant role.
 
-Movies are created in different stages such as Development, Pre-production, Production, Photography, Wrap,  Post-production, Distribution.
+Movies are created in different stages such as Development, Pre-production, Production, Photography, Wrap,  Post-production, Distribution. Postproduction is the time that main software work is done.
+There are several roles in this. Also some technical spesifications.
 
 * Adobe Photoshop
 * Aobe Illustrator
@@ -49,6 +52,8 @@ Movies are created in different stages such as Development, Pre-production, Prod
 * Photoshop
 * Canva
 * Subtitle Edit
+
+Its notable that all Abobe products are not successfull. Some of them are basicly empty projects.
 
 
 -----------------------------------------------------
