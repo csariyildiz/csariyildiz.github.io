@@ -1,50 +1,44 @@
 ---
 layout: post
-title: "Creating A Video Content"
+title: "Features of Digital Content Creation Software"
 category: main
 thumb: "enrona_1"
 tags:
     - Software
 ---
 
-Digital content creation has become increasingly significant in today's world. With the majority of videos we watch being produced using industry-standard software, it is crucial to explore the tools that form the foundation of virtually every creative project. In this article, we will delve into these essential tools and their role in content creation.
+Digital content creation has become increasingly significant in today's technological landscape. With the majority of videos we watch being produced using similar industry-standard software, it is beneficial to explore this tools in terms of their features and underlying technology. In this article, we will delve into these essential tools and their role in content creation.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/premiere.png" class="img-fluid" alt="Adobe Premiere">
 
-The Video Creation Process:
-Recently, I found myself needing to create a video for a presentation. To accomplish this, I followed several steps that allowed me to produce a polished and engaging video:
+Recently, I found myself needing to create a video for a presentation. To accomplish this, I followed several steps that allowed me to produce a simple video.
 
-Downloading Original Videos from YouTube:
-The initial stage involved sourcing the necessary video footage from YouTube. This step ensured that I had relevant and high-quality content to work with.
+* Downloading original videos from YouTube
+* Editing each video and removing unnecessary parts
+* Adding Titles to Each Part
+* Merging Videos
+* Incorporating png files at the beginning and end
 
-Editing Each Video and Removing Unnecessary Parts:
-With the raw video files in hand, I proceeded to edit each one, meticulously removing any sections that were irrelevant or unnecessary. This helped streamline the content and enhance its overall flow.
+When a user like me wants to perform such a process, it can be managed by using open source or a slightly simple programs. But at the end of the day, we see that professional products weigh more.
+As an example, I have used the open source application called Avidemux quite successfully. But with this app, all I did was split the big video.
 
-Adding Titles to Each Part:
-To provide clarity and structure to the video, I included titles for each section. These titles acted as signposts, guiding the viewer through the different segments and facilitating comprehension.
+When a little research is done, the weight of Adobe products can be seen. Of course, there are competitors, but the superiority of Adobe products is felt.
 
-Merging Videos:
-Next, I merged the edited videos together, seamlessly transitioning from one clip to another. This cohesive merging process created a smooth viewing experience for the audience.
+Then I downloaded and used the trial version of Adobe Premiere Pro. Although I struggled for a while, I was able to progress rapidly after a short period of getting used to.
 
-Incorporating PNG Files at the Beginning and End:
-To add a professional touch, I placed a PNG file at the start and end of the video. This visually appealing element served as an introduction and conclusion, leaving a lasting impression.
+Dealing with the video can be very difficult. I'm sure many people in the visual industry are working on these and it's a really tiring work. I experienced this even when trying to produce a short video like this.
 
-Editing Subtitles:
-Lastly, I dedicated time to fine-tuning the subtitles. Ensuring accuracy and proper synchronization with the audio was essential, as it significantly enhanced accessibility and engagement for viewers.
+The subtitle application was quite successful.
 
-* Experimentation oon Sony Vegas, Avidemux and Audacity, Premiere Pro within context.
-* Talking about Final Cut Pro within context. 
-* Talking about Photoshop and Canva within context.
-* Write the structure of the programs. And feratures and technologies they use.
+While working with the video editing program, I often needed other utilities like Photoshop and Canva.
 
-## Editing Subtitles
+Size of the videos, video formats.
 
-* https://www.nikse.dk/subtitleedit (Subtitle Edit 3.6.13)
-* I removed time to synch. Then get necessarry part.
-* SubRip .srt, Sub encoding
-* Create new project.
-* File import.
-* New Squence From CLip
-* Embedding closed captions. (Burn captions into video.)
-* write srt file using Subtitle Edit.
-* Embed new captions to video.
+
+Movies are created in different stages such as Development, Pre-production, Production, Photography, Wrap,  Post-production, Distribution.
+
+
+-----------------------------------------------------
+
+* https://in.indeed.com/career-advice/career-development/filmmaking-process
+* https://en.wikipedia.org/wiki/Post-production
