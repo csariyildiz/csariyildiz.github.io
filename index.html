@@ -10,17 +10,17 @@ layout: default2
 	  <div class="col-3 col-md-2" style=" padding: 0px; ">
 	  {% if post.thumb %}
 
-	    <img src="/img/{{ post.thumb}}.png" alt="{{ post.title }}" style="border-radius:6px;width: 100%;">
+	    <img src="/img/{{ post.thumb}}.png" alt="{{ post.title }}" height="82.16" width="136.23" style="border-radius:6px;width: 100%;">
 
 	  {% else %}
-	     <img src="/img/bt_1.png" alt="{{ post.title }}" width="130" height="79">
+	     <img src="/img/bt_1.png" alt="{{ post.title }}" height="82.16" width="136.23">
 	  {% endif %}
 
 	</div>
 	
 	  <div class="col-9 col-md-9 postcolumn" style="padding-right: 0px;">
         	<h6 class="mb-0" style="font-weight: 600;">{{ post.title }}</h6>
-	     	{% if post.excerpt %} <div class="mb-0 opacity-75 posts_excerpt">{{ post.excerpt }}</div>{% endif %}
+	     	{% if post.excerpt %} <div class="mb-0 opacity-75 posts_excerpt">{{ post.excerpt | strip_html | strip_newlines | truncatewords:44 }}</div>{% endif %}
 	 </div>
 
 	  <div class="col-12 col-md-1" style="">
