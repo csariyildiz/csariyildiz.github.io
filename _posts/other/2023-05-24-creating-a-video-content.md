@@ -10,6 +10,9 @@ tags:
 Digital content creation is very important today. Most of the videos we watch are made using a few numbers of industry-standart software.
 In this article, we will examine these tools that have become the basis of almost every creative work.
 
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/premiere.png" class="img-fluid" alt="Adobe Premiere">
+
+
 ## What I'm Up To?
 Recently I had a need to make a video for a presentation.
 I had several steps:
