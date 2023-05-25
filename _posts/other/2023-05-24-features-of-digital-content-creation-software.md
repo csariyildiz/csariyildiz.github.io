@@ -13,6 +13,7 @@ Digital content creation has become increasingly significant in today's technolo
 
 Recently, I found myself needing to create a video for a presentation. To accomplish this, I followed several steps that allowed me to produce a simple video.
 
+It required following stages:
 * Downloading original videos from YouTube
 * Editing each video and removing unnecessary parts
 * Adding Titles to Each Part
@@ -32,10 +33,22 @@ The subtitle application was quite successful.
 
 While working with the video editing program, I often needed other utilities like Photoshop and Canva.
 
-Size of the videos, video formats.
-
+Size of the videos, video formats plays significant role.
 
 Movies are created in different stages such as Development, Pre-production, Production, Photography, Wrap,  Post-production, Distribution.
+
+* Adobe Photoshop
+* Aobe Illustrator
+* Adobe Premiere Pro
+* After Effects
+* InDesign
+* Sony Vegas
+* Avidemux
+* Audacity
+* Final Cut Pro. 
+* Photoshop
+* Canva
+* Subtitle Edit
 
 
 -----------------------------------------------------
