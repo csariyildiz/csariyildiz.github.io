@@ -1,3 +1,11 @@
+---
+layout: post
+header: "Veri Bilimi ve Modeller"
+title: "Makina Öğrenmesi Modelleri"
+category: tutorial
+---
+
+
 Veri setleri kimi zaman anlaşılmasını zorlaştıracak şekilde çok şekilde değer barındırabilir. 
 Bu durum verilerin daha rahat anlaşılacak şekilde parçalanarak incelenmesini önemli hale getirir.
 Veriler manuel seçilebilir ya da önceliklendirme için istatistiksel teknikler kullanılabilir.
