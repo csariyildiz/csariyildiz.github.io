@@ -15,7 +15,7 @@ layout: default2
 </header>
 
 <ul> {% for post in site.posts %}  {% if post.url %} 
-	<li><a href="{{ post.url }}" style="text-decoration: none; color: black;"> <h6 class="mb-0"> {{ post.date | date: "%d-%m-%Y }} - {{ post.title }}</h6></a></li> 
+	<li><a href="{{ post.url }}" style="text-decoration: none; color: black;"> <h6 class="mb-0"><div>{{ post.date | date: "%d-%m-%Y"}}</div><div>{{ post.title }}</div></h6></a></li> 
 	
 	
 	{% endif %} {% endfor %} 
