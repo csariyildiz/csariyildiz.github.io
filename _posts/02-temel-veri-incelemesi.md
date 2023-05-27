@@ -1,3 +1,11 @@
+---
+layout: post
+header: "Veri Bilimi ve Modeller"
+title: "Temel Veri İncelemesi"
+category: tutorial
+---
+
+
 Genellikle bir veriseti modelleme için kulanılmadan önce çeşitli araçlarla incelenenir.
 Pandas, Python programlama dilinde veri analizi ve işleme için güçlü bir araçtır.
 Pandas kütüphanesinin özelliklerinin kullanılması verisetlerine yönelik genel bir izlenim edinmek için faydalıdır.
