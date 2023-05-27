@@ -1,4 +1,9 @@
-## Modeller Nasıl Çalışır?
+---
+layout: post
+header: "Veri Bilimi ve Modeller"
+title: "Modeller Nasıl Çalışır?"
+category: tutorial
+---
 
 Örnek bir senaryo düşününelim. Kuzeniniz gayrimenkul spekülasyonu yaparak milyonlarca dolar kazandı. Veri bilimine olan ilginizden dolayı sizinle iş ortağı olmayı teklif etti. 
 O size parayı sağlayacak ve siz de çeşitli evlerin değerini tahmin eden modeller sağlayacaksınız.
