@@ -14,7 +14,7 @@ layout: default2
 </div>
 </header>
 
-<div> {% for post in site.posts %}  {% if post.url %} 
+<div style=" padding: 1rem; padding-top: 0rem; "> {% for post in site.posts %}  {% if post.url %} 
 	<div><a href="{{ post.url }}" style="text-decoration: none; color: black;"> <div class="mb-0" style=" display: flex; "><div style="padding-right: 10px">{{ post.date | date: "%d-%m-%Y"}}</div><div>{{ post.title }}</div></div></a></div> 
 	
 	
