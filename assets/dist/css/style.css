@@ -5,6 +5,11 @@
     margin-right: -15px;
 }
 
+a{
+    text-decoration: none;
+    color: #0969da;
+}
+
 pre{
     padding: 14px;
     font-size: 13px;
