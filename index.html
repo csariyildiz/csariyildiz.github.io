@@ -2,12 +2,12 @@
 layout: default2
 ---
 
-<div class="container list-group" style="padding:0px;margin-top: 1rem;">
+<div class="container list-group" style="margin-top: 1rem;">
 	   {% for post in site.categories.main %}  {% if post.url %}
 
-  <a href="{{ post.url }}" class="row list-group-item list-group-item-action p-3" aria-current="true" style="margin:0px;padding-right: 0px !important;border: 0px;border-top: 4px solid black !important;border-radius: 0px;padding-left: 0px !important;margin-left: 16px !important;">
+  <a href="{{ post.url }}" class="row list-group-item list-group-item-action p-3" aria-current="true" style="margin:0px;padding-right: 0px !important;border: 0px;border-top: 2px solid #ced4da !important;border-radius: 0px;padding-left: 0px !important;margin-left: 16px !important;">
 
-	  <div class="col-3 col-md-2" style=" padding: 0px; ">
+	  <div class="col-3 col-md-2">
 	  {% if post.thumb %}
 
 	    <img src="/img/{{ post.thumb}}.png" alt="{{ post.title }}" height="82.16" width="136.23" style="border-radius:6px;width: 100%;">
