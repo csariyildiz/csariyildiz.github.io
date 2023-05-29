@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 header: "Veri Bilimi ve Modeller"
 title: "Veri Bilimi Ve Modeller"
 category: tutorial
