@@ -16,13 +16,22 @@ layout: default2
 
 <div style=" padding: 1rem; padding-top: 0rem; "> 
 	<table class="table">
+		
+		<thead class="thead-dark">
+    <tr>
+      <th scope="col">Cat</th>
+      <th scope="col">Tag</th>
+      <th scope="col">Date</th>
+      <th scope="col">Title</th>
+    </tr>
+  </thead>
   <tbody>
 	  
 	{% for post in site.posts %}  {% if post.url %} 
 	
     <tr>
       <td>{{post.category}}</td>
-       <td>{{post.tag}}</td>
+      <td>{% if page.tags %} {% for tag in page.tags %} <a> {{ tag }} </a> {% endfor %} {% else %} <a></a> {% endif %}</td>
       <td>{{ post.date | date: "%d-%m-%Y"}}</td>
       <td><a href="{{ post.url }}" style="text-decoration: none; color: black;">{{ post.title }}</a></td>
 	    
