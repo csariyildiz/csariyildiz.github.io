@@ -14,12 +14,28 @@ layout: default2
 </div>
 </header>
 
-<div style=" padding: 1rem; padding-top: 0rem; "> {% for post in site.posts %}  {% if post.url %} 
-	<div><a href="{{ post.url }}" style="text-decoration: none; color: black;"> <div class="mb-0" style=" display: flex; "><div style="padding-right: 10px">{{ post.date | date: "%d-%m-%Y"}}</div><div>{{ post.title }}</div></div></a></div> 
+<div style=" padding: 1rem; padding-top: 0rem; "> 
+	<table class="table">
+  <tbody>
+	  
+	{% for post in site.posts %}  {% if post.url %} 
+	
+    <tr>
+      <td>{{ post.category"}}</td>
+       <td>{{ post.tag"}}</td>
+      <td>{{ post.date | date: "%d-%m-%Y"}}</td>
+      <td><a href="{{ post.url }}" style="text-decoration: none; color: black;">{{ post.title }}</a></td>
+	    
+    </tr>
+
+	
+
 	
 	
 	{% endif %} {% endfor %} 
-	
+		
+		</tbody>
+</table>
 </div>
 
        </div>
