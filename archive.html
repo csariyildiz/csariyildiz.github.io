@@ -15,7 +15,7 @@ layout: default2
 </header>
 
 <div style=" padding: 1rem; padding-top: 0rem; "> 
-	<table class="table">
+	<table class="table table-bordered">
 		
 		<thead class="thead-dark">
     <tr>
@@ -31,7 +31,7 @@ layout: default2
 	
     <tr>
       <td>{{post.category}}</td>
-      <td>{% if page.tags %} {% for tag in page.tags %} <a> {{ tag }} </a> {% endfor %} {% else %} <a></a> {% endif %}</td>
+      <td>{% if post.tags %} {% for tag in post.tags %} <a> {{ tag }} </a> {% endfor %} {% else %} <a></a> {% endif %}</td>
       <td>{{ post.date | date: "%d-%m-%Y"}}</td>
       <td><a href="{{ post.url }}" style="text-decoration: none; color: black;">{{ post.title }}</a></td>
 	    
