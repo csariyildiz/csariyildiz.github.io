@@ -16,7 +16,7 @@ layout: default2
 		
   <thead class="thead-dark">
     <tr>
-      <th style="color: #fff; background-color: #212529; border-color: #32383e;" scope="col">Cat</th>
+      <th style="color: #fff; background-color: #212529; border-color: #32383e;" scope="col">Category</th>
       <th style="color: #fff; background-color: #212529; border-color: #32383e;"  scope="col">Tag</th>
       <th style="color: #fff; background-color: #212529; border-color: #32383e;"  scope="col">Date</th>
       <th style="color: #fff; background-color: #212529; border-color: #32383e;"  scope="col">Title</th>
@@ -27,10 +27,10 @@ layout: default2
 	{% for post in site.posts %}  {% if post.url %} 
 	
     <tr>
-      <td style=" font-size: 14px; ">{{post.category}}</td>
-      <td style=" font-size: 14px; ">{% if post.tags %} {% for tag in post.tags %} <a> {{ tag }} </a> {% endfor %} {% else %} <a></a> {% endif %}</td>
-      <td style=" font-size: 14px; ">{{ post.date | date: "%d-%m-%Y"}}</td>
-      <td style=" font-size: 14px; "><a href="{{ post.url }}" style="text-decoration: none; color: black;">{{ post.title }}</a></td>
+      <td style="font-size: 11px; color: #aaa; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; ">{{post.category}}</td>
+      <td style="font-size: 11px; color: #aaa; font-weight: 800; letter-spacing: .5px; text-transform: uppercase;">{% if post.tags %} {% for tag in post.tags %} <a> {{ tag }} </a> {% endfor %} {% else %} <a></a> {% endif %}</td>
+      <td style="font-size: 11px; color: #aaa; font-weight: 800; letter-spacing: .5px; text-transform: uppercase;">{{ post.date | date: "%d-%m-%Y"}}</td>
+      <td style="font-size: 11px; color: #aaa; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; "><a href="{{ post.url }}" style="text-decoration: none; color: black;">{{ post.title }}</a></td>
 	    
     </tr>
 
