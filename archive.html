@@ -21,8 +21,8 @@ layout: default2
 	{% for post in site.posts %}  {% if post.url %} 
 	
     <tr>
-      <td>{{ post.category"}}</td>
-       <td>{{ post.tag"}}</td>
+      <td>{{post.category}}</td>
+       <td>{{post.tag}}</td>
       <td>{{ post.date | date: "%d-%m-%Y"}}</td>
       <td><a href="{{ post.url }}" style="text-decoration: none; color: black;">{{ post.title }}</a></td>
 	    
