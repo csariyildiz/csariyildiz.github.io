@@ -1,39 +1,34 @@
 ---
 layout: post
 header: "HuggingFace And Transformers"
-title: HuggingFace And Transformers"
+title: "HuggingFace And Transformers"
 category: tutorial
 ---
 
-Underlying mechanism and practical imolementstions. We will be focusing on practical tutorial with explaining basic concepts. 
+The Transformers library is a Python package developed by Huggingface. 
+It provides open-source implementations of state-of-the-art transformer models. 
+It enables the utilization of existing language models such as BERT and GPT for natural language processing tasks. 
+This pre-trained models also can also be fine-tuned for specific tasks instead of creating a model from scratch.
 
-# What is huggingface?
+It is possible to focus on both the underlying mechanisms and practical implementations of transformers library. 
+In this document we will take a practical tutorial that explains basic concepts.
 
-We have two options for transformer model: 
+Information about the Transformers library can be found on their website. It also has detailed documentation.
+The library is also accessible from github.
 
-Huggingface Pipelines for tasks such as sentiment analysis. Trainer class to train your models.
+There are two options for using models: 
 
-Imolement ypı models with an existing ml framework sucj as pytorch. Tensorfloe. Which also used by huggingface. 
+1) Implementing the models with an existing machine learning framework such as PyTorch or TensorFlow only.
+2) Using Huggingface Pipelines for tasks such as sentiment analysis or the Trainer class to train your own models.  
 
-Website. 
+Huggingface is a platform that provides access to major language models based on the transformer architecture. 
 
-Transformers library.
+In this tutorial, we will use the first approach and leverage the transformers library along with PyTorch
 
-On github.
+When we explore the models available for download on Huggingface and read their descriptions, we find that many of them are commonly used for text classification.
+* distilbert-base-uncased-finetuned-sst-2-english
+* cardiffnlp/twitter-roberta-base-sentiment-latest
 
-What the library does?
-
-Platform to access large language models.
-
-Models o  the huggingface are all use transformers architecture.
-
-# Lets Look At Models 
-
-What are the popular models?
-
-Bert-base-uncased
-
-disrilroberta ....
 
 Attention alş you need paper.
 
