@@ -149,7 +149,34 @@ Using aggregate() method with an aggregation pipeline containing a single stage 
 * This effectively replaces the contents of the "mails" collection with the result of the aggregation.
 
 ----------------------------------------------------------------
-## Snippet 1
+## Snippet 1 : Sorting
+
+The code below retrieves the documents from a source_collection sorted by the id field in ascending order. 
+
+Then inserts the documents one by one into a target_collection in the sorted order. 
+
+This effectively creates a new collection with the documents ordered by the id field.
+
+```
+from pymongo import MongoClient
+
+client = MongoClient()
+db = client["database_name"]
+
+source_collection = db["source_collection"]
+target_collection = db["target_collection"]
+
+documents = source_collection.find().sort("id", 1)
+for document in documents:
+    target_collection.insert_one(document)
+
+client.close()
+```
+
+----------------------------------------------------------------
+
+
+## Snippet 2 : Batch Updating Documents
 
 Using batches with a batch size might be useful when dealing large amount of data (ex. 510000 documents).
 
@@ -193,7 +220,7 @@ for batch_num in range(num_batches):
 # Close the MongoDB connection
 client.close()
 ```
-## Snippet 2
+## Snippet 3
 
 ```
 
