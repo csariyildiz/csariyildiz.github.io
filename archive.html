@@ -7,6 +7,7 @@ layout: default2
 	
 <main class="site-main">
 <article class="post tag-web-development tag-blog-tag tag-jekyll tag-web-design tag-wordpress single-post" style="">
+	
 <header class="post-header big-title container medium" style="padding:1rem;padding-bottom: 0px;">	
 <h1 class="post-title" style="font-family: Mulish,sans-serif;font-size: 28px;font-weight: 800;letter-spacing: -.5px;line-height: 1.3;margin: 0 0 15px;word-break: break-word;">Archive</h1>
 </header>
@@ -17,7 +18,7 @@ layout: default2
 	<a href="{{ post.url }}" class="row list-group-item list-group-item-action p-3" aria-current="true" style="margin:0px;padding-right: 0px !important;border: 0px;border-top: 2px solid #ced4da !important;border-radius: 0px;padding-left: 0px !important;margin-left: 16px !important;">
 
 	<div class="col-9 col-md-9 postcolumn" style="padding-right: 0px;">
-        <h6 class="mb-0" style="font-weight: 600;">{{post.category}} {{ post.date | date: "%d-%m-%Y"}} {% if post.tags %} {% for tag in post.tags %} <a> {{ tag }} </a> {% endfor %} {% else %}{% endif %} {{ post.title }}</h6>
+        <h6 class="mb-0" style="font-weight: 600;">{{post.category}} {{ post.date | date: "%d-%m-%Y"}} {% if post.tags %} {% for tag in post.tags %} {{ tag }} {% endfor %} {% else %}{% endif %} {{ post.title }}</h6>
 	     	 
 	 </div>
 	 
@@ -27,14 +28,8 @@ layout: default2
 	
 </div>
 	
-	
-	
-
-          </article>
-	
-	
-  </main>
-
- </div>
+</article>	
+</main>
+</div>
 
 
