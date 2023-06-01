@@ -303,7 +303,7 @@ Ekstra:
 * Ekstra:
 * An Introduction to Information Retrieval,  Christopher D. Manning, Prabhakar Raghavan, Hinrich Schütze,2009, Cambridge PRESS
 
----------------------------------------------
+## Others
 
 * Herman T. Tavani, "Ethics & Technology: Ethical Issues in an Age of Information and Communication Technology", Wiley, 2007, ISBN 0-471-99803-6.
 * AutoCAD
