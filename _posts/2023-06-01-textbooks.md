@@ -5,7 +5,6 @@ title: "Textbooks"
 category: tutorial
 ---
 
-
 ## Physics
 * Basic:
   * Halliday, D., Resnick, R., and  Walker, J. (2008).  Fundamentals of Physics (8th Edition). John Wiley & Sons, Inc.
@@ -47,20 +46,15 @@ category: tutorial
 * Digital Design Principles and Practice, J.F. Wakerly, Prentice Hall 2001.
 * Digital Design, M. Mano, Prentice Hall 2002
 
-
 ## Data Structures:
 
  1. Introduction to Data Structures, Bhagat Singh, Thomas L. Naps
  2. Data Structures and Algorithm Analysis, Mark Allen Weiss
 
-
-
-## FUNDAMENTALS OF ELECTRONICS
+## Fundementals OF Electronics
 * L. S. Bobrow, Fundamentals of Electrical Engineering, Holt, Rinehart & Winston Inc., 1984.
 * Extra:
 * D. L. Schilling & C. Belove, Electronic Circuits, McGraw-Hill, 1989.S. Karni, Applied Circuit Analysis, John Wiley & Sons, 1988.
- 
-
  
 ## Numerical Methods
 
@@ -68,14 +62,10 @@ category: tutorial
 * Extra:
 * Laurene V. Fausett, ?Numerical Methods: Algorithms and Applications?, Prentice Hall, 2003.
 
-
-
 ## Programming
 
   * H.M. Deitel, P.J. Deitel, I. Pohl, C: How To Program, 2013.
   * H.M. Deitel, P.J. Deitel, I. Pohl, C++: How To Program, 2016.
-
-
 
 ## Object Oriented Programming I
 
@@ -84,23 +74,17 @@ category: tutorial
 * Extra:
   * Bruce Eckel, Thinking In C++ Vol.1 and Vol.2 , Second Edition, Prentice-Hall,2000.
 
-
-
 ## Object Oriented Programming II
 * Basic:
 *  E.Gamma et al. Design Patterns. Addison-Wesley. 1995.
 * Extra:
 *  "Head First Design Patterns, Freeman and Freeman, O'Reilly, 2004
 
-
-
 ## Formal Languages and Automata
 * An Introduction to Formal Languages and Automata, Peter Linz, Jones and Barrlett Publishers, 4. Edition, 2006.
  Ekstra:
 * John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman, Introduction to Automata Theory, Languages, and Computation (2nd Edition), Addison Wesley, 2000
 * Ünal Yarımağan, Özdevinirler(Otomatlar) Kuramı ve Biçimsel Diller, 2. baskı, Ankara, Şubat 2011
-
-
 
 ## ALGORITHMS AND COMPLEXITY
 * Brassard, G.-Bratley, P. Algorithmics,theory and practice
@@ -135,13 +119,13 @@ Ekstra:
 ## COMPUTER PROGRAMMING FOR ENGINEERING PROBLEMS
 * "Learn Python The Hard Way "  Zed A. Shaw 3rd Edition
 
-## SOFTWARE ENGINEERING
+## Software Engineering
 * "Pressman, Roger S., Software Engineering: A Practitioner?s Approach, McGraw Hill, 2010,7th edition.Sommerville, Ian, Software Engineering, Addison-Wesley, 2007, 8th edition."
 
-## BUSINESS INTELLIGENCE
+## Business Intelligence
 * "Business Intelligence, 2/E, Efraim Turban, Ramesh Sharda, Dursun Delen, David King"
 
-## FİNANSAL PİYASALARA GİRİŞ
+## Finansal Piyasalara Giriş
 * Frederic S. Mishkin, (2003), The Economics of  Money, Banking, and Financial Markets, Addison Wesley, Sixth Edition, Canada
 * Extra:
 * Mehmet Günal, (2006), Para Banka ve Finansal Sistem,  Yeni dönem Yayıncılık,  1. Baskı, Ankara.
@@ -167,29 +151,29 @@ Ekstra:
 * Extra:
 * J.F. Kurose, K.W.Ross, Computer Networking, Addison-Wesley Ğub. Co.2) RFC dökümanları (http://www.ietf.org/rfc.html)
 
-## DATA SECURITY
+## Data Security
 * W. Stallings, Cryptography and Network Security, Prentice Hall, 2003
 
-## IMAGE PROCESSING
+## IMage Processing
 * R.C.Gonzalez, R.E.Woods, Digital Image Processing, Addison-Wesley, 2001
 * Extra:
 * "W.K.Pratt, Digital Image Processing, Wiley, 1991.A. Jain,  Two-Dimensional Signal and Image Processing, 1991. "
 
-## DATABASE PROGRAMMING
+## Database Programming
  * Ramakrishnan R., Gehrke J., Database Management Systems, Third Edition, McGraw-Hill, 2003
  * Ekstra:
  * "Elmasri R., Navathe S.B., Fundamentals of Database Systems, Fourth Edition, Addison-Wesley, 2004.
  *  Ullman J.,Widom J., A first course in Database Systems, 2nd edition, Prentice Hall, 2001."
 
-## DISTRIBUTED SYSTEMS
+## Distributed Systems
 * TANENBAUM, A. S, STEEN, M. V., Distributed Systems: Principles and Paradigms, Prentice Hall Inc., New Jersey, 2007.
 
-## INTRODUCTION TO AUTONOMOUS MOBILE ROBOTS
+## Introduction To Autonomous Mobile Robots
 * R. Siegwart and I.R. Nourbakhsh, Introduction to autonomous mobile robots, MIT Pres, London, England.
 * Extra:
 * R.R. Murphy, Introduction to AI robotics, MIT Pres, London, England.
 
-## INTRODUCTION TO ARTIFICIAL INTELLIGENCE
+## Introduction To Artificial Intelligence
 * S. Russell and P. Norvig, "Artificial Intelligence A Modern Approach", Third  Edition, Prentice Hall, 2010
 * Extra:
 * Murphy, R.R., Introduction to AI Robotics, MIT press, England, 2000.
@@ -235,7 +219,7 @@ Ekstra:
 * Ekstra:
 *  www.isi.edu/nsnam/ns/
 
-## VERİ YAPILARI VE ALGORİTMA PROBLEMLERİ
+## Veri Yapıları ve Algoritma Problemleri
 * 1. Cracking the Coding Interview, 6th edition, Gayle Laakmann McDowell
 * 2. hackerrank.com
 * Ekstra:
@@ -291,34 +275,36 @@ Ekstra:
 ## NETWORK APPLICATIONS UE
 * Sybex, Network + Eğitim Kılavuzu, AMP Kablolama Teknolojileri, Tyco Electronics
 
-## SİSTEM PROGRAMLAMA
+## Sistem Programlama
 * Computer Systems - A Programmers Perspective Second Edition Randal Bryant and David O"Halloran
 * Ekstra:
 * W. Richard Stevens and Stephen A. Rago. Advanced Programming in the UNIX Environment, 2nd Edition. Addison Wesley
 
-## BULANIK MANTIK
+## Bulanık Mantık
 * Ross, T.J.: Fuzzy Logic with Engineering Applications,  John Wiley&Sons, Ltd., 2004
 * Ekstra:
 * Elmas, C.:Yapay Zeka Uygulamaları, Seçkin Yayınevi, 2007
 * Şen, Z.: Mühendislikte Bulanık Mantık ile Modelleme, Su Vakfı Yayınları, 2004
 
-## MAKİNE ÖĞRENMESİ
+## Makine Öğrenmesi
  * K. P. Murphy, Machine Learning: A Probabilistic Perspective, MIT Press, 2012.
  * Ekstra:
  * C. M. Bishop, Pattern Recognition and Machine Learning, Springer, 2006.
 
-## WEB BASED TECHNOLOGIES
+## Web Based Technologies
 * Professional ASP.NET MVC 5 (2014, Jon Galloway, Brad Wilson, K. Scott Allen, David Matson).
 * Learning AngularJS: Learning AngularJS (2014, Brad Dayley)
 * Ekstra:
 * https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/?view=aspnetcore-2.1
 * https://angularjs.org/
 
-## METİN MADENCİLİĞİNE GİRİŞ
+## Metin Madenciliğine Giriş
 * Fundamentals of Predictive Text Mining, Sholom M. Weiss, Nitin Indurkhya, Tong Zhang (Springer) 2nd Edition.
 * Ekstra:
 * An Introduction to Information Retrieval,  Christopher D. Manning, Prabhakar Raghavan, Hinrich Schütze,2009, Cambridge PRESS
+
 ---------------------------------------------
+
 * Herman T. Tavani, "Ethics & Technology: Ethical Issues in an Age of Information and Communication Technology", Wiley, 2007, ISBN 0-471-99803-6.
 * AutoCAD
 * North Star
@@ -328,4 +314,3 @@ Ekstra:
 * New English Handbook, 2nd edition. California: Wadsworth Publishing Company.
 * Thewlis, S.H. (2000). Grammar Dimensions, Platinum Edition 3. Boston, MA: Heinle & Heinle.
 * Yönetim ve Organizasyon, İnan Özalp
----------------------------------------------
