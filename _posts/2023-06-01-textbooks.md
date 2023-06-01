@@ -80,6 +80,18 @@ category: tutorial
 * Extra:
 *  "Head First Design Patterns, Freeman and Freeman, O'Reilly, 2004
 
+
+## Advanced Programming
+* Java, How to Program, 6th Edition (Prentice-Hall) by Deitel and Deitel
+* Ekstra:
+* The Java Programming Language, 3rd Edition (Addison-Wesley) by Ken Arnold, James Gosling, David Holmes
+
+
+## KURUMSAL JAVA
+* Beginning Java? EE 6 Platform with GlassFish? 3: From Novice to Professional, 2009
+* Ekstra:
+* The Java EE 6 Tutorial, 2010
+
 ## Formal Languages and Automata
 * An Introduction to Formal Languages and Automata, Peter Linz, Jones and Barrlett Publishers, 4. Edition, 2006.
  Ekstra:
@@ -105,10 +117,6 @@ Ekstra:
 * Extra:
 * Elmasri R., Navathe S.B., Fundamentals of Database Systems, Fourth Edition, Addison-Wesley, 2004.Ullman J.,Widom J., A first course in Database Systems, 2nd edition, Prentice Hall, 2001. 
 
-## Data Mining
-* Data Science for Business: What You Need to Know about Data Mining and Data-Analytic Thinking
-* Extra
-*  https://docs.databricks.com/user-guide/getting-started.html
 
 ## INTRODUCTION TO MICROCOMPUTERS
 *  Microprocessor Architecture, Programming, and Application with 8085Ramesh S. Goankar, Prentice Hall Publishing Company, 2002
@@ -171,12 +179,13 @@ Ekstra:
 ## Introduction To Autonomous Mobile Robots
 * R. Siegwart and I.R. Nourbakhsh, Introduction to autonomous mobile robots, MIT Pres, London, England.
 * Extra:
-* R.R. Murphy, Introduction to AI robotics, MIT Pres, London, England.
+* R.R. Murphy, Introduction to AI robotics, MIT Pres, London, England
 
-## Introduction To Artificial Intelligence
-* S. Russell and P. Norvig, "Artificial Intelligence A Modern Approach", Third  Edition, Prentice Hall, 2010
-* Extra:
-* Murphy, R.R., Introduction to AI Robotics, MIT press, England, 2000.
+## System Programming
+* Computer Systems - A Programmers Perspective Second Edition Randal Bryant and David O"Halloran
+* Ekstra:
+* W. Richard Stevens and Stephen A. Rago. Advanced Programming in the UNIX Environment, 2nd Edition. Addison Wesley
+
 
 ## ADVANCED COMPUTER ARCHITECTURE
 * Stallings, William: Computer Organization and Architecture, 5th edition, Prentice Hall International, 2000
@@ -188,108 +197,117 @@ Ekstra:
 * Ekstra:
 * Merhaba Android, Pusula yayıncılık
 
-## ECONOMICS
+## Economics
 * 1 Gregory Mankiw, ?Principles of Economics?, 5th edition, South-Western, United States, 2009.
 * Ekstsra:
 * 2 Ralph T. Byrns&Gerald W. Stone, ?Economics?, 5th edition, Harper Collins, United States, 1992..
 
-## ADVANCED PROGRAMMING
-* Java, How to Program, 6th Edition (Prentice-Hall) by Deitel and Deitel
-* Ekstra:
-* The Java Programming Language, 3rd Edition (Addison-Wesley) by Ken Arnold, James Gosling, David Holmes
 
-## INTRODUCTION TO SECURE CODING
+## Introduction To Secure Coding
 * Secure Coding in C and C++ (2nd Edition) (SEI Series in Software Engineering) 2nd Edition, by Robert C. Seacord, 978-0321822130, Addison-Wesley Professional; 2 edition (April 12, 2013)
 * Ekstra:
 * 1. The CERT C Secure Coding Standard 1st Edition, by Robert C. Seacord, AddisonWesley Professional; 1 edition (October 24, 2008) 9780321563217, 
 * 2. 2. Secure Coding: Principles and Practices 1st Editionby Mark G. Graff (Author), Kenneth R. van Wyk (Author), OReilly Media; 1st edition (July 2003), 9780596002428, 
 * 3. 3. CSSLP Certification AllinOne Exam Guide 1st Editionby Wm. Arthur Conklin  (Author), Dani
 
-## BÜYÜK VERİ İŞLENMESİ
-* Data Science for Business: What You Need to Know about Data Mining and Data-Analytic Thinking
-* Büyük veri konulu kitap ve makaleler, Konu ile ilgili makaleler, https://docs.databricks.com/user-guide/getting-started.html
 
-## DERİN ÖĞRENMEYE GİRİŞ
-* 1. Deep Learning, Ian Goodfellow and Yoshua Bengio and Aaron Courville, (2016)
-* Ekstra:
-* 1. Patterson, Josh, and Adam Gibson. Deep Learning: A Practitioners Approach. OReilly Media, Inc., 2017.
-
-## KABLOSUZ SENSOR AGLARİNA GİRİS
-*  Protocols and Architectures for Wireless Sensor Networks. Holger Karl, Technical University of Berlin Andreas Willig, University of Potsdam Wiley,  ISBN: 0-470-09510-5, June 2005
-* Ekstra:
-*  www.isi.edu/nsnam/ns/
-
-## Veri Yapıları ve Algoritma Problemleri
+## Data Structures And Algoritm Analysis
 * 1. Cracking the Coding Interview, 6th edition, Gayle Laakmann McDowell
 * 2. hackerrank.com
 * Ekstra:
 * 4. Data Structures and Algorithm Analysis, Mark Allen Weiss
 * 5. Introduction to Algorithms, Cormen, Lieserson, Rivest, Stein
 
-## SEZGİSEL ALGORİTMALARA GİRİŞ
+## Introduction To Wireless Sensor Networks
+*  Protocols and Architectures for Wireless Sensor Networks. Holger Karl, Technical University of Berlin Andreas Willig, University of Potsdam Wiley,  ISBN: 0-470-09510-5, June 2005
+* Ekstra:
+*  www.isi.edu/nsnam/ns/
+
+
+## Algorithms For Optimization
 * Mykel J. Kochenderfer, Tim A. Wheeler, “Algorithms for Optimization”, MIT Press, 2019
 * Ekstra:
 * Rajesh Kumar Arora, “Optimization: Algorithms and Applications”, CRC Press, 2015
 
-## PARALLEL PROGRAMMING
+## Parallel Programing
 * Parallel Programming: Techniques and Application Using Networked Workstations and Parallel Computers, by B. Wilkinson and M. Allen, Prentice Hall Inc., 1999, ISBN 0-13-671710-1.
 * Beowulf cluster ve MPI
+
+
+## Computational Geometry
+* Computational Geometry, Mark de Berg, Marc van Kreveld, Mark Overmars, Otfried Schwarzkopf, Springer
+* Ekstra:
+* Introduction to Data Structures, Bhagat Singh, Thomas L. Naps, West
+
+
+## PATTERN RECOGNITION
+* Stallings, William: Computer Organization and Architecture, 5th edition, Prentice Hall International, 2000
+* Ekstra
+* Alexander Klaiber: The Technology Behind Crusoe Processors, Transmeta s Website
+
+
+## Data Mining
+* Data Science for Business: What You Need to Know about Data Mining and Data-Analytic Thinking
+* Extra
+*  https://docs.databricks.com/user-guide/getting-started.html
+
+
+## Introduction To Artificial Intelligence
+* S. Russell and P. Norvig, "Artificial Intelligence A Modern Approach", Third  Edition, Prentice Hall, 2010
+* Extra:
+* Murphy, R.R., Introduction to AI Robotics, MIT press, England, 2000.
+
+## Big Data Mining
+* Data Science for Business: What You Need to Know about Data Mining and Data-Analytic Thinking
+* Büyük veri konulu kitap ve makaleler, Konu ile ilgili makaleler, https://docs.databricks.com/user-guide/getting-started.html
+
+## Introduction To Deep Learning
+* 1. Deep Learning, Ian Goodfellow and Yoshua Bengio and Aaron Courville, (2016)
+* Ekstra:
+* 1. Patterson, Josh, and Adam Gibson. Deep Learning: A Practitioners Approach. OReilly Media, Inc., 2017.
+
+## Introduction To Data Mining
+* Parallel Programming: Techniques and Application Using Networked Workstations and Parallel Computers, by B. Wilkinson and M. Allen, Prentice Hall Inc., 1999, ISBN 0-13-671710-1.
+
+## Introduction To Text Mining
+* Fundamentals of Predictive Text Mining, Sholom M. Weiss, Nitin Indurkhya, Tong Zhang (Springer) 2nd Edition.
+* Ekstra:
+* An Introduction to Information Retrieval,  Christopher D. Manning, Prabhakar Raghavan, Hinrich Schütze,2009, Cambridge PRESS
 
 ## NEURAL NETWORKS
 * Fundamentals of Neural Networks: Architectures, Algorithms And Applications Laurene V. Fausett                            "
 * Ekstra:
 * "Neural Networks: A Comprehensive FoundationSimon Haykin"
 
-## DIGITAL COMMUNICATION
-* B. Sklar, Digital Communications, Fundamentals and Applications, Prentice Hall, 2000
-* Ekstra:
-* M.B. Pursley, Introduction to Digital Communications, Pearson-Prentica Hall, 2005.2) V.A. Pedroni, Circuit Design with VHDL, MIT, 2004.
+## Machine Learning
+ * K. P. Murphy, Machine Learning: A Probabilistic Perspective, MIT Press, 2012.
+ * Ekstra:
+ * C. M. Bishop, Pattern Recognition and Machine Learning, Springer, 2006.
 
-## KURUMSAL JAVA
-* Beginning Java? EE 6 Platform with GlassFish? 3: From Novice to Professional, 2009
-* Ekstra:
-* The Java EE 6 Tutorial, 2010
-
-## HESAPLAMA GEOMETRİSİ
-* Computational Geometry, Mark de Berg, Marc van Kreveld, Mark Overmars, Otfried Schwarzkopf, Springer
-* Ekstra:
-* Introduction to Data Structures, Bhagat Singh, Thomas L. Naps, West
-
-## INTRODUCTION TO VHDL
-* V.A. Pedroni, Circuit Design with VHDL, MIT Press
-* Geliştirme kartı kullanım dökümanları.
-* FPGA Geliştirme Kiti, Xilinx ISE g
-
-## WEB BASED TECHNOLOGIES
-* Tabor R. ,Microsoft .NET XML Web Services, 2002, ISBN: 0-672-32088-6Shepherd, G.,(çev. Sarıoğlu K)
-* Adım Adım Microsoft ASP.NET, 2008, ISBN: 9789755095578.
-* Esposito D., ?Building web solutions with ASP.NET and ADO.NET?, 2002, ISBN: 0735615780.
-
-## PATTERN RECOGNITION
-* Stallings, William: Computer Organization and Architecture, 5th edition, Prentice Hall International, 2000
-* Alexander Klaiber: The Technology Behind Crusoe Processors, Transmeta s Website
-
-## INTRO. TO DATA MINING
-* Parallel Programming: Techniques and Application Using Networked Workstations and Parallel Computers, by B. Wilkinson and M. Allen, Prentice Hall Inc., 1999, ISBN 0-13-671710-1.
-
-## NETWORK APPLICATIONS UE
-* Sybex, Network + Eğitim Kılavuzu, AMP Kablolama Teknolojileri, Tyco Electronics
-
-## Sistem Programlama
-* Computer Systems - A Programmers Perspective Second Edition Randal Bryant and David O"Halloran
-* Ekstra:
-* W. Richard Stevens and Stephen A. Rago. Advanced Programming in the UNIX Environment, 2nd Edition. Addison Wesley
-
-## Bulanık Mantık
+## Fuzzy Logic
 * Ross, T.J.: Fuzzy Logic with Engineering Applications,  John Wiley&Sons, Ltd., 2004
 * Ekstra:
 * Elmas, C.:Yapay Zeka Uygulamaları, Seçkin Yayınevi, 2007
 * Şen, Z.: Mühendislikte Bulanık Mantık ile Modelleme, Su Vakfı Yayınları, 2004
 
-## Makine Öğrenmesi
- * K. P. Murphy, Machine Learning: A Probabilistic Perspective, MIT Press, 2012.
- * Ekstra:
- * C. M. Bishop, Pattern Recognition and Machine Learning, Springer, 2006.
+
+## DIGITAL COMMUNICATION
+* B. Sklar, Digital Communications, Fundamentals and Applications, Prentice Hall, 2000
+* Ekstra:
+* M.B. Pursley, Introduction to Digital Communications, Pearson-Prentica Hall, 2005.2) V.A. Pedroni, Circuit Design with VHDL, MIT, 2004.
+
+## NETWORK APPLICATIONS UE
+* Sybex, Network + Eğitim Kılavuzu, AMP Kablolama Teknolojileri, Tyco Electronics
+
+## Introduction To VHDL
+* V.A. Pedroni, Circuit Design with VHDL, MIT Press
+* Geliştirme kartı kullanım dökümanları.
+* FPGA Geliştirme Kiti, Xilinx ISE g
+
+## Wwb Based Technologies
+* Tabor R. ,Microsoft .NET XML Web Services, 2002, ISBN: 0-672-32088-6Shepherd, G.,(çev. Sarıoğlu K)
+* Adım Adım Microsoft ASP.NET, 2008, ISBN: 9789755095578.
+* Esposito D., ?Building web solutions with ASP.NET and ADO.NET?, 2002, ISBN: 0735615780.
 
 ## Web Based Technologies
 * Professional ASP.NET MVC 5 (2014, Jon Galloway, Brad Wilson, K. Scott Allen, David Matson).
@@ -298,18 +316,14 @@ Ekstra:
 * https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/?view=aspnetcore-2.1
 * https://angularjs.org/
 
-## Metin Madenciliğine Giriş
-* Fundamentals of Predictive Text Mining, Sholom M. Weiss, Nitin Indurkhya, Tong Zhang (Springer) 2nd Edition.
-* Ekstra:
-* An Introduction to Information Retrieval,  Christopher D. Manning, Prabhakar Raghavan, Hinrich Schütze,2009, Cambridge PRESS
 
 ## Others
 
 * Herman T. Tavani, "Ethics & Technology: Ethical Issues in an Age of Information and Communication Technology", Wiley, 2007, ISBN 0-471-99803-6.
 * AutoCAD
 * North Star
-* Bridgestock, Martin?.[et al.]. 1998. Science, Technology and Society. Cambridge: Cambridge University Press.- Feenberg, Andrew?.
-* 2010. Teknoloji ve Toplum (Çev. C. Atay). İstanbul: Kalkedon Yay.- Kleinman, Daniel L. 2005. Science and Tech
+* Bridgestock, Martin?.[et al.]. 1998. Science, Technology and Society. Cambridge: Cambridge University Press.- Feenberg, Andrew. 2010. 
+* Teknoloji ve Toplum (Çev. C. Atay). İstanbul: Kalkedon Yay.- Kleinman, Daniel L. 2005. Science and Tech
 * Eastwood, J. (2005). Oxford Learner?s Grammar. New York: OUP.Guth, H.P. (1985). 
 * New English Handbook, 2nd edition. California: Wadsworth Publishing Company.
 * Thewlis, S.H. (2000). Grammar Dimensions, Platinum Edition 3. Boston, MA: Heinle & Heinle.
