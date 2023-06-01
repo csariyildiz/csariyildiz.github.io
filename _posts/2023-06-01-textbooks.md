@@ -1,7 +1,7 @@
 ---
 layout: post
-header: "Textbooks1"
-title: "Textbooks1"
+header: "Textbooks"
+title: "Textbooks"
 category: tutorial
 ---
 
