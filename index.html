@@ -10,7 +10,7 @@ layout: default2
 				<div class="col-md-9 postcolumn" style="padding-right: 0px;">
 					<h6 class="mb-0" style="font-weight: 600;">{{ post.title }}</h6> {% if post.excerpt %}
 					<div class="mb-0 opacity-75 posts_excerpt">{{ post.excerpt | strip_html | strip_newlines | truncatewords:40 }}</div>{% endif %} </div>
-				<div clasas="col-md-1" style="">
+				<div class="col-md-1" style="">
 					<div class="badge bg-dark" style="max-height: 20px;float:right;">{{ post.date | date: "%d-%m-%Y"}}</div>
 				</div>
 			</a> {% endif %} {% endfor %} 
