@@ -3,6 +3,8 @@ layout: post
 header: "Veri Bilimi ve Modeller"
 title: "Veri Bilimi Ve Modeller"
 category: tutorial
+tags:
+    - Data Science And Models
 ---
 
 * [01- Modeller Nasıl Çalışır?](https://csariyildiz.github.io/01-modeller-nasil-calisir)
