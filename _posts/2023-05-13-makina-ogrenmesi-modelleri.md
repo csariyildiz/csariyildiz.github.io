@@ -3,6 +3,8 @@ layout: post
 header: "Veri Bilimi ve Modeller"
 title: "Makina Öğrenmesi Modelleri"
 category: tutorial
+tags:
+    - Data Science And Models
 ---
 
 
