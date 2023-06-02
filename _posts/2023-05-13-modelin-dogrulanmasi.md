@@ -3,7 +3,8 @@ layout: post
 header: "Veri Bilimi ve Modeller"
 title: "Modelin Doğrulanması"
 category: tutorial
-
+tags:
+    - Data Science And Models
 ---
 Bir model oluşturulduktan sonra modelin kalitesi doğrulanma "validation" aşamasında belirlenir.
 Model kalitesini ölçmek, modellerin yinelemeli olarak iyileştirilmesi açısından önemlidir.
