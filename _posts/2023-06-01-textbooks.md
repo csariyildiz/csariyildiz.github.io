@@ -1,8 +1,10 @@
 ---
 layout: post
-header: "Textbooks"
-title: "Textbooks"
+header: "Computer Engineering Textbooks"
+title: "Computer Engineering Textbooks"
 category: tutorial
+tags:
+    - Documents
 ---
 
 ## Physics
@@ -67,6 +69,12 @@ category: tutorial
   * H.M. Deitel, P.J. Deitel, I. Pohl, C: How To Program, 2013.
   * H.M. Deitel, P.J. Deitel, I. Pohl, C++: How To Program, 2016.
 
+## Database Programming
+ * Ramakrishnan R., Gehrke J., Database Management Systems, Third Edition, McGraw-Hill, 2003
+ * Ekstra:
+ * "Elmasri R., Navathe S.B., Fundamentals of Database Systems, Fourth Edition, Addison-Wesley, 2004.
+ *  Ullman J.,Widom J., A first course in Database Systems, 2nd edition, Prentice Hall, 2001."
+
 ## Object Oriented Programming I
 
 * Basic:
@@ -80,14 +88,12 @@ category: tutorial
 * Extra:
 *  "Head First Design Patterns, Freeman and Freeman, O'Reilly, 2004
 
-
 ## Advanced Programming
 * Java, How to Program, 6th Edition (Prentice-Hall) by Deitel and Deitel
 * Ekstra:
 * The Java Programming Language, 3rd Edition (Addison-Wesley) by Ken Arnold, James Gosling, David Holmes
 
-
-## KURUMSAL JAVA
+## Enterprise Java
 * Beginning Java? EE 6 Platform with GlassFish? 3: From Novice to Professional, 2009
 * Ekstra:
 * The Java EE 6 Tutorial, 2010
@@ -98,13 +104,12 @@ category: tutorial
 * John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman, Introduction to Automata Theory, Languages, and Computation (2nd Edition), Addison Wesley, 2000
 * Ünal Yarımağan, Özdevinirler(Otomatlar) Kuramı ve Biçimsel Diller, 2. baskı, Ankara, Şubat 2011
 
-## ALGORITHMS AND COMPLEXITY
+## Algorithms And Complexity
 * Brassard, G.-Bratley, P. Algorithmics,theory and practice
 Ekstra:
 * 1-Mount, D. Lecture notes: Design and Analysis of Computer Algorithms, CMSC 452.
 * 2-R.Sedgewick, (1983). Algorithms, Addison-Wesley, Reading MA.
 * 3-Parberry, I. , Lecture notes on Algorithms Analysis and Computational Complexity
-
 
 ## Probability
 * Sheldon Ross, A First Course in Probability, Prentice Hall, 7th edition, 2006.
@@ -117,14 +122,22 @@ Ekstra:
 * Extra:
 * Elmasri R., Navathe S.B., Fundamentals of Database Systems, Fourth Edition, Addison-Wesley, 2004.Ullman J.,Widom J., A first course in Database Systems, 2nd edition, Prentice Hall, 2001. 
 
-
-## INTRODUCTION TO MICROCOMPUTERS
+## Introduction To Microcomputers
 *  Microprocessor Architecture, Programming, and Application with 8085Ramesh S. Goankar, Prentice Hall Publishing Company, 2002
 * Extra:
 *  Microprocessor/Hardware Interfacing and Applications, Barry B. Brey, Charles E. Merrill Publishing Company, 1988
 * 8085 simülator
 
-## COMPUTER PROGRAMMING FOR ENGINEERING PROBLEMS
+## Computer Architecture
+* The intel, 32 bit microprocessors, Barry B. Brey
+* PC Intern, Michael Tiischer & Bruno Jennrich
+
+## Advanced Computer Architecture
+* Stallings, William: Computer Organization and Architecture, 5th edition, Prentice Hall International, 2000
+* Extra:
+* Alexander Klaiber: The Technology Behind Crusoe Processors, Transmeta s Website
+
+## Computer Programming For Engineering Problems
 * "Learn Python The Hard Way "  Zed A. Shaw 3rd Edition
 
 ## Software Engineering
@@ -133,26 +146,10 @@ Ekstra:
 ## Business Intelligence
 * "Business Intelligence, 2/E, Efraim Turban, Ramesh Sharda, Dursun Delen, David King"
 
-## Finansal Piyasalara Giriş
-* Frederic S. Mishkin, (2003), The Economics of  Money, Banking, and Financial Markets, Addison Wesley, Sixth Edition, Canada
-* Extra:
-* Mehmet Günal, (2006), Para Banka ve Finansal Sistem,  Yeni dönem Yayıncılık,  1. Baskı, Ankara.
-* Hanifi Aslan (2009), Para teorisi ve Politikası, Alfa Aktüel yayınları Alfa Akademi Ltd., Bursa.
-* 3Mahfi Eğilmez, Ercan Kumcu (2004),  Ekonomi Politikası Teori ve Türkiye Uygulaması, Remzi Kitapevi,
-
 ## Introduction To Operating Systems
 * Andrew S. Tanenbaum, Modern Operating Systems, Pearson Prentice Hall, 3rd Edition, 2009.
 * Extra:
 * William Stallings, Operating Systems: Internal and Design Principles, Pearson Prentice Hall, 6th Edition, 2009. Abraham Silberschatz, Peter B. Galvin, and Greg Gagne, Operating System Concepts, John Wiley and Sons Inc., 7th Edition, 2004.
-
-## Entrepreneurship
-* The Technology Entrepreneur?s Guidebook
-* Extra:
-* Komisyon, ?İşletme Bilimine Giriş?, Açıköğretim Yayınları.
-
-## Computer Architecture
-* The intel, 32 bit microprocessors, Barry B. Brey
-* PC Intern, Michael Tiischer & Bruno Jennrich
 
 ## Computer Networks
 *  A.S. Tanenbaum, Computer Networks, Prentice Hall
@@ -162,16 +159,10 @@ Ekstra:
 ## Data Security
 * W. Stallings, Cryptography and Network Security, Prentice Hall, 2003
 
-## IMage Processing
+## Image Processing
 * R.C.Gonzalez, R.E.Woods, Digital Image Processing, Addison-Wesley, 2001
 * Extra:
 * "W.K.Pratt, Digital Image Processing, Wiley, 1991.A. Jain,  Two-Dimensional Signal and Image Processing, 1991. "
-
-## Database Programming
- * Ramakrishnan R., Gehrke J., Database Management Systems, Third Edition, McGraw-Hill, 2003
- * Ekstra:
- * "Elmasri R., Navathe S.B., Fundamentals of Database Systems, Fourth Edition, Addison-Wesley, 2004.
- *  Ullman J.,Widom J., A first course in Database Systems, 2nd edition, Prentice Hall, 2001."
 
 ## Distributed Systems
 * TANENBAUM, A. S, STEEN, M. V., Distributed Systems: Principles and Paradigms, Prentice Hall Inc., New Jersey, 2007.
@@ -186,21 +177,10 @@ Ekstra:
 * Ekstra:
 * W. Richard Stevens and Stephen A. Rago. Advanced Programming in the UNIX Environment, 2nd Edition. Addison Wesley
 
-
-## ADVANCED COMPUTER ARCHITECTURE
-* Stallings, William: Computer Organization and Architecture, 5th edition, Prentice Hall International, 2000
-* Extra:
-* Alexander Klaiber: The Technology Behind Crusoe Processors, Transmeta s Website
-
 ## Mobile Programming
 * Profesyoneller için Android ile Uygulama Geliştirme, pusula yayıncılık
 * Ekstra:
 * Merhaba Android, Pusula yayıncılık
-
-## Economics
-* 1 Gregory Mankiw, ?Principles of Economics?, 5th edition, South-Western, United States, 2009.
-* Ekstsra:
-* 2 Ralph T. Byrns&Gerald W. Stone, ?Economics?, 5th edition, Harper Collins, United States, 1992..
 
 
 ## Introduction To Secure Coding
@@ -217,6 +197,24 @@ Ekstra:
 * Ekstra:
 * 4. Data Structures and Algorithm Analysis, Mark Allen Weiss
 * 5. Introduction to Algorithms, Cormen, Lieserson, Rivest, Stein
+
+## Economics
+* 1 Gregory Mankiw, ?Principles of Economics?, 5th edition, South-Western, United States, 2009.
+* Ekstsra:
+* 2 Ralph T. Byrns&Gerald W. Stone, ?Economics?, 5th edition, Harper Collins, United States, 1992..
+
+## Entrepreneurship
+* The Technology Entrepreneur?s Guidebook
+* Extra:
+* Komisyon, ?İşletme Bilimine Giriş?, Açıköğretim Yayınları.
+
+## Introduction To Financial Markets
+* Frederic S. Mishkin, (2003), The Economics of  Money, Banking, and Financial Markets, Addison Wesley, Sixth Edition, Canada
+* Extra:
+* Mehmet Günal, (2006), Para Banka ve Finansal Sistem,  Yeni dönem Yayıncılık,  1. Baskı, Ankara.
+* Hanifi Aslan (2009), Para teorisi ve Politikası, Alfa Aktüel yayınları Alfa Akademi Ltd., Bursa.
+* 3Mahfi Eğilmez, Ercan Kumcu (2004),  Ekonomi Politikası Teori ve Türkiye Uygulaması, Remzi Kitapevi,
+
 
 ## Introduction To Wireless Sensor Networks
 *  Protocols and Architectures for Wireless Sensor Networks. Holger Karl, Technical University of Berlin Andreas Willig, University of Potsdam Wiley,  ISBN: 0-470-09510-5, June 2005
@@ -240,7 +238,7 @@ Ekstra:
 * Introduction to Data Structures, Bhagat Singh, Thomas L. Naps, West
 
 
-## PATTERN RECOGNITION
+## Pattern Recognition
 * Stallings, William: Computer Organization and Architecture, 5th edition, Prentice Hall International, 2000
 * Ekstra
 * Alexander Klaiber: The Technology Behind Crusoe Processors, Transmeta s Website
@@ -274,7 +272,7 @@ Ekstra:
 * Ekstra:
 * An Introduction to Information Retrieval,  Christopher D. Manning, Prabhakar Raghavan, Hinrich Schütze,2009, Cambridge PRESS
 
-## NEURAL NETWORKS
+## Neural Networks
 * Fundamentals of Neural Networks: Architectures, Algorithms And Applications Laurene V. Fausett                            "
 * Ekstra:
 * "Neural Networks: A Comprehensive FoundationSimon Haykin"
@@ -291,12 +289,12 @@ Ekstra:
 * Şen, Z.: Mühendislikte Bulanık Mantık ile Modelleme, Su Vakfı Yayınları, 2004
 
 
-## DIGITAL COMMUNICATION
+## Digital Communication
 * B. Sklar, Digital Communications, Fundamentals and Applications, Prentice Hall, 2000
 * Ekstra:
 * M.B. Pursley, Introduction to Digital Communications, Pearson-Prentica Hall, 2005.2) V.A. Pedroni, Circuit Design with VHDL, MIT, 2004.
 
-## NETWORK APPLICATIONS UE
+## Network Applications UE
 * Sybex, Network + Eğitim Kılavuzu, AMP Kablolama Teknolojileri, Tyco Electronics
 
 ## Introduction To VHDL
