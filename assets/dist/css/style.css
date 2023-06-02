@@ -5,6 +5,10 @@
     margin-right: -15px;
 }
 
+.form-control:focus {
+    box-shadow: none;
+}
+
 .highlighter-rouge {
     padding: 5px;
     background-color: #ffffff;
