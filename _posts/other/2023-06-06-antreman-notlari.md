@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Creating A Video Content"
+title: "Antreman Notları"
 category: antreman
 thumb: "enrona_1"
 tags:
