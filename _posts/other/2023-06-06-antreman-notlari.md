@@ -7,4 +7,12 @@ tags:
     - antreman
 ---
 
-Test
+## Weekly Schedule
+
+* Different muscle groups.
+* Cardio
+
+## Nutrition
+
+* Better to fast.
+* Protein-rich, vegetable-containing. 
