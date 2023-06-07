@@ -5,6 +5,33 @@
     margin-right: -15px;
 }
 
+.form-control:focus {
+    box-shadow: none;
+}
+
+.highlighter-rouge {
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+a{
+    text-decoration: none;
+    color: #0969da;
+}
+
+pre{
+    padding: 14px;
+    font-size: 13px;
+    background-color: #191919;
+    color: white;
+    border-radius: 5px;
+}
+
+
+
 h2{
 
     font-weight: 800;
@@ -14,6 +41,20 @@ h2{
     position: relative;
     font-size: 23px;
 
+}
+
+.posts_excerpt{
+    font-size: 13px;
+    padding-top: 5px;
+
+}
+
+.code_window
+ {
+    border: 1px solid #E8EDEB;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
 }
 
 body{
