@@ -3,9 +3,9 @@ layout: post
 title: "What is LaTex and How to use it?"
 category: main
 
-thumb: "latex.png"
+thumb: "latex"
 tags:
-  - database
+  - Software
 ---
 
 Recently, I have had a little more time to finish my thesis by extending the deadline. As a result I had a chance to reevaluate the whole effort.
