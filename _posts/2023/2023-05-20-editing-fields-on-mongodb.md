@@ -3,7 +3,7 @@ layout: post
 title: "Editing Fields On MongoDB"
 category: main
 
-thumb: "enrona_1"
+thumb: "mongo2"
 tags:
   - database
 ---
