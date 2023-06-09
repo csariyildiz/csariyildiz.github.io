@@ -23,7 +23,14 @@ One thing was the layout of the thesis manuscript and cover pages. I wrote it as
 
 ## Hello Word In Tex Document
 
+```
+\documentclass{article}
 
+\begin{document}
+Hello, World!
+
+\end{document}
+```
 
 
 
