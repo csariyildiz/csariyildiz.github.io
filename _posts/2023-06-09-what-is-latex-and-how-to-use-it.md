@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What is LaTeX and How to use it?"
+title: "What Is LaTeX and How To Use It?"
 category: main
 
 thumb: "latex"
