@@ -20,7 +20,6 @@ We can use Overleaf for free. I used this system in the rest of the document.
 
 One thing was the layout of the thesis manuscript and cover pages. I wrote it as a seperate article about choice on this issue. 
 
-
 ## Hello Word In Tex Document
 
 ```
@@ -31,9 +30,3 @@ Hello, World!
 
 \end{document}
 ```
-
-
-
-
-* In fact, the differentiation between Latex and Microsoft Word is somewhat similar to the distinction between Vim and Visual Studio Code.
-* Why latex users are not user friendly either.
