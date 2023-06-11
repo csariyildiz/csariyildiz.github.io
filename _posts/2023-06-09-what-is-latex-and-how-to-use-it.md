@@ -8,7 +8,6 @@ tags:
   - Software
 ---
 
-Recently, I have had a little more time to finish my thesis by extending the deadline. As a result I had a chance to reevaluate the whole effort.
 Latex is definitely a nice, professional way to write. It is widely used in academia. But sometimes it can be difficult for beginners to use.
 So I want to focus on latex and its usage.
 
