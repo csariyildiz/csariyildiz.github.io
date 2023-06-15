@@ -7,14 +7,55 @@ tags:
     - Documents
 ---
 
-## Physics
-* Basic:
-  * Halliday, D., Resnick, R., and  Walker, J. (2008).  Fundamentals of Physics (8th Edition). John Wiley & Sons, Inc.
-  * Serway, R.A., Beichner, R.J., Physics For Scientists and Engineers with Modern Physics (2007),  Harcourt College Publishers
-* Extra: 
-  * Young, H.D, Freedman, R.A. (2006). University Physics Volume1 (12th Edition). Pearson/Addison Wesley 
-  * Ohanian, H.C. (1989).  Physics (2nd Edition) New York:  W.W. Norton & Company, Inc.
-  * Giancoli, D.C. (2004).  Physics: Principles with Applications (6th Edition). Pearson Education Inc.
+
+<table class="table">
+  
+  <tbody>
+    
+    <tr>
+      <th scope="row">1</th>
+      <td colspan="3">Physics</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">1.1</th>
+      <td>Physics</td>
+      <td>Basic</td>
+      <td>Halliday, D., Resnick, R., and  Walker, J. (2008).  Fundamentals of Physics (8th Edition). John Wiley & Sons, Inc.</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">1.2</th>
+      <td>Physics</td>
+      <td>Basic</td>
+      <td>Serway, R.A., Beichner, R.J., Physics For Scientists and Engineers with Modern Physics (2007),  Harcourt College Publishers.</td>
+    </tr>
+    
+    <tr>
+      <th scope="row">1.3</th>
+      <td>Physics</td>
+      <td>Extra</td>
+      <td>Young, H.D, Freedman, R.A. (2006). University Physics Volume1 (12th Edition). Pearson/Addison Wesley </td>
+    </tr>
+
+   <tr>
+      <th scope="row">1.4</th>
+      <td>Physics</td>
+      <td>Extra</td>
+      <td>Ohanian, H.C. (1989).  Physics (2nd Edition) New York:  W.W. Norton & Company, Inc.</td>
+    </tr>
+
+   <tr>
+      <th scope="row">1.5</th>
+      <td>Physics</td>
+      <td>Extra</td>
+      <td>Giancoli, D.C. (2004).  Physics: Principles with Applications (6th Edition). Pearson Education Inc.</td>
+    </tr>
+
+  </tbody>
+  
+</table>
+
 
 ## Calculus
 * Basic:
