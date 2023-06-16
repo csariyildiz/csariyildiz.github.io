@@ -9,123 +9,53 @@ tags:
 
 
 <table class="table table-striped  table-bordered">
-  
-  <tbody>
-    
-  <tr style="background: #2C3034; color:white;"><th scope="row">1.0</th><th colspan="3">Physics</th></tr>
-  <tr><th style="min-width: 60px !important;" scope="row">1.1</th><td style="min-width: 120px !important;">Physics</td><td style="min-width: 120px !important;">Basic</td><td>Halliday, D., Resnick, R., and  Walker, J. (2008).  Fundamentals of Physics (8th Edition). John Wiley & Sons, Inc.</td></tr>
-    
-    <tr>
-      <th scope="row">1.2</th>
-      <td>Physics</td>
-      <td>Basic</td>
-      <td>Serway, R.A., Beichner, R.J., Physics For Scientists and Engineers with Modern Physics (2007),  Harcourt College Publishers.</td>
-    </tr>
-    
-    <tr>
-      <th scope="row">1.3</th>
-      <td>Physics</td>
-      <td>Extra</td>
-      <td>Young, H.D, Freedman, R.A. (2006). University Physics Volume1 (12th Edition). Pearson/Addison Wesley </td>
-    </tr>
-
-   <tr>
-      <th scope="row">1.4</th>
-      <td>Physics</td>
-      <td>Extra</td>
-      <td>Ohanian, H.C. (1989).  Physics (2nd Edition) New York:  W.W. Norton & Company, Inc.</td>
-    </tr>
-
-   <tr>
-      <th scope="row">1.5</th>
-      <td>Physics</td>
-      <td>Extra</td>
-      <td>Giancoli, D.C. (2004).  Physics: Principles with Applications (6th Edition). Pearson Education Inc.</td>
-    </tr>
-
-    <tr style="background: #2C3034; color:white;">
-      <th scope="row">2.0</th>
-      <td colspan="3">Calculus</td>
-    </tr>
-
-
-   <tr>
-      <th scope="row">2.1</th>
-      <td>Calculus</td>
-      <td>Basic</td>
-      <td>Calculus, A Complete Course-Fifth Edition, Robert A. Adams, Addison-Wesley, 2001</td>
-    </tr>
-
-   <tr>
-      <th scope="row">2.2</th>
-      <td>Calculus</td>
-      <td>Extra</td>
-      <td>Calculus and Analytic Geometry, 9th Edition, G. B. Thomas,Jr., R. L. Finney, Addison-Wesley, 1998.</td>
-    </tr>
-
-   <tr>
-      <th scope="row">2.3</th>
-      <td>Calculus</td>
-      <td>Extra</td>
-      <td>Calculus the Maple Way, Robert B. Israel, Addison-Wesley, 2000</td>
-    </tr>
-
-    <tr style="background: #2C3034; color:white;">
-      <th scope="row">3.0</th>
-      <td colspan="3">Differential Equations</td>
-    </tr>
-
-   <tr>
-      <th scope="row">3.1</th>
-      <td>Differential Equations</td>
-      <td>Basic</td>
-      <td>S. L. Ross, Differential Equations, 3rd edition, Wiley, 1984</td>
-    </tr>
-
-<tr style="background: #2C3034; color:white;"><th scope="row">4.0</th><td colspan="3">Linear Algebra</td></tr>
+<tbody>    
+<tr style="background: #2C3034; color:white;"><th scope="row">1.0</th><th colspan="3">Physics</th></tr>
+<tr><th style="min-width: 60px !important;" scope="row">1.1</th><td style="min-width: 120px !important;">Physics</td><td style="min-width: 120px !important;">Basic</td><td>Halliday, D., Resnick, R., and  Walker, J. (2008).  Fundamentals of Physics (8th Edition). John Wiley & Sons, Inc.</td></tr>
+<tr> <th scope="row">1.2</th> <td>Physics</td> <td>Basic</td> <td>Serway, R.A., Beichner, R.J., Physics For Scientists and Engineers with Modern Physics (2007),  Harcourt College Publishers.</td> </tr>
+<tr><th scope="row">1.3</th> <td>Physics</td> <td>Extra</td> <td>Young, H.D, Freedman, R.A. (2006). University Physics Volume1 (12th Edition). Pearson/Addison Wesley </td> </tr>
+<tr><th scope="row">1.4</th> <td>Physics</td> <td>Extra</td> <td>Ohanian, H.C. (1989).  Physics (2nd Edition) New York:  W.W. Norton & Company, Inc.</td> </tr>
+<tr><th scope="row">1.5</th> <td>Physics</td> <td>Extra</td> <td>Giancoli, D.C. (2004).  Physics: Principles with Applications (6th Edition). Pearson Education Inc.</td> </tr>
+<tr style="background: #2C3034; color:white;"> <th scope="row">2.0</th> <th colspan="3">Calculus</th> </tr>
+<tr><th scope="row">2.1</th> <td>Calculus</td> <td>Basic</td> <td>Calculus, A Complete Course-Fifth Edition, Robert A. Adams, Addison-Wesley, 2001</td> </tr>
+<tr><th scope="row">2.2</th> <td>Calculus</td> <td>Extra</td> <td>Calculus and Analytic Geometry, 9th Edition, G. B. Thomas,Jr., R. L. Finney, Addison-Wesley, 1998.</td> </tr>
+<tr><th scope="row">2.3</th> <td>Calculus</td> <td>Extra</td> <td>Calculus the Maple Way, Robert B. Israel, Addison-Wesley, 2000</td> </tr>
+<tr style="background: #2C3034; color:white;"> <th scope="row">3.0</th> <th colspan="3">Differential Equations</th> </tr>
+<tr><th scope="row">3.1</th> <td>Differential Equations</td> <td>Basic</td> <td>S. L. Ross, Differential Equations, 3rd edition, Wiley, 1984</td> </tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">4.0</th><th colspan="3">Linear Algebra</th></tr>
 <tr><th scope="row">4.1</th><td>Linear Algebra</td><td>Basic</td><td>B. Kolman, D. R. Hill, Elementary Linear Algebra, Prentice Hall, 8th edition, 2004.</td></tr>
 <tr><th scope="row">4.2</th><td>Linear Algebra</td><td>Extra</td><td>D. C Lay, Linear Algebra and Its Applications, Addison Wesley Longman, Inc., 2n edition 1997.</td></tr>
 <tr><th scope="row">4.3</th><td>Linear Algebra</td><td>Extra</td><td>D. Poole, Linear Algebra - a Modern Introduction, Thomson Brooks/Cole, 2006.</td></tr>
-<tr style="background: #2C3034; color:white;"><th scope="row">5.0</th><td colspan="3">Numerical Methods</td></tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">5.0</th><th colspan="3">Numerical Methods</th></tr>
 <tr><th scope="row">5.1</th><td>Numerical Methods</td><td>Basic</td><td>Steven C. Chapra, Raymond P. Canale, ?Numerical Methods for Engineers?, McGraw-Hill, 5th ed., 2006</td></tr>
 <tr><th scope="row">5.2</th><td>Numerical Methods</td><td>Extra</td><td>Laurene V. Fausett, ?Numerical Methods: Algorithms and Applications?, Prentice Hall, 2003.</td></tr>
-<tr style="background: #2C3034; color:white;"><th scope="row">5.0</th><td colspan="3">Algorithms And Complexity</td></tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">5.0</th><th colspan="3">Algorithms And Complexity</th></tr>
 <tr><th scope="row">5.1</th><td>Algorithms And Complexity</td><td>Basic</td><td>Brassard, G.-Bratley, P. Algorithmics,theory and practice</td></tr>
 <tr><th scope="row">5.2</th><td>Algorithms And Complexity</td><td>Ekstra</td><td>Mount, D. Lecture notes: Design and Analysis of Computer Algorithms, CMSC 452.</td></tr>
 <tr><th scope="row">5.3</th><td>Algorithms And Complexity</td><td>Ekstra</td><td>R.Sedgewick, (1983). Algorithms, Addison-Wesley, Reading MA.</td></tr>
 <tr><th scope="row">5.4</th><td>Algorithms And Complexity</td><td>Ekstra</td><td>Parberry, I. , Lecture notes on Algorithms Analysis and Computational Complexity</td></tr>
-<tr style="background: #2C3034; color:white;"><th scope="row">6.0</th><td colspan="3">Probability</td></tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">6.0</th><th colspan="3">Probability</th></tr>
 <tr><th scope="row">6.1</th><td>Probability</td><td>Basic</td><td>Sheldon Ross, A First Course in Probability, Prentice Hall, 7th edition, 2006.</td></tr>
 <tr><th scope="row">6.2</th><td>Probability</td><td>Extra</td><td>J. L. Devore, Probability and Statistics, Thomson Brooks/Cole, 2004.</td></tr>
 <tr><th scope="row">6.3</th><td>Probability</td><td>Extra</td><td>H. Stark, J. W. Woods, Probability and Random Processes with applications to Signal Processing, Pearson Education, 2002.</td></tr>
-
-
-  </tbody>
-  
+<tr style="background: #2C3034; color:white;"><th scope="row">7.0</th><th colspan="3">Dicrete Computational Structures</th></tr>
+<tr><th scope="row">6.1</th><td>Dicrete Computational Structures</td><td>Basic</td><td>Lovász, L., Pelikán, J. & Vesztergombi, K. (2003) Discrete Mathematics Elementary and Beyond. Springer.</td></tr>
+<tr><th scope="row">6.1</th><td>Dicrete Computational Structures</td><td>Extra</td><td>Grimaldi, P. R. (2004) Discrete and Combinatorial Mathematics 5th Edition. Pearson Addison Wesley.</td></tr>
+<tr><th scope="row">6.1</th><td>Dicrete Computational Structures</td><td>Extra</td><td>Rosen, K.H. (2003) Discrete Mathematics and Its Applications 5th Edition. McGraw-Hill.</td></tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">8.0</th><th colspan="3">Formal Languages and Automata</th></tr>
+<tr><th scope="row">6.1</th><td>Formal Languages and Automata</td><td>Basic</td><td>An Introduction to Formal Languages and Automata, Peter Linz, Jones and Barrlett Publishers, 4. Edition, 2006.</td></tr>
+<tr><th scope="row">6.1</th><td>Formal Languages and Automata</td><td>Extra</td><td>John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman, Introduction to Automata Theory, Languages, and Computation (2nd Edition), Addison Wesley, 2000</td></tr>
+<tr><th scope="row">6.1</th><td>Formal Languages and Automata</td><td>Extra</td><td>Ünal Yarımağan, Özdevinirler(Otomatlar) Kuramı ve Biçimsel Diller, 2. baskı, Ankara, Şubat 2011</td></tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">9.0</th><th colspan="3">Digital Design</th></tr>
+<tr><th scope="row">9.1</th><td>Digital Design</td><td>Basic</td><td>Mano, M.M. and Kime, C.R.  Logic and Computer Design Fundamentals, 4/E Prentice Hall, 2008.</td></tr>
+<tr><th scope="row">9.2</th><td>Digital Design</td><td>Extra</td><td>Digital Design Principles and Practice, J.F. Wakerly, Prentice Hall 2001.</td></tr>
+<tr><th scope="row">9.3</th><td>Digital Design</td><td>Extra</td><td>Digital Design, M. Mano, Prentice Hall 2002</td></tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">10.0</th><th colspan="3">Data Structures</th></tr>
+<tr><th scope="row">10.1</th><td>Data Structures</td><td>Basic</td><td>Introduction to Data Structures, Bhagat Singh, Thomas L. Naps</td></tr>
+<tr><th scope="row">10.2</th><td>Data Structures</td><td>Basic</td><td>Data Structures and Algorithm Analysis, Mark Allen Weiss</td></tr>
+</tbody>  
 </table>
 
-
-
-
-* Dicrete Computational Structures
-* Dicrete Computational Structures,Basic, Lovász, L., Pelikán, J. & Vesztergombi, K. (2003) Discrete Mathematics Elementary and Beyond. Springer.
-* Dicrete Computational Structures, Extra,Grimaldi, P. R. (2004) Discrete and Combinatorial Mathematics 5th Edition. Pearson Addison Wesley.
-* Dicrete Computational Structures, Extra,Rosen, K.H. (2003) Discrete Mathematics and Its Applications 5th Edition. McGraw-Hill.
-
-* Formal Languages and Automata
-* Formal Languages and Automata,Basic, An Introduction to Formal Languages and Automata, Peter Linz, Jones and Barrlett Publishers, 4. Edition, 2006.
-* Formal Languages and Automata, Extra,John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman, Introduction to Automata Theory, Languages, and Computation (2nd Edition), Addison Wesley, 2000
-* Formal Languages and Automata, Extra,Ünal Yarımağan, Özdevinirler(Otomatlar) Kuramı ve Biçimsel Diller, 2. baskı, Ankara, Şubat 2011
-
-
-* Digital Design
-* Digital Design, Basic, Mano, M.M. and Kime, C.R.  Logic and Computer Design Fundamentals, 4/E Prentice Hall, 2008.
-* Digital Design, Extra, Digital Design Principles and Practice, J.F. Wakerly, Prentice Hall 2001.
-* Digital Design, Extra, Digital Design, M. Mano, Prentice Hall 2002
-
-* Data Structures
-* Basic, Introduction to Data Structures, Bhagat Singh, Thomas L. Naps
-* Basic, Data Structures and Algorithm Analysis, Mark Allen Weiss
 
 * Programming
 * Basic, H.M. Deitel, P.J. Deitel, I. Pohl, C: How To Program, 2013.
