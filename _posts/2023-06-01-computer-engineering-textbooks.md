@@ -39,13 +39,13 @@ tags:
 <tr><th scope="row">6.2</th><td>Probability</td><td>Extra</td><td>J. L. Devore, Probability and Statistics, Thomson Brooks/Cole, 2004.</td></tr>
 <tr><th scope="row">6.3</th><td>Probability</td><td>Extra</td><td>H. Stark, J. W. Woods, Probability and Random Processes with applications to Signal Processing, Pearson Education, 2002.</td></tr>
 <tr style="background: #2C3034; color:white;"><th scope="row">7.0</th><th colspan="3">Dicrete Computational Structures</th></tr>
-<tr><th scope="row">6.1</th><td>Dicrete Computational Structures</td><td>Basic</td><td>Lovász, L., Pelikán, J. & Vesztergombi, K. (2003) Discrete Mathematics Elementary and Beyond. Springer.</td></tr>
-<tr><th scope="row">6.1</th><td>Dicrete Computational Structures</td><td>Extra</td><td>Grimaldi, P. R. (2004) Discrete and Combinatorial Mathematics 5th Edition. Pearson Addison Wesley.</td></tr>
-<tr><th scope="row">6.1</th><td>Dicrete Computational Structures</td><td>Extra</td><td>Rosen, K.H. (2003) Discrete Mathematics and Its Applications 5th Edition. McGraw-Hill.</td></tr>
+<tr><th scope="row">7.1</th><td>Dicrete Computational Structures</td><td>Basic</td><td>Lovász, L., Pelikán, J. & Vesztergombi, K. (2003) Discrete Mathematics Elementary and Beyond. Springer.</td></tr>
+<tr><th scope="row">7.2</th><td>Dicrete Computational Structures</td><td>Extra</td><td>Grimaldi, P. R. (2004) Discrete and Combinatorial Mathematics 5th Edition. Pearson Addison Wesley.</td></tr>
+<tr><th scope="row">7.3</th><td>Dicrete Computational Structures</td><td>Extra</td><td>Rosen, K.H. (2003) Discrete Mathematics and Its Applications 5th Edition. McGraw-Hill.</td></tr>
 <tr style="background: #2C3034; color:white;"><th scope="row">8.0</th><th colspan="3">Formal Languages and Automata</th></tr>
-<tr><th scope="row">6.1</th><td>Formal Languages and Automata</td><td>Basic</td><td>An Introduction to Formal Languages and Automata, Peter Linz, Jones and Barrlett Publishers, 4. Edition, 2006.</td></tr>
-<tr><th scope="row">6.1</th><td>Formal Languages and Automata</td><td>Extra</td><td>John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman, Introduction to Automata Theory, Languages, and Computation (2nd Edition), Addison Wesley, 2000</td></tr>
-<tr><th scope="row">6.1</th><td>Formal Languages and Automata</td><td>Extra</td><td>Ünal Yarımağan, Özdevinirler(Otomatlar) Kuramı ve Biçimsel Diller, 2. baskı, Ankara, Şubat 2011</td></tr>
+<tr><th scope="row">8.1</th><td>Formal Languages and Automata</td><td>Basic</td><td>An Introduction to Formal Languages and Automata, Peter Linz, Jones and Barrlett Publishers, 4. Edition, 2006.</td></tr>
+<tr><th scope="row">8.2</th><td>Formal Languages and Automata</td><td>Extra</td><td>John E. Hopcroft, Rajeev Motwani, Jeffrey D. Ullman, Introduction to Automata Theory, Languages, and Computation (2nd Edition), Addison Wesley, 2000</td></tr>
+<tr><th scope="row">8.3</th><td>Formal Languages and Automata</td><td>Extra</td><td>Ünal Yarımağan, Özdevinirler(Otomatlar) Kuramı ve Biçimsel Diller, 2. baskı, Ankara, Şubat 2011</td></tr>
 <tr style="background: #2C3034; color:white;"><th scope="row">9.0</th><th colspan="3">Digital Design</th></tr>
 <tr><th scope="row">9.1</th><td>Digital Design</td><td>Basic</td><td>Mano, M.M. and Kime, C.R.  Logic and Computer Design Fundamentals, 4/E Prentice Hall, 2008.</td></tr>
 <tr><th scope="row">9.2</th><td>Digital Design</td><td>Extra</td><td>Digital Design Principles and Practice, J.F. Wakerly, Prentice Hall 2001.</td></tr>
