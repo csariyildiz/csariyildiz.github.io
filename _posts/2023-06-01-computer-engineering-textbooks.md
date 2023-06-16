@@ -8,21 +8,12 @@ tags:
 ---
 
 
-<table class="table">
+<table class="table table-striped  table-bordered">
   
   <tbody>
     
-    <tr>
-      <th scope="row">1.0</th>
-      <td colspan="3">Physics</td>
-    </tr>
-    
-    <tr>
-      <th style="min-width: 60px !important;" scope="row">1.1</th>
-      <td style="min-width: 120px !important;">Physics</td>
-      <td style="min-width: 120px !important;">Basic</td>
-      <td>Halliday, D., Resnick, R., and  Walker, J. (2008).  Fundamentals of Physics (8th Edition). John Wiley & Sons, Inc.</td>
-    </tr>
+  <tr style="background: #2C3034; color:white;"><th scope="row">1.0</th><th colspan="3">Physics</th></tr>
+  <tr><th style="min-width: 60px !important;" scope="row">1.1</th><td style="min-width: 120px !important;">Physics</td><td style="min-width: 120px !important;">Basic</td><td>Halliday, D., Resnick, R., and  Walker, J. (2008).  Fundamentals of Physics (8th Edition). John Wiley & Sons, Inc.</td></tr>
     
     <tr>
       <th scope="row">1.2</th>
@@ -52,7 +43,7 @@ tags:
       <td>Giancoli, D.C. (2004).  Physics: Principles with Applications (6th Edition). Pearson Education Inc.</td>
     </tr>
 
-    <tr>
+    <tr style="background: #2C3034; color:white;">
       <th scope="row">2.0</th>
       <td colspan="3">Calculus</td>
     </tr>
@@ -79,7 +70,7 @@ tags:
       <td>Calculus the Maple Way, Robert B. Israel, Addison-Wesley, 2000</td>
     </tr>
 
-    <tr>
+    <tr style="background: #2C3034; color:white;">
       <th scope="row">3.0</th>
       <td colspan="3">Differential Equations</td>
     </tr>
@@ -91,19 +82,19 @@ tags:
       <td>S. L. Ross, Differential Equations, 3rd edition, Wiley, 1984</td>
     </tr>
 
-<tr><th scope="row">4.0</th><td colspan="3">Linear Algebra</td></tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">4.0</th><td colspan="3">Linear Algebra</td></tr>
 <tr><th scope="row">4.1</th><td>Linear Algebra</td><td>Basic</td><td>B. Kolman, D. R. Hill, Elementary Linear Algebra, Prentice Hall, 8th edition, 2004.</td></tr>
 <tr><th scope="row">4.2</th><td>Linear Algebra</td><td>Extra</td><td>D. C Lay, Linear Algebra and Its Applications, Addison Wesley Longman, Inc., 2n edition 1997.</td></tr>
 <tr><th scope="row">4.3</th><td>Linear Algebra</td><td>Extra</td><td>D. Poole, Linear Algebra - a Modern Introduction, Thomson Brooks/Cole, 2006.</td></tr>
-<tr><th scope="row">5.0</th><td colspan="3">Numerical Methods</td></tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">5.0</th><td colspan="3">Numerical Methods</td></tr>
 <tr><th scope="row">5.1</th><td>Numerical Methods</td><td>Basic</td><td>Steven C. Chapra, Raymond P. Canale, ?Numerical Methods for Engineers?, McGraw-Hill, 5th ed., 2006</td></tr>
 <tr><th scope="row">5.2</th><td>Numerical Methods</td><td>Extra</td><td>Laurene V. Fausett, ?Numerical Methods: Algorithms and Applications?, Prentice Hall, 2003.</td></tr>
-<tr><th scope="row">5.0</th><td colspan="3">Algorithms And Complexity</td></tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">5.0</th><td colspan="3">Algorithms And Complexity</td></tr>
 <tr><th scope="row">5.1</th><td>Algorithms And Complexity</td><td>Basic</td><td>Brassard, G.-Bratley, P. Algorithmics,theory and practice</td></tr>
 <tr><th scope="row">5.2</th><td>Algorithms And Complexity</td><td>Ekstra</td><td>Mount, D. Lecture notes: Design and Analysis of Computer Algorithms, CMSC 452.</td></tr>
 <tr><th scope="row">5.3</th><td>Algorithms And Complexity</td><td>Ekstra</td><td>R.Sedgewick, (1983). Algorithms, Addison-Wesley, Reading MA.</td></tr>
 <tr><th scope="row">5.4</th><td>Algorithms And Complexity</td><td>Ekstra</td><td>Parberry, I. , Lecture notes on Algorithms Analysis and Computational Complexity</td></tr>
-<tr><th scope="row">6.0</th><td colspan="3">Probability</td></tr>
+<tr style="background: #2C3034; color:white;"><th scope="row">6.0</th><td colspan="3">Probability</td></tr>
 <tr><th scope="row">6.1</th><td>Probability</td><td>Basic</td><td>Sheldon Ross, A First Course in Probability, Prentice Hall, 7th edition, 2006.</td></tr>
 <tr><th scope="row">6.2</th><td>Probability</td><td>Extra</td><td>J. L. Devore, Probability and Statistics, Thomson Brooks/Cole, 2004.</td></tr>
 <tr><th scope="row">6.3</th><td>Probability</td><td>Extra</td><td>H. Stark, J. W. Woods, Probability and Random Processes with applications to Signal Processing, Pearson Education, 2002.</td></tr>
