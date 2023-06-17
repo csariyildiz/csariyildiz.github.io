@@ -1,24 +1,52 @@
 ---
 layout: page
-title: Watchlist
+title: Watchlist+
 ---
 
-List of movies and tv series, podcast, anime, games.
+List of films, podcast, anime and games.
 
-* A Dark Song
-* 3 Idiots
-* Killing Of A Sacred Deer
-* Seven Samurai
+## Film
+
+## To Watch
+
+* Where the Crawdads Sing (2022)
+* Crimson Peak (2015)
+* May (2002)
+* The Shape of Water (2017)
+* Good Will Hunting (1997)
+
+
+## Watched
+
+* [Dr. Strangelove (1964)](https://www.imdb.com/title/tt0057012/)
+* [A Dark Song (2016)](https://www.imdb.com/title/tt4805316)
+* [3 Idiots (2019)](https://www.imdb.com/title/tt1187043/)
+* [Killing Of A Sacred Deer (2017)](https://www.imdb.com/title/tt5715874/)
+* Raw (2016)
+* Martyrs (2008)
+* Suspiria (2018)
+* Suspiria (1977)
+* Black Swan (2010)
+* American Beauty (1999)
+* Stoker (2013)
+* Hereditary (2018)
+* Faster, Pussycat! Kill! Kill! (1965)
+* La La Land (2016)
+* Whiplash (2014)
+* Dead Poets Society (1989)
+
+
+### Far East Cinema
+
+* [Seven Samurai (1954)](https://www.imdb.com/title/tt0047478/)
 * Battle Royale
 * Oldboy
 * A Tale Of Two Sisters
 * The Wailing
 * Parasite
-* Raw
 * Handmaiden
-* Martyrs
-* Suspiria
 * Memories Of Murder
+
 
 ## Anime
 
