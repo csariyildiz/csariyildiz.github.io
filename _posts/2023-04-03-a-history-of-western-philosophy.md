@@ -65,24 +65,40 @@ Philosophy occupies a middle ground between theology and science. Out conception
 
 ## Philosophy Began In Greece
 
-* Distinct from theology Philosophy began in Greece in 6 century BC.
+* Distinct from theology, philosophy began in Greece in 6 century BC.
+* 6. Century BC : Goes away after christianity grows and rome fell. Merges with theology.
+* Between 11.th - 14.th : Catholic Church dominated. [Frederick II.](https://en.wikipedia.org/wiki/Frederick_II,_Holy_Roman_Emperor)[^1]
+* From 17. century to present : Science dominated.
 
-1. 6. Century BC : Goes away after christianity grows and rome fell. Merges with theology.
-2. Between 11.th - 14.th : Catholic Church dominated. [Frederick II.](https://en.wikipedia.org/wiki/Frederick_II,_Holy_Roman_Emperor)
-3. From 17. century to present : Science dominated.
+* Influence of govenment
+* Secular state is more important than speculations of church
+
+* Conflict: Social Cohesion vs Individual Liberty
+* Conflict: Religion vs Science
+
+* Social Cohesion In Greece
+ * Secured by city state.
+ * Aristotle, Alexander
+ * Romantic devotion to city.
+ * Citizen politics.
+	* Greeks become subject: First Macedonians, than Romans.
+	* Loss of vigor of philosophical tradition.
+	* Ass a resutl: more individual less social ethics. Virtuous life.
+
+* The Stoics: Virtuous to god not a state. Similar to Christianity.
+
+
 
 ## References
 
-[^fn1]: And the footnote!
-
-* [Ernst Kantorowicz - Kaiser Friedrich der Zweite](https://en.wikipedia.org/wiki/Frederick_the_Second)
-* https://www.amazon.com/History-Western-Philosophy-Routledge-Classics/dp/0415325056
-* The Dream of Reason: A History of Philosophy from the Greeks to the Renaissance
-* A History of Philosophy by Frederick Copleston
-* The Dream of Enlightenment (2016) by Anthony Gottlieb
-* https://www.publishersweekly.com/9780393049510
-* https://www.nytimes.com/2016/09/11/books/review/dream-of-enlightenment-anthony-gottlieb.html
-* https://www.amazon.com/Philosophy-Quest-Louis-P-Pojman/dp/0190254777
+[^1]: [Ernst Kantorowicz - Kaiser Friedrich der Zweite](https://en.wikipedia.org/wiki/Frederick_the_Second)
+[^2]: [link](https://www.amazon.com/History-Western-Philosophy-Routledge-Classics/dp/0415325056)
+[^3]: [The Dream of Reason: A History of Philosophy from the Greeks to the Renaissance]()
+[^4]: [A History of Philosophy by Frederick Copleston]
+[^5]: [The Dream of Enlightenment (2016) by Anthony Gottlieb]
+[^6]: [https://www.publishersweekly.com/9780393049510]
+[^7]: [https://www.nytimes.com/2016/09/11/books/review/dream-of-enlightenment-anthony-gottlieb.html]
+[^8]: [https://www.amazon.com/Philosophy-Quest-Louis-P-Pojman/dp/0190254777]
 
 <p class="bd-callout"> Please note that this is not a complete work. :)</p>
 
