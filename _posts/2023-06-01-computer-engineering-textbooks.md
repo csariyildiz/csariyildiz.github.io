@@ -8,7 +8,7 @@ tags:
 ---
 
 
-<table class="table table-striped  table-bordered">
+<table class="table table-striped table-light table-bordered">
 <tbody>    
 <tr class="table-dark"><th scope="row">1.0</th><th colspan="3">Physics</th></tr>
 <tr><th style="min-width: 60px !important;" scope="row">1.1</th><td style="min-width: 120px !important;">Physics</td><td style="min-width: 120px !important;">Basic</td><td>Halliday, D., Resnick, R., and  Walker, J. (2008).  Fundamentals of Physics (8th Edition). John Wiley & Sons, Inc.</td></tr>
