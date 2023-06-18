@@ -11,6 +11,8 @@ tags:
 LaTeX is a powerful alternative for creating professional document. It is a typesetting system commonly used for creating documents especially those with complex mathematical or technical content.
 It provides a high-quality and professional-looking output and is widely used in academia and scientific publishing.
 
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/latex_overleaf.jpg" class="img-fluid" alt="LaTeX Overleaf Interface">
+
 I personally prefer it for its quoting and advanced segmentation features that set it apart from a Word processor like Word. This features become important especially if you are writing a long text such as a thesis.
 
 Rather than focusing on the visual appearance of a document, LaTeX emphasizes the structure and logical organization of content. Users write documents in plain text with special commands that define the document's structure, formatting, and mathematical equations. The LaTeX system then processes the input file and generates a beautifully typeset output document, such as PDF or DVI (Device Independent) format.

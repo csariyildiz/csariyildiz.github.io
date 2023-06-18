@@ -5,24 +5,26 @@ title: "Bertrand Russell's History of Western Philosophy"
 category: main
 ---
 
-As a philosophy enthusiast, I am a big fan of Bertrand Russell's ["History of Western Philosophy."](https://en.wikipedia.org/wiki/A_History_of_Western_Philosophy) Russell, a highly accomplished British mathematician, philosopher, logician, and public intellectual who lived from 1872 to 1970, penned several books on a diverse array of subjects.
+As a philosophy enthusiast, I am a big fan of Bertrand Russell. Russell, a highly accomplished British mathematician, philosopher, logician, and public intellectual who lived from 1872 to 1970, penned several books on a diverse array of subjects.
+He has a book named [History of Western Philosophy](https://en.wikipedia.org/wiki/A_History_of_Western_Philosophy) about history of philosophy.
 
-Russell's comprehensive and engaging account of the development of Western philosophy is widely considered a classic in the field. His lucid writing style and ability to convey complex ideas in an accessible manner have endeared him to readers and scholars alike.
+<p class="bd-callout">The following is based on my notes from the book. Please note that not every sentence from the book is included, and the notes may also include summaries and appendices.</p>
+
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/philosophy.jpg" class="img-fluid" alt="Bertrand Russell's History of Western Philosophy">
+
+Russell's comprehensive and engaging account of the development of Western philosophy is widely considered a classic in the field. His writing style and ability to convey complex ideas in an accessible manner have endeared him to readers and scholars alike.
 
 Russell's work has been praised for its rigorous analysis and deep insight into the philosophical ideas that have shaped Western thought. 
 
 Through his exploration of the works of major philosophers such as Plato, Aristotle, and Kant, Russell provides readers with a comprehensive understanding of the evolution of philosophical thought over time.
 
-
 <p class="bd-callout">The following is based on my notes from "Bertrand Russell's History of Western Philosophy". Please note that not every sentence from the book is included, and the notes may also include summaries and appendices.</p>
 
 Complete work is divided into three books. Ancient Philosophy, Catholic, Modern. 
-Here is some text.[^fn]
-
 
 * Ancient Philosophy
-	* Pre-Socratics
-	* Socrates, Plato, Aristotle
+	* Ancient Philosophy before Socrates (Pre-Socratics)
+	* Socrates, Plato and Aristotle
 	* Ancient Philosophy after Aristotle
 		* Cynics
 		* Sceptics
@@ -40,7 +42,7 @@ Here is some text.[^fn]
 * A History of Western Philosophy was praised by physicists Albert Einstein and Erwin Schrödinger.
 * Leibniz (Frederick Copleston)
 
-## Introduction
+## Notes
 
 Philosophy : Its conceptions product of two factors:
 * Inherited religious and ethical conception.
