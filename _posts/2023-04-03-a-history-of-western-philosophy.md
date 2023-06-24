@@ -5,17 +5,62 @@ title: "Bertrand Russell's History of Western Philosophy"
 category: main
 ---
 
-As a philosophy enthusiast, I am a big fan of Bertrand Russell. 
-A highly accomplished British mathematician, philosopher, logician, and public intellectual who lived from 1872 to 1970.
+As a philosophy enthusiast, I see Bertrand Russell (1872 to 1970) as an important figure. 
+Russel was a highly accomplished British mathematician, philosopher, logician, and public intellectual. He was a member of a Vienna Circle. 
 He wrote several books on a diverse array of subjects.
-One of these books is a book called the The History of Western Philosophy, in which he attempted to write a history of philosophy.
+During the end of the second world war her wrote a book called the The History of Western Philosophy (1946) in which he attempted to write a history tradition of systematic thinking in west.
 
 <p class="bd-callout">Please note that the following notes are based the book. Not every sentence from the book is included, and the notes may also include summaries and appendices.</p>
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/philosophy.jpg" class="img-fluid" alt="Bertrand Russell's History of Western Philosophy">
 
+## About The Author
+
+* If we look at Russell's extremely unusual profile. We know he is from an aristocratic family he was a 3rd Earl Russell.  [^12]
+* We know he created Analytic philosophy perspective which is contrasted with continental philosophy.
+* Founding figure in the analytic movement in Anglo-American philosophy, and recipient of the Nobel Prize for Literature in 1950. 
+* He had an Order of Merit and Fellowship of the Royal Society.
+* His contributions to logic, epistemology, and the philosophy of mathematics established him as one of the foremost philosophers of the 20th century.
+* During a long, productive, and often turbulent life, he published more than 70 books and about 2,000 articles.
+* Some of he books he wrote:
+	* A History of Western Philosophy
+	* Why I Am Not a Christian 
+	* The Principia Mathematica (1910)
+	* The Conquest of Happiness
+	* The Problems of Philosophy  (1912)
+	* In Praise of Idleness and Other Essays
+	* The Value of Philosophy
+	* The Principles of Mathematics
+	* Power: A New Social Analysis
+	* Marriage and Morals
+	* The Autobiography of Bertrand Russell
+	* Religion and Science
+
+
+* Well-Known Essays of Bertrand Russell
+
+	* The Metaphysician's Nightmare - Bertrand Russell
+
+
+
+His scientific contributions was the Russell's paradox, defence of locisism
+
+Russell's life in chronolical order:
+
+* Despite being a mathematician Russel has interest in political and social theory. 
+* In 1896 he taught German social democracy at the London School of Economics.
+* In 1897, he wrote An Essay on the Foundations of Geometry. It is submitted at the Fellowship Examination of Trinity College. He discussed the Cayley–Klein metrics used for non-Euclidean geometry.
+* In 1900, he attended the First International Congress of Philosophy in Paris. He met Giuseppe Peano and Alessandro Padoa there.
+* In 1901, sort of mystic illumination.
+* In 1903 he publishes The Principles of Mathematics. Its a work on foundations of mathematics. It advanced a thesis of logicism, that mathematics and logic are one and the same
+* In 1905, he wrote the essay "On Denoting", which was published in the philosophical journal Mind. .
+* Ludwig Wittgenstein becomes his PhD Student.
+
 Russell's comprehensive and engaging account of the development of Western philosophy is widely considered a classic in the field. 
 His writing style and ability to convey complex ideas in an accessible manner have endeared him to readers and scholars alike.
+
+
+## History Of Western Philosophy
 
 Russell's work has been praised for its rigorous analysis and deep insight into the philosophical ideas that have shaped Western thought. 
 
@@ -78,7 +123,6 @@ Philosophy occupies a middle ground between theology and science. Out conception
 
 * Conflict: Social Cohesion vs Individual Liberty
 * Conflict: Religion vs Science
-
 * Social Cohesion In Greece
  * Secured by city state.
  * Aristotle, Alexander
@@ -90,8 +134,6 @@ Philosophy occupies a middle ground between theology and science. Out conception
 
 * The Stoics: Virtuous to god not a state. Similar to Christianity.
 
-
-
 ## References
 
 [^1]: [Ernst Kantorowicz - Kaiser Friedrich der Zweite](https://en.wikipedia.org/wiki/Frederick_the_Second)
@@ -102,7 +144,13 @@ Philosophy occupies a middle ground between theology and science. Out conception
 [^6]: [https://www.publishersweekly.com/9780393049510]
 [^7]: [https://www.nytimes.com/2016/09/11/books/review/dream-of-enlightenment-anthony-gottlieb.html]
 [^8]: [https://www.amazon.com/Philosophy-Quest-Louis-P-Pojman/dp/0190254777]
-
+[^9]: https://mathshistory.st-andrews.ac.uk/Biographies/Russell/#:~:text=His%20contributions%20relating%20to%20mathematics,the%20first%2Dorder%20predicate%20calculus.
+[^10]: https://thegreatestbooks.org/the-greatest-fiction-since/1900
+[^11]: https://thegreatestbooks.org/the-greatest-nonfiction-since/1900
+[^12]: https://www.britannica.com/biography/Bertrand-Russell
+[^13]: https://www.britannica.com/biography/Bertrand-Russell
+[^14]: https://en.wikipedia.org/wiki/Models_of_scientific_inquiry
+[^15]: https://plato.stanford.edu/entries/russell/
 <p class="bd-callout"> Please note that this is not a complete work. :)</p>
 
 
