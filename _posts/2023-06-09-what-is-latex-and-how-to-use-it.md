@@ -1,11 +1,11 @@
 ---
-layout: post
+layout: post2
 title: "What Is LaTeX and How To Use It?"
 category: main
 thumb: "latex"
 tags:
   - Software
-  - Latex
+  - LaTeX
 ---
 
 LaTeX is a powerful alternative for creating professional document. It is a typesetting system commonly used for creating documents especially those with complex mathematical or technical content.

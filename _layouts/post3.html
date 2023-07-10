@@ -1,0 +1,31 @@
+---
+layout: post3
+---
+
+<div class="post-container">
+<h1>{{ page.title | escape }}</h1>
+<small class="post-date">{{ page.date | date: "%d-%m-%Y" }}</small>
+{% if page.tags %}
+  {% for tag in page.tags %}
+  <small><a href="/tags/#{{ tag }}" class="post-tag">{{ tag }}</a></small>
+  {% endfor %}
+{% else %}
+ 
+{% endif %}
+
+<div class="post-body">
+
+     {{ content }}
+	 
+</div>
+
+
+
+</div>
+
+
+
+
+ 
+ 
+ 
