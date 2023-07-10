@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Features of Digital Content Creation Software"
-category: main
 thumb: "digital_content"
 tags:
     - Software

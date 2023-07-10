@@ -2,7 +2,6 @@
 layout: post
 header: "Bertrand Russell's History of Western Philosophy"
 title: "Bertrand Russell's History of Western Philosophy"
-category: main
 ---
 
 As a philosophy enthusiast, I see Bertrand Russell (1872 to 1970) as an important figure. 

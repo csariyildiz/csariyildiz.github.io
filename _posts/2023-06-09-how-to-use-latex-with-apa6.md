@@ -1,7 +1,6 @@
 ---
 layout: post3
 title: "How To Use LaTeX with APA6"
-category: main
 tags:
   - Software
   - LaTeX
