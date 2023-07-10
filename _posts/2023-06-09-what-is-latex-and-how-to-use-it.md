@@ -2,7 +2,6 @@
 layout: post3
 title: "What Is LaTeX and How To Use It?"
 category: main
-thumb: "latex"
 tags:
   - Software
   - LaTeX
@@ -10,8 +9,6 @@ tags:
 
 LaTeX is a powerful alternative for creating professional document. It is a typesetting system commonly used for creating documents especially those with complex mathematical or technical content.
 It provides a high-quality and professional-looking output and is widely used in academia and scientific publishing.
-
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/latex_overleaf.jpg" class="img-fluid" alt="LaTeX Overleaf Interface">
 
 I personally prefer it for its quoting and advanced segmentation features that set it apart from a Word processor like Word. This features become important especially if you are writing a long text such as a thesis.
 
