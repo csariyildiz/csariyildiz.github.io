@@ -1,11 +1,12 @@
 ---
-layout: post
+layout: post3
 title: "Editing Fields On MongoDB"
 category: main
 
 thumb: "mongo2"
 tags:
-  - database
+  - Database
+  - MongoDB
 ---
 
 MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases including apps and data pipelines.
