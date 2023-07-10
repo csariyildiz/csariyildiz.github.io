@@ -1,16 +1,10 @@
 ---
 layout: post
 title: "Touristic Guide For Istanbul"
-category: main
-thumb: "digital_content"
-tags:
-    - Other
 ---
 
 I live in Istanbul for years. Even work in a hotel chain for a time period so I have some perspective about both tourism and Istanbul.
 I wanted to create my own touristic guide for Istanbul myself for anyone.
-
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/premiere.png" class="img-fluid" alt="Adobe Premiere">
 
 * Overview Of The City
 
