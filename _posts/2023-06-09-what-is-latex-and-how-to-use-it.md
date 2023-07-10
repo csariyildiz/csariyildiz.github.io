@@ -1,5 +1,5 @@
 ---
-layout: post2
+layout: post3
 title: "What Is LaTeX and How To Use It?"
 category: main
 thumb: "latex"
