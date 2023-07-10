@@ -20,8 +20,8 @@ title: "Posts"
     <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
     <small class="post-date">{{ post.date | date: "%d-%m-%Y"}}</small>
 	{% for tag in page.tags %}
-	{% capture tag_name %}{{ tag }}{% endcapture %}
-    <small><a href="/tags/#{{ tag_name }}" class="post-tag">{{ tag_name }}</a></small>
+	
+    <small><a href="/tags/#{{ tag }}" class="post-tag">{{ tag }}</a></small>
 	{% endfor %}
 
     <div class="post-body">{{ post.content | strip_html | truncatewords: 50 }}</div>
