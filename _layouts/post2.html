@@ -1,0 +1,128 @@
+---
+layout: page2
+---
+
+<div class="post-container">
+<h1>How to Run Dotnet Test Alongside Docker Compose in GitLab CI/CD</h1>
+<small class="post-date">January 5, 2021</small>
+<small><a href="/tags/#DevOps" class="post-tag">DevOps</a></small>
+<small><a href="/tags/#Docker" class="post-tag">Docker</a></small>
+<small><a href="/tags/#Dotnet" class="post-tag">Dotnet</a></small>
+<div class="post-body"><p>To run <code class="language-plaintext highlighter-rouge">dotnet test</code> in GitLab and have it connect to and use containerized services like databases, caches, or in this case Selenium Hub, you can use the following pattern:</p>
+<ol>
+<li>Rely on GitLab CI’s built-in <code class="language-plaintext highlighter-rouge">docker:dind</code> (“docker in docker”) service to run docker commands as job scripts.</li>
+<li>Install <code class="language-plaintext highlighter-rouge">docker-compose</code> manually (if you know of a way to somehow use an image instead for this, let me know!)</li>
+<li>Run <code class="language-plaintext highlighter-rouge">docker-compose</code> using a test-specific <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>.</li>
+<li>Run <code class="language-plaintext highlighter-rouge">dotnet test</code> using <code class="language-plaintext highlighter-rouge">docker run [...] mcr.microsoft.com/dotnet/sdk:5.0 dotnet test [...]</code>.</li>
+</ol>
+<h2 id="example-xunit-test-class">Example xUnit Test Class</h2>
+<p>This is using xUnit, pulling the Selenium Hub URL from <code class="language-plaintext highlighter-rouge">appsettings.json</code>, and grabbing the title of <code class="language-plaintext highlighter-rouge">google.com</code>.</p>
+<p><strong>SomeBrowserTests.cs</strong></p>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">SomeBrowserTests</span>
+<span class="p">{</span>
+    <span class="p">[</span><span class="n">Fact</span><span class="p">]</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetTitleTest</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">env</span> <span class="p">=</span> <span class="n">Environment</span><span class="p">.</span><span class="nf">GetEnvironmentVariable</span><span class="p">(</span><span class="s">"ASPNETCORE_ENVIRONMENT"</span><span class="p">);</span>
+        <span class="kt">var</span> <span class="n">configuration</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ConfigurationBuilder</span><span class="p">()</span>
+            <span class="p">.</span><span class="nf">AddJsonFile</span><span class="p">(</span><span class="s">"appsettings.json"</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">AddJsonFile</span><span class="p">(</span><span class="s">$"appsettings.</span><span class="p">{</span><span class="n">env</span><span class="p">}</span><span class="s">.json"</span><span class="p">,</span> <span class="n">optional</span><span class="p">:</span> <span class="k">true</span><span class="p">)</span>
+            <span class="p">.</span><span class="nf">Build</span><span class="p">();</span>
+        <span class="kt">var</span> <span class="n">webDriverHubUrl</span> <span class="p">=</span> <span class="n">configuration</span><span class="p">.</span><span class="nf">GetSection</span><span class="p">(</span><span class="s">"Selenium"</span><span class="p">)[</span><span class="s">"HubUrl"</span><span class="p">];</span>
+        <span class="kt">var</span> <span class="n">options</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">ChromeOptions</span><span class="p">();</span>
+        <span class="kt">var</span> <span class="n">hubUri</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Uri</span><span class="p">(</span><span class="n">webDriverHubUrl</span><span class="p">);</span>
+        <span class="k">using</span> <span class="nn">var</span> <span class="n">driver</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RemoteWebDriver</span><span class="p">(</span><span class="n">hubUri</span><span class="p">,</span> <span class="n">options</span><span class="p">);</span>
+
+        <span class="n">driver</span><span class="p">.</span><span class="n">Url</span> <span class="p">=</span> <span class="s">"https://www.google.com"</span><span class="p">;</span>
+        <span class="kt">var</span> <span class="n">title</span> <span class="p">=</span> <span class="n">driver</span><span class="p">.</span><span class="n">Title</span><span class="p">;</span>
+
+        <span class="n">Assert</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="s">"Google"</span><span class="p">,</span> <span class="n">title</span><span class="p">);</span>
+
+        <span class="n">driver</span><span class="p">.</span><span class="nf">Quit</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+<h2 id="example-appsettingsjson">Example <code class="language-plaintext highlighter-rouge">appsettings.json</code></h2>
+<p>This is the <code class="language-plaintext highlighter-rouge">appsettings.json</code> that GitLab CI will use. For local development it’s possible to use a separate <code class="language-plaintext highlighter-rouge">appsettings.json</code> pointed to <code class="language-plaintext highlighter-rouge">localhost</code>, since a local <code class="language-plaintext highlighter-rouge">docker-compose</code> setup for development would expose the necessary ports on <code class="language-plaintext highlighter-rouge">localhost</code>. <em>However, GitLab CI creates a new container for each job script, so anything running there will have to connect from the a test container to the Selenium Hub container using the container name that docker provides via it’s magic DNS stuff.</em> (this took me a long time to figure out, and adding a job script of <code class="language-plaintext highlighter-rouge">docker network ls</code> helped.)</p>
+<p><strong>appsettings.CI.json</strong></p>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+  </span><span class="nl">"Selenium"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"HubUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://some-selenium-hub:4444/wd/hub"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+<h2 id="example-docker-composeyml">Example <code class="language-plaintext highlighter-rouge">docker-compose.yml</code></h2>
+<p>Nothing fancy here (this is close to what the Selenium docs show), other than to note what network name (bridged by default) is used (<code class="language-plaintext highlighter-rouge">some-tests</code>) because it will be used later when running <code class="language-plaintext highlighter-rouge">dotnet test</code>.</p>
+<p><strong>docker-compose.some-tests.yml</strong></p>
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="na">version</span><span class="pi">:</span> <span class="s2">"</span><span class="s">3.3"</span>
+
+<span class="na">networks</span><span class="pi">:</span>
+  <span class="na">some-tests</span><span class="pi">:</span>
+
+<span class="na">services</span><span class="pi">:</span>
+
+  <span class="na">some-selenium-chrome</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">selenium/node-chrome:4.0</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">/dev/shm:/dev/shm</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">SE_EVENT_BUS_HOST=some-selenium-hub</span>
+      <span class="pi">-</span> <span class="s">SE_EVENT_BUS_PUBLISH_PORT=4442</span>
+      <span class="pi">-</span> <span class="s">SE_EVENT_BUS_SUBSCRIBE_PORT=4443</span>
+    <span class="na">entrypoint</span><span class="pi">:</span> <span class="s">bash -c 'SE_OPTS="--host $$HOSTNAME" /opt/bin/entry_point.sh'</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">some-tests</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">some-selenium-hub</span>
+
+  <span class="na">some-selenium-hub</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">selenium/hub:4.0</span>
+    <span class="na">restart</span><span class="pi">:</span> <span class="s">always</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">4442:4442"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">4443:4443"</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">4444:4444"</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">some-tests</span></code></pre></figure>
+<h2 id="example-gitlab-ciyml">Example <code class="language-plaintext highlighter-rouge">.gitlab-ci.yml</code></h2>
+<p>Here’s where the rubber meets the road.</p>
+<ul>
+<li>Alpine now allows <code class="language-plaintext highlighter-rouge">apk add docker-compose</code> (so there’s no need to mess with python/pip installation of <code class="language-plaintext highlighter-rouge">docker-compose</code> 🙌).</li>
+<li>After <code class="language-plaintext highlighter-rouge">docker-compose</code> is installed, start the Selenium Hub.</li>
+<li>Then run the dotnet tests:
+<ul>
+<li>Notice it runs the <code class="language-plaintext highlighter-rouge">dotnet/sdk</code> image in the same <code class="language-plaintext highlighter-rouge">some-tests</code> network (so that it can connect to <code class="language-plaintext highlighter-rouge">http://some-selenium-hub:4444/wd/hub</code>)</li>
+<li>Notice it sets the <code class="language-plaintext highlighter-rouge">ASPNETCORE_ENVIRONMENT=CI</code> (so that the test will read from the <code class="language-plaintext highlighter-rouge">appsettings.CI.json</code> configuration)</li>
+<li>Notice it mounts <code class="language-plaintext highlighter-rouge">-v $PWD:/app</code> so that the output from <code class="language-plaintext highlighter-rouge">--logger "junit"</code> will be readable by the GitLab CI task runner to capture test results. This requires the <code class="language-plaintext highlighter-rouge">JUnitTestLogger</code> nuget package to be installed in the test project(s).</li>
+<li>Notice it calls <code class="language-plaintext highlighter-rouge">docker-compose down</code>, and I’m not entirely sure that’s necessary – I just like to be a good citizen.</li>
+</ul>
+</li>
+</ul>
+<p><strong>.gitlab-ci.yml</strong></p>
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="na">image</span><span class="pi">:</span> <span class="s">docker:latest</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">docker:dind</span>
+    <span class="na">entrypoint</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">dockerd-entrypoint.sh"</span><span class="pi">]</span>
+    <span class="na">command</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">--max-concurrent-downloads"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">6"</span><span class="pi">]</span>
+
+<span class="na">stages</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">test</span>
+
+<span class="na">variables</span><span class="pi">:</span>
+  <span class="na">DOCKER_DRIVER</span><span class="pi">:</span> <span class="s">overlay2</span>
+
+<span class="na">some-tests</span><span class="pi">:</span>
+  <span class="na">stage</span><span class="pi">:</span> <span class="s">test</span>
+  <span class="na">before_script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">apk add docker-compose</span>
+  <span class="na">script</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">docker-compose -f docker-compose.some-tests.yml up -d --build --remove-orphans</span>
+    <span class="pi">-</span> <span class="s">docker run --network some-tests -v $PWD:/app -w /app -e "ASPNETCORE_ENVIRONMENT=CI" mcr.microsoft.com/dotnet/sdk:5.0-alpine dotnet test SomeSolution.sln --logger "junit"</span>
+    <span class="pi">-</span> <span class="s">docker-compose -f docker-compose.some-tests.yml down</span>
+  <span class="na">artifacts</span><span class="pi">:</span>
+    <span class="na">reports</span><span class="pi">:</span>
+      <span class="na">junit</span><span class="pi">:</span> <span class="s">./**/TestResults/TestResults.xml</span></code></pre></figure>
+</div>
+
+
+
+</div>
