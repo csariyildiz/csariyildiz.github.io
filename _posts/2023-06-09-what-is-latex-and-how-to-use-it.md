@@ -1,48 +1,90 @@
 ---
 layout: post3
-title: "What Is LaTeX and How To Use It?"
+title: "How To Use LaTeX with APA6"
 category: main
 tags:
   - Software
   - LaTeX
 ---
 
-LaTeX is a powerful alternative for creating professional document. It is a typesetting system commonly used for creating documents especially those with complex mathematical or technical content.
+LaTeX is a powerful alternative for creating professional document. 
+It is a typesetting system commonly used for creating documents especially those with complex mathematical or technical content.
 It provides a high-quality and professional-looking output and is widely used in academia and scientific publishing.
 
-I personally prefer it for its quoting and advanced segmentation features that set it apart from a Word processor like Word. This features become important especially if you are writing a long text such as a thesis.
+I personally prefer it for its quoting and advanced segmentation features that set it apart from a Word processor like Word. 
+This features become important especially if you are writing a long text such as a thesis.
 
-Rather than focusing on the visual appearance of a document, LaTeX emphasizes the structure and logical organization of content. Users write documents in plain text with special commands that define the document's structure, formatting, and mathematical equations. The LaTeX system then processes the input file and generates a beautifully typeset output document, such as PDF or DVI (Device Independent) format.
+* Rather than focusing on the visual appearance of a document, LaTeX emphasizes the structure and logical organization of content. 
+* Users write documents in plain text with special commands that define the document's structure, formatting, and mathematical equations. 
+* System then processes the input file and generates a typeset output document, such as PDF.
+* LaTeX is known for its extensive support for mathematical equations and symbols.
+* It is particularly popular in fields like mathematics, physics, computer science and engineering. 
+* It also offers features like automatic numbering and cross-referencing of equations, tables, figures, and references.
+* LaTeX is open-source. 
+* It is based on the TeX typesetting system created by Donald Knuth. 
+* It is available for various operating systems and has a large and active user community.
+* Community provides numerous packages and templates to extend its functionality and customize document styles.
 
-LaTeX is known for its extensive support for mathematical equations and symbols, making it particularly popular in fields like mathematics, physics, computer science, and engineering. It also offers features like automatic numbering and cross-referencing of equations, tables, figures, and references.
+## How To Start Using LaTex?
 
-LaTeX is open-source and is based on the TeX typesetting system created by Donald Knuth. It is available for various operating systems and has a large and active user community, which provides numerous packages and templates to extend its functionality and customize document styles.
+1. Install LaTeX Distribution
 
-## How to start using LaTex?
+* Choose a LaTeX distribution that suits your operating system. 
+* Some popular distributions include TeX Live (available for Windows, macOS, and Linux) and MiKTeX (primarily for Windows). 
+* Visit the respective distribution's website and download the installer.
 
-* Install LaTeX Distribution: Choose a LaTeX distribution that suits your operating system. Some popular distributions include TeX Live (available for Windows, macOS, and Linux) and MiKTeX (primarily for Windows). Visit the respective distribution's website and download the installer.
+2. Install a LaTeX Editor 
+* While LaTeX can be written in any text editor, using a specialized LaTeX editor can greatly enhance your productivity. 
+* Some popular editors include TeXstudio, TeXworks, and Overleaf (an online LaTeX editor). 
+* These editors provide features like syntax highlighting, auto-completion, and easy compilation.
 
-* Install a LaTeX Editor: While LaTeX can be written in any text editor, using a specialized LaTeX editor can greatly enhance your productivity. Some popular editors include TeXstudio, TeXworks, and Overleaf (an online LaTeX editor). These editors provide features like syntax highlighting, auto-completion, and easy compilation.
+3. Learn the LaTeX Basics
 
-* Learn the LaTeX Basics: Familiarize yourself with the basic structure and syntax of LaTeX. You can find online resources, tutorials, and books dedicated to learning LaTeX. The LaTeX Wikibook (https://en.wikibooks.org/wiki/LaTeX) is a great starting point and covers a wide range of topics.
+* Familiarize yourself with the basic structure and syntax of LaTeX. 
+* You can find online resources, tutorials, and books dedicated to learning LaTeX. 
+* The LaTeX Wikibook (https://en.wikibooks.org/wiki/LaTeX) is a great starting point and covers a wide range of topics.
 
-* Write your LaTeX Document: Open your preferred LaTeX editor and create a new document. LaTeX documents have a predefined structure, typically starting with a document class declaration and followed by the document content enclosed within the "document" environment. You can then write your text, include mathematical equations, add figures, tables, and references using LaTeX commands.
+4. Write your LaTeX Document
 
-* Compile the Document: Once you have written your LaTeX document, you need to compile it to generate the output file (usually PDF). The compilation process converts your LaTeX code into a typeset document. Most LaTeX editors have a built-in compilation feature that allows you to compile the document with a click of a button. If you're using an online editor like Overleaf, it compiles the document automatically as you write.
+* Open your preferred LaTeX editor and create a new document. 
+* LaTeX documents have a predefined structure, typically starting with a document class declaration and followed by the document content enclosed within the "document" environment. 
+* You can then write your text, include mathematical equations, add figures, tables, and references using LaTeX commands.
 
-* Iterate and Refine: LaTeX encourages an iterative approach to document creation. After compiling, review the output, make necessary edits, and recompile as needed. This process allows you to refine the document until you achieve the desired output.
+5. Compile the Document
 
-* Explore Advanced Features: As you become more comfortable with LaTeX, you can explore its advanced features, such as customizing document styles, using additional packages for specialized functionalities, managing bibliographies with BibTeX, and creating complex mathematical formulas and diagrams.
+* Once you have written your LaTeX document, you need to compile it to generate the output file (usually PDF). 
+* The compilation process converts your LaTeX code into a typeset document. 
+* Most LaTeX editors have a built-in compilation feature that allows you to compile the document with a click of a button. 
+* If you're using an online editor like Overleaf, it compiles the document automatically as you write.
 
-* LaTeX can take some time and practice, but there are abundant resources available online to assist you. Feel free to consult documentation, forums, and communities like TeX Stack Exchange (https://tex.stackexchange.com/) for any specific questions or doubts you may have along the way.
+6. Iterate and Refine: 
 
-## What are the components Of LaTex Document?
+* LaTeX encourages an iterative approach to document creation. 
+* After compiling, review the output, make necessary edits, and recompile as needed. 
+* This process allows you to refine the document until you achieve the desired output.
 
-In LaTeX, a document is composed of several components that work together to create a structured and formatted output. The main components of LaTeX are as follows:
+7. Explore Advanced Features
 
-1. Document Class: The document class defines the overall structure and layout of the document. It determines the type of document you are creating, such as an article, report, book, or presentation. Common document classes include article, report, book, and beamer for presentations.
+* As you become more comfortable with LaTeX, you can explore its advanced features, such as customizing document styles, using additional packages for specialized functionalities, managing bibliographies with BibTeX, and creating complex mathematical formulas and diagrams.
+* LaTeX can take some time and practice, but there are abundant resources available online to assist. 
+* There is documentation, forums, and communities like TeX Stack Exchange (https://tex.stackexchange.com/)
 
-2. Preamble: The preamble is the section between \documentclass and \begin{document}. It is used to load packages, define custom commands, set document-wide settings, and include additional formatting instructions. For example, you can specify the font size, page layout, and margins in the preamble.
+## Components Of LaTex Document
+
+In LaTeX, a document is composed of several components that work together to create a structured and formatted output. 
+The main components of LaTeX are as follows:
+
+1. Document Class
+
+* The document class defines the overall structure and layout of the document. 
+* It determines the type of document you are creating, such as an article, report, book, or presentation. 
+* Common document classes include article, report, book, and beamer for presentations.
+
+2. Preamble
+
+* The preamble is the section between \documentclass and \begin{document}. 
+* It is used to load packages, define custom commands, set document-wide settings, and include additional formatting instructions. 
+* For example, you can specify the font size, page layout, and margins in the preamble.
 
 3. Title and Author: The title and author information is usually provided using commands like \title, \author, and \date. This information is used to generate the title page or to create a header with the title and author information.
 
