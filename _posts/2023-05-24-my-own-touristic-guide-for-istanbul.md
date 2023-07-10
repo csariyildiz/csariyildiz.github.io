@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Touristic Guide For Istanbul"
-category: main
 thumb: "digital_content"
 tags:
     - Other
