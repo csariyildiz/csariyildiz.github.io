@@ -1,23 +1,19 @@
 ---
-layout: page
+layout: page2
 title: "Posts"
 ---
 
-
-  <table class="table table-bordered table-hover">
-  
-  <tbody>
-	
 	 {% for post in site.categories.main %}  {% if post.url %}
 
-    <tr>
-      
-      <td><a href="{{ post.url }}" style="color: #212529;text-decoration: none;font-size: 1rem;line-height: 1.5;font-weight: 600;">{{ post.date | date: "%d-%m-%Y"}} {{ post.title }}</a></td>
-      
-    </tr>
-
-	   {% endif %}
+    <div class="postlist-post">
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <small class="post-date">{{ post.date | date: "%d-%m-%Y"}}</small>
+    <small><a href="/tags/#DevOps" class="post-tag">Tag2</a></small>
+    <small><a href="/tags/#PowerShell" class="post-tag">Tag1</a></small>
+    <div class="post-body">Excrerpt gow to create a cross platform CLI using simple powershell scripts.</div>
+    </div>
+	
+	
+	  {% endif %}
           {% endfor %}
-
-  </tbody>
-</table>
+	
