@@ -9,7 +9,7 @@ tags:
   - MongoDB
 ---
 
-MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases including apps and data pipelines.
+MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases including application development and data pipelines.
 In this document we will explore its features and commands which can be useful when we dealing with data.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/mongo2.png" class="img-fluid" alt="MongoDB Compass Interface">
@@ -18,21 +18,34 @@ MongoDB has versions like Cloud (Named Atlas), Enterprise and Community. Communi
 Because MongoDB is no-sql its data stored as unstructured or semi-structured. Contrasting from relational databases such as MSSQL, MySQL or Oracle with its collections and documents instead of structured tables columns and rows.
 MongoDB has many features like indexing, replication, load-balancing. And its queries are formed in a JSON-like manner which makes flexible and it easy to use.
 
-## Databases And Collections
+## Table Of Contents
+1. [Databases And Collections]("#")
+2. [Editing Fields]("#")
+3. [Snippet 1 : Sorting]("#")
+4. [Snippet 2 : Batch Updating Documents]("#")
+5. [Snippet 3 : Batch Updating Again]("#")
+
+## 1. Databases And Collections
 
 MongoDB organizes its "documents" as "databases" and "collections". Each document has a collection and a database.
 
 To see databases we can use this command in MongoDB Compass like that:
 
-<code>show databases</code>
+```
+show databases
+```
 
 We can see databases with this command. We can switch one of them like that:
 
-<code>use kb2</code>
+```
+use kb2
+```
 
 Now we can see the collections within this database:
 
-<code>show collections</code>
+```
+show collections
+```
 
 We can also access this interface using programming environments such as Python:
 
@@ -69,27 +82,37 @@ for doc in documents:
         new_collection.insert_one(new_doc)
 ```        
 
-## Editing Fields
+## 2. Editing Fields
 
 Lets say dont need unparsed "message" field since we have the "body" field. I delete it using  query on MongoDB compass interface.
 
-<code>db.nmails.updateMany({},{$unset: {message:""}})</code>
+```
+db.nmails.updateMany({},{$unset: {message:""}})
+```
 
 I change the name of filename field to directory. 
 
-<code>db.mails.updateMany({},{$rename: {"file":"directory"}})</code>
+```
+db.mails.updateMany({},{$rename: {"file":"directory"}})
+```
 
 Take a copy of 'input_entities' collection.
 
-<code>db.input_entities.aggregate([{$out: "input_entities_cased"}])</code>
+```
+db.input_entities.aggregate([{$out: "input_entities_cased"}])
+```
 
 Insert one document to a collection.
 
-<code>db.entities.insertOne({"_id" : 1, "entity": "aws"});</code>
+```
+db.entities.insertOne({"_id" : 1, "entity": "aws"});
+```
 
 Aggregation to list top 1000 documents by c.
 
-<code>[ { '$sort': { 'c': -1    }  },  { '$limit': 1000 }]</code>
+```
+[ { '$sort': { 'c': -1    }  },  { '$limit': 1000 }]
+```
 
 To lowercase all name values in the "input_entities_cased" collection, use the following aggregation stages in MongoDB Compass. Change max time ms is 3600000 which 1 hour.
 
@@ -110,7 +133,9 @@ To lowercase all name values in the "input_entities_cased" collection, use the f
 ----------------------------------------------------------------
 Querying the collection minimized3 in the database using the find() method:
 
-<code>db.minimized3.find( { To: ""} ).count()</code>
+```
+db.minimized3.find( { To: ""} ).count()
+```
 
 * It searches for documents where the value of the To field is an empty string. 
 * The count() method is then applied to get the count of matching documents.
@@ -119,7 +144,9 @@ Querying the collection minimized3 in the database using the find() method:
 
 Aggregation operation on the minimized3 collection:
 
-<code>db.minimized3.aggregate( [{ $count: "Subject" }])</code>
+```
+db.minimized3.aggregate( [{ $count: "Subject" }])
+```
 
  * The aggregation pipeline consists of a single stage where the $count operator is used to count the number of documents in the collection. 
  * The resulting count is assigned the label "Subject".
@@ -136,7 +163,9 @@ Executing the remove() method on the collection:
 
 Retrieving the first document from the collection that has a token field with the spesific value:
 
-<code>db.minimized3.findOne({'token': "onsite"})</code>
+```
+db.minimized3.findOne({'token': "onsite"})
+```
 
 * The findOne() method is used to perform this query.
 
@@ -144,13 +173,14 @@ Retrieving the first document from the collection that has a token field with th
 
 Using aggregate() method with an aggregation pipeline containing a single stage to copy collection.
 
-<code>db.minimized3.aggregate([{ $out : "mails" }])</code>
+```
+db.minimized3.aggregate([{ $out : "mails" }])
+```
 
 * The $out operator is used to output the result of the aggregation to a new collection named "mails". 
 * This effectively replaces the contents of the "mails" collection with the result of the aggregation.
 
-----------------------------------------------------------------
-## Snippet 1 : Sorting
+## 3. Snippet 1 : Sorting
 
 The code below retrieves the documents from a source_collection sorted by the id field in ascending order. 
 
@@ -174,10 +204,7 @@ for document in documents:
 client.close()
 ```
 
-----------------------------------------------------------------
-
-
-## Snippet 2 : Batch Updating Documents
+## 4. Snippet 2 : Batch Updating Documents
 
 Using batches with a batch size might be useful when dealing large amount of data (ex. 510000 documents).
 
@@ -221,7 +248,7 @@ for batch_num in range(num_batches):
 # Close the MongoDB connection
 client.close()
 ```
-## Snippet 3
+## 5. Snippet 3 : Batch Updating Again
 
 ```
 
@@ -253,3 +280,5 @@ for batch_number in range(total_batches):
 client.close()
 
 ```
+
+Thats it! Thank you!
