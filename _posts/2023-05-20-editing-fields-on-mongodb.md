@@ -19,11 +19,11 @@ Because MongoDB is no-sql its data stored as unstructured or semi-structured. Co
 MongoDB has many features like indexing, replication, load-balancing. And its queries are formed in a JSON-like manner which makes flexible and it easy to use.
 
 ## Table Of Contents
-1. [Databases And Collections]("#")
-2. [Editing Fields]("#")
-3. [Snippet 1 : Sorting]("#")
-4. [Snippet 2 : Batch Updating Documents]("#")
-5. [Snippet 3 : Batch Updating Again]("#")
+1. [Databases And Collections](#1-databases-and-collections)
+2. [Editing Fields](#2-editing-fields)
+3. [Snippet 1 : Sorting](#3-snippet-1--sorting)
+4. [Snippet 2 : Batch Updating Documents](#4-snippet-2--batch-updating-documents)
+5. [Snippet 3 : Batch Updating Again](#5-snippet-3--batch-updating-again)
 
 ## 1. Databases And Collections
 

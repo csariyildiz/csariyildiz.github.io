@@ -107,5 +107,14 @@ function subMenu2 {
 
 mainMenu
 ```
+
+Its noted that,
+
+* Script allows nesting as many menus deep as we need and we can put `our code` to execute at any level. 
+* `pause` is put when the code executes waiting for a user to press any key. 
+* If you don't have that in there, the script will clear the console and go back to the menu after your code executes. 
+* So that we can review the output before returning to the menu system.
+* Script work well but switching to `WinForms` might be also an option.
+
 ## Reference
 * [stackoverflow.com/questions/38924659/powershell-multi-choice-menu-and-sub-menu - Jon Dechiro](https://stackoverflow.com/questions/38924659/powershell-multi-choice-menu-and-sub-menu)
