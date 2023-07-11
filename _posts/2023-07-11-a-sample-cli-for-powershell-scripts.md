@@ -1,6 +1,6 @@
 ---
 layout: post3
-title: "Simple CLI For Powershell Scripts"
+title: "A Sample CLI For Powershell Scripts"
 category: main
 thumb: "enrona_1"
 tags:
@@ -9,8 +9,9 @@ tags:
 ---
 
 I needed a simple command line interface for my commands running on Powershell. 
-I found the following script that creates a menu quite useful. 
-Used it with `Windows 10 Enterprise` and `PSVersion 5.1.19041.3031`
+Following script that creates a menu for execution of functions is quite useful. 
+
+* Tested with `Windows 10 Enterprise` and `PSVersion 5.1.19041.3031`
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/powershell_menu.png" class="img-fluid" alt="Sample Email Enron">
 
