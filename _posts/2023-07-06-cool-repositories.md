@@ -11,7 +11,7 @@ List of good repositories on Github to explore,
 
 Deployment on heroku
 
-https://github.com/nuvic/flask_for_startups
+* https://github.com/nuvic/flask_for_startups
 
 
 ### Code Editor Written In React
