@@ -2,7 +2,6 @@
 layout: post3
 title: "XMRig ve Madenclik Üzerine Bir İnceleme"
 category: gonderiler
-thumb: "enrona_1"
 tags:
   - XMRig
   - Monero

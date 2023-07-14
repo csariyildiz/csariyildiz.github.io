@@ -1,6 +1,5 @@
 ---
 layout: post3
-header: "Computer Engineering Textbooks"
 title: "Computer Engineering Textbooks"
 category: main
 tags:

@@ -2,7 +2,6 @@
 layout: post3
 title: "Cool Repositories"
 category: main
-thumb: "enrona_1"
 tags:
   - Software
 ---

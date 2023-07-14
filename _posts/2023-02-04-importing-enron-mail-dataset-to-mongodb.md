@@ -2,7 +2,6 @@
 layout: post3
 title: "Importing Enron Mail Dataset To MongoDB"
 category: main
-thumb: "enrona_1"
 tags:
   - NLP
   - MongoDB

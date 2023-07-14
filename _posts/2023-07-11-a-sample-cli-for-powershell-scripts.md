@@ -2,7 +2,6 @@
 layout: post3
 title: "A Sample CLI For Powershell Scripts"
 category: main
-thumb: "enrona_1"
 tags:
   - PowerShell
   - CLI

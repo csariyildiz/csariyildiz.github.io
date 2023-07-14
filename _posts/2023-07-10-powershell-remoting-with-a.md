@@ -2,7 +2,6 @@
 layout: post3
 title: "PowerShell Remoting With WinRM"
 category: main
-thumb: "enrona_1"
 tags:
   - PowerShell
   - CLI

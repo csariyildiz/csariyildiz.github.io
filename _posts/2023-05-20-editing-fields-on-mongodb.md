@@ -2,8 +2,6 @@
 layout: post3
 title: "Editing Fields On MongoDB"
 category: main
-
-thumb: "mongo2"
 tags:
   - Database
   - MongoDB
