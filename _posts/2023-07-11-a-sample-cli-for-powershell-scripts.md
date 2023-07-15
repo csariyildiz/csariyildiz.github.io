@@ -5,14 +5,20 @@ category: main
 tags:
   - PowerShell
   - CLI
+  - ChatGPT
 ---
 
-I needed a simple command line interface for my commands running on Powershell. 
-Following script that creates a menu for execution of functions is quite useful. 
+As an alternative to complexities of command syntax it has the convenient menu-driven approach to enhance your overall PowerShell experience.
+We know from various examples that such interfaces, despite their modest appearance, can be extremely effective and successful in some cases.
 
-* Tested with `Windows 10 Enterprise` and `PSVersion 5.1.19041.3031`
+If you're seeking a convenient and user-friendly solution to manage your PowerShell commands, this script provides an ideal command line interface.
+It offers a user-friendly menu system that simplifies the execution of functions and makes your PowerShell tasks easy to manage.
+
+Tested on `Windows 10 Enterprise` with `PSVersion 5.1.19041.3031`, this script provides a reliable and efficient solution for managing your commands. 
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/powershell_menu.png" class="img-fluid" alt="Sample Email Enron">
+
+I also used ChatGPT to improve [the original script][1]. Since I think this is also important for practice of using chatgpt I also wanted to share improvements it made.
 
 You can save it to a file named like `test.ps1` and run.
 
@@ -30,5 +36,15 @@ Its noted that,
 * So that we can review the output before returning to the menu system.
 * Script work well but switching to `WinForms` might be also an option.
 
-## Reference
-* [Powershell Multi-choice Menu and Sub menu - Stack Overflow](https://stackoverflow.com/questions/38924659/powershell-multi-choice-menu-and-sub-menu)
+## ChatGPT Improvements
+
+* Renamed functions to follow PowerShell's verb-noun naming convention for consistency and clarity.
+* Consolidated the menu display code into separate functions for better organization.
+* Added a new function, Execute-Task, to handle task execution based on user input, with better error handling for invalid selections.
+* Utilized a switch statement instead of multiple if statements for better readability and maintainability.
+* Incorporated a do-while loop to continuously display the main menu and allow the user to navigate through submenus until they choose to exit.
+* Added validation to display an error message for invalid selections.
+* Implemented parameterization for the Execute-Task function to pass the user's selection as a parameter.
+
+## References
+[1]: [Powershell Multi-choice Menu and Sub menu - Stack Overflow](https://stackoverflow.com/questions/38924659/powershell-multi-choice-menu-and-sub-menu)
