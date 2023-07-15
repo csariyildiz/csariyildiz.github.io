@@ -16,7 +16,7 @@ Kripto paraların popülerlik kazanmaya başladığı 2010'lu yılların ortalar
 Hatta heyecanla bu yeni düzene adapte oluyorlar. Kimi ise daha temkinli bir yaklaşım sergiliyor.
 Genellikle kripto para dünyasında yer alan tanıdıklarımız, hisse senedi piyasasında olduğu gibi yatırım yapma, alım-satım gerçekleştirme gibi faaliyetlerde bulunuyorlar.
 
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/powershell_menu.png" class="img-fluid" alt="Sample Email Enron">
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/monero_ocean1.png" class="img-fluid" alt="Monero Ocean">
 
 Teknolojinin hızlı ilerlediği bu çağda, kripto para birimleriyle ilgili gelişmeleri takip etmenin ve anlamanın önemi aşikar.
 Ancak kripto para birimlerinin teknik altyapısı ve uygulama pratiği, özellikle bilgisayarlarla içli dışlı olanlar için de oldukça ilginç detaylar sunuyor. 
