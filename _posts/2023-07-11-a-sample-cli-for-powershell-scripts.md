@@ -31,4 +31,4 @@ Its noted that,
 * Script work well but switching to `WinForms` might be also an option.
 
 ## Reference
-* [stackoverflow.com/questions/38924659/powershell-multi-choice-menu-and-sub-menu - Jon Dechiro](https://stackoverflow.com/questions/38924659/powershell-multi-choice-menu-and-sub-menu)
+* [Powershell Multi-choice Menu and Sub menu - Stack Overflow](https://stackoverflow.com/questions/38924659/powershell-multi-choice-menu-and-sub-menu)

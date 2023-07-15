@@ -8,8 +8,6 @@ tags:
   - WinRM
 ---
 
-
-
 * WinRM is the protocol that PowerShell uses for establishing remote connection inside of Windows.
 * WinRM is not natively set up inside of Windows. 
 * We need to configure it to listen for winrm calls.
@@ -18,41 +16,34 @@ tags:
 * We use cmdlet, Test-WSMan to see the device is configured for WinRM.
 * This doesn't get error. So it has configuration.
 
-
 ```
 > Test-WSMan
 wsmid           : http://schemas.dmtf.org/wbem/wsman/identity/1/wsmanidentity.xsd
 ProtocolVersion : http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd
 ProductVendor   : Microsoft Corporation
 ProductVersion  : OS: 0.0.0 SP: 0.0 Stack: 3.0
-
 ```
 
 ## 1. WinRM Configuration
 
-
 * Basic WinRM configuration with default settings.
-
 
 ```
 winrm quickconfig
-
 ```
 * An example is showing how to make more spesific settings with quickconfig.
 
 ```
 winrm quickconfig -transport:https
-
 ```
 * Check winrm settings.
 
 ```
 winrm get winrm/config/client
 winrm get winrm/config/service
-
 ```
-### 1.1 Client
 
+### 1.1 Client
 
 ```
 PS C:\> winrm get winrm/config/client
@@ -72,7 +63,6 @@ Client
         HTTP = 5985
         HTTPS = 5986
     TrustedHosts = MyServer
-
 ```
 
 * This shows client is able to following authentication protocols. (Basic,Digest...)
@@ -87,7 +77,6 @@ This is for listening inbound communications.
 
 ```
 PS C:\GroupMembers\other\newfolder> winrm get winrm/config/service
-
 ```
 
 
@@ -116,7 +105,6 @@ Service
     EnableCompatibilityHttpsListener = false
     CertificateThumbprint
     AllowRemoteAccess = true
-
 ```
 
 * This is only accepts Kerberos and Negotiate.
@@ -128,7 +116,6 @@ Service
 
 ```
 PS C:\GroupMembers\other\newfolder>  winrm enumerate winrm/config/listener
-
 ```
 
 ```
@@ -141,7 +128,6 @@ Listener
     URLPrefix = wsman
     CertificateThumbprint
     ListeningOn = 127.0.0.1, 172.16.1.193, ::1
-
 ```
 
 * We see currently listening ip addresses. (multiple NIC's.) We can configure listener ip address.
@@ -177,14 +163,12 @@ Same as local results. Indicating credentials, authentication methods, remote ma
 We can also verify local device is listening on WinRM port
 
 ```
-
 Get-NetTCPConnection -LocalPort 5985
 ```
 
 We need powershell 5.1 for this command. Powershell 6 vs 5.1 has difference not all commands are avaible.
 
 ```
-
 $PSVersionTable
 ```
 
@@ -235,11 +219,7 @@ $credential = Get-Credential
 $multiSession = New-PSSession -ComputerName $devices -Credential $credential
 ```
 
-
-
-
-
-
+## References
 
 * https://www.youtube.com/watch?v=qvJRaYlxI1w&t=199s
 * [Running Remote Commands](https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/running-remote-commands?view=powershell-6)
