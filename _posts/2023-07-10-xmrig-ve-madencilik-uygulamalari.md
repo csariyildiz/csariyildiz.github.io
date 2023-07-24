@@ -51,27 +51,31 @@ Nisan 2011'de, merkezi olmayan bir alan adı sistemi olan Namecoin hayata geçir
 Amacı, geleneksel DNS sistemine bağımlılığı ortadan kaldırmaktı. 
 Namecoin, güvenli ve sansürsüz bir alan adı kaydı sağlamak için blockchain teknolojisini kullandı.
 
-Ancak Bitcoin'e alternatifler de ortaya çıktı. Ekim 2011'de Litecoin piyasaya sürüldü ve Bitcoin'in SHA-256 algoritmasına alternatif olarak scrypt adlı hash fonksiyonunu kullandı. 
+Zaman içerisinde Bitcoin'e alternatifler ortaya çıktı. Ekim 2011'de Litecoin piyasaya sürüldü ve Bitcoin'in SHA-256 algoritmasına alternatif olarak scrypt adlı hash fonksiyonunu kullandı. 
 Litecoin, daha hızlı işlem onaylamaları ve daha düşük işlem ücretleri sunarak kripto para dünyasında dikkatleri üzerine çekti.
 
-Ağustos 2012'de ise Peercoin sahneye çıktı ve hem çalışma kanıtı (proof-of-work) hem de katılım kanıtı (proof-of-stake) yöntemlerini birleştiren bir melez sistem sunuyordu. 
+Ağustos 2012'de ise Peercoin sahneye çıktı ve hem çalışma kanıtı (proof-of-work) hem de katılım kanıtı (proof-of-stake) yöntemlerini birleştirerek bir melez sistem sundu. 
 Bu melez yaklaşım, enerji verimliliğini artırarak ve ağ güvenliğini sağlayarak kripto para dünyasında önemli bir adım olarak kabul edildi.
 
-Bu tarihlerde ortaya çıkan bu dijital para birimleri, kripto para ekosisteminin genişlemesine ve gelişmesine katkıda bulundu. İlerleyen yıllarda daha birçok farklı kripto para ortaya çıktı ve finansal dünyada büyük bir çığır açtı. 
-Bu teknolojiler, her geçen gün daha fazla kişi tarafından benimseniyor ve gelecekte finansal işlemlerin yapısı üzerinde derin etkileri olacağına dair umutları artırıyor."
+Bu tarihlerde ortaya çıkan bu dijital para birimleri, kripto para ekosisteminin genişlemesine ve gelişmesine katkıda bulundu. 
+İlerleyen yıllarda daha birçok farklı kripto para ortaya çıktı ve finansal dünyada büyük bir çığır açtı. 
+Teknolojilerin her geçen gün daha fazla kişi tarafından benimsenmesi gelecekte finansal işlemlerin yapısı üzerinde derin etkileri olacağına dair umudu da arttırdı.
 
 Kripto para birimleri, 2011, 2013-2014-2015, 2017-2018 ve 2021-2023 gibi birkaç büyüme ve daralma dönemi geçirdi. 
-Bu dönemlerde birkaç balon ve piyasa çöküşü yaşandı.
+Bu dönemlerde birkaç balon ve piyasa çöküşü yaşandı. Özellikle kimi dolandırıcılık faliyetleri ülkemizde de görüldü.
 
-Kripto para birimleriyle ilgili olarak, mining (madencilik) süreci hem ilginç bir konu hem de algoritmik bir arka plana sahiptir. 
-Mining, yeni blokların oluşturulması ve işlemlerin doğrulanması için bilgisayarların karmaşık matematiksel problemleri çözmesini gerektiren bir süreçtir. 
+### Mining
+
+Mining (madencilik) süreci hem kriptoparaların temelini oluşturmasının yanı sıra algoritmik bir arka plana da sahip. 
+Mining, yeni blokların oluşturulması ve işlemlerin doğrulanması için bilgisayarların karmaşık matematiksel problemleri çözmesini gerektiren bir süreç. 
 Bu işlem, kripto para birimlerinin arzının kontrol edilmesini ve ağın güvenliğinin sağlanmasını amaçlar.
 
-Mining'in ilginç yanlarından biri, bu işlemin algoritmik karmaşıklığıdır. Kripto para birimlerinin çoğunda kullanılan Proof-of-Work (PoW) algoritması, madencilere belirli bir karmaşık hesaplama problemini çözmelerini gerektirir. 
-Bu problemin çözülmesi, zaman ve enerji gerektiren bir süreçtir. Algoritmanın zorluk seviyesi, madencilerin rekabet etmesini sağlayacak şekilde düzenli olarak ayarlanır.
+Mining'in ilginç yanlarından biri, bu işlemin algoritmik karmaşıklığını kullanması aslında. 
+Daha önce de bahsettiğimiz gibi Kripto para birimlerinin çoğunda kullanılan Proof-of-Work (PoW) algoritması, madencilere belirli bir karmaşık hesaplama problemini çözmelerini gerektiriyor. 
+Bu problemin çözülmesi, zaman ve enerji gerektiren bir süreç. Algoritmanın zorluk seviyesi, madencilerin rekabet etmesini sağlayacak şekilde düzenli olarak ayarlanıyor.
 
-Bunun yanı sıra, kripto para birimlerinin toplumsal ve teknolojik sonuçları da dikkate değerdir. 
-Kripto para birimlerinin ortaya çıkmasıyla birlikte, finansal sistemin dışında kalan kesimlere finansal erişim ve ödeme yöntemleri sunulmuştur. 
+Bunun yanı sıra, kripto para birimlerinin toplumsal ve teknolojik sonuçları da dikkate değerdir. Özellikle çevre açısından da sakıncalı bulunuyor. 
+Çünkü elektrik tüketimine sebep olan bu işlem fiziksel olarak hiçbir üretimi yok. Kripto para birimlerinin ortaya çıkmasıyla birlikte, finansal sistemin dışında kalan kesimlere finansal erişim ve ödeme yöntemleri sunulmuştur. 
 Bu, finansal katılımı artırma potansiyeline sahip bir gelişmedir.
 
 Ayrıca, kripto para birimlerinin kullanımıyla ilgili bir ilginç durum, insanların gerçek cüzdanları ile platform arasındaki farkı bilmemesidir. 
@@ -236,42 +240,48 @@ CPU : Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz (1) 64-bit AES
 GPU : NVIDIA GeForce MX150
 
 
-The NVIDIA GeForce MX150 is not typically considered a powerful GPU for cryptocurrency mining. 
-It is a mobile GPU designed for laptops and is not optimized for high-performance mining operations.
+Kullandığım NVIDIA GeForce MX150, kripto para birimi madenciliği için tipik olarak güçlü bir GPU olarak kabul edilmiyor.
+Dizüstü bilgisayarlar için tasarlanmış mobil bir GPU ve yüksek performanslı madencilik işlemleri için optimize edilmemiş.
 
-
+Aşağıdaki hesapları kendimiz de yapabiliriz:
 
 Earnings per hour (XMR) ≈ (Hashrate / Network Hashrate) * Block Reward * (1 hour / Block Time)
 Earnings per month (XMR) ≈ Hourly Earnings (XMR) * 24 hours * 30 days
 
+Kripto para birimi madenciliği için yaygın olarak kullanılan donanım NVIDIA'nın GeForce GTX ve RTX serileri. GPU üreticisi firmalara baktığımız zaman herkesçe bilinen ve erişilebilir alanda NVDIA'nın hakimiyetini görüyoruz. NVDIA'nın ürettiği çipler farklı markalar MSI, ASUS, GIGABYTE gibi farklı tarafından kullanılıyor. Bu ekran kartlarından bu yazının yazıldığı zamandaki örnekleri inceleyecek olursak,
+
+NVIDIA GeForce GTX 1660 Ti : Fiyat performans açısından iyi bir denge sunan orta sınıf bir GPU. Turing mimarisine ve yaklaşık 1536 CUDA çekirdeğine sahip. Nispeten güç açısından verimli olurken, Monero gibi madencilik kripto para birimleri için iyi bir hash oranı sunuyor. 
+
+Tarih  : 24.07.2023
+Dolar  : 26.94 Lira
+
+Model  : GTX 1660 TI VENTUS XS 6G OC / 93494
+         MSI GEFORCE GTX 1660 Ti VENTUS XS 6G OC 6GB GDDR6 192bit NVIDIA Ekran Kartı
+Fiyat  : 17.246 TL
+
+Model  : GTX 1660 TI VENTUS XS 6G / 93493
+         MSI GEFORCE GTX 1660 Ti VENTUS XS 6G 6GB GDDR6 192bit NVIDIA Ekran Kartı
+Fiyat  : 16.900 TL
+
+MSI, OC versiyonu (17.246 TL) XS versiyonu (16.900 TL) seviyesinde alınabileceğini görüyoruz.
+
+NVIDIA GeForce RTX 3060: RTX 3060, NVIDIA'nın en yeni Ampere mimarisine dayanan daha güçlü bir GPU. GTX 1660 Ti'ye kıyasla önemli ölçüde daha yüksek hash oranları sunuyor. Yaklaşık 3584 CUDA çekirdeğine sahip. RTX 3060, özellikle Ethereum madenciliği olmak üzere madencilik yetenekleriyle tanınır.
+
+NVIDIA GeForce RTX 3080:  RTX 3080, ortalamanın dışında madencilik performansı sağlayan üst düzey bir GPU. Yaklaşık CUDA çekirdeğine (8704) sahip. Bu sayı için ortalamanın çok üstünde diyebiliriz. Orta sınıf GPU'lara kıyasla önemli ölçüde daha yüksek hash hızları sunuyor. Ancak, RTX 3080'in mevcudiyeti sınırlı ve edinilmesi kimi zaman zor.
+
+NVIDIA GeForce RTX 3090: RTX 3090 ise şu anda mevcut olan tüketici seviyesinde erişilebilecek en güçlü GPU'larından biri. Şaşırtıcı sayıda CUDA çekirdeğine (10496) sahiptir ve son derece yüksek hash oranları sunar. Bununla birlikte, diğer GPU'lara kıyasla daha pahalı ve güç tüketimi fazla olduğundan, ucuz elektriğe erişiminiz olmadığı sürece madencilik için o kadar uygun maliyetli olmayabilmektedir.
 
 
 
-NVIDIA's GeForce GTX and RTX series, which are commonly used for cryptocurrency mining.
 
-NVIDIA GeForce GTX 1660 Ti : A mid-range GPU that offers a good balance between performance and price. It features Turing architecture and has around 1536 CUDA cores. It delivers a decent hash rate for mining cryptocurrencies like Monero while being relatively power-efficient.
-NVIDIA GeForce RTX 3060: The RTX 3060 is a more powerful GPU based on NVIDIA's latest Ampere architecture. It offers significantly higher hash rates compared to the GTX 1660 Ti and has around 3584 CUDA cores. The RTX 3060 is known for its mining capabilities, particularly for Ethereum mining.
-NVIDIA GeForce RTX 3080: The RTX 3080 is a high-end GPU that provides exceptional mining performance. It boasts a massive number of CUDA cores (8704) and offers significantly higher hash rates compared to mid-range GPUs. However, the availability of the RTX 3080 has been limited and can be challenging to acquire.
-NVIDIA GeForce RTX 3090: The RTX 3090 is currently one of the most powerful consumer GPUs available. It has a staggering number of CUDA cores (10496) and offers extremely high hash rates. However, it is more expensive and power-hungry compared to other GPUs, so it may not be as cost-effective for mining unless you have access to cheap electricity.
+## Sorular
 
+Bu yazıda aşağıdaki sorulara cevap aradık. Bir kısmını cevapladım diğer kısmını da ileriki çalışma olarak not ediyorum.
 
-Peki bu cihazlar ne kadar sürede kendi ödemelerini çıkarabilir?
-
-
-
-Öncelikle ne kullanıyor bunu görmeliyiz.
-Task managerda CPU %43.5 olarak görüyorum. 
-Bu oran aslında bilgisayarı kullanırken iyi fakat kullanmadığımızı gösteriyor. 
-Arttırılabilir.
-
-Şimdi GPU konfigürasyonu yapıp çalıştırdık.
-
-NVIDIA GeForce MX150
-
-
-
-Algo switching opsiyonu çalışıyor mu?
-
+* Peki bu cihazlar ne kadar sürede kendi ödemelerini çıkarabilir?
+* Mining için kullanılan altyapı nedir ve ne kadar karlı?
+* GPU ve CPU Kullanımı Arasındaki farklar nelerdir?
+* Algo switching opsiyonu çalışıyor mu?
 
 
 ## Referanslar
@@ -288,3 +298,6 @@ Algo switching opsiyonu çalışıyor mu?
 * https://www.quora.com/How-long-will-it-take-for-a-cryptocurrency-mining-rig-to-pay-for-itself
 * https://thehackernews.com/
 * https://www.trendyol.com/pd/legend/4u-duvar-tipi-soho-rack-kabinet-w-530mm-d-400mm-siyah-p-674007893?boutiqueId=61&merchantId=129377
+* https://www.theguardian.com/technology/2023/apr/26/bitcoin-mining-climate-crisis-environmental-impact#:~:text=A%202022%20report%2C%20titled%20Revisiting,56.6%20megatonnes%20in%202019).%E2%80%9D
+* ChatGPT
+
