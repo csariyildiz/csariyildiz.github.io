@@ -9,14 +9,29 @@ tags:
 ---
 
 Kripto paraların popülerlik kazanmaya başladığı 2010'lu yılların ortalarından itibaren hayatımızda çok şey değişti.
-İnsanlar bu yeni gelişmelere farklı tepkiler verdi vermeye de devam ediyorlar. Kimi için kelime olumlu şeyler çağrıştırıyor.
-Hatta heyecanla bu yeni düzene adapte oluyorlar. Kimi ise daha temkinli bir yaklaşım sergiliyor.
-Genellikle kripto para dünyasında küçük yatırımlarla yer alanlar, hisse senedi piyasasında olduğu gibi yatırım yapma, alım-satım gerçekleştirme gibi faaliyetlerde bulunuyorlar. Bunun yanında blockchain sisteminin madencilik ve Etherium ile hızlanan merkezi olmayan (decenteralized) uygulamalar gibi pek çok alanı var.
+İnsanlar gelişmelere farklı tepkiler verdi. Kimi için kelime olumlu şeyler çağrıştırıyor. Kimi ise daha temkinli bir yaklaşım sergiliyor. Tıpkı çılgınlık seviyesinde ilgi gösterenler olduğu gibi aşırı çekingen bir tutum sergileyenler olabiliyor. Kripto para dünyasında küçük yatırımlarla yer alanlar, hisse senedi piyasasında olduğu gibi yatırım yapma, alım-satım gerçekleştirme gibi faaliyetlerde bulunuyorlar. 
 
+Tüm bunların yanında bir teknoloji olarak blockchain kendi gerçekleriyle hayatımızda. Blockchain sisteminin madencilik ve Etherium ile hızlanan merkezi olmayan (decenteralized) uygulamalar gibi pek çok alanı var.
 Kripto para birimlerinin teknik altyapısı ve uygulama pratiği, özellikle bilgisayarlarla içli dışlı olanlar için de oldukça ilginç detaylar sunuyor. 
 Kriptografi, network, programlama, donanım ve siber güvenlik gibi birçok alanı barındıran bu konu gerçekten de etkileyici ve dikkate değer hale getiriyor.
 
+Bu yazıda, XMRig adlı yazılım aracılığıyla nasıl madencilik yapılacağını göreceğiz. 
+Madencilik için standart bir son kullanıcı bilgisayarı,  MoneroOcean'un XMRig versiyonu ve MoneroOcean Mining havuzu kullanacağız. 
+Ayrıca, CPU ve NVIDIA ekran kartı gibi bileşenler de kullanarak madenciliğin nasıl yapıldığını keşfederken, kripto para birimlerinin teknik detaylarına da göz atacağız.
+
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/monero_ocean1.png" class="img-fluid" alt="Monero Ocean">
+
+## İçindekiler:
+
+1. Kripto Para Birimleri ve Mining: Bu bölümde genel olarak miming'in zaman içerisinde nasıl geliştiğini özetleyeceğiz.
+
+2. XMRig Miner Yazılımı: Bu bölümde, XMRig miner yazılımının ne olduğunu ve nasıl kullanıldığını anlatacağız. XMRig, Monero gibi kripto para birimlerini madencilik için optimize edilmiş bir yazılımdır.
+
+3. Monero Mining Başlangıç Adımları: Bu bölümde, Monero mining işlemine başlamak için gereken adımları adım adım göstereceğiz. Bu adımlar arasında XMRig'in kurulumu, MoneroOcean Mining pooluna katılma ve mining işlemini başlatma yer alacak.
+
+4. Değerlendirme ve Notlar: Bu bölümde, yapılan mining işlemiyle ilgili değerlendirme ve notlar paylaşılacak. Örneğin, mining performansı, enerji tüketimi, getiri beklentileri gibi konular ele alacağız.
+
+## Kripto Para Birimleri ve Mining
 
 Kriptopara madenciliği son yıllarda değişim geçirdiğini söyleyebiliriz. Madencilik yapılan cihazları sayacak olursak en yaygın olarak bilinenleri CPU, GPU, ASIC ve FPGA.
 CPU ve GPU bilgisayarlarımızda kullanıyoruz. Fakat ASIC cihazlar madenciliğe özgü gömülü çipler içerdiğinden başka amaçla kullanılamıyorlar.
@@ -36,7 +51,7 @@ Pek çok kişi fişleri çekti. Bu durumda ekran kartı madenciliği bitti. Öte
 Kripto madenciliği için pek çok parametre olsa da ROI (return of invesment) yani bir cihazın mevcut koşullarda maliyetini ne kadar sürede çıkardığı önemli bir veri.
 Aynı zamanda profitability olarak da bulabileceğimiz bu değeri https://hashrate.no/ adresinden görüntüleyelim:
 
-En yüksek ROI değerini alalım. hashrate.no sitesinden aldığım bu veriyi başka platformlardan da tasdik edebiliriz. Elektrik maliyetini 0.10 $/kWh olarak aldık aslında Türkiye için mesken ve düşük kademede 0.056 $/kWh.
+En yüksek ROI değerini alalım. hashrate.no sitesinden aldığım bu veriyi başka platformlardan da tasdik edebiliriz. Elektrik maliyetini `0.10 $/kWh` olarak aldık aslında Türkiye için mesken ve düşük kademede `0.056 $/kWh`.
 
 ```
 Tarih: 22.07.2023
@@ -53,20 +68,6 @@ FPGA      XILINX U50C          4 yıl                                   $1299   
 
 Bu değerlerin farklılık gösterebileceğini unutmamak gerekse de şu an için ASIC'ler avantajlı görünüyor. ASIC, CPU, FPGA, GPU şeklinde bir sıralama yapabiliriz.
 Küçük yatırımcılar şimdi ICERIVER KAS KS0 gibi ASIC cihazlara yöneliyorlar. Bu da yaklaşık 1000$ ya da 30.000 TL'lik bir maliyet demek. Bunun yanı sıra AMD RYZEN 9 7900 gibi işlemciler de mining'e uygun gözüüyor.
-
-Bu yazıda, XMRig adlı yazılım aracılığıyla nasıl madencilik yapılacağını göreceğiz. 
-Madencilik için standart bir son kullanıcı bilgisayarı,  MoneroOcean'un XMRig versiyonu ve MoneroOcean Mining havuzu kullanacağız. 
-Ayrıca, CPU ve NVIDIA ekran kartı gibi bileşenler de kullanarak madenciliğin nasıl yapıldığını keşfederken, kripto para birimlerinin teknik detaylarına da göz atacağız.
-
-## İçindekiler:
-
-1. Kripto Para Birimleri ve Mining: Bu bölümde genel olarak miming'in zaman içerisinde nasıl geliştiğini özetleyeceğiz.
-
-2. XMRig Miner Yazılımı: Bu bölümde, XMRig miner yazılımının ne olduğunu ve nasıl kullanıldığını anlatacağız. XMRig, Monero gibi kripto para birimlerini madencilik için optimize edilmiş bir yazılımdır.
-
-3. Monero Mining Başlangıç Adımları: Bu bölümde, Monero mining işlemine başlamak için gereken adımları adım adım göstereceğiz. Bu adımlar arasında XMRig'in kurulumu, MoneroOcean Mining pooluna katılma ve mining işlemini başlatma yer alacak.
-
-4. Değerlendirme ve Notlar: Bu bölümde, yapılan mining işlemiyle ilgili değerlendirme ve notlar paylaşılacak. Örneğin, mining performansı, enerji tüketimi, getiri beklentileri gibi konular ele alacağız.
 
 ## 1. Kripto Para Birimleri ve Mining
 
@@ -114,24 +115,28 @@ Mining'in ilginç yanlarından biri, bu işlemin algoritmik karmaşıklığını
 Daha önce de bahsettiğimiz gibi Kripto para birimlerinin çoğunda kullanılan Proof-of-Work (PoW) algoritması, madencilere belirli bir karmaşık hesaplama problemini çözmelerini gerektiriyor. 
 Bu problemin çözülmesi, zaman ve enerji gerektiren bir süreç. Algoritmanın zorluk seviyesi, madencilerin rekabet etmesini sağlayacak şekilde düzenli olarak ayarlanıyor.
 
-Bunun yanı sıra, kripto para birimlerinin toplumsal ve teknolojik sonuçları da dikkate değerdir. Özellikle çevre açısından da sakıncalı bulunuyor. 
-Çünkü elektrik tüketimine sebep olan bu işlem fiziksel olarak hiçbir üretimi yok. Kripto para birimlerinin ortaya çıkmasıyla birlikte, finansal sistemin dışında kalan kesimlere finansal erişim ve ödeme yöntemleri sunulmuştur. Bu da finansal katılımı artırma potansiyeline sahip bir gelişme olarak değerlendiriliyor.
+Bunun yanı sıra, kripto para birimlerinin toplumsal ve teknolojik sonuçları da dikkate değer. Özellikle çevre açısından da sakıncalı bulunuyor. 
+Çünkü elektrik tüketimine sebep olan bu işlem fiziksel olarak hiçbir üretimi yok. Kripto para birimlerinin ortaya çıkmasıyla birlikte, finansal sistemin dışında kalan kesimlere finansal erişim ve ödeme yöntemleri sunulmuş oluyor. Bu da finansal katılımı artırma potansiyeline sahip bir gelişme olarak değerlendiriliyor.
 
 Ayrıca, kripto para birimlerinin kullanımıyla ilgili bir ilginç durum, insanların gerçek cüzdanları ile platform arasındaki farkı bilmemesidir. 
 Kripto para birimleri, merkezi olmayan yapıları ve kullanıcıların doğrudan kontrolü sayesinde, bireylerin kendi paralarını yönetme ve transfer etme imkanını sağlar. 
 Ancak bazı kullanıcılar, kripto para birimlerini borsalarda tuttukları sanal cüzdanlarla karıştırabilir ve gerçek mülkiyet ve kontrol konusunda farkındalık eksikliği yaşayabilir.
 
 Kripto para birimlerinin teknik olarak ilginç yanları, bilgisayar dünyasının pek çok alanıyla ilişkilidir. Kriptografi, ağ, programlama, donanım ve siber güvenlik gibi alanlarda önemli bir rol oynar. 
-Bu teknolojiler, kripto para birimlerinin işleyişini ve güvenliğini sağlamak için kullanılır.
+Bu teknolojiler, kripto para birimlerinin işleyişini ve güvenliğini sağlamak için kullanılır. Blockchain teknolojisinin farklı kullanımları da dikkat çekici. Örneğin, bu teknoloji, kayıt tutma, izlenebilirlik ve veri güvenliği gibi alanlarda uygulamalar buluyor.
 
-Ekonomik açıdan, kripto madenciliğinin etkisi de ilgi çekicidir. Özellikle çevre sorunları bağlamında tartışmaları tetikleyen yüksek enerji tüketimi ve çevresel etkileri vardır. 
-Aynı zamanda, blockchain teknolojisinin farklı kullanımları da dikkat çekicidir. Örneğin, bu teknoloji, kayıt tutma, izlenebilirlik ve veri güvenliği gibi alanlarda uygulamalar bulur.
-
-Alanda sürekli olarak ortaya çıkan gelişmeler ve yenilikler sosyal, ekonomik ve çevresel değişimlere sebep olmakta ve kripto para birimlerinin gelecekte daha da önemli bir role sahip olabileceğine işaret etmektedir.
+Alanda sürekli olarak ortaya çıkan gelişmeler ve yenilikler sosyal, ekonomik ve çevresel değişimlere sebep oluyor ve kripto para birimlerinin gelecekte daha da önemli bir role sahip olabileceğine gösteriyor.
 
 ## 2. XMRig Miner Yazılımı
 
-XMR en yaygın ve güvenli kabul edilen mining yazılımlarından biri.
+Mining işleminin bileşenlerini aşağıdaki gibi sıralayabiliriz.
+* Kullanılan mining cihazlarının seçimi
+* Kazılacak coin seçimi
+* Kullanılan miner yazılımı seçimi
+* Miner yazılımında konfigurasyon seçimi
+* Pool seçimi
+
+Mining için çeşitli yazılımlar bulunmakta XMR en yaygın ve güvenli kabul edilen mining yazılımlarından biri.
 Github sayfasına baktığımızda aşağıdaki gibi tanımlandığını görüyoruz:
 
 * Yüksek performanslı, açık kaynaklı, cross platform bir yazılım. 
@@ -171,7 +176,6 @@ Aynı zamanda bir komut satırı arayüzü mevcut fakat tüm özellikleri (örn 
 Ya da API call yapılarak yine değişiklik yapabiliyoruz.
 Aynı zamanda kullanabileceğimiz bir HTTP API mevcut.
 
-
 * Pool: The Pool option refers to the mining pool you want to connect to. A mining pool is a collective group of miners who combine their computing power to increase the chances of finding blocks and earning rewards. When configuring XMRig, you need to specify the pool's address (URL) and port number to establish a connection. This is where your mining rewards will be sent.
 
 Pool mining ve tek başına madencilik (single mining), kripto para birimlerini madencilik yaparken farklı yaklaşımları ifade eden terimlerdir.
@@ -181,14 +185,15 @@ Pool mining (havuz madenciliği), bir grup madencinin güçlerini birleştirerek
 
 Tek başına madencilik (single mining) ise bir madencinin kendi başına ve bağımsız olarak madencilik yapmasıdır. Bu yöntemde, madenci kendi donanımını kullanarak blokları çözmeye çalışır ve eğer bir blok bulursa, ödülü tamamen kendisi alır. Tek başına madencilik, madencilerin tam kontrol sahibi olmasını sağlar ve kazançlarını bölüşmek zorunda olmadıkları için daha büyük bir ödül elde etme potansiyeline sahiptir. Ancak, tek başına madencilikte blokları bulma süresi daha uzun olabilir ve gelirler daha dalgalı olabilir.
 
-* Proxy: A Proxy is an optional intermediary server that can be used to enhance privacy and reduce network latency. By using a proxy server, you can obfuscate your IP address and prevent the mining pool from directly communicating with your machine. This adds an extra layer of anonymity and can be useful for certain mining setups.
-* Daemon: The Daemon option refers to the Monero daemon, which is the software that runs in the background and communicates with the Monero network. 
-The daemon handles tasks such as synchronizing with the blockchain, verifying transactions, and relaying information to other network nodes. 
-In the XMRig configuration, you need to specify the daemon's address and port to connect to the Monero network.
+* Proxy: Proxy, gizliliği artırmak ve ağ gecikmesini azaltmak için kullanılabilen isteğe bağlı bir aracı sunucudur. Bir proxy sunucusu kullanarak IP adresinizi gizleyebilir ve madencilik havuzunun makinenizle doğrudan iletişim kurmasını engelleyebilirsiniz. Bu, ekstra bir anonimlik katmanı ekler ve belirli madencilik kurulumları için yararlı olabilir.
+  
+* Daemon: Arka plan programı seçeneği, arka planda çalışan ve Monero ağı ile iletişim kuran yazılım olan Monero arka plan programına denir.
+Arka plan programı, blok zinciri ile senkronizasyon, işlemleri doğrulama ve diğer ağ düğümlerine bilgi aktarma gibi görevleri yerine getirir.
+Monerod.exe, bu arka plan proramının çalıştırılabilir dosyasıdır. Monero kripto para birimi ağının tam bir nonde'unun çalıştırılmasından sorumludur.
+Monero arka plan programı (monerod) öncelikle cüzdanla ilgili işlevler, blok zinciri senkronizasyonunu yönetme ve Monero ağıyla etkileşim için kullanılır. 
+XMRig veya benzeri bir madencilik yazılımı kullanırken doğrudan madencilik sürecine dahil olmaz.
 
-Monerod.exe is the executable file for the Monero daemon, which is responsible for running a full node of the Monero cryptocurrency network. 
-The Monero daemon (monerod) is primarily used for wallet-related functions, managing blockchain synchronization, and interacting with the Monero network. It is not directly involved in the mining process when using XMRig or similar mining software.
-XMRig is a standalone mining software that handles the mining operations independently without requiring a connection to a local or remote daemon.
+XMRig, yerel veya uzak bir arka plan programına bağlantı gerektirmeden madencilik işlemlerini bağımsız olarak gerçekleştiren bağımsız bir madencilik yazılımıdır.
 
 Düşük kaliteli donanıma sahip XMRig kullanarak Monero (XMR) madenciliği söz konusu olduğunda, yeni başlayanlar için optimize edilmiş ve daha düşük hash oranlarını destekleyen bir madencilik havuzu seçmek önemlidir.
 Madenciliğin artan zorluğu nedeniyle önemli karlar sağlamayabileceğini unutmayın.
@@ -200,33 +205,24 @@ Her zaman uygun madencilik uygulamalarını takip ettiğinizden ve optimum perfo
 * XMRPool.net: XMRPool.net, düşük kaliteli donanıma sahip yeni başlayanlar için uygun, güvenilir bir madencilik havuzudur. Basit bir kurulum sürecine sahiptir ve düşük ödeme eşikleri sunar. XMRPool.net ayrıca ayrıntılı istatistikler ve izleme özellikleri sağlar.
 * MoneroOcean: MoneroOcean, karlılığı en üst düzeye çıkarmak için farklı madencilik algoritmaları arasında otomatik olarak geçiş yapan benzersiz bir madencilik havuzudur. Daha düşük hash oranlarını destekler ve yeni başlayanlar için kullanımı kolay bir arayüz sağlar. MoneroOcean ayrıca düşük ödeme eşikleri sunar.
 
-Standart bir tüketici sınıfı CPU ile CPU Madenciliği, Monero madenciliği yaparken saniyede 100-500 hash (H/s) aralığında bir hash oranı elde etmeyi bekleyebilirsiniz.
-Mevcut ağ zorluğuna ve Monero'nun blok ödülüne bağlı olarak, bu potansiyel olarak günde yaklaşık 0,01-0,05 XMR kazanca dönüşebilir.
-
-GPU Madenciliği, bilgisayarınızda NVIDIA GTX 1060 veya AMD Radeon RX 580 gibi madencilik için uygun orta sınıf bir GPU varsa, Monero için saniyede yaklaşık 400-800 hash (H/s) hash oranı elde edebilirsiniz.
-Bu, günde yaklaşık 0,03-0,06 XMR kazançla sonuçlanabilir.
-
-GPU Madenciliği, kullanıcılarda NVIDIA GTX 1060 veya AMD Radeon RX 580 gibi madencilik için uygun orta sınıf bir GPU varsa, Monero için damarları yaklaşık 400-800 hash (H/s) hash oranını elde edebilirsiniz.
-Bu, günde yaklaşık 0,03-0,06 XMR kazancıyla sonuçlanabilir.
-
 Spesifik donanım ve koşullarınıza dayalı olarak daha doğru bir tahmin elde etmek için bu faktörleri dikkate alan çevrimiçi madencilik karlılık hesaplayıcılarını araştırmak ve kullanmak önemlidir. Bu hesaplayıcılar, gerçek zamanlı veriler sağlayabilir ve standart bilgisayarınızla madenciliğin potansiyel karlılığına ilişkin bilinçli kararlar vermenize yardımcı olabilir.
 
 XMR gerçekten ne kadar mining yapabileceğimizi deneyerek göreceğiz fakat bir örnek yazıda verilmiş: *thecoinrepublic 
 
 * 2021 yılının ikinci ayında madencide blockchainde yükselttikleri her blok için 1.26 XMR alıyorlar.
 * Her 2 dakikada bir yeni bir blok kazılıyor.
-* CPU/GPU kuvvetine bağlı olarak kazanımları gün başı her mining sistemi için $0.45'den $1 dolar arası olarak değişiyor.
+* CPU/GPU kuvvetine bağlı olarak kazanımları gün başı her mining sistemi için $0.45'den $1 dolar arası olarak değişiyor. Bendeki değer CPU ile ek konfigürasyon yapmadan günlük $0.04 oldu.
 
 ## 2. Monero Mining Kurulum Adımları
 
 ### 1. Monero Cüzdanı ve Cüzdan Adresi Edinme
 
 * Monero cüzdanını indirerek bir Monero adresi ediniyoruz. 
-* https://www.getmonero.org/downloads/ adresinden WebGUI'yi indirip adımları takip ederek cüzdanı oluşturalım.
+* `https://www.getmonero.org/downloads/` adresinden WebGUI'yi indirip adımları takip ederek cüzdanı oluşturalım.
 * Bu program tamamen güvenli bize cüzdan oluşturmamız için gerekli arayüzü sağlayacak. Cüzdanı aslında bu arayüzden bağımsız olarak da kullanabiliriz. 
 * Antivirüs'e çok etkin biçimde takılıyor.
 * Adımları takip ettikten sonra.
-* "41iu7fTbgQHNJcafjyKqy8NvH2YMqM5kMMhkDF5yZWpOaAHF7kfohF979UwZhHF7kfohF979UwZh3337SkZm6wHk3nyLQ" gibi bir adres olan primary adresimizi alalım. 
+* `41iu7fTbgQHNJcafjyKqy8NvH2YMqM5kMMhkDF5yZWpOaAHF7kfohF979UwZhHF7kfohF979UwZh3337SkZm6wHk3nyLQ` gibi bir adres olan primary adresimizi alalım. 
 * Bu aslında bizim cüzdanımızın adresi çok gizli olmasa da yine de paylaşmamakta fayda var. IBAN'ımız gibi aslında. Örneğin bu adresi moneroocean'a girerek hesabımız görüntüleyeceğiz
 * Esas gizli tutmamız gereken hatta mümkünse bir kağıda yazmamız ve dijital ortamda tutmaktan kaçınmamız gereken Mnemonic Seed ve Secret Keylerdir.
 * Monero cüzdanı monerod.exe'ye bağlanıyor. Monero deamon olan bu program bizi zincire dahil edecek. Bu yalnızca cüzdan işlemleri için kullanıyor. Miner'ımız tarafından kullanılmayacak.
@@ -237,9 +233,9 @@ XMR gerçekten ne kadar mining yapabileceğimizi deneyerek göreceğiz fakat bir
 * Aşağıdaki gibi bir script üretecek.
 * Bu scripti cüzdan adresimizle otomatik olarak miner'ı kurmakta kullanacağız.
 
----
+```
 powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.bat', $tempfile); & $tempfile 41iu7fTbgQHNJcafjyKqy8NvH2YMqM5kMMhkDF5yZWp4XaHF7kfohF979UwZhb8FeserrxRD2jMRxE3337SkZm6wHk3nyLQ; Remove-Item -Force $tempfile"
----
+```
 
 ### 3. Miner'ı Yükle
 
@@ -250,7 +246,7 @@ powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.
 
 ### 4. Loglardan Kontrol Gerçekleştir
 
-xmrig.log'u kontrol et.
+`xmrig.log`'u kontrol et.
 
 Bu logları kontol ederek ilk bilgilere erişmenin yanı sıra mining işlemi ile ilgili performansı görüntüleyebiliyoruz.
 
@@ -258,10 +254,8 @@ Böylece kurulum işlemini tamamlamış olduk.
 
 ## 3. Sonuçlar ve Performans Arttırmak
 
-Sonuçlar aşağıdaki gibi. 
-18 saatte toplam 0,000087 XMR yani Monero çıkarmışız.
-Bu değer oldukça düşük yaklaşık 0.5 liraya denk geliyor. 
-Elektrik masrafını hesaplamak için bilgisayarın güç tüketimine bakmamız gerekiyor. Böylece kar edip etmediğimizi görebiliriz.
+Sonuçlar aşağıdaki gibi.  18 saatte toplam 0,000087 XMR yani Monero çıkarmışız.
+Bu değer oldukça düşük yaklaşık 0.5 liraya denk geliyor. Elektrik masrafını hesaplamak için bilgisayarın güç tüketimine bakmamız gerekiyor. Böylece kar edip etmediğimizi görebiliriz.
 Böylece uygulamayı çalışır durumda kullanmış olarak ilk madencilik uygulamamızı gerçekleştirdik.
 
 ```
@@ -271,7 +265,7 @@ Toplam XMR     : 0,000087 XMR
 Worker Sayısı  : 1 Worker
 Pay Hashrate   : 1.22 KH/s (ornek bir zamanda)
 Hash Sayısı    : 2.210
-Günlük XMR     : 0.0002 XMR ($0.04)
+Günlük XMR     : 0.0002 XMR ($0.04) (1.08 lira)
 ```
 
 Kullandığım CPU ve GPU detayları aşağıdaki gibi.
@@ -283,8 +277,9 @@ CPU : Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz (1) 64-bit AES
 GPU : NVIDIA GeForce MX150
 ```
 
-Kullandığım `NVIDIA GeForce MX150`, kripto para birimi madenciliği için tipik olarak güçlü bir GPU olarak kabul edilmiyor. Zaten GPu
-Dizüstü bilgisayarlar için tasarlanmış mobil bir GPU ve yüksek performanslı madencilik işlemleri için optimize edilmemiş.
+Kullandığım `NVIDIA GeForce MX150`, kripto para birimi madenciliği için tipik olarak güçlü bir GPU olarak kabul edilmiyor. Zaten GPU'lar ile madenciliğin etkili olmadığını görüyoruz.
+Bu zaten dizüstü bilgisayarlar için tasarlanmış mobil bir GPU ve yüksek performanslı madencilik işlemleri için optimize edilmemiş. Yine de internet üzerinden hashratelerini görmek faydalı olabilir.
+
 
 Aşağıdaki hesapları kendimiz de yapabiliriz:
 
@@ -312,7 +307,8 @@ Yüksek kademe Dolar : 0.084 USD/kWh
 Kademeli tarifede ortalama günlük `7 kWh`'a kadarki kullanımların düşük fiyatlı tarifeden, `7 kWh`'ı aşan kullanımların ise yüksek fiyatlı tarifeden faturalandırılıyor. 
 Yine dinamik olarak kademeler gün içinde kullanıma göre değişebiliyor. Detaylarına baılabilir.
 
-Minerstat'a göre günlük 1.86 lira ediyor. Bu da 50 yıl yapıyor ki bildiğimiz üzere ekran kartları için uygulanabilir olmadığını gösteriyor.
+Minerstat'a göre günlük 1.86 lira ediyor. Bu da 50 yıl yapıyor ki bildiğimiz üzere ekran kartları için uygulanabilir olmadığını gösteriyor. 
+Öte yandan elektrik tüketimine bağlı olarak CPU mining karlı olabilir ben de bu laptopla ek konfigürasyon yaparak CPU mining'e devam edeceğim.
 
 ## Sonuç
 
@@ -353,4 +349,3 @@ Bu yazıda aşağıdaki sorulara cevap aradık. Bir kısmını cevapladım diğe
 * https://www.theguardian.com/technology/2023/apr/26/bitcoin-mining-climate-crisis-environmental-impact#:~:text=A%202022%20report%2C%20titled%20Revisiting,56.6%20megatonnes%20in%202019).%E2%80%9D
 * ChatGPT
 * https://mineasic.com/cryptocurrency-mining-in-june-2023-is-it-still-profitable/
-
