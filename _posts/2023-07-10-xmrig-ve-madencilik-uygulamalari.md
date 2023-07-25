@@ -8,19 +8,51 @@ tags:
   - Mining
 ---
 
-Kripto para yatırımlarının itibarının, özellikle 11 Kasım 2022'deki FTX iflası sonrasında bir miktar sarsıldı. 
-Ancak, unutmamak gerekir ki kripto paraların ve blok zinciri teknolojisinin varlığı bu tür olaylardan etkilenmez.
-
 Kripto paraların popülerlik kazanmaya başladığı 2010'lu yılların ortalarından itibaren hayatımızda çok şey değişti.
 İnsanlar bu yeni gelişmelere farklı tepkiler verdi vermeye de devam ediyorlar. Kimi için kelime olumlu şeyler çağrıştırıyor.
 Hatta heyecanla bu yeni düzene adapte oluyorlar. Kimi ise daha temkinli bir yaklaşım sergiliyor.
-Genellikle kripto para dünyasında yer alan tanıdıklarımız, hisse senedi piyasasında olduğu gibi yatırım yapma, alım-satım gerçekleştirme gibi faaliyetlerde bulunuyorlar.
+Genellikle kripto para dünyasında küçük yatırımlarla yer alanlar, hisse senedi piyasasında olduğu gibi yatırım yapma, alım-satım gerçekleştirme gibi faaliyetlerde bulunuyorlar. Bunun yanında blockchain sisteminin madencilik ve Etherium ile hızlanan merkezi olmayan (decenteralized) uygulamalar gibi pek çok alanı var.
+
+Kripto para birimlerinin teknik altyapısı ve uygulama pratiği, özellikle bilgisayarlarla içli dışlı olanlar için de oldukça ilginç detaylar sunuyor. 
+Kriptografi, network, programlama, donanım ve siber güvenlik gibi birçok alanı barındıran bu konu gerçekten de etkileyici ve dikkate değer hale getiriyor.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/monero_ocean1.png" class="img-fluid" alt="Monero Ocean">
 
-Teknolojinin hızlı ilerlediği bu çağda, kripto para birimleriyle ilgili gelişmeleri takip etmenin ve anlamanın önemi aşikar.
-Ancak kripto para birimlerinin teknik altyapısı ve uygulama pratiği, özellikle bilgisayarlarla içli dışlı olanlar için de oldukça ilginç detaylar sunuyor. 
-Kriptografi, network, programlama, donanım ve siber güvenlik gibi birçok alanda kendine yer bulan bu teknoloji, gerçekten de dikkate değer.
+Kriptopara madenciliği son yıllarda değişim geçirdiğini söyleyebiliriz. Madencilik yapılan cihazları sayacak olursak en yaygın olarak bilinenleri CPU, GPU, ASIC ve FPGA.
+CPU ve GPU bilgisayarlarımızda kullanıyoruz. Fakat ASIC cihazlar madenciliğe özgü gömülü çipler içerdiğinden başka amaçla kullanılamıyorlar.
+FPGA da tığkı CPU ve GPU'lar gibi finansal programlama, makina öğrenmesi ve yapay zeka gibi madencilik dışı alanlarda kullanılabiliyor.
+
+Madencilik pek çok coin ile yapılsa da önceliği Etherium ve Bitcoin ile yapılan kriptopara madenciliği oluşturuyordu. 
+Bitcoin madenciliği sanal parabiriminin 2020 yılında yükselişe geçmesi ile popülerlik kazandı.
+Başlarda görece mütevazi kaynaklarla CPU ve GPU ile yapılan Bitcoin madenciliği yerini ASIC makinelere ve büyük tesislere bıraktı. 
+Bunun yanında ekran kartlarıyla rigler ile yapılan madencilik bu alanda alternatif oluşturdu. İnsanlar ekran kartlarıyla rigler kurmaya başladı.
+Etherium madenciliği bir süre öncesine kadar ekran kartlarıyla yapılabiliyordu. Aynı zamanda çok sayıda alt coin de sisteme dahil oldu.
+Ekran kartlarında fiyat artışına sebep olan bu rüzgar 2022 yılının Eylül ayında Etherium 2.0'a geçmesiyle beraber sona erdi.
+Pek çok kişi diğer coinlere geçiş yaptı. Bu geçiş zorlukları arttırdı. Kripto para piyasasında da çalkantılara 
+sebebiyet verdi. En bariz sonucu da ekran kartlarından oluşan riglerin zarar yapması anlamına geliyordu. 
+Elektrik fiyatlarının artışıyla kartlar ve rigler zarar etmeye başladı.
+Pek çok kişi fişleri çekti. Bu durumda ekran kartı madenciliği bitti. Öte yandan madencilik ASIC'e kaydı.
+
+Kripto madenciliği için pek çok parametre olsa da ROI (return of invesment) yani bir cihazın mevcut koşullarda maliyetini ne kadar sürede çıkardığı önemli bir veri.
+Aynı zamanda profitability olarak da bulabileceğimiz bu değeri https://hashrate.no/ adresinden görüntüleyelim:
+
+En yüksek ROI değerini alalım. hashrate.no sitesinden aldığım bu veriyi başka platformlardan da tasdik edebiliriz. Elektrik maliyetini 0.10 $/kWh olarak aldık aslında Türkiye için mesken ve düşük kademede 0.056 $/kWh.
+
+```
+Tarih: 22.07.2023
+Elektrik Maliyeti : 0.10 $/kWh
+
+Tipi      Cihaz Modeli         ROI Değeri  (hashrate.no'ya göre)       Fiyat (Üretici Önerisi)                 Coin                   
+------    --------------       ---------------------------------       -------------------------------         --------
+GPU       NVIDIA RTX 4090      3646 gün (10 yıl)                       $1599                                   SKYDOGE
+CPU       AMD RYZEN 9 7900     937 gün (2.5 yıl)                       $429                                    Zephyr
+ASIC      BITMAIN ANTMINER E9  4 gün                                                                           Etherium Classic
+ASIC      ICERIVER KS3L        19 gün                                  $24800                                  Kaspa
+FPGA      XILINX U50C          4 yıl                                   $1299                                   Kaspa
+```
+
+Bu değerlerin farklılık gösterebileceğini unutmamak gerekse de şu an için ASIC'ler avantajlı görünüyor. ASIC, CPU, FPGA, GPU şeklinde bir sıralama yapabiliriz.
+Küçük yatırımcılar şimdi ICERIVER KAS KS0 gibi ASIC cihazlara yöneliyorlar. Bu da yaklaşık 1000$ ya da 30.000 TL'lik bir maliyet demek. Bunun yanı sıra AMD RYZEN 9 7900 gibi işlemciler de mining'e uygun gözüüyor.
 
 Bu yazıda, XMRig adlı yazılım aracılığıyla nasıl madencilik yapılacağını göreceğiz. 
 Madencilik için standart bir son kullanıcı bilgisayarı,  MoneroOcean'un XMRig versiyonu ve MoneroOcean Mining havuzu kullanacağız. 
@@ -41,10 +73,10 @@ Ayrıca, CPU ve NVIDIA ekran kartı gibi bileşenler de kullanarak madenciliğin
 Kripto para birimleri, finansal dünyada bir dönüm noktası olarak kabul edilmekte ve gittikçe daha fazla kişi tarafından keşfediliyor. 
 Blockchain teknolojisinin sağladığı güvenlik ve şeffaflık ise endüstriye büyük bir potansiyel sunuyor.
 
-Gelecekte, kripto paraların finansal sistemimize daha da entegre olması bekleniyor ve bu da yatırımcıların stratejilerini yeniden gözden geçirmesine neden olacaktır. 
-Dolayısıyla, bu hızla gelişen ve dönüşen alanda güncel kalmanın ve riskleri yönetmenin önemi artmaktadır.
+Türkiye dünyada kriptopara'ya en sahip olan ülkelerden biri. Gelecekte, kripto paraların finansal sisteme daha da entegre olması bekleniyor ve bu da yatırımcıların stratejilerini yeniden gözden geçirmesine neden oluyor. 
+bu hızla gelişen ve dönüşen alanda güncel kalmanın ve riskleri yönetmenin önemi arttırıyor.
 
-Ocak 2009'da, gizemli bir geliştirici olan Satoshi Nakamoto tarafından Bitcoin dünyaya tanıtıldı. 
+Bildiğimiz üzere Bitcoin Ocak 2009'da, kimliğini gizleyen bir geliştirici veya geliştirici grubu tarafından Satoshi Nakamoto adı altında dünyaya tanıtıldı. 
 Bu dijital para birimi, kriptografik bir hashlama işlevi olan SHA-256'yı kullanarak "Proof Of Work" sistemiyle çalışıyordu. 
 
 Nisan 2011'de, merkezi olmayan bir alan adı sistemi olan Namecoin hayata geçirildi. 
@@ -61,22 +93,29 @@ Bu tarihlerde ortaya çıkan bu dijital para birimleri, kripto para ekosistemini
 İlerleyen yıllarda daha birçok farklı kripto para ortaya çıktı ve finansal dünyada büyük bir çığır açtı. 
 Teknolojilerin her geçen gün daha fazla kişi tarafından benimsenmesi gelecekte finansal işlemlerin yapısı üzerinde derin etkileri olacağına dair umudu da arttırdı.
 
+2015 yılında piyasaya sürülen Etherium merkezi olmayan ve dagıtık çalışan uygulamaların yazılması icin bir altyapi olarak ortaya çıktı.
+
 Kripto para birimleri, 2011, 2013-2014-2015, 2017-2018 ve 2021-2023 gibi birkaç büyüme ve daralma dönemi geçirdi. 
-Bu dönemlerde birkaç balon ve piyasa çöküşü yaşandı. Özellikle kimi dolandırıcılık faliyetleri ülkemizde de görüldü.
+Bu dönemlerde birkaç balon ve piyasa çöküşü yaşandı. 
+
+Özellikle kimi dolandırıcılık faliyetleri ülkemizde de görüldü. Ponzi şemalarının yanı sıra kripto borsası adı altında kullanıcılara farklı bilgi gösteren kimi şirketler mevcut. 
+Kullanıcılar paralarını çekmek istediğinde red cevabı alıyorlar. Şirket gerçekten o parayı bulundurmamış sizin ödediğiniz parayla başka bir işlem yapmış ve kaybetmiş oluyor.
+Öte yandan insanların cihazlarının (bilgisayarlar, akıllı telefonlar, tabletler ve hatta sunucular) siber suçlular tarafından kripto para madenciliği yapmak üzere yetkisiz kullanımı anlamına gelen Cryptojacking
+bir siber suç türüdür. Kripto para yatırımlarının itibarının, özellikle 11 Kasım 2022'deki FTX iflası sonrasında bir miktar sarsıldı. 
+Öte yandan unutmamak gerekir ki kripto paraların ve blok zinciri teknolojisinin varlığı bu tür olaylardan etkilenmez.
 
 ### Mining
 
 Mining (madencilik) süreci hem kriptoparaların temelini oluşturmasının yanı sıra algoritmik bir arka plana da sahip. 
 Mining, yeni blokların oluşturulması ve işlemlerin doğrulanması için bilgisayarların karmaşık matematiksel problemleri çözmesini gerektiren bir süreç. 
-Bu işlem, kripto para birimlerinin arzının kontrol edilmesini ve ağın güvenliğinin sağlanmasını amaçlar.
+Bu işlem, kripto para birimlerinin arzının kontrol edilmesini ve ağın güvenliğinin sağlanmasını amaçlıyor.
 
 Mining'in ilginç yanlarından biri, bu işlemin algoritmik karmaşıklığını kullanması aslında. 
 Daha önce de bahsettiğimiz gibi Kripto para birimlerinin çoğunda kullanılan Proof-of-Work (PoW) algoritması, madencilere belirli bir karmaşık hesaplama problemini çözmelerini gerektiriyor. 
 Bu problemin çözülmesi, zaman ve enerji gerektiren bir süreç. Algoritmanın zorluk seviyesi, madencilerin rekabet etmesini sağlayacak şekilde düzenli olarak ayarlanıyor.
 
 Bunun yanı sıra, kripto para birimlerinin toplumsal ve teknolojik sonuçları da dikkate değerdir. Özellikle çevre açısından da sakıncalı bulunuyor. 
-Çünkü elektrik tüketimine sebep olan bu işlem fiziksel olarak hiçbir üretimi yok. Kripto para birimlerinin ortaya çıkmasıyla birlikte, finansal sistemin dışında kalan kesimlere finansal erişim ve ödeme yöntemleri sunulmuştur. 
-Bu, finansal katılımı artırma potansiyeline sahip bir gelişmedir.
+Çünkü elektrik tüketimine sebep olan bu işlem fiziksel olarak hiçbir üretimi yok. Kripto para birimlerinin ortaya çıkmasıyla birlikte, finansal sistemin dışında kalan kesimlere finansal erişim ve ödeme yöntemleri sunulmuştur. Bu da finansal katılımı artırma potansiyeline sahip bir gelişme olarak değerlendiriliyor.
 
 Ayrıca, kripto para birimlerinin kullanımıyla ilgili bir ilginç durum, insanların gerçek cüzdanları ile platform arasındaki farkı bilmemesidir. 
 Kripto para birimleri, merkezi olmayan yapıları ve kullanıcıların doğrudan kontrolü sayesinde, bireylerin kendi paralarını yönetme ve transfer etme imkanını sağlar. 
@@ -88,8 +127,7 @@ Bu teknolojiler, kripto para birimlerinin işleyişini ve güvenliğini sağlama
 Ekonomik açıdan, kripto madenciliğinin etkisi de ilgi çekicidir. Özellikle çevre sorunları bağlamında tartışmaları tetikleyen yüksek enerji tüketimi ve çevresel etkileri vardır. 
 Aynı zamanda, blockchain teknolojisinin farklı kullanımları da dikkat çekicidir. Örneğin, bu teknoloji, kayıt tutma, izlenebilirlik ve veri güvenliği gibi alanlarda uygulamalar bulur.
 
-Genel olarak, kripto para birimleri ve mining süreci, hem teknik olarak ilginç bir alana hem de sosyal, ekonomik ve çevresel etkileri olan bir konuya odaklanmaktadır. 
-Bu alanda sürekli olarak gelişmeler ve yenilikler yaşanmaktadır, bu da kripto para birimlerinin gelecekte daha da önemli bir role sahip olabileceğine işaret etmektedir.
+Alanda sürekli olarak ortaya çıkan gelişmeler ve yenilikler sosyal, ekonomik ve çevresel değişimlere sebep olmakta ve kripto para birimlerinin gelecekte daha da önemli bir role sahip olabileceğine işaret etmektedir.
 
 ## 2. XMRig Miner Yazılımı
 
@@ -157,8 +195,8 @@ Madenciliğin artan zorluğu nedeniyle önemli karlar sağlamayabileceğini unut
 Madenciliğe dalmadan önce beklentilerinizi yönetmeniz ve elektrik maliyetlerini ve donanım sınırlamalarını göz önünde bulundurmanız önemlidir.
 Her zaman uygun madencilik uygulamalarını takip ettiğinizden ve optimum performans için XMRig'i doğru şekilde yapılandırdığınızdan emin olun.
 
-* MineXMR: MineXMR, Monero için en popüler madencilik havuzlarından biridir. Yeni başlayanlar için uygun hale getiren basit ve kullanıcı dostu bir arayüz sunar. MineXMR daha düşük hash oranlarını destekler ve düşük bir ödeme eşiğine sahiptir.
-* SupportXMR: SupportXMR, Monero için iyi bilinen başka bir madencilik havuzudur. Yeni başlayanlar için uygun bir arayüze sahiptir ve ayrıntılı istatistikler ve gerçek zamanlı izleme sağlar. SupportXMR ayrıca daha düşük ödeme eşikleri sunar ve düşük hash oranlarını destekler
+* MineXMR: MineXMR, Monero için en popüler madencilik havuzlarından biri. Yeni başlayanlar için uygun hale getiren basit ve kullanıcı dostu bir arayüz sunar. MineXMR daha düşük hash oranlarını destekler ve düşük bir ödeme eşiğine sahiptir.
+* SupportXMR: SupportXMR, Monero için iyi bilinen başka bir madencilik havuzu. Yeni başlayanlar için uygun bir arayüze sahip ve ayrıntılı istatistikler ve gerçek zamanlı izleme sağlar. SupportXMR ayrıca daha düşük ödeme eşikleri sunar ve düşük hash oranlarını destekler
 * XMRPool.net: XMRPool.net, düşük kaliteli donanıma sahip yeni başlayanlar için uygun, güvenilir bir madencilik havuzudur. Basit bir kurulum sürecine sahiptir ve düşük ödeme eşikleri sunar. XMRPool.net ayrıca ayrıntılı istatistikler ve izleme özellikleri sağlar.
 * MoneroOcean: MoneroOcean, karlılığı en üst düzeye çıkarmak için farklı madencilik algoritmaları arasında otomatik olarak geçiş yapan benzersiz bir madencilik havuzudur. Daha düşük hash oranlarını destekler ve yeni başlayanlar için kullanımı kolay bir arayüz sağlar. MoneroOcean ayrıca düşük ödeme eşikleri sunar.
 
@@ -199,7 +237,9 @@ XMR gerçekten ne kadar mining yapabileceğimizi deneyerek göreceğiz fakat bir
 * Aşağıdaki gibi bir script üretecek.
 * Bu scripti cüzdan adresimizle otomatik olarak miner'ı kurmakta kullanacağız.
 
+---
 powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.bat', $tempfile); & $tempfile 41iu7fTbgQHNJcafjyKqy8NvH2YMqM5kMMhkDF5yZWp4XaHF7kfohF979UwZhb8FeserrxRD2jMRxE3337SkZm6wHk3nyLQ; Remove-Item -Force $tempfile"
+---
 
 ### 3. Miner'ı Yükle
 
@@ -216,13 +256,15 @@ Bu logları kontol ederek ilk bilgilere erişmenin yanı sıra mining işlemi il
 
 Böylece kurulum işlemini tamamlamış olduk.
 
-## 3. İlk Sonuçlar ve Performans Arttırmak
+## 3. Sonuçlar ve Performans Arttırmak
 
 Sonuçlar aşağıdaki gibi. 
 18 saatte toplam 0,000087 XMR yani Monero çıkarmışız.
 Bu değer oldukça düşük yaklaşık 0.5 liraya denk geliyor. 
-Elektrik masrafını bile karşılamasa dahi uygulamayı çalışır durumda kullanmış olarak ilk madencilik uygulamamızı gerçekleştirdik.
+Elektrik masrafını hesaplamak için bilgisayarın güç tüketimine bakmamız gerekiyor. Böylece kar edip etmediğimizi görebiliriz.
+Böylece uygulamayı çalışır durumda kullanmış olarak ilk madencilik uygulamamızı gerçekleştirdik.
 
+```
 Zaman aralığı  : [2023-07-14 00:24:42.315] - [2023-07-14 18:49:08.357]
 Toplam çalışma : 18 saat 25 dakika
 Toplam XMR     : 0,000087 XMR
@@ -230,67 +272,77 @@ Worker Sayısı  : 1 Worker
 Pay Hashrate   : 1.22 KH/s (ornek bir zamanda)
 Hash Sayısı    : 2.210
 Günlük XMR     : 0.0002 XMR ($0.04)
+```
 
 Kullandığım CPU ve GPU detayları aşağıdaki gibi.
 
-
+```
 CPU : Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz (1) 64-bit AES
       L2:1.0 MB L3:8.0 MB 4C/8T NUMA:1
 
 GPU : NVIDIA GeForce MX150
+```
 
-
-Kullandığım NVIDIA GeForce MX150, kripto para birimi madenciliği için tipik olarak güçlü bir GPU olarak kabul edilmiyor.
+Kullandığım `NVIDIA GeForce MX150`, kripto para birimi madenciliği için tipik olarak güçlü bir GPU olarak kabul edilmiyor. Zaten GPu
 Dizüstü bilgisayarlar için tasarlanmış mobil bir GPU ve yüksek performanslı madencilik işlemleri için optimize edilmemiş.
 
 Aşağıdaki hesapları kendimiz de yapabiliriz:
 
+```
 Earnings per hour (XMR) ≈ (Hashrate / Network Hashrate) * Block Reward * (1 hour / Block Time)
 Earnings per month (XMR) ≈ Hourly Earnings (XMR) * 24 hours * 30 days
+```
 
-Kripto para birimi madenciliği için yaygın olarak kullanılan donanım NVIDIA'nın GeForce GTX ve RTX serileri. GPU üreticisi firmalara baktığımız zaman herkesçe bilinen ve erişilebilir alanda NVDIA'nın hakimiyetini görüyoruz. NVDIA'nın ürettiği çipler farklı markalar MSI, ASUS, GIGABYTE gibi farklı tarafından kullanılıyor. Bu ekran kartlarından bu yazının yazıldığı zamandaki örnekleri inceleyecek olursak,
+Kripto para birimi madenciliği için yaygın olarak kullanılan donanım NVIDIA'nın GeForce GTX ve RTX serileriydi. Artık GPU'ların çoğu mining işlemine uygun olmaktan çıkmış durumda.
+Örn bir GPU olarak Türkiye için GTX 1660 Ti elektrik 0.084 USD/kwh elektrik ile zarar ediyor. Aynı zamanda daha gelişmiş NVIDIA GeForce RTX 3080, 3090 gibi modeller de zarar etmekte.
 
-NVIDIA GeForce GTX 1660 Ti : Fiyat performans açısından iyi bir denge sunan orta sınıf bir GPU. Turing mimarisine ve yaklaşık 1536 CUDA çekirdeğine sahip. Nispeten güç açısından verimli olurken, Monero gibi madencilik kripto para birimleri için iyi bir hash oranı sunuyor. 
+Elektrik için Türkiyede mesken ve işyeri için farklılık gösteriyor.
 
-Tarih  : 24.07.2023
-Dolar  : 26.94 Lira
+```
+Tarih               : 2023 Temmuz
+Tüketici Sınıfı     : Mesken (Ev) Tüketicileri
 
-Model  : GTX 1660 TI VENTUS XS 6G OC / 93494
-         MSI GEFORCE GTX 1660 Ti VENTUS XS 6G OC 6GB GDDR6 192bit NVIDIA Ekran Kartı
-Fiyat  : 17.246 TL
+Düşük kademe TL     : 1.5017 TL/kWh
+Yüksek Kademe TL    : 2.2525 TL/kWh
 
-Model  : GTX 1660 TI VENTUS XS 6G / 93493
-         MSI GEFORCE GTX 1660 Ti VENTUS XS 6G 6GB GDDR6 192bit NVIDIA Ekran Kartı
-Fiyat  : 16.900 TL
+Düşük kademe Dolar  : 0.056 USD/kWh
+Yüksek kademe Dolar : 0.084 USD/kWh
+```
 
-MSI, OC versiyonu (17.246 TL) XS versiyonu (16.900 TL) seviyesinde alınabileceğini görüyoruz.
+Kademeli tarifede ortalama günlük `7 kWh`'a kadarki kullanımların düşük fiyatlı tarifeden, `7 kWh`'ı aşan kullanımların ise yüksek fiyatlı tarifeden faturalandırılıyor. 
+Yine dinamik olarak kademeler gün içinde kullanıma göre değişebiliyor. Detaylarına baılabilir.
 
-NVIDIA GeForce RTX 3060: RTX 3060, NVIDIA'nın en yeni Ampere mimarisine dayanan daha güçlü bir GPU. GTX 1660 Ti'ye kıyasla önemli ölçüde daha yüksek hash oranları sunuyor. Yaklaşık 3584 CUDA çekirdeğine sahip. RTX 3060, özellikle Ethereum madenciliği olmak üzere madencilik yetenekleriyle tanınır.
+Minerstat'a göre günlük 1.86 lira ediyor. Bu da 50 yıl yapıyor ki bildiğimiz üzere ekran kartları için uygulanabilir olmadığını gösteriyor.
 
-NVIDIA GeForce RTX 3080:  RTX 3080, ortalamanın dışında madencilik performansı sağlayan üst düzey bir GPU. Yaklaşık CUDA çekirdeğine (8704) sahip. Bu sayı için ortalamanın çok üstünde diyebiliriz. Orta sınıf GPU'lara kıyasla önemli ölçüde daha yüksek hash hızları sunuyor. Ancak, RTX 3080'in mevcudiyeti sınırlı ve edinilmesi kimi zaman zor.
+## Sonuç
 
-NVIDIA GeForce RTX 3090: RTX 3090 ise şu anda mevcut olan tüketici seviyesinde erişilebilecek en güçlü GPU'larından biri. Şaşırtıcı sayıda CUDA çekirdeğine (10496) sahiptir ve son derece yüksek hash oranları sunar. Bununla birlikte, diğer GPU'lara kıyasla daha pahalı ve güç tüketimi fazla olduğundan, ucuz elektriğe erişiminiz olmadığı sürece madencilik için o kadar uygun maliyetli olmayabilmektedir.
+Sonuç olarak mining ile hala para kazanılabiliyor. Küçük çapta madencilik yapanları için mining'ih bittiğini söyleyemeyiz ama işlem standart kullanıcı için görece zorlaşmış durumda endüstriyel seviyede de yapılmaya devam ediyor. Yalnızca ASIC cihazlar ile belirli altcoinler kazılarak işlem yapılabiliyor. Bu yazının yazıldığı dönemde GPU mining karsız ve zarar ediyor. İleride kullanılabilme ihtimali olsa da teknoloji ilerledikçe cihazlar eskiyor. Elinde ekran kartları ile bekleyen kişiler için pek iyi olmayan bu durumun GPU mining pratiğinin şimdilik bittiğini gösteriyor. 
 
-
-
+Öte yandan mining işleminin kolay olduğunu görüyoruz. Bir çok standart bilgisayarda ve hatta browserda kullanılabiliyor olması işlem gücünün ne kadar dağıtılabildiğini gösteriyor. Etherium dağıtık uygulamalar için bir platform olarak ayakta ve Bitcoin değerli bir para birimi olarak varlığını sürdürüyor..
 
 ## Sorular
 
 Bu yazıda aşağıdaki sorulara cevap aradık. Bir kısmını cevapladım diğer kısmını da ileriki çalışma olarak not ediyorum.
 
-* Peki bu cihazlar ne kadar sürede kendi ödemelerini çıkarabilir?
-* Mining için kullanılan altyapı nedir ve ne kadar karlı?
-* GPU ve CPU Kullanımı Arasındaki farklar nelerdir?
+* Solar enerji kullanımının etkisi olur mu?
+* Elektrik maliyeti Türkiye için ne sıklıkla değişiyor? Dolar karşısında durumu nedir?
+* Cihazlar ne kadar sürede kendi ödemelerini çıkarabilir? (Kısmen cevaplandı.)
+* Mining için kullanılan altyapı nedir ve ne kadar karlı? (Kısmen cevaplandı.)
+* GPU ve CPU Kullanımı arasındaki farklar nelerdir?
 * Algo switching opsiyonu çalışıyor mu?
-
+* XMRig harici kullanılan diğer mining yazılımları nelerdir?
+* XMRig'in kodlama altyapısı ve kodu ile ilgili diğer bilgiler nelerdir?
+* Etherium ile yazılım nasıl geliştiriliyor?
 
 ## Referanslar
 
+* Etherium Dökümanları
 * Non Fungible Token'ler
 * Wikipedia - PoW
 * Wikipedia - Monero
 * What is the CryptoNight mining algorithm? - Bit2Me Academy - https://academy.bit2me.com/en/que-es-el-algoritmo-de-mineria-cryptonight/#:~:text=CryptoNight%20Mining%20Algorithm%20is%20a,advanced%20privacy%20and%20anonymity%20options.
-* Bitcoin Whitepaper - 
+* Bitcoin Whitepaper
+* Etherium Whitepaper
 * https://www.allcryptowhitepapers.com/cryptonite-whitepaper/
 * https://monerodocs.org/proof-of-work/cryptonight/
 * https://komodoplatform.com/en/academy/cryptonight/
@@ -300,4 +352,5 @@ Bu yazıda aşağıdaki sorulara cevap aradık. Bir kısmını cevapladım diğe
 * https://www.trendyol.com/pd/legend/4u-duvar-tipi-soho-rack-kabinet-w-530mm-d-400mm-siyah-p-674007893?boutiqueId=61&merchantId=129377
 * https://www.theguardian.com/technology/2023/apr/26/bitcoin-mining-climate-crisis-environmental-impact#:~:text=A%202022%20report%2C%20titled%20Revisiting,56.6%20megatonnes%20in%202019).%E2%80%9D
 * ChatGPT
+* https://mineasic.com/cryptocurrency-mining-in-june-2023-is-it-still-profitable/
 
