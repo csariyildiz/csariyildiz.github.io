@@ -66,7 +66,7 @@ ASIC      ICERIVER KS3L        19 gün                                  $24800  
 FPGA      XILINX U50C          4 yıl                                   $1299                                   Kaspa
 ```
 
-Bu değerlerin farklılık gösterebileceğini unutmamak gerekse de şu an için ASIC'ler avantajlı görünüyor. ASIC, CPU, FPGA, GPU şeklinde bir sıralama yapabiliriz.
+Bu değerlerin farklılık gösterebileceğini unutmamak gerek. Şu an için ASIC'ler avantajlı görünüyor. ASIC, CPU, FPGA, GPU şeklinde bir sıralama yapabiliriz.
 Küçük yatırımcılar şimdi ICERIVER KAS KS0 gibi ASIC cihazlara yöneliyorlar. Bu da yaklaşık 1000$ ya da 30.000 TL'lik bir maliyet demek. Bunun yanı sıra AMD RYZEN 9 7900 gibi işlemciler de mining'e uygun gözüüyor.
 
 ## 1. Kripto Para Birimleri ve Mining
