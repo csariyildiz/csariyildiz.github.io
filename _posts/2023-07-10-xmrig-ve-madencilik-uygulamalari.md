@@ -329,9 +329,10 @@ Bu yazıda aşağıdaki sorulara cevap aradık. Bir kısmını cevapladım diğe
 * XMRig harici kullanılan diğer mining yazılımları nelerdir?
 * XMRig'in kodlama altyapısı ve kodu ile ilgili diğer bilgiler nelerdir?
 * Etherium ile yazılım nasıl geliştiriliyor?
+* Madencilikte merkezi bir yönetim yoksa Vitalik gibi merkezi figürler nasıl oluşuyor?
 
 ## Referanslar
-
+* Cryptopia: Bitcoin, Blockchains and the Future of the Internet” (2018)
 * Etherium Dökümanları
 * Non Fungible Token'ler
 * Wikipedia - PoW
