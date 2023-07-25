@@ -36,7 +36,7 @@
 * https://securityaffairs.com/
 * https://www.infosecurity-magazine.com/
 * https://www.schneier.com/blog/
-  
+* https://thehackernews.com/
 
 ## Statistics
 
