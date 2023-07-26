@@ -1,7 +1,6 @@
 ---
 layout: post3
 title: "Bir Bilgisayar Seçerken Nelere Dikkat Ediyoruz?"
-category: gonderiler
 tags:
   - Hardware
   - Donanım
