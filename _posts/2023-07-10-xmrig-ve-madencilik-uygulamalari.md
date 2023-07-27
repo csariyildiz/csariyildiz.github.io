@@ -69,8 +69,6 @@ FPGA      XILINX U50C          4 yıl                                   $1299   
 Bu değerlerin farklılık gösterebileceğini unutmamak gerek. Şu an için ASIC'ler avantajlı görünüyor. ASIC, CPU, FPGA, GPU şeklinde bir sıralama yapabiliriz.
 Küçük yatırımcılar şimdi ICERIVER KAS KS0 gibi ASIC cihazlara yöneliyorlar. Bu da yaklaşık 1000$ ya da 30.000 TL'lik bir maliyet demek. Bunun yanı sıra AMD RYZEN 9 7900 gibi işlemciler de mining'e uygun gözüüyor.
 
-## 1. Kripto Para Birimleri ve Mining
-
 Kripto para birimleri, finansal dünyada bir dönüm noktası olarak kabul edilmekte ve gittikçe daha fazla kişi tarafından keşfediliyor. 
 Blockchain teknolojisinin sağladığı güvenlik ve şeffaflık ise endüstriye büyük bir potansiyel sunuyor.
 
@@ -127,7 +125,7 @@ Bu teknolojiler, kripto para birimlerinin işleyişini ve güvenliğini sağlama
 
 Alanda sürekli olarak ortaya çıkan gelişmeler ve yenilikler sosyal, ekonomik ve çevresel değişimlere sebep oluyor ve kripto para birimlerinin gelecekte daha da önemli bir role sahip olabileceğine gösteriyor.
 
-## 2. XMRig Miner Yazılımı
+## XMRig Miner Yazılımı
 
 Mining işleminin bileşenlerini aşağıdaki gibi sıralayabiliriz.
 * Kullanılan mining cihazlarının seçimi
@@ -213,7 +211,7 @@ XMR gerçekten ne kadar mining yapabileceğimizi deneyerek göreceğiz fakat bir
 * Her 2 dakikada bir yeni bir blok kazılıyor.
 * CPU/GPU kuvvetine bağlı olarak kazanımları gün başı her mining sistemi için $0.45'den $1 dolar arası olarak değişiyor. Bendeki değer CPU ile ek konfigürasyon yapmadan günlük $0.04 oldu.
 
-## 2. Monero Mining Kurulum Adımları
+## Monero Mining Kurulum Adımları
 
 ### 1. Monero Cüzdanı ve Cüzdan Adresi Edinme
 
