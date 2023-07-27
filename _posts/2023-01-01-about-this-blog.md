@@ -280,27 +280,28 @@ In addition, I separated the tutorials section, which has a more systematic expl
 So table of contents (our sitemap) is like that:
 
 ```
-Posts
+Posts 
   Technical
-    English : "\posts"
-    Turkish : "\t"
+    English : "\posts" (category is main)
+    Turkish : "\t" (category is turkish)
   Non-Technical
-    English : "\cen"
-    Turkish : "\c"
+    English : "\cen" (category is cultural)
+    Turkish : "\c"  (category is cultural)
   Archive : \posts-archive
 
-Tutorials
+Tutorials ()
   Technical
     English "\tutorials" : Will be static.
-    Turkish "\notlar"
+    Turkish "\notlar" : Will be static
   Non-Technical
-    English "tutorials\cen"
-    Turkish "notlar-c"
+    English "tutorials-c" : Will be static.
+    Turkish "notlar-c" : Will be static.
   Archive "tutorials-archive"
 
 Tags (\tags)
 Archive (\archive)
 ```
+
 
 ## Post Details And Some Current Examples
 
@@ -337,6 +338,7 @@ I list some example here with posts, turkish posts, and tutorials.
 
 #### English
 
+Henüz yazı yok.
 
 #### Turkish
 * Veri Bilimi Ve Modeller
