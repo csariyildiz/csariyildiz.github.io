@@ -11,8 +11,8 @@ tags:
 If you're seeking a convenient and user-friendly solution to manage your PowerShell commands, this script provides an ideal command line interface.
 It offers a user-friendly menu system that simplifies the execution of functions and makes your PowerShell tasks easy to manage.
 
-As an alternative to complexities of command syntax it has the convenient menu-driven approach to enhance your overall PowerShell experience.
-We know from various examples that such interfaces, despite their modest appearance, can be extremely effective and successful in some cases.
+As an alternative to complexities of command syntax this convenient approach might enhance your PowerShell user experience.
+We know from various examples that such interfaces in NodeJS apps. And despite their modest appearance, they can be extremely effective and successful in some cases.
 
 Tested on `Windows 10 Enterprise` with `PSVersion 5.1.19041.3031`, this script provides a reliable and efficient solution for managing your commands. 
 
