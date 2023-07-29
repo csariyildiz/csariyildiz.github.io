@@ -197,8 +197,7 @@ tags:
 <!-- ######### -->
   <div class="accordion-item" style="border-bottom: 1px solid #dde2e6;">
     <h2 class="accordion-header" id="flush-headingTwelve">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="true" aria-controls="flush-collapseTwelve" style="
-">Appendix
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="true" aria-controls="flush-collapseTwelve" style="">Appendix
 </button>
 </h2>
     <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlushExample" style="">
