@@ -1,5 +1,7 @@
 # Cybersecurity Sub-Branches
 
+
+
 1.  Introduction to Cybersecurity
 2.  Cybersecurity Fundamentals
 3.  Network Security
@@ -505,5 +507,4 @@ Organizations deploy QKD systems like ID Quantique's Quantum Key Distribution Sy
 ## Cybersecurity for Space Systems and Satellite Communication:
 Cybersecurity for Space Systems and Satellite Communication addresses the security of space-based technologies and satellite communications.
 Space agencies use frequency-hopping spread spectrum (FHSS) to protect satellite communication from jamming and interception. They employ secure satellite communication protocols to prevent unauthorized access to space systems.
-
 

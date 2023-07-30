@@ -10,49 +10,110 @@ tags:
 Hi! I write this post to provide information about the blog itself. 
 In this post, I will explain how I use the blog, while at the same time I will provide information about technical details, main site posts and tutorials, and licensing and copyrights.
 
-At the same time, we can think of it as a meta field about the site.
+The blog seperates technical and other writings. And it seperates articles within a group to each other also.
 
-## Table Of Contents
-1. [Preferred usage](#1-tavsiye-edilen-kullanim)
-    1. File Naming
-    2. Front Matter
-    3. Content of Posts
-    4. Images
-    5. Code Blocks
-    6. Links
-    7. Reference And Footnote
-    8. Writing Style
-    9. Additional Notes
-4. [Blogun Teknik Detayları](#2-editing-fields)
-5. [Blogun Dizayn ve Implementasyonu](#3-snippet-1--sorting)
-6. [Gönderilerin Organizasyonu](#4-snippet-2--batch-updating-documents)
-7. [Sonuç](#sonuc)
+It has special pages like watchlist, booklists (technical, non-technical, turkish and english.)
+
+Sometimes I use different layouts if I thing it makes easier to use.
+
+Main website, and blog is seperate. Main website is like a basic vcard. Has following pages:
+
+```
+English pages:
+/home
+/about
+/contact
+/blog
+
+Turkish pages:
+/anasayfa
+/hakkinda
+/iletisim
+/gunce
+```
+
+For blog each post is classified with language and whether its technical or not technical (cultural). 
+So we get 8 pages. 4 more for tags and archives.
+
+```
+Posts 
+  Technical
+    English : "\posts" (category is main)
+    Turkish : "\t" (category is turkish)
+  Non-Technical
+    English : "\cen" (category is cultural)
+    Turkish : "\c"  (category is cultural)
+  Archive : \posts-archive
+
+Tutorial
+  Technical
+    English "\tutorials" : Will be static.
+    Turkish "\notlar" : Will be static
+  Non-Technical
+    English "tutorials-c" : Will be static.
+    Turkish "notlar-c" : Will be static.
+  Archive "tutorials-archive"
+
+Tags (\tags)
+Archive (\archive)
+```
+
+We also archive for posts, archive for tutorials and overall archive and tag pages.
+
+
+Non-technical tutorials are for things like music, health, economics, history, they are often from one or more sources.
+This format is used if the articles are too long or require too much continuity and technicality.
+The style of these articles, unlike the others, is somewhat objective.
+They just give the facts without adding comments.
+
+## For Jekyll
+
+Layouts are:
+
+```
+page
+post
+post-tr
+
+default2
+default-tr
+```
+Includes are:
+
+```
+head
+head-tr
+```
+
 
 ## 1. Preferred usage
 
-Tavsiye edilen kullanım kısmında sırasıyla dosya adlandırma, front matter, gönderilerin içeriği, resim kullanımı, kod blogu kullanımı, link kullanımı, Referans ve Dipnot Kullanımı, üslup ve ek notlar ele alınacaktır.
+
+In the recommended usage section, respectively, file naming, front matter, content of posts, image usage, code blog usage, link usage, Reference and Footnote Usage, style and additional notes will be discussed.
 
 ### File Naming
 
-Gönderiler sitenin kök dizini altında `_posts` klasörü altında bulunur. Jekyll için yapıldığı üzere aşağıdaki gibi adlandırma yapılır. Burada klasörlere ayırma işlemi yapılabilir etkilemeyecektir.
-Listeleme category değişkenine göre olur. 
+Posts are located in the root of the site under the `_posts` folder. The naming is done as follows, as was done for Jekyll. Here it will not affect the partitioning operation to folders.
+The listing is based on the category variable.
+
 
 ```
 2023-02-04-importing-enron-mail-dataset-to-mongodb.md
 ```
 
-Bunların haricinde `_drafts` içerisinde tamamlanmamış postlar bulunmaktadır. Bir post tamamlanmamışsa önüne aşağıdaki gibi bir ibare konulur.
-Bu ibare fazla tutulmamalıdır ve bir an önce kaldırılması amaçlanır.
+Apart from these, there are incomplete posts in `_drafts`. If a post is not completed, a phrase like the one below is placed in front of it.
+This phrase should not be kept too long and it is intended to be removed as soon as possible.
 
 ```
 This is a work in progress. So please consider it might contain some errors :)
 ```
 
-Yayınlanan yazıların tamamlanmış olmasına dikkat edilmelidir.
+Attention should be paid to the completion of the published articles.
 
 ### Front Matter
 
-Sitedeki yazılar için örnek front matter aşağıdaki gibidir. İngilizce yazılar için main kategorisi kullanılmıştır.
+
+Example front matter for the articles on the site is as follows. The main category is used for English articles.
 
 ```
 ---
@@ -67,18 +128,21 @@ tags:
 
 ### Content of Posts
 
-Her yazı için bir excerpt kısmı bulunmaktadır. Örnek bir excerpt aşağıdaki gibidir:
+There is an excerpt section for each article. An example excerpt is as follows:
 
 ```
 MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases including application development and data pipelines.
 In this document we will explore its features and commands which can be useful when we dealing with data.
 ```
-Excerpt kısmından sonra fotograf aşağıdaki gibi paylaşılır.
+
+After the excerpt part, the photo is shared as follows.
 
 ```
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/mongo2.png" class="img-fluid" alt="MongoDB Compass Interface">
 ```
-Ardından ikinci bir paragraf aşağıdaki gibi paylaşılır.
+
+Then a second paragraph is written as follows.
+
 
 ```
 MongoDB has versions like Cloud (Named Atlas), Enterprise and Community. Community version is free to use. It also has a GUI named MongoDB Compass.
@@ -86,7 +150,7 @@ Because MongoDB is no-sql its data stored as unstructured or semi-structured. Co
 MongoDB has many features like indexing, replication, load-balancing. And its queries are formed in a JSON-like manner which makes flexible and it easy to use.
 ```
 
-Ardıntan table Of Contents kısmı aşağıdaki gibi paylaşılır.
+Then the table Of Contents part is shared as follows:
 
 ```
 ## Table Of Contents
@@ -97,9 +161,8 @@ Ardıntan table Of Contents kısmı aşağıdaki gibi paylaşılır.
 5. [Snippet 3 : Batch Updating Again](#5-snippet-3--batch-updating-again)
 ```
 
-```
-```
-Ardından başlıkla yazıya başlanır.
+
+Then the article starts with the title.
 
 ```
 ## 1. Databases And Collections
