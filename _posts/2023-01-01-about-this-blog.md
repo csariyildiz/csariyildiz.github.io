@@ -301,25 +301,32 @@ Not written yet!
 Not written yet!
 
 ### Datatables
+Not written yet!
 
 ### Image Gallery
+Not written yet!
+
 
 ## 3. Design And Implementation
 
-Sitenin tasarımının mümkün olduğunca sade olmasına dikkat edilmiştir. Özellikle Github'un kendi markdown tasarımına benzetmek esas alınmıştır.
-Bootstrap 5 yine github'un kullandığı fontlarla kullanılmıştır.
+Care has been taken to keep the design of the site as simple as possible. In particular, it is based on emulating Github's own markdown design.
+Bootstrap 5 is used with the fonts used by github.
 
-Aynı zamanda solda bir bar ve footer bulunmaktadır.
+There is also a bar and footer on the left.
 
-Main site kısmından farklı olarak blog kısmında solda bir bar ve yazıların ismi yer almaktadır.
-Benzer şablon sitenin tamamında korunmuştur.
+Unlike the main site, there is a bar on the left and the name of the articles in the blog section.
+The similar template has been preserved throughout the site.
+
 
 ### CSS
-
+Not written yet!
 
 ### Javascript
 
+Not written yet!
+
 ### Removing Extra
+Not written yet!
 
 
 ## 4. Organization
@@ -422,8 +429,7 @@ Henüz yazı yok.
   
 ## Conclusion
 
-Faydalı olması dileğiyle!
-
+Hope it is useful!
 
 * https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll
 
