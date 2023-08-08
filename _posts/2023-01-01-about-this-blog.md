@@ -47,11 +47,11 @@ Posts
 
 Tutorial
   Technical
-    English "\tutorials" : Will be static.
-    Turkish "\notlar" : Will be static
+    English "\tutorials-en" : Will be static.
+    Turkish "\tutorials-tr" : Will be static
   Non-Technical
-    English "tutorials-c" : Will be static.
-    Turkish "notlar-c" : Will be static.
+    English "\notes-en" : Will be static.
+    Turkish "\notes-tr" : Will be static.
   Archive "tutorials-archive"
 
 Tags (\tags)
