@@ -128,20 +128,35 @@ tags:
 
 ### Content of Posts
 
-There is an excerpt section for each article. An example excerpt is as follows:
+There is an excerpt section for each article. An example excerpt is as follows. It is `276` characters long.
 
 ```
 MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases including application development and data pipelines.
 In this document we will explore its features and commands which can be useful when we dealing with data.
 ```
 
-After the excerpt part, the photo is shared as follows.
+
+```
+MongoDB is a very popular no-sql database with JSON-like documents. 
+```
+
+
+```
+I find it very robust usefull for many use cases including application development and data pipelines. 
+```
+
+```
+In this document we will explore its features and commands which can be useful when we dealing with data.
+```
+
+
+After the excerpt part, the photo is shared as follows. It is a `PNG` file with dimensions `716 x 410`.
 
 ```
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/mongo2.png" class="img-fluid" alt="MongoDB Compass Interface">
 ```
 
-Then a second paragraph is written as follows.
+Then a second paragraph is written as follows. It is `536` characters long.
 
 
 ```
