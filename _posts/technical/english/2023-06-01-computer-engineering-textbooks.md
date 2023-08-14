@@ -11,7 +11,7 @@ tags:
 I recently created a list of computer engineering textbooks, mostly using the books recommended by my university's departments. I believe that lists like these can be incredibly helpful as references for both students and professionals in the field.
 
 
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/textbooks.jpg" class="img-fluid" alt="winrm">
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/textbooks1.png" class="img-fluid" alt="winrm">
 
 
 The list comprises 58 class names, each accompanied by their respective textbooks. This compilation can serve as a solid foundation to access well-established texts in the field of computer engineering. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
