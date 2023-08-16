@@ -29,7 +29,7 @@ Turkish pages:
 /anasayfa
 /hakkinda
 /iletisim
-/gunce
+/blog-tr
 ```
 
 For blog each post is classified with language and whether its technical or not technical (cultural). 
