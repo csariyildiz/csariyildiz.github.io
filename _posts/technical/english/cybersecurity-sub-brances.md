@@ -1,7 +1,18 @@
 # Cybersecurity Sub-Branches
 
+1. Cybersecurity Fundamentals
+2. Cyber Incident Response and Forensics
+3. Web Application Security
+4. Malware Analysis
+5. Network Security
+6. Information Security Management
+7. Cryptography and Data Protection
+8. Cybersecurity Policies and Governance
+9. Ethical Hacking and Penetration Testing
+10. Cloud Security
 
 
+----------------------------------------------------------------------------------------------
 1.  Introduction to Cybersecurity
 2.  Cybersecurity Fundamentals
 3.  Network Security

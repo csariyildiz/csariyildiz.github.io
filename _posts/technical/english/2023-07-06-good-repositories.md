@@ -16,3 +16,4 @@ List of good repositories on Github to explore consists of various repositories.
 * [Jquery](https://github.com/jquery/jquery). Public repository of jQuery JavaScript library.
 * [Datatables](https://github.com/DataTables/DataTables). The table enhancing plug-in for jQuery.
 * [Sample Curriculum For cyber security](https://github.com/DerekBabb/CyberSecurity). A curriculum designed for a computer science course focused on cyber security. 
+* [Fluent Reader](https://github.com/yang991178/fluent-reader)

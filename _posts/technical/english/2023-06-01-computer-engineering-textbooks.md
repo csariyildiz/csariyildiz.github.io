@@ -87,7 +87,7 @@ By organizing the list and incorporating books from recommended sources, I aimed
 * Web Based Technologies
 * Web Based Technologies II
 * Others
---------------------------------------------------------------------------------
+
 
 ## 2. Book List
 
@@ -497,3 +497,8 @@ By organizing the list and incorporating books from recommended sources, I aimed
 * Yönetim ve Organizasyon, İnan Özalp
 
 ## References
+* https://www.ogu.edu.tr/
+
+
+mkk produn bağlı olduğu
+- mkk 
