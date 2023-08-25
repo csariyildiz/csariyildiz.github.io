@@ -1,0 +1,42 @@
+---
+layout: page2
+---
+
+<div class="post-container">
+
+<header class="post-header big-title container medium" style="padding:1rem;padding-top: 2.0rem;padding-left: 0px;padding-bottom: 1.5rem;">
+  <h1 class="post-title" style="font-family: Mulish,sans-serif;font-weight: 800;letter-spacing: -.5px;line-height: 1.3;margin: 0 0 15px;word-break: break-word;">Posts</h1>
+
+  </header>
+
+<div class="post-body">
+
+
+  <table class="table table-borderless table-dark">
+
+  <tbody>
+    <tr>
+
+      <td style="padding-left: 0px;"><h3>Posts:</h3></td>
+
+
+    </tr>
+
+	 {% for post in site.categories.main %}  {% if post.url %}
+	
+
+    <tr>
+      
+      <td><a href="{{ post.url }}" style=" color: #fff; text-decoration: none; font-size: 1.25rem; font-weight: bold; text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, .5); line-height: 1.5; font-family: var(--bs-font-sans-serif); ">{{ post.date | date: "%d-%m-%Y"}} {{ post.title }}</a></td>
+      
+    </tr>
+
+	   {% endif %}
+          {% endfor %}
+
+  </tbody>
+</table>
+
+</div>
+
+</div>
