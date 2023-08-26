@@ -36,26 +36,9 @@ For blog each post is classified with language and whether its technical or not 
 So we get 8 pages. 4 more for tags and archives.
 
 ```
-Posts 
-  Technical
-    English : "\posts" (category is main)
-    Turkish : "\t" (category is turkish)
-  Non-Technical
-    English : "\cen" (category is cultural)
-    Turkish : "\c"  (category is cultural)
-  Archive : \posts-archive
-
-Tutorial
-  Technical
-    English "\tutorials-en" : Will be static.
-    Turkish "\tutorials-tr" : Will be static
-  Non-Technical
-    English "\notes-en" : Will be static.
-    Turkish "\notes-tr" : Will be static.
-  Archive "tutorials-archive"
-
-Tags (\tags)
-Archive (\archive)
+Posts : Technical (\posts, \t), Non-Technical (\b,\c), Archive : \archive
+Tutorial : Technical (\a, \d),  Non-Technical (\e,\f),
+\all
 ```
 
 We also archive for posts, archive for tutorials and overall archive and tag pages.
