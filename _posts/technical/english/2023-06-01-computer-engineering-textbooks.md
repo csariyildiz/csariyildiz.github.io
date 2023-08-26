@@ -11,7 +11,7 @@ I recently created a list of computer engineering textbooks, mostly using the bo
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/textbooks1.png" class="img-fluid" alt="books">
 
-The [list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names, each accompanied by their respective textbooks. This compilation can serve as a foundation to access well-established texts in the field. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
+The [list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names, each accompanied by their respective textbooks around 140. This compilation can serve as a foundation to access well-established texts in the field. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
 
 Although some books may appear dated, they still hold significant value as they provide valuable insights into the subject matter. The textbooks are categorized into base, additional, and tools sections, while the "Other" category is reserved for uncategorized resources included in the list.
 
