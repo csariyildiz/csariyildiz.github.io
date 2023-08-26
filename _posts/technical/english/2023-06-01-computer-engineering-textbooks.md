@@ -15,7 +15,9 @@ The [list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names
 
 Although some books may appear dated, they still hold significant value as they provide valuable insights into the subject matter. The textbooks are categorized into base, additional, and tools sections, while the "Other" category is reserved for uncategorized resources included in the list.
 
-* Physics, Calculus, Differential Equations, Linear Algebra, Numerical Methods
+Some of the books are open-source by various sources such as archive.org so its possible to share their links directly.
+
+* Physics[^1], Calculus, Differential Equations, Linear Algebra, Numerical Methods
 * Algorithms And Complexity, Probability, Dicrete Computational Structures,  Formal Languages and Automata
 * Digital Design, Fundementals OF Electronics, Data Structures
 * Programming, Database Programming, Object Oriented Programming I, Object Oriented Programming II
@@ -38,7 +40,7 @@ Although some books may appear dated, they still hold significant value as they 
 * Web Based Technologies, Web Based Technologies II
 * Others
 
-
+[^1]: [Fundamentals Of Physics Extended 8th Edition](https://archive.org/details/fundamentals-of-physics-8th)
 
 ## References
 * https://www.ogu.edu.tr/
