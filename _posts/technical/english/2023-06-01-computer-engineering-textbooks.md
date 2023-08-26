@@ -7,7 +7,7 @@ tags:
 ---
 
 
-I recently created a list of computer engineering textbooks, mostly using the books recommended by my university's departments. I believe that lists like these can be helpful as references for both professionals and people who more focused on academic aspects.
+I recently created a list of computer engineering textbooks, mostly using the books recommended by my university's departments.[^1] I believe that lists like these can be helpful as references for both professionals and people who more focused on academic aspects.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/textbooks1.png" class="img-fluid" alt="books">
 
@@ -17,8 +17,8 @@ Although some books may appear dated, they still hold significant value as they 
 
 Some of the books are open-source by various sources such as archive.org so its possible to share their links directly.
 
-* Physics[^1], Calculus, Differential Equations, Linear Algebra, Numerical Methods
-* Algorithms And Complexity, Probability, Dicrete Computational Structures,  Formal Languages and Automata
+* Physics [^2] [^3], Calculus [^4], Differential Equations [^5], Linear Algebra [^6], Numerical Methods[^7]
+* Algorithms And Complexity[^8], Probability, Dicrete Computational Structures,  Formal Languages and Automata
 * Digital Design, Fundementals OF Electronics, Data Structures
 * Programming, Database Programming, Object Oriented Programming I, Object Oriented Programming II
 * Advanced Programming, Enterprise Java, Database Management Systems
@@ -40,7 +40,13 @@ Some of the books are open-source by various sources such as archive.org so its 
 * Web Based Technologies, Web Based Technologies II
 * Others
 
-[^1]: [Fundamentals Of Physics Extended 8th Edition](https://archive.org/details/fundamentals-of-physics-8th)
-
 ## References
-* https://www.ogu.edu.tr/
+[^1]: [ogu.edu.tr](https://www.ogu.edu.tr/)
+[^2]: [Fundamentals Of Physics Extended 8th Edition](https://archive.org/details/fundamentals-of-physics-8th)
+[^3]: [Physics for Scientists and Engineers with Modern Physics (2007)](https://books.google.com.tr/books?id=AVkGAAAAQBAJ)
+[^4]: Calculus, A Complete Course-Fifth Edition, Robert A. Adams, Addison-Wesley, 2001.
+[^5]: S. L. Ross, Differential Equations, 3rd edition, Wiley, 1984.
+[^6]: B. Kolman, D. R. Hill, Elementary Linear Algebra, Prentice Hall, 8th edition, 2004.
+[^7]: Steven C. Chapra, Raymond P. Canale, Numerical Methods for Engineers, McGraw-Hill, 5th ed., 2006
+[^8]: Brassard, G.-Bratley, P. Algorithmics,theory and practice
+
