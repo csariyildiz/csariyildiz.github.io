@@ -7,7 +7,7 @@ tags:
 ---
 
 
-I recently created a list of computer engineering textbooks, mostly using the books recommended by my university's departments.[^1] I believe that lists like these can be helpful as references for both professionals and people who more focused on academic aspects.
+I recently created a list of computer engineering textbooks, mostly using the books recommended by my university's [department](https://www.ogu.edu.tr/). I think lists like these can be helpful as references for both professionals and the people who more focused on academic work.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/textbooks1.png" class="img-fluid" alt="books">
 
@@ -15,38 +15,32 @@ The [list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names
 
 Although some books may appear dated, they still hold significant value as they provide valuable insights into the subject matter. The textbooks are categorized into base, additional, and tools sections, while the "Other" category is reserved for uncategorized resources included in the list.
 
-Some of the books are open-source by various sources such as archive.org so its possible to share their links directly.
+Since some of the books are open-source its possible to share their links directly by various sources such as archive.org.
 
-* Physics I and II [^2] [^3], Calculus [^4], Differential Equations [^5], Linear Algebra [^6], Numerical Methods[^7]
-* Algorithms And Complexity[^8], Probability, Dicrete Computational Structures,  Formal Languages and Automata
-* Digital Design, Fundementals OF Electronics, Data Structures
+* Physics I and II [^1] [^2], Calculus [^3], Differential Equations [^4], Linear Algebra [^5], Numerical Methods[^6]
+* Algorithms And Complexity[^7], Probability, Dicrete Computational Structures,  Formal Languages and Automata
+* Digital Design, Fundementals Of Electronics, Data Structures
 * Programming, Database Programming, Object Oriented Programming I and II
 * Advanced Programming, Enterprise Java, Database Management Systems
 * Introduction To Microcomputers, Computer Architecture, Advanced Computer Architecture
-* Computer Programming For Engineering Problems
-* Software Engineering, Business Intelligence
+* Computer Programming For Engineering Problems, Software Engineering, Business Intelligence
 * Introduction To Operating Systems, Computer Networks
-* Data Security, Image Processing, Distributed Systems
-* Introduction To Autonomous Mobile Robots
-* System Programming, Mobile Programming
-* Introduction To Secure Coding
-* Data Structures And Algoritm Analysis
-* Economics, Entrepreneurship, Introduction To Financial Markets, Introduction To Wireless Sensor Networks
-* Algorithms For Optimization, Parallel Programing,  Computational Geometry
-* Pattern Recognition, Data Mining
-* Introduction To Artificial Intelligence, Big Data Mining, Introduction To Deep Learning, Introduction To Data Mining, Introduction To Text Mining
-* Neural Networks, Machine Learning, Fuzzy Logic
+* Distributed Systems, Introduction To Autonomous Mobile Robots, Introduction To Wireless Sensor Networks
+* System Programming, Mobile Programming, Introduction To Secure Coding, Data Structures And Algoritm Analysis
+* Economics, Entrepreneurship, Introduction To Financial Markets
+* Algorithms For Optimization, Parallel Programing, Computational Geometry
+* Pattern Recognition, Data Mining, Data Security, Image Processing
+* Introduction To Artificial Intelligence, Big Data Mining, Introduction To Deep Learning, Introduction To Data Mining
+* Introduction To Text Mining, Neural Networks, Machine Learning, Fuzzy Logic
 * Digital Communication, Network Applications UE, Introduction To VHDL
-* Web Based Technologies, Web Based Technologies II
-* Others
+* Web Based Technologies, Web Based Technologies II, Others
 
-## References
-[^1]: [ogu.edu.tr](https://www.ogu.edu.tr/)
-[^2]: [Fundamentals Of Physics Extended 8th Edition](https://archive.org/details/fundamentals-of-physics-8th)
-[^3]: [Physics for Scientists and Engineers with Modern Physics (2007)](https://books.google.com.tr/books?id=AVkGAAAAQBAJ)
-[^4]: Calculus, A Complete Course-Fifth Edition, Robert A. Adams, Addison-Wesley, 2001.
-[^5]: S. L. Ross, Differential Equations, 3rd edition, Wiley, 1984.
-[^6]: B. Kolman, D. R. Hill, Elementary Linear Algebra, Prentice Hall, 8th edition, 2004.
-[^7]: Steven C. Chapra, Raymond P. Canale, Numerical Methods for Engineers, McGraw-Hill, 5th ed., 2006
-[^8]: Brassard, G.-Bratley, P. Algorithmics,theory and practice
+## Books
+[^1]: [Fundamentals Of Physics Extended 8th Edition](https://archive.org/details/fundamentals-of-physics-8th)
+[^2]: [Physics for Scientists and Engineers with Modern Physics (2007)](https://books.google.com.tr/books?id=AVkGAAAAQBAJ)
+[^3]: Calculus, A Complete Course-Fifth Edition, Robert A. Adams, Addison-Wesley, 2001.
+[^4]: S. L. Ross, Differential Equations, 3rd edition, Wiley, 1984.
+[^5]: B. Kolman, D. R. Hill, Elementary Linear Algebra, Prentice Hall, 8th edition, 2004.
+[^6]: Steven C. Chapra, Raymond P. Canale, Numerical Methods for Engineers, McGraw-Hill, 5th ed., 2006
+[^7]: Brassard, G.-Bratley, P. Algorithmics Theory and Practice
 
