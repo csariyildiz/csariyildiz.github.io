@@ -1,13 +1,12 @@
 ---
 layout: post3
-title: "Bir Bilgisayar Seçerken Nelere Dikkat Ediyoruz?"
+title: "Bilgisayar Nasıl Çalışır?"
 tags:
   - Hardware
   - Donanım
 ---
 
 
-Benchmark testleri. Bİlgisayar tipleri. Bİlgisayarların parçaları. 
 
 ## Bilgisayar Tipleri
 
@@ -25,7 +24,7 @@ Masaüstü bilgisayarın All In One, MiniPC gibi tipleri vardır.
 
 Bir işlemci barındıran her şey gömülü cihaz, geliştirme kartı gibi şeyler olabilleceği gibi evde kullandığımız tartı buzdolabı televizyon da olabilir. (IoT)
 Cloud kullanımdan ayrıca bahsetmek gerekir ki bu sanal makinelerin uzaktan kullanılması anlamına gelir. Bilgisayarlar iş ağırlıklarını ve fonksiyonlarını bu şekilde paylaşıp devredebilirler.
-Sunucularda ise rack tipi sistemler kullanılır. Eğer bir sanallaştırma ortamı kurulacaksa bunun için hepsini beraber sağlayan sistemler bulunur ve bunlar beraber satılır.
+Sunucularda ise rack tipi sistemler kullanılır. Eğer bir sanallaştırma ortamı kurulacaksa bunun için hepsini beraber sağlayan sistemler bulunur ve bunlar beraber satılıyor olması da olasıdır.
 
 ### Bilgisayarın Bileşenleri
 
@@ -35,15 +34,16 @@ Bir laptop'u ele alacak olursak bileşenleri en temelde dışından ayırt edebi
 Ekran, Klavye, TouchPad, Güç Adaptörü, Batarya, Güç besleme Ünitesi, Portları, Güç Butonu, Fan Çıkışı, Mikrofon, Kamera
 ```
 
-Bataryası kimisinde içeridedir. Portlar çeşitlilik gösterebilir. USP portları, HDMI veya VGA çıkışı, kart okuyucu, CD-DVD okuyucu görebiliriz.
+Kimi laptoplarda bilgisayarın bataryası içeridedir. Kimisinde içinde ve dışında çift batarya bulunur.
+Portlar çeşitlilik gösterebilir. USP portları, HDMI veya VGA çıkışı, kart okuyucu, CD-DVD okuyucu görebiliriz.
 Klavye altında bulunan anakartın üzerinde ve çevresinde ise aşağıdaki birimler bulunur.
 
 ```
 Anakart, CPU, RAM, Hard Disk, GPU, Network Kartı, Wireless Kartı, Bluetooth Kartı, Hoparlör
 ```
 
-Bu bileşenler RAM, GPU gibi bir kısmı anakart üzerindeki slotlara (PCI, PCIe, AGP) yerleşmiş olarak bulunur. Wireless kartı gibi kısmı yine kablolarla ilgili bağlanmıştır.
-CPU'nun ise kendi soketi bulunur.
+Bu bileşenler RAM, GPU gibi bir kısmı anakart üzerindeki slotlara (PCI, PCIe, AGP) yerleşmiş olarak bulunur. 
+Wireless kartı gibi kimi parçalar kablolarla anakartın ilgili girişlerine bağlanmıştır. CPU'nun ise kendi soketi bulunur.
 
 Aslında bir bilgisayar sisteminin çalışır duruma gelmesi için CPU ve RAM yeterlidir. CPU matematiksel işlemleri talimatlar (instruction) ları RAM'den yükleyerek çalıştırır.
 Bunlar işlemcinin modeline göre düzenlenmiş makina kodlarıdır (assembler) ve aritmetik işlemler olarak CPU çipine tanımlanmışlardır.
@@ -58,23 +58,26 @@ Bu bileşenlerle ALU, Flag'ler ve kontrol ünitesi ile CPU meydana gelmiş olur.
 Bu işlem setiyle makina dilinde programlar talimatlar halinde yazılabilir hale gelir.
 C gibi daha üst seviye programlama dilleri derlenerek talimatlara dönüştürülür. Bu programlama dilleri ile geliştirilen işletim sistemleri ve yazılımlar derlendiğinde işlemci tarafından okunabilir hale gelir.
 
+Bilgisayarların elektrik akımından işletim sistemleri ve kullanıcıya bir arayüz oluşturan yazılımlara kadar aşağıdaki adımları izlediğini söyleyebiliriz.
+
 ```
-Elektrik Akımı
-Transistör
-Logic Gate
-ALU, Flag'ler, Register'lar ve Control Unit
-CPU ve RAM
-Makina Dili Talimatları
-Programlama Dilleri
-İşletim Sistemleri ve Yazılımlar
+1. Elektrik Akımı
+2. Transistör
+3. Logic Gate
+4. ALU, Flag'ler, Register'lar ve Control Unit
+5. CPU ve RAM
+6. Makina Dili Talimatları
+7. Programlama Dilleri
+8. İşletim Sistemleri ve Yazılımlar
 ```
 
 ## Transistörler ve Öncesi
 
-İlk bilgisayarlar tamamen mekaniktir. Bilgisayarlı hesaplamanın ilk örneklerine bakıldığında örneğin 1944 yılında IBM tarafından üretilen Harward Mark I fiziksel anahtarlar (switch), dönen mil (rotating shaft), milleri birbirine bağlayan mekanizma (cluch)
-ve mekanik röle (relay) yardımıyla çalıştığını görürüz. Röle bir telden akım geçip geçmeyeceğini başka bir telle kontrol edebildiğiniz basit bir devredir. 
+İlk bilgisayarlar tamamen mekaniktir. Bilgisayarlı hesaplamanın ilk örneklerine bakıldığında örneğin 1944 yılında IBM tarafından üretilen Harward Mark I fiziksel anahtarlar (switch), dönen mil (rotating shaft), milleri birbirine bağlayan mekanizma (cluch) ve mekanik röle (relay) yardımıyla çalıştığını görürüz. Röle bir telden akım geçip geçmeyeceğini başka bir telle kontrol edebildiğiniz basit bir devredir. 
+
 Kontrol teli bir bobin içerir ve bu bobin üzerinden elektrik geçtiğinde elektromanyetik alan oluşarak öteki telin içerisindeki parçayı çeker. Böylece o telden de akım geçerek devreyi tamamlar. Muslukla çalışma şekli aynıdır.
-Bu devre başka bir devreye bağlanabilir ya da mekanik bir işlemi tetiklemek için kullanılabilir. Bu  flip-flops ya da latche denilen devre elemanıdır.
+
+Bu devre başka bir devreye bağlanabilir ya da mekanik bir işlemi tetiklemek için kullanılabilir. Bu da flip-flops ya da latche denilen devre elemanıdır.
 
 Burada rölenin içerisindeki mekanik kolun kütlesi açıp kapama işleminin hızını etkilemektedir. 1940 larda iyi performanslı bir röle saniyede 50 kere açılıp kapanabilmektedir.
 Matematiksel işlemleri çözme konusunda pek çok kısıt barındırıyordu. Harward Mark I bir saniyede 3 toplama ve çıkarma işlemi yapabiliyordu. 
@@ -277,6 +280,8 @@ CPU Specifications
 ```
 
 
+## Notlar:
+* Benchmark testleri. Bİlgisayar tipleri. Bİlgisayarların parçaları. 
 
 
 ## Referanslar
