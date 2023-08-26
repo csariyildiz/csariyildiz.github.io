@@ -9,27 +9,27 @@ tags:
 ---
 
 Kripto paraların popülerlik kazanmaya başladığı 2010'lu yılların ortalarından itibaren hayatımızda çok şey değişti.
-İnsanlar gelişmelere farklı tepkiler verdi. Kimi için kelime olumlu şeyler çağrıştırıyor. Kimi ise daha temkinli bir yaklaşım sergiliyor. Tıpkı çılgınlık seviyesinde ilgi gösterenler olduğu gibi aşırı çekingen bir tutum sergileyenler olabiliyor. Kripto para dünyasında küçük yatırımlarla yer alanlar, hisse senedi piyasasında olduğu gibi yatırım yapma, alım-satım gerçekleştirme gibi faaliyetlerde bulunuyorlar. 
+İnsanlar gelişmelere farklı tepkiler verdi. Kimi için kelime olumlu şeyler çağrıştırıyor. Kimi ise daha temkinli bir yaklaşım sergiliyor. Çılgınlık seviyesinde ilgi gösterenler olduğu gibi aşırı çekingen bir tutum sergileyenler de olabiliyor. Kripto para dünyasında görece küçük yatırımlarla yer alanlar, hisse senedi piyasasında olduğu gibi yatırım yapma, alım-satım gerçekleştirme gibi faaliyetlerde bulunuyorlar. 
 
 Tüm bunların yanında bir teknoloji olarak blockchain kendi gerçekleriyle hayatımızda. Blockchain sisteminin madencilik ve Etherium ile hızlanan merkezi olmayan (decenteralized) uygulamalar gibi pek çok alanı var.
 Kripto para birimlerinin teknik altyapısı ve uygulama pratiği, özellikle bilgisayarlarla içli dışlı olanlar için de oldukça ilginç detaylar sunuyor. 
 Kriptografi, network, programlama, donanım ve siber güvenlik gibi birçok alanı barındıran bu konu gerçekten de etkileyici ve dikkate değer hale getiriyor.
 
-Bu yazıda, XMRig adlı yazılım aracılığıyla nasıl madencilik yapılacağını göreceğiz. 
-Madencilik için standart bir son kullanıcı bilgisayarı,  MoneroOcean'un XMRig versiyonu ve MoneroOcean Mining havuzu kullanacağız. 
-Ayrıca, CPU ve NVIDIA ekran kartı gibi bileşenler de kullanarak madenciliğin nasıl yapıldığını keşfederken, kripto para birimlerinin teknik detaylarına da göz atacağız.
+Bu yazıda, XMRig adlı yazılım aracılığıyla nasıl madencilik yapıldığından bahsedeceğiz. 
+Madencilik için standart bir son kullanıcı bilgisayarı, uygulama olarak MoneroOcean'un XMRig versiyonunu ve MoneroOcean Mining havuzunu kullanıyoruz. 
+Ayrıca, CPU ve NVIDIA ekran kartı gibi bileşenler de kullanarak madenciliğin nasıl yapıldığına ve kripto para birimlerinin teknik detaylarına göz atacağız.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/monero_ocean1.png" class="img-fluid" alt="Monero Ocean">
 
 ## İçindekiler:
 
-1. Kripto Para Birimleri ve Mining: Bu bölümde genel olarak miming'in zaman içerisinde nasıl geliştiğini özetleyeceğiz.
+1. Kripto Para Birimleri ve Mining
 
-2. XMRig Miner Yazılımı: Bu bölümde, XMRig miner yazılımının ne olduğunu ve nasıl kullanıldığını anlatacağız. XMRig, Monero gibi kripto para birimlerini madencilik için optimize edilmiş bir yazılımdır.
+2. XMRig Miner Yazılımı
+   
+4. Monero Mining Başlangıç Adımları
 
-3. Monero Mining Başlangıç Adımları: Bu bölümde, Monero mining işlemine başlamak için gereken adımları adım adım göstereceğiz. Bu adımlar arasında XMRig'in kurulumu, MoneroOcean Mining pooluna katılma ve mining işlemini başlatma yer alacak.
-
-4. Değerlendirme ve Notlar: Bu bölümde, yapılan mining işlemiyle ilgili değerlendirme ve notlar paylaşılacak. Örneğin, mining performansı, enerji tüketimi, getiri beklentileri gibi konular ele alacağız.
+5. Değerlendirme ve Notlar
 
 ## Kripto Para Birimleri ve Mining
 
@@ -225,7 +225,7 @@ XMR gerçekten ne kadar mining yapabileceğimizi deneyerek göreceğiz fakat bir
 * Esas gizli tutmamız gereken hatta mümkünse bir kağıda yazmamız ve dijital ortamda tutmaktan kaçınmamız gereken Mnemonic Seed ve Secret Keylerdir.
 * Monero cüzdanı monerod.exe'ye bağlanıyor. Monero deamon olan bu program bizi zincire dahil edecek. Bu yalnızca cüzdan işlemleri için kullanıyor. Miner'ımız tarafından kullanılmayacak.
 
-### 2. Pooling sitesine cüzdan bilgisini gir yükleme scriptini üret.
+### 2. Cüzdan bilgisini girilmesi yükleme scriptinin üretilmesi
 
 * Daha sonra pooling sitemiz olan moneroocean'a cüzdan bilgimizi girelim.
 * Aşağıdaki gibi bir script üretecek.
@@ -235,14 +235,14 @@ XMR gerçekten ne kadar mining yapabileceğimizi deneyerek göreceğiz fakat bir
 powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.bat', $tempfile); & $tempfile 41iu7fTbgQHNJcafjyKqy8NvH2YMqM5kMMhkDF5yZWp4XaHF7kfohF979UwZhb8FeserrxRD2jMRxE3337SkZm6wHk3nyLQ; Remove-Item -Force $tempfile"
 ```
 
-### 3. Miner'ı Yükle
+### 3. Miner'ın Yüklenmesi
 
 * Scripti bilgisayarımızda admin yetkisi olan cmd oturumunda çalıştıralım.
 * Otomatik olarak kuracak.
 * nssm.exe kullanarak servis olarak kurduğunu görüyoruz.
 * config_background.json ve config.json dosyasını kullanıyor. Bunlardan config.json esas öncelikli olanı.
 
-### 4. Loglardan Kontrol Gerçekleştir
+### 4. Loglardan Kontrol Gerçekleştirilmesi
 
 `xmrig.log`'u kontrol et.
 
@@ -250,7 +250,7 @@ Bu logları kontol ederek ilk bilgilere erişmenin yanı sıra mining işlemi il
 
 Böylece kurulum işlemini tamamlamış olduk.
 
-## 3. Sonuçlar ve Performans Arttırmak
+## 3. Sonuçlar ve Performans Arttırımı
 
 Sonuçlar aşağıdaki gibi.  18 saatte toplam 0,000087 XMR yani Monero çıkarmışız.
 Bu değer oldukça düşük yaklaşık 0.5 liraya denk geliyor. Elektrik masrafını hesaplamak için bilgisayarın güç tüketimine bakmamız gerekiyor. Böylece kar edip etmediğimizi görebiliriz.
