@@ -1,6 +1,6 @@
 ---
 layout: post3
-title: "XMRig ve Madenclik Üzerine Bir İnceleme"
+title: "XMRig ve Madencilik Üzerine Bir İnceleme"
 category: gonderiler
 tags:
   - XMRig
