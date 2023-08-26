@@ -17,10 +17,10 @@ Although some books may appear dated, they still hold significant value as they 
 
 Some of the books are open-source by various sources such as archive.org so its possible to share their links directly.
 
-* Physics [^2] [^3], Calculus [^4], Differential Equations [^5], Linear Algebra [^6], Numerical Methods[^7]
+* Physics I and II [^2] [^3], Calculus [^4], Differential Equations [^5], Linear Algebra [^6], Numerical Methods[^7]
 * Algorithms And Complexity[^8], Probability, Dicrete Computational Structures,  Formal Languages and Automata
 * Digital Design, Fundementals OF Electronics, Data Structures
-* Programming, Database Programming, Object Oriented Programming I, Object Oriented Programming II
+* Programming, Database Programming, Object Oriented Programming I and II
 * Advanced Programming, Enterprise Java, Database Management Systems
 * Introduction To Microcomputers, Computer Architecture, Advanced Computer Architecture
 * Computer Programming For Engineering Problems
