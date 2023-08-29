@@ -9,13 +9,13 @@ tags:
 
 I recently created a list of computer engineering textbooks, mostly using the books recommended by my university's [department](https://www.ogu.edu.tr/). I think lists like these can be helpful as references for both professionals and the people who more focused on academic work.
 
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/textbooks1.png" class="img-fluid" alt="books">
-
-The [list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names, each accompanied by their respective textbooks around 140. This compilation can serve as a foundation to access well-established texts in the field. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
+The [full list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names, each accompanied by their respective textbooks around 140. This compilation can serve as a foundation to access well-established texts in the field. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
 
 Although some books may appear dated, they still hold significant value as they provide valuable insights into the subject matter. The textbooks are categorized into base, additional, and tools sections, while the "Other" category is reserved for uncategorized resources included in the list.
 
-Since some of the books are open-source its possible to share their links directly by various sources such as archive.org.
+The list below covers only a part of the full list. I usually add primary sources. Surprisingly, since some of the books are open source, it is possible me to share their links directly from various sources such as archive.org. Otherwise I just add the links to websites like Google Books which provide additional information about spesific book.
+
+## List
 
 * Physics I and II [^1] [^2], Calculus [^3], Differential Equations [^4], Linear Algebra [^5], Numerical Methods[^6]
 * Algorithms And Complexity[^7], Probability, Dicrete Computational Structures,  Formal Languages and Automata
