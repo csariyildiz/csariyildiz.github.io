@@ -12,7 +12,7 @@ We will start with listing sections and give usable information each section.
 
 <table class="table table-striped table-bordered">
 
-  <tbody><tr><td>1. Preliminary Pages</td></tr>
+  <tbody><tr><td>Preliminary Pages</td></tr>
  <tr><td>
     <ul>
       <li>Cover Page</li>
