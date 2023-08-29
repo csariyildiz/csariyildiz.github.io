@@ -8,8 +8,8 @@ tags:
   - ChatGPT
 ---
 
-If you're seeking a convenient and user-friendly solution to manage your PowerShell commands, this script provides an ideal command line interface.
-It offers a user-friendly menu system that simplifies the execution of functions and makes your PowerShell tasks easy to manage.
+If you're seeking a convenient and user-friendly solution to manage your PowerShell commands, this script provides an alternative command line interface.
+It offers a user-friendly menu system that simplifies the execution of functions and makes PowerShell tasks easy to manage.
 
 As an alternative to complexities of command syntax this type of approach might usefull to enhance PowerShell user experience.
 We know from various examples that such interfaces in NodeJS apps.[^1][^2] And despite their modest appearance, they can be extremely effective and successful in some cases.
