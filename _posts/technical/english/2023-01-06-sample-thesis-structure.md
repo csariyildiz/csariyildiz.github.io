@@ -10,23 +10,28 @@ It looks like you've outlined the structure of a master's thesis. This is a comm
 
 We will start with listing sections and give usable information each section.
 
--------------------------------------------------------------
+<table class="table table-striped table-bordered">
 
-* Preliminary Pages
-    * Cover Page
-    * Title Page
-    * Master Thesis Approval Form
-* Table Of Contents
-* Chapter 1 : Introduction
-* Chapter 2 : Literature Review
-* Chapter 3 : Methodology
-* Chapter 4 : Findings
-* Chapter 5 : Discussions And Conclusions
-* Reference Material
-* Bibliography
-* Appendix
+  <tbody><tr><td>1. Preliminary Pages</td></tr>
+ <tr><td>
+    <ul>
+      <li>Cover Page</li>
+      <li>Title Page</li>
+      <li>Master Thesis Approval Form</li>
+    </ul>
+  </td>
+	</tr>
+  <tr><td>Table Of Contents</td></tr>
+  <tr><td>Chapter 1 : Introduction</td></tr>
+  <tr><td>Chapter 2 : Literature Review</td></tr>
+  <tr><td>Chapter 3 : Methodology</td></tr>
+  <tr><td>Chapter 4 : Findings</td></tr>
+  <tr><td>Chapter 5 : Discussions And Conclusions</td></tr>
+  <tr><td>Reference Material</td></tr>
+  <tr><td>Bibliography</td></tr>
+  <tr><td>Appendix</td></tr>
+</tbody></table>
 
-----------------------------------------------------------------
 ## Preliminary Pages
 
 The preliminary pages are the initial components of your thesis that provide essential information about your work. The Cover Page is the outermost page and typically displays the title of your thesis, your name, university logo, and other relevant details. The Title Page follows, containing the title of your thesis, your name, your university's name, department, and the submission date. The Master Thesis Approval Form is often required and showcases the signatures of your advisor and relevant parties, signifying their approval of your work.
