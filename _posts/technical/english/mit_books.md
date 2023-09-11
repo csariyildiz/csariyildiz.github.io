@@ -5,13 +5,25 @@ Apart from the list I prepared recently, it may be useful to look at the educati
 According to their [website](https://www.mit.edu/education/schools-and-departments/) MIT has departments Of Electrical Engineering, Computer Science and Artifical Intelligence + Decision-making
 under the school of Electrical Engineering and Computer Science.
 
+```
+6-1: Electrical Science and Engineering
+6-2: Electrical Engineering and Computer Science
+6-3: Computer Science and Engineering
+6-4: Artificial Intelligence and Decision Making
+6-7: Computer Science and Molecular Biology
+6-9: Computation and Cognition
+11-6: Urban Science and Planning with Computer Science
+6-14: Computer Science, Economics, and Data Science
+```
+
 For getting Bachelor of Science students get Bachelor of Science in Computer Science and Engineering (Course 6-3) which is merges computer science and engineering.
 [6-3](https://www.eecs.mit.edu/academics/undergraduate-programs/curriculum/6-3-computer-science-and-engineering/) includes constraints to get the degree.
-MIT has a lot of options students choose their paths with constraints.
+MIT provides options to give students choose their paths with compliant with constraints.
 
 
 ## Classes
 
+For an undergraduate degree path consist of Programming, Discrete Math, Math, Foundation and Elective topics.
 
 
 ```
