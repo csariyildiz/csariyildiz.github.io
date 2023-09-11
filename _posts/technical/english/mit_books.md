@@ -1,6 +1,8 @@
 ### Computer Science Courses & Textbooks - 2
 
-According to their [website](mit.edu/education/schools-and-departments/) MIT has departments Of Electrical Engineering, Computer Science and Artifical Intelligence + Decision-making
+Apart from the list I prepared recently, it may be useful to look at the educational content of some external universities. MIT is one of the best engineering schools in the world. That's why I thought it might be useful to look at the syllabus and books. There is a certain degree of transparency in educational content, and MIT seems willing to offer this content to the rest of the world through programs such as some open course content.
+
+According to their [website](https://www.mit.edu/education/schools-and-departments/) MIT has departments Of Electrical Engineering, Computer Science and Artifical Intelligence + Decision-making
 under the school of Electrical Engineering and Computer Science.
 
 For getting Bachelor of Science students get Bachelor of Science in Computer Science and Engineering (Course 6-3) which is merges computer science and engineering.
