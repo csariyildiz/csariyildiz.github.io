@@ -18,6 +18,7 @@ We will start with listing sections and give usable information each section.
       <li>Cover Page</li>
       <li>Title Page</li>
       <li>Master Thesis Approval Form</li>
+     <li>Abstract</li>
     </ul>
   </td>
 	</tr>
@@ -64,6 +65,7 @@ We will start with listing sections and give usable information each section.
 </ul>
 <li>3.4 Limitations</li>
 </ul>
+
  </td></tr>
 
 
@@ -72,14 +74,29 @@ We will start with listing sections and give usable information each section.
 
   
   <tr><td>Chapter 4 : Findings (%10 - Approx. 32 pages )</td></tr>
+
+  <tr><td>
+	  
+  <ul>
+  <li>4.1 Review of Related Technologies/Methodologies</li>
+  <li>4.2 Data Presentation and Visualization</li>
+  <li>4.3 Comparative Analysis</li>
+  <li>4.4 Case Studies</li>
+  <li>4.5 Additional Findings or Sub-Findings</li>
+  <li>4.6 Discussion of Ethical Considerations</li>
+  </ul>
+  </tr>
+  
   <tr><td>Chapter 5 : Discussions And Conclusions (%10 - 32 pages)</td></tr>
 
   <tr><td>
+	  
   <ul>
 <li>5.1 Discussion of Findings for Research Questions</li>
 <li>5.2 Conclusions</li>
 <li>5.3 Recommendations</li>
 </ul>
+	  
  </td></tr>
 
   <tr><td>Reference Material</td></tr>
@@ -88,7 +105,11 @@ We will start with listing sections and give usable information each section.
 </tbody></table>
 
 * As a rough approximation, using standard formatting guidelines (12-point Times New Roman font, double-spaced, 1-inch margins), 80,000 words in a thesis would likely result in approximately 320 to 350 pages.
+* Remember that the page counts are approximate, and actual lengths can vary based on the depth of content and the formatting of your thesis.
+* It's essential to focus on the quality of your research, writing, and analysis rather than strictly adhering to predefined page counts.
+* It takes APA (6th ed.) as the basis.
 * The rest of the document is created using simple definitions and padding text.
+
 
 ## Preliminary Pages
 
