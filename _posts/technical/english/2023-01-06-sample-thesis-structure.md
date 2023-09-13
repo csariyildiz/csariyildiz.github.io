@@ -22,15 +22,73 @@ We will start with listing sections and give usable information each section.
   </td>
 	</tr>
   <tr><td>Table Of Contents</td></tr>
-  <tr><td>Chapter 1 : Introduction</td></tr>
-  <tr><td>Chapter 2 : Literature Review</td></tr>
-  <tr><td>Chapter 3 : Methodology</td></tr>
-  <tr><td>Chapter 4 : Findings</td></tr>
-  <tr><td>Chapter 5 : Discussions And Conclusions</td></tr>
+  <tr><td>Chapter 1 : Introduction (%20 - Approx. 64 pages)</td></tr>
+  <tr><td>
+<ul>
+<li>1.1 Theoretical Framework</li>
+<li>1.2 Statement Of The Problem</li>
+<li>1.3 Purpose of The Study</li>
+<li>1.5	Hypotheses / Research Questions</li>
+<li>1.6	Significance of the Study</li>
+<li>1.7 Definitions</li>
+</ul>
+</td></tr>
+<tr><td>Chapter 2 : Literature Review (%20 - Approx. 64 pages)</td></tr>
+<tr><td>
+<ul>
+
+<li>2.1 Introduction</li>
+<li>2.2 Methodology</li>
+<li>2.3 Data Synthesis and Analysis</li>
+<li>2.4 Interpretation of Findings</li>
+<li>2.5 Identification of Gaps and Future Directions</li>
+<li>2.6 Conclusions</li>
+<li>2.7 References</li>
+</ul>
+
+  </td></tr>
+  
+  <tr><td>Chapter 3 : Methodology (%40 - Approx. 126 pages)</td></tr>
+
+  <tr><td>
+<ul>
+
+<li>3.1 Research Design</li>
+<li>3.2 Universe and Participants/Working Group</li>
+<li>3.3 Data Collection</li>
+<ul>
+<li>3.3.1	Data Collection Instruments</li>
+<li>3.3.2	Data Collection Procedures</li>
+<li>3.3.3	Data Analysis Procedures</li>
+<li>3.3.4	Reliability and Validity</li>
+</ul>
+<li>3.4 Limitations</li>
+</ul>
+ </td></tr>
+
+
+
+
+
+  
+  <tr><td>Chapter 4 : Findings (%10 - Approx. 32 pages )</td></tr>
+  <tr><td>Chapter 5 : Discussions And Conclusions (%10 - 32 pages)</td></tr>
+
+  <tr><td>
+  <ul>
+<li>5.1 Discussion of Findings for Research Questions</li>
+<li>5.2 Conclusions</li>
+<li>5.3 Recommendations</li>
+</ul>
+ </td></tr>
+
   <tr><td>Reference Material</td></tr>
   <tr><td>Bibliography</td></tr>
   <tr><td>Appendix</td></tr>
 </tbody></table>
+
+* As a rough approximation, using standard formatting guidelines (12-point Times New Roman font, double-spaced, 1-inch margins), 80,000 words in a thesis would likely result in approximately 320 to 350 pages.
+* The rest of the document is created using simple definitions and padding text.
 
 ## Preliminary Pages
 
