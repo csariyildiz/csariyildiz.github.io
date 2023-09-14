@@ -6,6 +6,8 @@ tags:
   - Academy
 ---
 
+
+<div>
 <table class="table table-striped table-bordered">
    <tbody>
       <tr>
@@ -110,7 +112,7 @@ tags:
          <td>Appendix</td>
       </tr>
    </tbody>
-</table>
+</table></div>
 
 * We will start with listing sections and give usable information each section.
 * As a rough approximation, using standard formatting guidelines (12-point Times New Roman font, double-spaced, 1-inch margins), 80,000 words in a thesis would likely result in approximately 320 to 350 pages.
