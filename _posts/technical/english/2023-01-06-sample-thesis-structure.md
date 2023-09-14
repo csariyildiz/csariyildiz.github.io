@@ -6,8 +6,6 @@ tags:
   - Academy
 ---
 
-This is a common and organized way to present your research work. Each section serves a specific purpose in conveying the information and findings of a study.
-
 We will start with listing sections and give usable information each section.
 
 <table class="table table-striped table-bordered">
