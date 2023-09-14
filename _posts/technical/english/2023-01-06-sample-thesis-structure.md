@@ -8,104 +8,117 @@ tags:
 
 We will start with listing sections and give usable information each section.
 
-<table class="table table-striped table-bordered">
-
-  <tbody><tr><td>Preliminary Pages</td></tr>
- <tr><td>
-    <ul>
-      <li>Cover Page</li>
-      <li>Title Page</li>
-      <li>Master Thesis Approval Form</li>
-     <li>Abstract</li>
-    </ul>
-  </td>
-	</tr>
-  <tr><td>Table Of Contents</td></tr>
-  <tr><td>Chapter 1 : Introduction (%20 - Approx. 64 pages)</td></tr>
-  <tr><td>
-<ul>
-<li>1.1 Theoretical Framework</li>
-<li>1.2 Statement Of The Problem</li>
-<li>1.3 Purpose of The Study</li>
-<li>1.5	Hypotheses / Research Questions</li>
-<li>1.6	Significance of the Study</li>
-<li>1.7 Definitions</li>
-</ul>
-</td></tr>
-<tr><td>Chapter 2 : Literature Review (%20 - Approx. 64 pages)</td></tr>
-<tr><td>
-<ul>
-
-<li>2.1 Introduction</li>
-<li>2.2 Methodology</li>
-<li>2.3 Data Synthesis and Analysis</li>
-<li>2.4 Interpretation of Findings</li>
-<li>2.5 Identification of Gaps and Future Directions</li>
-<li>2.6 Conclusions</li>
-<li>2.7 References</li>
-</ul>
-
-  </td></tr>
-  
-  <tr><td>Chapter 3 : Methodology (%40 - Approx. 126 pages)</td></tr>
-
-  <tr><td>
-<ul>
-
-<li>3.1 Research Design</li>
-<li>3.2 Universe and Participants/Working Group</li>
-<li>3.3 Data Collection</li>
-<ul>
-<li>3.3.1	Data Collection Instruments</li>
-<li>3.3.2	Data Collection Procedures</li>
-<li>3.3.3	Data Analysis Procedures</li>
-<li>3.3.4	Reliability and Validity</li>
-</ul>
-<li>3.4 Limitations</li>
-</ul>
-
- </td></tr>
-
-
-
-
-
-  
-  <tr><td>Chapter 4 : Findings (%10 - Approx. 32 pages )</td></tr>
-
-  <tr><td>
-	  
-  <ul>
-  <li>4.1 Review of Related Technologies/Methodologies</li>
-  <li>4.2 Data Presentation and Visualization</li>
-  <li>4.3 Comparative Analysis</li>
-  <li>4.4 Case Studies</li>
-  <li>4.5 Additional Findings or Sub-Findings</li>
-  <li>4.6 Discussion of Ethical Considerations</li>
-  </ul>
-  </tr>
-  
-  <tr><td>Chapter 5 : Discussions And Conclusions (%10 - 32 pages)</td></tr>
-
-  <tr><td>
-	  
-  <ul>
-<li>5.1 Discussion of Findings for Research Questions</li>
-<li>5.2 Conclusions</li>
-<li>5.3 Recommendations</li>
-</ul>
-	  
- </td></tr>
-
-  <tr><td>Reference Material</td></tr>
-  <tr><td>Bibliography</td></tr>
-  <tr><td>Appendix</td></tr>
-</tbody></table>
-
 * As a rough approximation, using standard formatting guidelines (12-point Times New Roman font, double-spaced, 1-inch margins), 80,000 words in a thesis would likely result in approximately 320 to 350 pages.
 * Remember that the page counts are approximate, and actual lengths can vary based on the depth of content and the formatting of your thesis.
 * It's essential to focus on the quality of your research, writing, and analysis rather than strictly adhering to predefined page counts.
 * It takes APA (6th ed.) as the basis.
+
+<table class="table table-striped table-bordered">
+   <tbody>
+      <tr>
+         <td>Preliminary Pages</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>Cover Page</li>
+               <li>Title Page</li>
+               <li>Master Thesis Approval Form</li>
+               <li>Abstract</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td>Table Of Contents</td>
+      </tr>
+      <tr>
+         <td>Chapter 1 : Introduction (%20 - Approx. 64 pages)</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>1.1 Theoretical Framework</li>
+               <li>1.2 Statement Of The Problem</li>
+               <li>1.3 Purpose of The Study</li>
+               <li>1.5	Hypotheses / Research Questions</li>
+               <li>1.6	Significance of the Study</li>
+               <li>1.7 Definitions</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td>Chapter 2 : Literature Review (%20 - Approx. 64 pages)</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>2.1 Introduction</li>
+               <li>2.2 Methodology</li>
+               <li>2.3 Data Synthesis and Analysis</li>
+               <li>2.4 Interpretation of Findings</li>
+               <li>2.5 Identification of Gaps and Future Directions</li>
+               <li>2.6 Conclusions</li>
+               <li>2.7 References</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td>Chapter 3 : Methodology (%40 - Approx. 126 pages)</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>3.1 Research Design</li>
+               <li>3.2 Universe and Participants/Working Group</li>
+               <li>3.3 Data Collection</li>
+               <ul>
+                  <li>3.3.1	Data Collection Instruments</li>
+                  <li>3.3.2	Data Collection Procedures</li>
+                  <li>3.3.3	Data Analysis Procedures</li>
+                  <li>3.3.4	Reliability and Validity</li>
+               </ul>
+               <li>3.4 Limitations</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td>Chapter 4 : Findings (%10 - Approx. 32 pages )</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>4.1 Review of Related Technologies/Methodologies</li>
+               <li>4.2 Data Presentation and Visualization</li>
+               <li>4.3 Comparative Analysis</li>
+               <li>4.4 Case Studies</li>
+               <li>4.5 Additional Findings or Sub-Findings</li>
+               <li>4.6 Discussion of Ethical Considerations</li>
+            </ul>
+      </tr>
+      <tr>
+         <td>Chapter 5 : Discussions And Conclusions (%10 - 32 pages)</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>5.1 Discussion of Findings for Research Questions</li>
+               <li>5.2 Conclusions</li>
+               <li>5.3 Recommendations</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td>Reference Material</td>
+      </tr>
+      <tr>
+         <td>Bibliography</td>
+      </tr>
+      <tr>
+         <td>Appendix</td>
+      </tr>
+   </tbody>
+</table>
+
 * The rest of the document is created using simple definitions and padding text.
 
 
