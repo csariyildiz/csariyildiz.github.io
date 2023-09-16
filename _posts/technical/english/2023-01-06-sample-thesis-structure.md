@@ -6,52 +6,147 @@ tags:
   - Academy
 ---
 
-It looks like you've outlined the structure of a master's thesis. This is a common and organized way to present your research work. Each section serves a specific purpose in conveying the information and findings of your study.
 
-We will start with listing sections and give usable information each section.
+<div>
+<table class="table table-striped table-bordered">
+   <tbody>
+      <tr>
+         <td>Preliminary Pages</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>Cover Page</li>
+               <li>Title Page</li>
+               <li>Master Thesis Approval Form</li>
+               <li>Abstract</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td>Table Of Contents</td>
+      </tr>
+      <tr>
+         <td>Chapter 1 : Introduction (%20 - Approx. 64 pages)</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>1.1 Theoretical Framework</li>
+               <li>1.2 Statement Of The Problem</li>
+               <li>1.3 Purpose of The Study</li>
+               <li>1.5	Hypotheses / Research Questions</li>
+               <li>1.6	Significance of the Study</li>
+               <li>1.7 Definitions</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td>Chapter 2 : Literature Review (%20 - Approx. 64 pages)</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>2.1 Introduction</li>
+               <li>2.2 Methodology</li>
+               <li>2.3 Data Synthesis and Analysis</li>
+               <li>2.4 Interpretation of Findings</li>
+               <li>2.5 Identification of Gaps and Future Directions</li>
+               <li>2.6 Conclusions</li>
+               <li>2.7 References</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td>Chapter 3 : Methodology (%40 - Approx. 126 pages)</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>3.1 Research Design</li>
+               <li>3.2 Universe and Participants/Working Group</li>
+               <li>3.3 Data Collection</li>
+               <ul>
+                  <li>3.3.1	Data Collection Instruments</li>
+                  <li>3.3.2	Data Collection Procedures</li>
+                  <li>3.3.3	Data Analysis Procedures</li>
+                  <li>3.3.4	Reliability and Validity</li>
+               </ul>
+               <li>3.4 Limitations</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td>Chapter 4 : Findings (%10 - Approx. 32 pages )</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>4.1 Review of Related Technologies/Methodologies</li>
+               <li>4.2 Data Presentation and Visualization</li>
+               <li>4.3 Comparative Analysis</li>
+               <li>4.4 Case Studies</li>
+               <li>4.5 Additional Findings or Sub-Findings</li>
+               <li>4.6 Discussion of Ethical Considerations</li>
+            </ul>
+      </tr>
+      <tr>
+         <td>Chapter 5 : Discussions And Conclusions (%10 - 32 pages)</td>
+      </tr>
+      <tr>
+         <td>
+            <ul>
+               <li>5.1 Discussion of Findings for Research Questions</li>
+               <li>5.2 Conclusions</li>
+               <li>5.3 Recommendations</li>
+            </ul>
+         </td>
+      </tr>
+      <tr>
+         <td>Reference Material</td>
+      </tr>
+      <tr>
+         <td>Bibliography</td>
+      </tr>
+      <tr>
+         <td>Appendix</td>
+      </tr>
+   </tbody>
+</table></div>
 
--------------------------------------------------------------
+* We will start with listing sections and give usable information each section.
+* As a rough approximation, using standard formatting guidelines (12-point Times New Roman font, double-spaced, 1-inch margins), 80,000 words in a thesis would likely result in approximately 320 to 350 pages.
+* Remember that the page counts are approximate, and actual lengths can vary based on the depth of content and the formatting of your thesis.
+* It's essential to focus on the quality of your research, writing, and analysis rather than strictly adhering to predefined page counts.
+* It takes APA (6th ed.) as the basis.
+* The rest of the document is created using simple definitions and padding text.
 
-* Preliminary Pages
-    * Cover Page
-    * Title Page
-    * Master Thesis Approval Form
-* Table Of Contents
-* Chapter 1 : Introduction
-* Chapter 2 : Literature Review
-* Chapter 3 : Methodology
-* Chapter 4 : Findings
-* Chapter 5 : Discussions And Conclusions
-* Reference Material
-* Bibliography
-* Appendix
 
-----------------------------------------------------------------
-# Preliminary Pages
+## Preliminary Pages
 
 The preliminary pages are the initial components of your thesis that provide essential information about your work. The Cover Page is the outermost page and typically displays the title of your thesis, your name, university logo, and other relevant details. The Title Page follows, containing the title of your thesis, your name, your university's name, department, and the submission date. The Master Thesis Approval Form is often required and showcases the signatures of your advisor and relevant parties, signifying their approval of your work.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis neque purus. Quisque dapibus dictum arcu, nec tincidunt augue luctus sed. Morbi ultrices quam eget pharetra pellentesque. Curabitur enim tortor, blandit at est quis, condimentum pellentesque nunc. Curabitur quis finibus sapien, ac sodales arcu. Proin euismod semper lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce laoreet viverra posuere. Etiam in odio purus. Donec bibendum dolor id orci dictum, eu dignissim urna hendrerit. Donec vitae felis vitae sapien lobortis consequat facilisis a massa. In lectus quam, imperdiet sed vestibulum nec, convallis placerat orci. Nunc ullamcorper convallis lacus at luctus. Vivamus porttitor, nibh a malesuada suscipit, ipsum nibh gravida est, ac congue mauris nunc a erat.
 
-## Cover Page
+### Cover Page
 
 Pellentesque faucibus felis metus, quis ornare purus ultricies nec. Praesent posuere luctus dui eget vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean fermentum nisi at arcu luctus mattis. Nulla placerat, velit sed rutrum mattis, lectus dolor pretium nunc, a sollicitudin velit leo in nisl. Etiam consequat enim a tortor aliquam, eget condimentum velit pellentesque. Fusce pretium tincidunt diam, euismod elementum dolor egestas vel. Ut vitae nulla imperdiet, varius lacus ut, suscipit quam.
 
-## Title Page
+### Title Page
 
 Sed convallis nisl a cursus convallis. Curabitur arcu mi, mattis sit amet vulputate quis, bibendum vel mauris. Sed vitae scelerisque purus, et mattis mi. Pellentesque ac massa a urna consequat consequat eget et tortor. Sed ultricies risus sit amet felis rhoncus, sed bibendum felis ultricies. Maecenas aliquam sapien ut maximus lobortis. Morbi quis luctus massa. Maecenas at facilisis erat.
 
-## Master Thesis Approval Form
+### Master Thesis Approval Form
 
 Praesent varius fringilla massa at feugiat. Maecenas posuere, nisl ac molestie cursus, lectus velit sodales magna, id porttitor justo velit ut ante. Pellentesque sodales ex ut pretium pellentesque. Sed iaculis justo non risus lacinia hendrerit. Nullam nec purus at felis facilisis varius. Curabitur id odio eget tellus efficitur venenatis a sed lorem. Nunc ut nisl gravida, condimentum justo quis, faucibus lectus. Maecenas consectetur risus velit, et pellentesque odio fringilla id. Ut sed turpis sit amet lacus molestie tempus in et elit. Vivamus nec quam nisl. Nulla in blandit turpis. Maecenas vitae tortor non justo maximus placerat. Cras in diam arcu. Morbi ut nunc a elit cursus elementum. Integer commodo semper nibh eget accumsan. Nullam bibendum ipsum eget condimentum congue.
 
-# Table Of Contents
+## Table Of Contents
 
 The Table of Contents is a helpful guide for readers, listing the main sections and subsections of your thesis along with their corresponding page numbers. This allows readers to navigate through your thesis with ease.
 
 Cras vitae quam tempor, varius lectus condimentum, commodo eros. Praesent vitae risus lectus. Quisque finibus non turpis id suscipit. Morbi lorem diam, dapibus sed placerat dignissim, pretium ac eros. Aliquam ac malesuada arcu. Duis eget nulla libero. Vivamus lobortis, libero id consectetur molestie, magna dui bibendum sem, porta sollicitudin lectus massa eu turpis. Fusce elementum volutpat mi id eleifend. Duis dolor eros, molestie non tempor nec, porta at mauris.
 
-# Chapter 1 : Introduction
+## Chapter 1 : Introduction
 
 Chapter 1 serves as the introduction to your research. Here, you introduce your research topic and the specific research problem you aim to address. You explain the significance of your research in the broader context and outline the purpose, scope, and objectives of your study. Additionally, you provide a brief overview of how your thesis is structured to guide readers through the upcoming chapters.
 
@@ -59,7 +154,7 @@ Vivamus odio nulla, placerat vitae pellentesque at, varius non neque. Nam est qu
 
 Nulla ornare at ipsum nec rhoncus. Vivamus odio dui, fringilla sit amet dui vitae, tincidunt blandit diam. Aenean hendrerit libero purus, tempus varius eros congue vitae. Praesent a gravida nunc, vel ornare purus. Duis accumsan at sem in tristique. Aliquam et erat congue, lacinia lectus ut, condimentum risus. Vivamus sed sagittis urna. Integer ac sem nec metus varius congue ut quis sapien. Nam sollicitudin massa nec sodales efficitur. Nam urna nibh, ornare ac libero vel, rutrum blandit tellus. Nullam eu eleifend justo, sed venenatis mauris.
 
-# Chapter 2 : Literature Review
+## Chapter 2 : Literature Review
 
 In Chapter 2, the literature review, you delve into the existing body of knowledge relevant to your research topic. This involves summarizing and critiquing previous research, identifying gaps in the current understanding, and explaining how your research contributes to filling these gaps. You establish the theoretical framework for your study by discussing key concepts, theories, and models that underpin your research.
 
@@ -69,7 +164,8 @@ Nunc molestie ex eu pellentesque accumsan. Nullam leo felis, semper eget leo nec
 
 Morbi vel quam vel dui placerat volutpat. Maecenas malesuada ex et convallis vestibulum. Aliquam eget tellus condimentum, feugiat tortor ut, dictum dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce aliquet faucibus luctus. In vel orci a justo tristique pretium at in arcu. Aenean at varius purus, et commodo mi. Ut non tortor venenatis, sodales ligula sed, lobortis tortor.
 
-# Chapter 3 : Methodology
+## Chapter 3 : Methodology
+
 Chapter 3 outlines the methodology you used to conduct your research. This section explains the research methods employed, such as qualitative, quantitative, or mixed methods, and describes in detail how you collected data. You clarify your sampling methods, the instruments or tools you used, and any limitations or potential sources of bias in your approach.
 
 Pellentesque ac accumsan tortor. Donec quam lectus, finibus eget augue a, tristique ultrices nisi. Proin quis erat urna. Phasellus efficitur venenatis quam in elementum. Cras consequat metus enim, dapibus luctus magna scelerisque sit amet. Morbi laoreet condimentum magna quis pulvinar. Suspendisse et neque in magna congue egestas id nec libero. Quisque imperdiet, lectus a consectetur gravida, nisi elit egestas metus, sit amet interdum orci libero at metus. Pellentesque in faucibus nunc. In orci urna, tempor ac maximus et, cursus eget ex.
@@ -80,7 +176,7 @@ Mauris dictum purus et imperdiet dapibus. Mauris aliquam, ipsum in eleifend tris
 
 Donec nec magna elit. Integer euismod condimentum lorem non facilisis. Mauris porta est sit amet ex rutrum consequat. Nullam at dolor fringilla, luctus nisi quis, bibendum sem. Nullam ac velit eget nulla finibus venenatis. Vestibulum luctus felis sit amet arcu pulvinar, et maximus justo mollis. Vivamus cursus ullamcorper enim, eget eleifend turpis commodo a. Nulla volutpat congue suscipit. Cras facilisis sapien at tellus sodales efficitur. Aenean accumsan blandit nibh, ac interdum felis euismod scelerisque. Praesent eget metus eget risus sagittis convallis. Suspendisse sed mollis quam. Aliquam consequat turpis nisi, vel elementum leo feugiat vitae. Sed dictum tempor arcu eget imperdiet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 
-# Chapter 4 : Findings
+## Chapter 4 : Findings
 
 Chapter 4 presents the findings of your research. Here, you display the results of your data analysis, often using visual aids like graphs, charts, and tables to illustrate key points. The objective is to provide a clear and concise account of the data you collected, presenting your findings in a way that supports your research objectives.
 
@@ -90,7 +186,7 @@ Morbi suscipit porttitor imperdiet. Nam cursus mollis nibh nec rutrum. Sed laore
 
 Mauris a hendrerit nisl. Nulla scelerisque ipsum id magna mollis blandit. In at tincidunt lectus. Nulla vestibulum ligula dolor, quis hendrerit enim malesuada quis. Donec congue volutpat erat vel dapibus. Cras volutpat tempor purus, consectetur posuere ante rutrum eu. Nunc elementum pharetra dolor vitae iaculis. Donec ligula tellus, ornare porttitor nisi in, porta semper tellus. Suspendisse pellentesque urna et molestie mattis. In pulvinar sollicitudin neque, quis euismod dolor elementum nec. Donec nec augue mi. Nam molestie eleifend enim et pharetra. Morbi sollicitudin tortor vitae consequat volutpat. Sed eu ante non leo tincidunt elementum. Duis tortor dolor, blandit nec elit ac, commodo porta diam. Ut lobortis eros vehicula diam imperdiet, et mollis ante elementum.
 
-# Chapter 5 : Discussions And Conclusions
+## Chapter 5 : Discussions And Conclusions
 
 In Chapter 5, you interpret and analyze the findings presented in the previous chapter. This is where you connect your results back to your research objectives, discussing the implications of your findings and how they align with the existing literature. Based on your analysis, you draw conclusions and potentially offer recommendations for future research directions or practical applications.
 
@@ -102,7 +198,7 @@ Aliquam eu dolor vitae leo accumsan efficitur. Pellentesque vitae urna sit amet 
 
 Duis eleifend dictum libero. Maecenas a neque enim. Nunc eget ipsum rhoncus, tempor purus viverra, dignissim leo. Ut at tortor diam. Nulla blandit, tortor nec fermentum tincidunt, turpis ligula interdum lectus, sit amet vehicula orci massa ut quam. Vivamus tincidunt sem sapien, eget aliquam tellus tincidunt in. Nam malesuada ornare sapien, non faucibus enim lobortis eget. Aliquam posuere massa sollicitudin auctor vehicula. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam dictum sem diam, id congue ipsum rhoncus sit amet. Nullam at sagittis lacus, nec auctor nibh.
 
-# Reference Material
+## Reference Material
 
 The Reference Material section is where you list all the sources you cited within your thesis. These sources are formatted according to a specific citation style, such as APA, MLA, or Chicago, as required by your institution. This section ensures that readers can trace the origins of the information you've included.
 
@@ -116,7 +212,7 @@ Aliquam orci nisi, tincidunt at tortor id, sollicitudin condimentum diam. Curabi
 
 Ut hendrerit est ligula, a auctor enim volutpat eu. Aliquam et massa sit amet ex vehicula vehicula sit amet at ipsum. Aliquam vulputate eget velit quis elementum. Morbi semper, urna nec ultricies auctor, est ante efficitur ex, ac ornare libero lorem vel ipsum. Aenean congue metus non maximus laoreet. Sed id ipsum ex. Cras suscipit mollis ante. Nulla facilisi. Aenean euismod orci eu erat pharetra, et dictum lectus tempor. Nulla dapibus at quam in semper. In faucibus nec dui at posuere. Suspendisse accumsan sapien a lacus elementum, in fringilla nisl tristique.
 
-# Bibliography
+## Bibliography
 
 The Bibliography is a list of additional sources you consulted during your research but might not have directly cited in the main body of your thesis. It provides interested readers with additional references for further exploration of the topic.
 
@@ -126,7 +222,7 @@ Suspendisse egestas imperdiet lectus, in tempus nisi molestie iaculis. In fermen
 
 Proin molestie interdum mi in ultrices. Integer tincidunt dui non accumsan sagittis. Nunc maximus porta blandit. Praesent cursus ligula eu libero luctus, sit amet maximus eros malesuada. Quisque id nisl tellus. Donec et lacinia felis. Curabitur commodo augue vitae velit elementum sollicitudin. Proin sapien mi, convallis sit amet sapien vitae, congue dictum nibh. Nullam convallis erat ipsum, id auctor lorem tincidunt ut. Phasellus ut fringilla tellus. Ut turpis est, blandit nec augue et, pellentesque varius elit. Curabitur vitae interdum erat. Morbi consectetur lectus velit, eget hendrerit tellus varius eget. Nullam sapien arcu, commodo ac risus et, pulvinar viverra lacus. Aliquam erat volutpat. Suspendisse elit augue, gravida non suscipit quis, consectetur sed diam.
 
-# Appendix
+## Appendix
 
 The Appendix contains supplementary material that supports your thesis but might be too lengthy or detailed to include in the main body. This could encompass raw data, survey instruments, lengthy tables, and other pertinent documents that enhance the comprehensiveness of your research.
 

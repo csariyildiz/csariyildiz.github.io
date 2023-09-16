@@ -70,7 +70,7 @@
                
                 border: 0;
                 border-radius: 0;
-                
+                border-left: 5px solid #f2f2f2;
                 display: inline-block;
                 tab-size: 4;
                 border-radius: 0;
@@ -103,31 +103,21 @@
                 text-decoration: underline;
             }
     
-   
+            h1, h2, h3, h4, h5, h6 {
+                padding-top: 0.3em;
+                line-height: 1.2em;
+            }
     
             h1 {
                 padding-bottom: 0.75em;
             }
     
-            h2,h3 {
-           padding-bottom: 0.3em;
-    border-bottom: 1px solid #d8dee4;
-    border-top: none;
-    margin-top: 24px !important;
-    margin-bottom: 16px;
-    font-weight: 600;
-    line-height: 1.25;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-size: 1.5rem;
-            }
-
-	        h3 {
-  border-bottom: none;
-
-    font-size: 1.25rem
+            h2 {
+                border-top: 1px solid #777;
+                margin-bottom: 0.1em;
+                margin-top: 2em;
+                padding-top: 0.75em;
+		padding-bottom: 1rem;
             }
     
             small {
@@ -336,17 +326,7 @@
                     page-break-after: avoid;
                 }
             }
-
-	    .post-container{
-    min-width: 756px;
-	    }
-		.post-body{
-			font-size:15px;
-		}
-	    
-	    .highlight{
-		    border: 1px solid #d8dee4;}
-	    
+    
         </style>
     </head><body cz-shortcut-listen="true">
     <div class="leftnav" style="
@@ -407,23 +387,23 @@
 
     {{ content }}
 	
-	<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-muted">© 2022 csariyildiz.github.io</p>
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top" style="
+    padding-top: 0rem!important;
+    margin-top: 4rem!important;max-width: 640px; margin: auto; 
+">
+        <p class="col-md-4 mb-0 text-muted" style="
+    padding-left: 5px;
+">csariyildiz.github.io 2023</p>
         
         <ul class="nav col-md-4 justify-content-end">
+
           <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link px-2 text-muted">About</a>
+            <a href="/t" class="nav-link px-2 text-muted">Turkish</a>
           </li>
         </ul>
       </footer>
-	  
-	
+
+	    
     </div>
     <script>
             [].forEach &&
