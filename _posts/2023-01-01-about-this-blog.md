@@ -32,9 +32,7 @@ In this document information provided about website in terms of usage of Jekyll 
 4. Writing Style
 5. Future Work & Notes
 6. Conclusion
-F t
-hlak
-Cheap
+
 
 ## 1. Jekyll, Github Pages and Licensing
 
