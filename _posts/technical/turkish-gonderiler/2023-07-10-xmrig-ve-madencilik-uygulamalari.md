@@ -6,14 +6,13 @@ tags:
   - XMRig
   - Monero
   - Mining
+latest_update: "2023-07-10"
 ---
 
 Kripto paraların popülerlik kazanmaya başladığı 2010'lu yılların ortalarından itibaren insanların hayatında çok şey değişti.
-Kimi için kelime olumlu şeyler çağrıştırırken. Kimi ise daha temkinli bir yaklaşım sergiliyor. Çılgınlık seviyesinde ilgi gösterenler olduğu gibi aşırı çekingen bir tutum sergileyenler de olabiliyor. Kripto para dünyasında görece küçük yatırımlarla yer alanlar, hisse senedi piyasasında olduğu gibi yatırım yapma, alım-satım gerçekleştirme gibi faaliyetlerde bulunuyorlar. 
+Kişilerin bakış açısına göre kelimenin yaptığı çağrışım olumlu. Kripto para dünyasında görece küçük yatırımlarla yer alanlar, hisse senedi piyasasında olduğu gibi yatırım yapma, alım-satım gerçekleştirme gibi faaliyetlerde bulunuyorlar. Temkinli olanlar ise spekülatif ortamlardan ve ortaya çıkan dolandırıcılık faaliyetlerinden dolayı oluşan yeni ekosisteme şüphe ile yaklaşıyor.
 
-Tüm bunların yanında bir teknoloji olarak blockchain kendi gerçekleriyle hayatın içinde. Blockchain sisteminin madencilik ve Etherium ile hızlanan merkezi olmayan (decenteralized) uygulamalar gibi pek çok alanı var.
-Kripto para birimlerinin teknik altyapısı ve uygulama pratiği, özellikle bilgisayarlarla içli dışlı olanlar için de oldukça ilginç detaylar sunuyor. 
-Kriptografi, network, programlama, donanım ve siber güvenlik gibi birçok alanı barındıran bu konu gerçekten de etkileyici ve dikkate değer hale getiriyor.
+Öte yandan bir teknoloji olarak blockchain kendi gerçekleriyle modern hayatın içinde yer almaya devam ediyor. Blockchain sisteminin madencilik ve Etherium ile hızlanan merkezi olmayan (decenteralized) uygulamalar gibi pek çok alanı var. Kripto para birimlerinin teknik altyapısı ve uygulama pratiği, özellikle bilgisayarlarla içli dışlı olanlar için de oldukça ilginç detaylar sunuyor. Kriptografi, network, programlama, donanım ve siber güvenlik gibi birçok alana yakınlığı onu dikkate değer hale getiriyor.
 
 Bu yazıda, XMRig adlı yazılım aracılığıyla nasıl madencilik yapıldığından bahsedeceğiz. 
 Madencilik için standart bir son kullanıcı bilgisayarı, uygulama olarak MoneroOcean'un XMRig versiyonunu ve MoneroOcean Mining havuzunu kullanıyoruz. 
@@ -21,21 +20,36 @@ Ayrıca, CPU ve NVIDIA ekran kartı gibi bileşenler de kullanarak madenciliğin
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/monero_ocean1.png" class="img-fluid" alt="Monero Ocean">
 
+
+Aşağıdaki sorulara cevap arayacağız:
+* Kripto para birimlerinin ve madencilik ortamının mevcut durumu nedir?
+* Teknik detaylarda madencilik nasıl gerçekleşir?
+* XMRig miner yazılımının özellikleri nelerdir?
+* Mining işlemi için yapılan tercihler nelerdir?
+
+
 ## İçindekiler:
 
 1. Kripto Para Birimleri ve Mining
-
-2. XMRig Miner Yazılımı
    
-4. Monero Mining Başlangıç Adımları
+2. XMRig Miner Yazılımı
+
+3. Monero Mining Kurulum Adımları
+
+4. Sonuçlar ve Performans Arttırımı
 
 5. Değerlendirme ve Notlar
 
-## Kripto Para Birimleri ve Mining
+6. Sorular & Gelecek Çalışma
 
-Kriptopara madenciliği son yıllarda değişim geçirdiği söylenebilir. Madencilik yapılan cihazları sayacak olursak en yaygın olarak bilinenleri CPU, GPU, ASIC ve FPGA.
-CPU ve GPU kişisel bilgisayarlarda kullanılıyor. Fakat ASIC cihazlar madenciliğe özgü gömülü çipler içerdiğinden başka amaçla kullanılamıyorlar.
-FPGA da tığkı CPU ve GPU'lar gibi finansal programlama, makina öğrenmesi ve yapay zeka gibi madencilik dışı alanlarda kullanılabiliyor.
+
+## 1. Kripto Para Birimleri ve Mining
+
+Kriptopara madenciliği kısa tarihinde pek çok değişim geçirdiği görülüyor. Son yıllarda geçirdiği büyük değişimin devamlı bir dönüşüm hali söz konusu. Madenciliğin pratiği kullanılan cihazların yapısı ile yakından ilişkili. Endüstriyel seviyedeki pratiklerin yanı sıra kişiler ve daha küçük organizasyonlar farklılık gösteriyor. 
+
+Bu cihazların en yaygın olarak bilinenleri internet komunitelerinde kullanımlarına rastladığımız tipleri CPU, GPU, ASIC ve FPGA.
+CPU ve GPU kişisel bilgisayarlarda kullanılıyor. ASIC cihazlar ise madenciliğe özgü gömülü çipler içeriyorlar. Bu nedenle başka amaçla kullanılamıyorlar.
+FPGA da tıpkı CPU ve GPU'lar gibi madencilik haricinde finansal programlama, makina öğrenmesi ve yapay zeka gibi madencilik dışı alanlarda kullanılabiliyor.
 
 Madencilik pek çok coin ile yapılsa da önceliği Etherium ve Bitcoin ile yapılan kriptopara madenciliği oluşturuyordu. 
 Bitcoin madenciliği sanal parabiriminin 2020 yılında yükselişe geçmesi ile popülerlik kazandı.
@@ -125,7 +139,7 @@ Kripto para birimlerinin işleyişini ve güvenliğini sağlamak için kullanıl
 
 Alanda sürekli olarak ortaya çıkan gelişmeler ve yenilikler sosyal, ekonomik ve çevresel değişimlere sebep oluyor ve kripto para birimlerinin gelecekte daha da önemli bir role sahip olabileceğine gösteriyor.
 
-## XMRig Miner Yazılımı
+## 2. XMRig Miner Yazılımı
 
 Mining işleminin bileşenlerini aşağıdaki gibi sıralayabiliriz.
 * Kullanılan mining cihazlarının seçimi
@@ -207,9 +221,9 @@ XMR gerçekten ne kadar mining yapabileceğimizi deneyerek göreceğiz fakat bir
 * Her 2 dakikada bir yeni bir blok kazılıyor.
 * CPU/GPU kuvvetine bağlı olarak kazanımları gün başı her mining sistemi için $0.45'den $1 dolar arası olarak değişiyor. Bendeki değer CPU ile ek konfigürasyon yapmadan günlük $0.04 oldu.
 
-## Monero Mining Kurulum Adımları
+## 3. Monero Mining Kurulum Adımları
 
-### 1. Monero Cüzdanı ve Cüzdan Adresi Edinme
+### 3.1 Monero Cüzdanı ve Cüzdan Adresi Edinme
 
 * Monero cüzdanını indirerek bir Monero adresi ediniyoruz. 
 * `https://www.getmonero.org/downloads/` adresinden WebGUI'yi indirip adımları takip ederek cüzdanı oluşturalım.
@@ -221,7 +235,7 @@ XMR gerçekten ne kadar mining yapabileceğimizi deneyerek göreceğiz fakat bir
 * Esas gizli tutmamız gereken hatta mümkünse bir kağıda yazmamız ve dijital ortamda tutmaktan kaçınmamız gereken Mnemonic Seed ve Secret Keylerdir.
 * Monero cüzdanı monerod.exe'ye bağlanıyor. Monero deamon olan bu program bizi zincire dahil edecek. Bu yalnızca cüzdan işlemleri için kullanıyor. Miner'ımız tarafından kullanılmayacak.
 
-### 2. Cüzdan bilgisini girilmesi yükleme scriptinin üretilmesi
+### 3.2 Cüzdan bilgisini girilmesi yükleme scriptinin üretilmesi
 
 * Daha sonra pooling sitemiz olan moneroocean'a cüzdan bilgimizi girelim.
 * Aşağıdaki gibi bir script üretecek.
@@ -231,14 +245,14 @@ XMR gerçekten ne kadar mining yapabileceğimizi deneyerek göreceğiz fakat bir
 powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.bat', $tempfile); & $tempfile 41iu7fTbgQHNJcafjyKqy8NvH2YMqM5kMMhkDF5yZWp4XaHF7kfohF979UwZhb8FeserrxRD2jMRxE3337SkZm6wHk3nyLQ; Remove-Item -Force $tempfile"
 ```
 
-### 3. Miner'ın Yüklenmesi
+### 3.3 Miner'ın Yüklenmesi
 
 * Scripti bilgisayarımızda admin yetkisi olan `cmd` oturumunda çalıştıralım.
 * Otomatik olarak kuracak.
 * `nssm.exe` kullanarak servis olarak kurduğunu görüyoruz.
 * `config_background.json` ve `config.json` dosyasını kullanıyor. Bunlardan `config.json` kullanılan ve öncelikli olanı.
 
-### 4. Loglardan Kontrol Gerçekleştirilmesi
+### 3.4 Loglardan Kontrol Gerçekleştirilmesi
 
 `xmrig.log`'u kontrol et.
 
@@ -246,7 +260,7 @@ Bu logları kontol ederek ilk bilgilere erişmenin yanı sıra mining işlemi il
 
 Böylece kurulum işlemini tamamlamış olduk.
 
-## 3. Sonuçlar ve Performans Arttırımı
+## 4. Sonuçlar ve Performans Arttırımı
 
 Sonuçlar aşağıdaki gibi.  18 saatte toplam 0,000087 XMR yani Monero çıkardığı görülüyor.
 Bu değer oldukça düşük yaklaşık 0.5 liraya denk geliyor. Elektrik masrafını hesaplamak için bilgisayarın güç tüketimine bakılması gerekiyor. Böylece kar edip etmediği görülebilir.
@@ -303,13 +317,13 @@ Yine dinamik olarak kademeler gün içinde kullanıma göre değişebiliyor. Det
 Minerstat'a göre günlük 1.86 lira ediyor. Bu da 50 yıl yapıyor ki bildiğimiz üzere ekran kartları için uygulanabilir olmadığını gösteriyor. 
 Öte yandan elektrik tüketimine bağlı olarak CPU mining belirli ölçüde karlı olabilir.
 
-## Sonuç
+## 4. Değerlendirme ve Notlar
 
 Sonuç olarak mining ile hala para kazanılabiliyor. Küçük çapta madencilik yapanları için mining'ih bittiğini söyleyemeyiz ama işlem standart kullanıcı için görece zorlaşmış durumda endüstriyel seviyede de yapılmaya devam ediyor. Yalnızca ASIC cihazlar ile belirli altcoinler kazılarak işlem yapılabiliyor. Bu yazının yazıldığı dönemde GPU mining karsız ve zarar ediyor. İleride kullanılabilme ihtimali olsa da teknoloji ilerledikçe cihazlar eskiyor. Elinde ekran kartları ile bekleyen kişiler için pek iyi olmayan bu durumun GPU mining pratiğinin şimdilik bittiğini gösteriyor. 
 
 Mining işleminin kolay olduğu görülüyor. Bir çok standart bilgisayarda ve hatta browserda kullanılabiliyor olması işlem gücünün ne kadar dağıtılabildiğini gösteriyor. Etherium dağıtık uygulamalar için bir platform olarak ayakta ve Bitcoin değerli bir para birimi olarak varlığını sürdürüyor.
 
-## Sorular
+## 5. Sorular & Gelecek Çalışma
 
 Bu yazıda aşağıdaki sorulara cevap aradık. Bir kısmını cevapladım diğer kısmını da ileriki çalışma olarak not ediyorum.
 
