@@ -16,8 +16,7 @@ tags:
 * The rest of the document is created using simple definitions and padding text.
 
 
-<table class="table table-striped table-bordered">
-   <tbody>
+<table><tbody>
       <tr>
          <td>Preliminary Pages</td>
       </tr>
@@ -98,7 +97,7 @@ tags:
                <li>4.5 Additional Findings or Sub-Findings</li>
                <li>4.6 Discussion of Ethical Considerations</li>
             </ul>
-      </tr>
+      </td></tr>
       
       <tr>
          <td>Chapter 5 : Discussions And Conclusions (%10 - 32 pages)</td>
@@ -125,8 +124,7 @@ tags:
       <tr>
          <td>Appendix</td>
       </tr>
-   </tbody>
-</table>
+   </tbody></table>
 
 
 ## Preliminary Pages
