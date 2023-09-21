@@ -16,7 +16,7 @@ tags:
 * The rest of the document is created using simple definitions and padding text.
 
 
-<table class="table">
+<table class="table table-bordered table-striped">
       <tr>
          <td>Preliminary Pages</td>
       </tr>
