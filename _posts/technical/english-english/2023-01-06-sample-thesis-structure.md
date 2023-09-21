@@ -16,7 +16,7 @@ tags:
 * The rest of the document is created using simple definitions and padding text.
 
 
-<table><tbody>
+<table>
       <tr>
          <td>Preliminary Pages</td>
       </tr>
@@ -124,7 +124,7 @@ tags:
       <tr>
          <td>Appendix</td>
       </tr>
-   </tbody></table>
+   </table>
 
 
 ## Preliminary Pages
