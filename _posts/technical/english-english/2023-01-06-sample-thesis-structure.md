@@ -7,7 +7,15 @@ tags:
 ---
 
 
-<div>
+
+* We will start with listing sections and give usable information each section.
+* As a rough approximation, using standard formatting guidelines (12-point Times New Roman font, double-spaced, 1-inch margins), 80,000 words in a thesis would likely result in approximately 320 to 350 pages.
+* Remember that the page counts are approximate, and actual lengths can vary based on the depth of content and the formatting of your thesis.
+* It's essential to focus on the quality of your research, writing, and analysis rather than strictly adhering to predefined page counts.
+* It takes APA (6th ed.) as the basis.
+* The rest of the document is created using simple definitions and padding text.
+
+
 <table class="table table-striped table-bordered">
    <tbody>
       <tr>
@@ -79,6 +87,7 @@ tags:
       <tr>
          <td>Chapter 4 : Findings (%10 - Approx. 32 pages )</td>
       </tr>
+      
       <tr>
          <td>
             <ul>
@@ -90,9 +99,11 @@ tags:
                <li>4.6 Discussion of Ethical Considerations</li>
             </ul>
       </tr>
+      
       <tr>
          <td>Chapter 5 : Discussions And Conclusions (%10 - 32 pages)</td>
       </tr>
+
       <tr>
          <td>
             <ul>
@@ -102,24 +113,20 @@ tags:
             </ul>
          </td>
       </tr>
+
       <tr>
          <td>Reference Material</td>
       </tr>
+
       <tr>
          <td>Bibliography</td>
       </tr>
+
       <tr>
          <td>Appendix</td>
       </tr>
    </tbody>
-</table></div>
-
-* We will start with listing sections and give usable information each section.
-* As a rough approximation, using standard formatting guidelines (12-point Times New Roman font, double-spaced, 1-inch margins), 80,000 words in a thesis would likely result in approximately 320 to 350 pages.
-* Remember that the page counts are approximate, and actual lengths can vary based on the depth of content and the formatting of your thesis.
-* It's essential to focus on the quality of your research, writing, and analysis rather than strictly adhering to predefined page counts.
-* It takes APA (6th ed.) as the basis.
-* The rest of the document is created using simple definitions and padding text.
+</table>
 
 
 ## Preliminary Pages
