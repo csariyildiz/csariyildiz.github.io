@@ -13,6 +13,8 @@ This post is a document created as a minimal literature review. Hope you find it
 2. Basic Concepts
 3. Tools And Techniques
 4. Discussion
+5. Conclusion & Future Directions
+6. References
 
 --------------------------------------
 
@@ -115,9 +117,11 @@ When the C&C communication of Emotet is examined, it is seen that the encrypted 
 * Eslahi, M. 2012 includes potential developments on botnets on mobile device networks, since it is pre-2012, it does not include current studies.
 * The Hoque, N. 2015 extends over a wide range of dates from 1993 to 2015, and especially extends to DDOS attacks.
 
-## Future Direction
+## Conclusion & Future Directions
 
-It is predicted that botnets will continue to interest the public view and academic circles in the future. While attacks over the years confirm this prediction, increasing processor capacities, population of IoT devices, emerging technologies such as Blockchain and advanced artificial  intelligence applications are factors that expand the domain of botnets. At the same time, it can be predicted that with the increase of awareness on cyber security, detailed analysis and  mitigation/prevention methods of botnets will also gain sophistication in future.
+It is predicted that botnets will continue to interest the public view and academic circles in the future. While attacks over the years confirm this prediction, increasing processor capacities, population of IoT devices, emerging technologies such as Blockchain and advanced artificial intelligence applications are factors that expand the domain of botnets. At the same time, it can be predicted that with the increase of awareness on cyber security, detailed analysis and  mitigation/prevention methods of botnets will also gain sophistication in future.
+
+In the current landscape, it would be unrealistic to think that the existing literature on botnets fully reflects the nature of the phenomenon. While the Botnets are not static entities. They adapt and evolve to avoid detection and improve their capabilities. New techniques and strategies are continually developed by cybercriminals, making it challenging for the existing literature to keep up. Understanding the behavior of botnets, including their tactics, techniques, and procedures (TTPs), is critical for effective defense. Much of the botnet landscape operates in underground forums and communities. Researchers often have limited access to these spaces, making it difficult to gain a comprehensive understanding of the actors, motivations, and strategies behind botnet operations. The future direction of botnet research and cybersecurity efforts will likely involve several key trends and areas of focus including implications of emerging machine learning and AI capabilities, improvement of the underlying legal frameworks for legal systems, implications of emerging quantum computing capabilities. Area has need more detailed analysis of nature and innerworkings of emerging botnets with in-depth research and analysis of current botnets as well as new and evolving botnet variants.
 
 ## Resources
 

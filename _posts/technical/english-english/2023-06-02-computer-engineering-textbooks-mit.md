@@ -1,4 +1,10 @@
-### Computer Science Courses & Textbooks - 2
+---
+layout: post3
+title: "Computer Engineering Textbooks - MIT"
+category: main
+tags:
+    - Books
+---
 
 Apart from the list I prepared recently, it may be useful to look at the educational content of some external universities. MIT is one of the best engineering schools in the world. That's why I thought it might be useful to look at the syllabus and books. There is a certain degree of transparency in educational content, and MIT seems willing to offer this content to the rest of the world through programs such as some open course content.
 
@@ -21,18 +27,20 @@ For getting Bachelor of Science students get Bachelor of Science in Computer Sci
 MIT provides options to give students choose their paths with compliant with constraints.
 
 
-## Classes
+## Representation Of The Classes
 
-For an undergraduate degree path consist of Programming, Discrete Math, Math, Foundation and Elective topics.
+Lets say a student choose Course 6-3 which is a Bachelor Of Science In Computer Science and Engineering. For an undergraduate degree the path consist of 6 subcategories. These subcategories are programming, discrete math, math, foundation topics, header topics and elective topics.
+
+Each topic has its classes which a student is free of choosing one of them.
 
 
 ```
-2 - Programming (Python, C and Assembly)
-1 - Discrete Math (Mathematics for Computer Science)
-1 - Math (Probability, Statistics, Linear Algebra, Inference)
-3 - Foundation (Fundementals Of Programming, Introduction To Algorithms, Computation Structures)
-3 - Header (Software Construction, Computability And Complexity, Algorithms, System Engineering)
-6 - Elective
+1- 2 - Programming (Python, C and Assembly)
+2- 1 - Discrete Math (Mathematics for Computer Science)
+3- 1 - Math (Probability, Statistics, Linear Algebra, Inference)
+4- 3 - Foundation (Fundementals Of Programming, Introduction To Algorithms, Computation Structures)
+5- 3 - Header (Software Construction, Computability And Complexity, Algorithms, System Engineering)
+6- 6 - Elective
 	* Architecture
 	* Computers And Society
 	* Human Computer Interection

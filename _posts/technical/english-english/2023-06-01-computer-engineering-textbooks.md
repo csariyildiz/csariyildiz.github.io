@@ -15,7 +15,7 @@ Although some books may appear dated, they still hold significant value as they 
 
 The list below covers only a part of the full list. I usually add primary sources. Surprisingly, since some of the books are open source, it is possible me to share their links directly from various sources such as archive.org. Otherwise I just add the links to websites like Google Books which provide additional information about spesific book.
 
-## List
+## Book List
 
 * Physics I and II [^1] [^2], Calculus [^3], Differential Equations [^4], Linear Algebra [^5], Numerical Methods[^6]
 * Algorithms And Complexity[^7], Probability, Dicrete Computational Structures,  Formal Languages and Automata
@@ -34,6 +34,10 @@ The list below covers only a part of the full list. I usually add primary source
 * Introduction To Text Mining, Neural Networks, Machine Learning, Fuzzy Logic
 * Digital Communication, Network Applications UE, Introduction To VHDL
 * Web Based Technologies, Web Based Technologies II, Others
+
+## Some Selected Books
+
+
 
 ## Books
 [^1]: [Fundamentals Of Physics Extended 8th Edition](https://archive.org/details/fundamentals-of-physics-8th)

@@ -34,8 +34,8 @@ This is a sample thesis structure. Hope you find it useful!
                <li>1.1 Theoretical Framework</li>
                <li>1.2 Statement Of The Problem</li>
                <li>1.3 Purpose of The Study</li>
-               <li>1.5	Hypotheses / Research Questions</li>
-               <li>1.6	Significance of the Study</li>
+               <li>1.5 Hypotheses / Research Questions</li>
+               <li>1.6 Significance of the Study</li>
                <li>1.7 Definitions</li>
             </ul>
          </td>
@@ -66,10 +66,10 @@ This is a sample thesis structure. Hope you find it useful!
                <li>3.2 Universe and Participants/Working Group</li>
                <li>3.3 Data Collection</li>
                <ul>
-                  <li>3.3.1	Data Collection Instruments</li>
-                  <li>3.3.2	Data Collection Procedures</li>
-                  <li>3.3.3	Data Analysis Procedures</li>
-                  <li>3.3.4	Reliability and Validity</li>
+                  <li>3.3.1 Data Collection Instruments</li>
+                  <li>3.3.2 Data Collection Procedures</li>
+                  <li>3.3.3 Data Analysis Procedures</li>
+                  <li>3.3.4 Reliability and Validity</li>
                </ul>
                <li>3.4 Limitations</li>
             </ul>
