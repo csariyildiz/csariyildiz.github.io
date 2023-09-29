@@ -44,10 +44,13 @@ I also created other lists representing basic concepts, tools, certifications, o
 
 ## 1. Definition Of The Classes
 
-malware payloads and delivery mechanisms.
+These are just a few of the many topics that fall under the umbrella of cyber security. Cyber security is a complex and rapidly evolving field,
 
 
-**Digital Forensics:** Incident Response is a big part of forensics. In the unfortunate event of a malware infection, having an incident response plan in place is crucial. This plan should outline the steps to isolate and remove the malware, recover any lost data, and prevent future incidents.
+**Digital Forensics:** Digital Forensics is the process of collecting, preserving, analyzing, and presenting digital evidence. Digital evidence can be anything from computer files to social media posts to text messages. Digital forensics is used to investigate a variety of crimes, including cybercrime, fraud, and intellectual property theft.
+
+
+Incident Response is a big part of forensics. In the unfortunate event of a malware infection, having an incident response plan in place is crucial. This plan should outline the steps to isolate and remove the malware, recover any lost data, and prevent future incidents.
 
 Labs, Plenty Of Tools
 
@@ -80,35 +83,79 @@ Labs, Plenty Of Tools
 24. SAM
 ```
 
-
-
 ### Web Application Security
+
+Web Application Security is the practice of securing web applications from attack. Web applications are software programs that run on web servers and allow users to interact with data and systems over the internet. Web application security vulnerabilities can be exploited by attackers to steal data, launch denial-of-service attacks, or take control of web applications.
+
+```
+OWASP.
 Labs
 BurpSuite
+```
 
 ### Research Methods And Ethics
-We Made A Sample Research
+
+Research Methods and Ethics is the study of how to conduct research in a fair and ethical manner. Research methods are the techniques used to collect and analyze data. Research ethics are the principles that guide researchers in their conduct. Research methods and ethics are important in all fields of research, including cyber security research.
+
+We Made A Sample Research. Literature review.
+
+```
+```
 
 ### Introduction To Cyber Security
-Metasploit
 
+
+Introduction to Cyber Security is a course that provides students with a basic understanding of cyber security concepts and practices. Topics covered in an introduction to cyber security course may include: What is cyber security? The different types of cyber attacks. How to protect yourself from cyber attacks. The role of security professionals.
+
+```
+Metasploit
+Maltego
+Nessus
+```
 
 ### Cyber Security Law
 
+Cyber Security Law is the body of laws that regulate cyber security. Cyber security law covers a wide range of topics, including data protection, intellectual property protection, and computer crime.
+
 * Data Anonymization Using Generalization And Attribute Suppression
+
+```
+GDPR
+Cases.
+Anonymization
+```
 
 ### Malware Analysis
 
+Malware Analysis is the process of studying malicious software, such as viruses, worms, and trojans. Malware analysts use a variety of techniques to analyze malware, including reverse engineering, static analysis, and dynamic analysis. Malware analysis is used to develop new security defenses and to investigate cyber attacks.
+
+
+```
+any.run
+Ghidra
+Interactive Disassembler
+WinDbg
+```
+
 ### Information Security Management
+
+Information Security Management is the process of protecting information from unauthorized access, use, disclosure, disruption, modification, or destruction. Information security management includes a variety of practices, such as risk assessment, security policies and procedures, and security awareness training.
+
 Cyber Security can be called spesific branch of Information Security. Information security had the basic
 
 
 ```
-
+Risk
+Certifications
 ```
 
 ### Number Theory And Coding Theory For Cryptography
 
+Number Theory and Coding Theory for Cryptography are mathematical fields that are used in cryptography. Cryptography is the practice of securing communication and data storage. Number theory is used in cryptography to develop secure algorithms, such as encryption and hashing. Coding theory is used in cryptography to develop error-correcting codes, which can be used to protect data from corruption.
+
+```
+
+```
 
 ## 2. Books
 
@@ -224,3 +271,49 @@ In this example:
 * The macro script within "invoice.docx" is the payload, and its purpose is to download and execute "evilrat.exe."
 * "evilrat.exe" is the malicious code that performs the attacker's desired actions, such as stealing data, taking control of the system, or conducting further malicious activities.
 * This example illustrates how a seemingly harmless email attachment can serve as the delivery mechanism, while the payload hidden within that attachment is responsible for delivering and executing the malicious code on the victim's system.
+
+Social Engineering:
+
+Pretexting: Attackers create a fabricated scenario or pretext to manipulate individuals into revealing sensitive information or granting access. For example, they might pose as a trusted service technician or a co-worker in need of assistance.
+Malicious Insiders:
+
+Insider Threats: Insiders with authorized access to systems or networks may abuse their privileges to compromise security intentionally. This could include employees, contractors, or vendors with malicious intent.
+Brute Force and Credential Stuffing:
+
+Brute Force Attacks: Attackers attempt to gain access by systematically trying all possible username and password combinations until they find the correct one.
+Credential Stuffing: Attackers use username and password pairs obtained from previous data breaches to gain unauthorized access to other online accounts where individuals have reused credentials.
+Physical Access:
+
+Unauthorized Physical Access: Attackers may physically break into a building or data center to gain access to servers, network equipment, or other critical infrastructure.
+USB Drop Attacks:
+
+Attackers leave infected USB drives or other removable media in public places or targeted locations. When someone plugs the infected device into their computer, malware is executed.
+Watering Hole Attacks:
+
+Attackers compromise websites or online resources frequently visited by their target audience. When users visit these trusted sites, they may unknowingly download malware or be redirected to malicious servers.
+Exploiting Misconfigurations:
+
+Attackers look for misconfigured systems or services that inadvertently expose sensitive data or grant unauthorized access. This might include unprotected cloud storage, open ports, or weak access controls.
+Remote Desktop Protocol (RDP) Exploitation:
+
+Attackers scan the internet for systems with exposed RDP ports and attempt to brute force or exploit vulnerabilities in RDP to gain access.
+Phishing Beyond Emails:
+
+While you mentioned phishing emails, phishing can also occur through other communication channels, such as text messages (SMS phishing or smishing), phone calls (voice phishing or vishing), or social media messages.
+Password Reset and Account Recovery:
+
+Attackers may use social engineering or publicly available information to answer security questions and reset account passwords to gain access to online accounts.
+SIM Swapping:
+
+Attackers convince a mobile carrier to transfer a victim's phone number to a new SIM card under their control. With control of the victim's phone number, they can bypass two-factor authentication (2FA) and gain access to accoun
+
+Exploiting Browser Vulnerabilities: Some malicious websites may attempt to exploit vulnerabilities in the web browser itself. If the browser has an unpatched security flaw, attackers can use it to execute code on the victim's system. To mitigate this risk, keeping your browser up to date with the latest security patches is crucial.
+
+SSL/TLS Certificate Attacks: Attackers may use stolen or fraudulent SSL/TLS certificates to make their malicious websites appear secure. Browsers typically check certificate validity and warn users if a site's certificate is suspicious.
+
+Zero-Day Exploits: In rare cases, attackers may use previously unknown browser vulnerabilities (zero-days) to compromise systems. Regularly updating your browser is crucial to protect against such threats.
+
+User Consent: In some instances, malicious websites might request user consent to perform actions that can lead to malware installation, such as granting unnecessary permissions or running JavaScript code. Modern browsers often prompt users before allowing potentially harmful actions.
+
+Client-Side Attacks: Malicious websites may attempt to exploit vulnerabilities in browser plugins, such as Adobe Flash or Java. These plugins are often disabled or blocked by default in modern browsers due to their security risks.
+
