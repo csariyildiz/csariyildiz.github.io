@@ -1,6 +1,14 @@
-Anime is a versatile and influential medium of entertainment that has gained a significant following around the world. By impacting global culture it continues to evolve and expand its influence in the entertainment industry. Enjoying anime as an entertainment is a personal experience. It's great that there are found value in these mediums that can provide not only entertainment but also opportunities for exploration, creativity, and cultural exchange.
+---
+layout: post3
+title: "Japanese Animated Cinema"
+category: b
+tags:
+  - Art
+---
 
 Anime is a style of animation that originated in Japan started to become more widely recognized and appreciated on a global scale during the 1980s and 1990s. The word "anime" is derived from the English word "animation" but is used in a specific cultural context to refer to a diverse range of animated works, including television series, films, and web series, that are characterized by their unique artistic style and often feature colorful artwork, fantastical themes, and vibrant characters. 
+
+Anime is a versatile and influential medium of entertainment that has gained a significant following around the world. By impacting global culture it continues to evolve and expand its influence in the entertainment industry. Enjoying anime as an entertainment is a personal experience. It's great that there are found value in these mediums that can provide not only entertainment but also opportunities for exploration, creativity, and cultural exchange.
 
 Anime can encompass a wide range of art styles, from highly detailed and realistic to highly stylized and exaggerated. This diversity allows for a broad spectrum of storytelling and visual creativity. However anime has its own uniqueness, having features specific to Japanese visual art that goes back centuries.
 
@@ -41,6 +49,8 @@ Shoujo is a popular genre of anime and manga primarily targeted at young girls, 
 
 Children's manga (kodomo-muke) refer to manga and anime directed towards children. These series are usually moralistic, often educating children about staying in the right path in life. Each chapter is usually a self-contained story.
 
+
+
 ```
 Genres
 Comedy (7,148)
@@ -61,13 +71,6 @@ Award Winning (240)
 Boys Love (170)
 Gourmet (155)
 Girls Love (111)
-```
-
-```
-Explicit Genres: 
-1- Hentai (1,492) 
-2- Ecchi (756)
-3- Erotica (80)
 ```
 
 ```
@@ -121,16 +124,12 @@ Crossdressing (45)
 High Stakes Game (45)
 Medical (42)
 Showbiz (36)
-Magical Sex Shift (30)
 ```
 
 ## Josei In Detail
 
 It may depict the challenges and difficulties that adults face in their relationships, including issues like infidelity, divorce, and personal struggles.
 Josei often places a strong emphasis on the emotional depth of relationships, including the intimacy and connection between characters. The portrayal of intimate moments is often accompanied by a focus on the characters' feelings and thoughts. Josei often delves into the complexities of romantic and erotic relationships among adults. This can include exploring the emotional and physical aspects of these relationships. Josei typically features more mature and realistic character designs and appearances. Characters may have a more natural and adult-like appearance, which can include more realistic body proportions and facial features.
-
-
-
 
 Doujinji and Literary categories aare also interesting.
 
@@ -345,8 +344,8 @@ Reiwa 2019 - Present
 * "14","Rohan Kishibe","na","Anime","Watched","8/10"
 * "15","Another","na","Anime","Watched","7/10"
 * "16","Devilman Crybaby","na","Anime","Watched","7/10"
-* "18", "Paranoia Agent","na","Anime","Watched", "7/10"
-* "12", "Nana", "na", "na", "na", "7/10"
+* "18","Paranoia Agent","na","Anime","Watched", "7/10"
+* "12","Nana", "na", "na", "na", "7/10"
 * "18","Code Geass","na","Anime","Watched","7/10"
 * "19","Vampire Hunter D","na","Anime","Watched","6/10"
 * "20","Gantz","na","Anime","Watched","6/10"
@@ -364,7 +363,7 @@ Reiwa 2019 - Present
 * "7","Samurai Champloo","na","Anime","Half Watched","7/10"
 * "8","Fullmetal Achemist","na","Anime","Half Watched","7/10"
 * "9","Tokyo Ghoul","na","Anime","Half Watched","6/10"
-* "10", "Last Exile","na","Anime","Half Watched","6/10"
+* "10","Last Exile","na","Anime","Half Watched","6/10"
 * "11","Basilisk","na","Anime","Half Watched","6/10"
 * "12","Promised Neverland","na","Anime","Half Watched","na"
 * "13","Death Parade","na","Anime","Half Watched","na"
@@ -380,10 +379,11 @@ Reiwa 2019 - Present
 * Shiki
 * Seikon no Qwaser
 * Jin-Roh: The Wolf Brigade
+* "30","Trinity Blood","2005","Anime","To Watch","7.29 2652"
 
 ## Animes I Want To Watch In The Future
-* Kizumonogatari 
-* Demon Slayer: Kimetsu no Yaiba
+* "11",Kizumonogatari 
+* "11",Demon Slayer: Kimetsu no Yaiba
 * "36","Devil May Cry","na","Anime","To Watch","na"
 * "68","Vagabond","na","Anime","To Watch","na"
 * "55","Vinland Saga","na","Anime","To Watch","8.74 46"
@@ -394,7 +394,6 @@ Reiwa 2019 - Present
 * "67","Kuroshitsuji: Book of Murder","na","Anime","To Watch","na"
 * "77","Terra Formars","na","Anime","To Watch","na"
 * "74","JoJo's Bizarre Adventure: Battle Tendency","na","Anime","To Watch","na"
-* "30","Trinity Blood","2005","Anime","To Watch","7.29 2652"
 * "31","Drifters","na","Anime","To Watch","7.89 376"
 * "32","Black Butler","2008","Anime","To Watch","na"
 * "85","Violet Evergarden","na","Anime","To Watch","na"
@@ -426,9 +425,10 @@ Reiwa 2019 - Present
 ## Animes I Might Consider To Watch
 
 * Made in Abyss
+* Kiddy Grade
 * Dr. Stone
 * Darwin's Game
-* Kiddy Grade
+
 
 
 ## Anime Youtubers

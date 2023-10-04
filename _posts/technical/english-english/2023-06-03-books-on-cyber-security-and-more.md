@@ -14,15 +14,15 @@ Cyber Security focuses on ensuring the security of computer systems. The increas
 The two-year education lasts for four semesters. In the first two semesters of programme, I took eight courses.
 
 ```
-- Digital Forensics
-- Web Application Security
-- Research Methods And Ethics
-- Introduction To Cyber Security
-- Cyber Security Law
-- Malware Analysis
-- Information Security Management
-- Number Theory And Coding Theory For Cryptography
-- Thesis
+1. Digital Forensics
+2. Web Application Security
+3. Research Methods And Ethics
+4. Introduction To Cyber Security
+5. Cyber Security Law
+6. Malware Analysis
+7. Information Security Management
+8. Number Theory And Coding Theory For Cryptography
+9. Thesis
 ```
 
 I made a broad definitions of classes. And books related to them.
@@ -47,7 +47,9 @@ I also created other lists representing basic concepts, tools, certifications, o
 These are just a few of the many topics that fall under the umbrella of cyber security. Cyber security is a complex and rapidly evolving field,
 
 
-**Digital Forensics:** Digital Forensics is the process of collecting, preserving, analyzing, and presenting digital evidence. Digital evidence can be anything from computer files to social media posts to text messages. Digital forensics is used to investigate a variety of crimes, including cybercrime, fraud, and intellectual property theft.
+### Digital Forensics
+
+Digital Forensics is the process of collecting, preserving, analyzing, and presenting digital evidence. Digital evidence can be anything from computer files to social media posts to text messages. Digital forensics is used to investigate a variety of crimes, including cybercrime, fraud, and intellectual property theft.
 
 
 Incident Response is a big part of forensics. In the unfortunate event of a malware infection, having an incident response plan in place is crucial. This plan should outline the steps to isolate and remove the malware, recover any lost data, and prevent future incidents.
@@ -87,11 +89,21 @@ Labs, Plenty Of Tools
 
 Web Application Security is the practice of securing web applications from attack. Web applications are software programs that run on web servers and allow users to interact with data and systems over the internet. Web application security vulnerabilities can be exploited by attackers to steal data, launch denial-of-service attacks, or take control of web applications.
 
+OWASP Concepts, Vulnerabilities, Attacks Defenses And Threats, Penetration Testing Through Web Applications
+
+Phishing, Spam, Malware,Cross-Site Scripting, SQL injection, Cross-Site Request Forgery, Code Injection, Click-jacking, Packet sniffing, Browser vulnerabilities, Network attacks
+
+How is the picture in 2023?
 ```
 OWASP.
 Labs
 BurpSuite
 ```
+
+* Maxie Reynolds - The Art Of The Attack - Wiley
+* Warior Mindset - Michael J. Asken, Ph. D.
+
+
 
 ### Research Methods And Ethics
 
@@ -129,6 +141,7 @@ Anonymization
 
 Malware Analysis is the process of studying malicious software, such as viruses, worms, and trojans. Malware analysts use a variety of techniques to analyze malware, including reverse engineering, static analysis, and dynamic analysis. Malware analysis is used to develop new security defenses and to investigate cyber attacks.
 
+* Three Subjects Of Malware Analysis Practices: Static Analysis, Behavioral Analysis, Reverse Code Analysis.
 
 ```
 any.run
@@ -156,6 +169,13 @@ Number Theory and Coding Theory for Cryptography are mathematical fields that ar
 ```
 
 ```
+
+### Thesis
+
+İki dönemi kapsayan tez süreci. 
+
+* statista.com
+
 
 ## 2. Books
 

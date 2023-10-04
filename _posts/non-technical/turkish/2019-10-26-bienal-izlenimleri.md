@@ -1,11 +1,9 @@
 ---
-layout: post
-title: 16. İstanbul Bienali İzlenimleri
-date: 2019-10-27 00:00:00 +0300
-description:  26 Ekim Cumartesi günü nihayet 16. İstanbul Bienali'ni görmek için Bienal'in mekanlarından biri olan Tophane'deki MSGSÜ İstanbul Resim ve Heykel Müzesine gittim. İstanbul Kültür Sanat Vakfı (İKSV) tarafından düzenlenen ve katılımın ücretsiz olduğu Bienale bu yıl 500000 ziyaretçi bekleniyor.dd # Add post description (optional)
-img: yedinci-kita.jpg
-category: Sanat
-tags: [Sanat, Aksiyon Odaklılık] # add tag
+layout: post3
+title: "16. İstanbul Bienali İzlenimleri"
+category: c
+tags:
+  - Sanat
 ---
 
 26 Ekim Cumartesi günü nihayet 16. İstanbul Bienali'ni görmek için Bienal'in mekanlarından biri olan Tophane'deki MSGSÜ İstanbul Resim ve Heykel Müzesine gittim. İstanbul Kültür Sanat Vakfı (İKSV) tarafından düzenlenen ve katılımın ücretsiz olduğu Bienale bu yıl 500000 ziyaretçi bekleniyor. Bienal üç mekanda yapılıyor. Büyükada, Pera Müzesi, ve MSGSÜ. İsterseniz belli bir ücret ödeyerek rehberli turlara katılabiliyorsunuz.  
@@ -84,13 +82,13 @@ Bianel Tanıtımından:
 <img src="https://tozbulut.github.io/images/atom-spirith.jpg" alt="Atom Spirith" width="600"/>
 
 Bianel Tanıtımından:
-> Atom Ruhu, biyomedikal yeniliklerin arttığı yakın bir gelecekte geçen spekülatif bir anlatı. Trinidad ve Tobago’da geçen ve bu iki adadaki LGBT topluluğuyla çekilen film, kriyojenik olarak dondurulmuş bir Nuh’un Gemisi oluşturmak için tüm yaşam biçimlerinden DNA örneklerini inceleyen ve toplayan bir grup evrim genetikçisinin çalışmasını ele alıyor. Soyu tükenmiş medeniyetlerden arta kalan titreşimlerin hâlâ hissedildiği tekno-bilimsel bir sibernetik gelecek sunan video, bilim ve mitolojiyi harmanlayarak, hesaplama ve biyoloji teknolojilerinin insanlığın ve çevrenin gelecekteki tekrarları üzerindeki etkilerine odaklanıyor.
+> Atom Ruhu, biyomedikal yeniliklerin arttığı yakın bir gelecekte geçen spekülatif bir anlatı. Trinidad ve Tobago’da geçen ve bu iki adadaki toplulukla çekilen film, kriyojenik olarak dondurulmuş bir Nuh’un Gemisi oluşturmak için tüm yaşam biçimlerinden DNA örneklerini inceleyen ve toplayan bir grup evrim genetikçisinin çalışmasını ele alıyor. Soyu tükenmiş medeniyetlerden arta kalan titreşimlerin hâlâ hissedildiği tekno-bilimsel bir sibernetik gelecek sunan video, bilim ve mitolojiyi harmanlayarak, hesaplama ve biyoloji teknolojilerinin insanlığın ve çevrenin gelecekteki tekrarları üzerindeki etkilerine odaklanıyor.
 
 Film hakkında diğer bilgiler için:
 * http://www.ursulamayer.com/films/atomspirit.html
 
 Filmi İzlemek İçin:
-* https://vimeo.com/434339144
+* https://vimeo.com/434339144 (Erişilebilir Değil)
 
 ### Korakrit Arunanondchai - tarihle birlikte tuhaf isimli insanlarla dolu bir odada 4 
 *With history in a room filled with people with funny names 4, HD Video: 23’28”*

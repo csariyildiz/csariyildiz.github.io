@@ -67,20 +67,38 @@ tags:
   - MongoDB
 ---
 ```
-
-* [Posts](/posts) - Post has "category: main" line.
-* [Posts - T](/t) - Post has "category: gonderiler" line.
-* [Posts2](/b) - Post has "category: b" line.
-* [Posts-2 - T](/c) - Post has "category: c" line.
-* [Text Lists](/a)  - Post has "category: a" line.
-* [Text Lists - T](/d)  - Post has "category: d" line.
-* [Text Lists2](/e)  - Post has "category: e" line.
-* [Text Lists2 - T](/f)  - Post has "category: f" line.
+* Posts
+``
+* Posts
+  * Tech
+    * Turkish
+      * Text-List
+        * [Text Lists](/d) - Post has "category: d" line. (tec, list, turkish)
+      * Post
+        * [Posts - T](/t) - Post has "category: gonderiler" line. (tec, post, turkish)
+    * English
+      * Text-List
+        * [Text Lists](/a)  - Post has "category: a" line - (tec, list, english)
+      * Post
+        * [Posts](/posts) - Post has "category: main" line - (tec, post, english)
+  * Non-Tech
+    * Turkish
+      * Text-List
+        * [Text Lists2 - T](/f)  - Post has "category: f" line.  (non-t,list, turkish)
+      * Post
+        * [Posts-2 - T](/c) - Post has "category: c" line. (non-t, post, turkish)
+    * English
+      * Text-List
+        * [Text Lists2](/e)  - Post has "category: e" line.  (non-t, list, english)
+      * Post
+        * [Posts2](/b) - Post has "category: b" line. (non-t, post, english)
+ 
 * [Arşiv](/arsiv) - Post has "category: main" line.
 * [Archieve](/archieve) - Post has "category: gonderiler" line.
 * [Tags](/tags) - Post has "category: main" line.
 * [Etiketler](/etiketler) - Post has "category: gonderiler" line.
 * [Tum Arsiv](/all) - All posts.
+
 
 Main site is a different site is from the blog. But when you click blog you get to blog.
 
