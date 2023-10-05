@@ -1,6 +1,5 @@
 ---
 layout: post3
-date: "2023-10-05"
 title: "HP iLO And HP Servers"
 category: main
 tags:
