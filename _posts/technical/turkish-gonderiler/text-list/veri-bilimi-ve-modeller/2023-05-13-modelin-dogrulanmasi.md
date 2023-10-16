@@ -2,10 +2,11 @@
 layout: post
 header: "Veri Bilimi ve Modeller"
 title: "Modelin Doğrulanması"
-category: tutorial
+category: b
 tags:
     - Data Science And Models
 ---
+
 Bir model oluşturulduktan sonra modelin kalitesi doğrulanma "validation" aşamasında belirlenir.
 Model kalitesini ölçmek, modellerin yinelemeli olarak iyileştirilmesi açısından önemlidir.
 
@@ -20,7 +21,7 @@ Aşağıda mean_absolute_error'un hesaplanması gösterilmektedir.
 ## Mean Absolute Error
 
 Model kalitesini özetlemek için birçok ölçüm vardır. Ortalama Mutlak Hata (MAE - Mean Absolute Error) olarak adlandırılan bir ölçüm bunlardan biridir.
-10.000 daire için tahmin edilen ve gerçek daire fiyatlarını karşılaştrıldığında,  iyi ve kötü tahminlerin bir karışımı ile karşılaşılır. 
+10.000 daire için tahmin edilen ve gerçek daire fiyatlarını karşılaştrıldığında, iyi ve kötü tahminlerin bir karışımı ile karşılaşılır. 
 10.000 tahmini ve gerçek değerden oluşan bir listeye bakılması anlamsız olacaktır. Çözüm sonucun `mean_absolute_error` gibi bir metrikte özetlenmesi daha doğrudur.
 
 Daha öncesinde modeli aşağıdaki gibi oluşturulmuştu.

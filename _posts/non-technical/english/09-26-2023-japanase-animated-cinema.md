@@ -1,20 +1,25 @@
 ---
 layout: post3
 title: "Japanese Animated Cinema"
-category: b
+category: c
 tags:
   - Art
 ---
 
-Anime is a style of animation that originated in Japan started to become more widely recognized and appreciated on a global scale during the 1980s and 1990s. The word "anime" is derived from the English word "animation" but is used in a specific cultural context to refer to a diverse range of animated works, including television series, films, and web series, that are characterized by their unique artistic style and often feature colorful artwork, fantastical themes, and vibrant characters. 
+* Anime is a style of animation that originated in Japan started to become more widely recognized and appreciated on a global scale during the 1980s and 1990s. 
 
-Anime is a versatile and influential medium of entertainment that has gained a significant following around the world. By impacting global culture it continues to evolve and expand its influence in the entertainment industry. Enjoying anime as an entertainment is a personal experience. It's great that there are found value in these mediums that can provide not only entertainment but also opportunities for exploration, creativity, and cultural exchange.
+* The word "anime" is derived from the English word "animation" but is used in a specific cultural context to refer to a diverse range of animated works, including television series, films, and web series, that are characterized by their unique artistic style and often feature colorful artwork, fantastical themes, and vibrant characters. 
 
-Anime can encompass a wide range of art styles, from highly detailed and realistic to highly stylized and exaggerated. This diversity allows for a broad spectrum of storytelling and visual creativity. However anime has its own uniqueness, having features specific to Japanese visual art that goes back centuries.
+* Anime is an influential medium of entertainment that has gained a significant following around the world. By impacting global culture it continues to evolve and expand its influence in the entertainment industry. 
 
-Anime covers a multitude of genres, including action, romance, fantasy, science fiction, horror, slice of life, and many more. This versatility means there's an anime for almost every taste and age group. It is produced for audiences of all ages, from children to adults. These genres (democraphics) themselves are loved by anime fans, whether they are Japanese or not these detailed descriptions are often learned around the world under their original Japanese names. Such as Josei (adult women), Seinen (adult men), Shoujo (young girls), Shounen (young boys) and animes for children. From current numbers of myanimelist shows 151 for Josei, 972 for Seinen, 471 for Shoujo and 1892 for Shounen and 6119 for children. In manga it shows 4017 for Josei, 7804 for Seinen, 8251 for Shoujo and 6360 for Shounen and 271 for children. 
+* Enjoying anime as an entertainment is a personal experience. It's great that there are found value in these mediums that can provide not only entertainment but also opportunities for exploration, creativity, and cultural exchange.
 
-In this article we will focus on "anime", the japanese animation in a broad context of japanese culture. As an anime fan myself I will present my particular interests, recommendation and commentary on some works of art.
+* Anime can encompass a wide range of art styles, from highly detailed and realistic to highly stylized and exaggerated. This diversity allows for a broad spectrum of storytelling and visual creativity. However anime has its own uniqueness, having features specific to Japanese visual art that goes back centuries.
+
+* Anime covers a multitude of genres, including action, romance, fantasy, science fiction, horror, slice of life, and many more. This versatility means there's an anime for almost every taste and age group. It is produced for audiences of all ages, from children to adults. These genres (democraphics) themselves are loved by anime fans, whether they are Japanese or not these detailed descriptions are often learned around the world under their original Japanese names. 
+
+* As an Manga and Anime genre Josei (adult women), Seinen (adult men), Shoujo (young girls), Shounen (young boys) and animes for children. From current numbers of myanimelist shows 151 for Josei, 972 for Seinen, 471 for Shoujo and 1892 for Shounen and 6119 for children. In manga it shows 4017 for Josei, 7804 for Seinen, 8251 for Shoujo and 6360 for Shounen and 271 for children. 
+
 
 ## Genres, Themes And Age Groups
 
@@ -131,58 +136,47 @@ Showbiz (36)
 It may depict the challenges and difficulties that adults face in their relationships, including issues like infidelity, divorce, and personal struggles.
 Josei often places a strong emphasis on the emotional depth of relationships, including the intimacy and connection between characters. The portrayal of intimate moments is often accompanied by a focus on the characters' feelings and thoughts. Josei often delves into the complexities of romantic and erotic relationships among adults. This can include exploring the emotional and physical aspects of these relationships. Josei typically features more mature and realistic character designs and appearances. Characters may have a more natural and adult-like appearance, which can include more realistic body proportions and facial features.
 
-Doujinji and Literary categories aare also interesting.
+* Doujinji and Literary categories aare also interesting.
 
-There are anime series and films aimed at young children (e.g., "Pokémon," "My Neighbor Totoro") as well as more mature and complex anime targeted at older audiences (e.g., "Death Note," "Attack on Titan").
+* There are anime series and films aimed at young children (e.g., "Pokémon," "My Neighbor Totoro") as well as more mature and complex anime targeted at older audiences (e.g., "Death Note," "Attack on Titan").
 
-Anime often reflects Japanese culture, traditions, and societal norms. However, it also frequently explores universal themes and concepts that resonate with a global audience. This resulted in a Cultural Influence worldvide. In America Fandom and Subculture emergent paralely. Anime has a passionate and dedicated fanbase worldwide. These fans often participate in conventions, cosplay (dressing up as anime characters), and online communities dedicated to discussing and celebrating their favorite series.
+* Anime often reflects Japanese culture, traditions, and societal norms. However, it also frequently explores universal themes and concepts that resonate with a global audience. This resulted in a Cultural Influence worldvide. In America Fandom and Subculture emergent paralely. Anime has a passionate and dedicated fanbase worldwide. These fans often participate in conventions, cosplay (dressing up as anime characters), and online communities dedicated to discussing and celebrating their favorite series.
 
+* Manga Adaptations: Many anime series are adaptations of manga, which are Japanese comic books or graphic novels. Manga often serves as the source material for anime adaptations.
 
+* Subs vs. Dubs: Anime is typically produced in Japanese, but it is commonly dubbed into other languages for international audiences. Some viewers prefer watching with subtitles (subs) to maintain the original Japanese voice acting, while others prefer dubbed versions with voiceovers in their native language.
 
+* Educational side of anime is particulary interesting. Also use of dual - language is interestings.
 
+* Otaku culture and downsides of anime culture. Anime also looks itself and its culture.
 
-Manga Adaptations: Many anime series are adaptations of manga, which are Japanese comic books or graphic novels. Manga often serves as the source material for anime adaptations.
-
-Subs vs. Dubs: Anime is typically produced in Japanese, but it is commonly dubbed into other languages for international audiences. Some viewers prefer watching with subtitles (subs) to maintain the original Japanese voice acting, while others prefer dubbed versions with voiceovers in their native language.
-
-
-
-Educational side of anime is particulary interesting.
-Çift dilin kullanımı ilginç
-
-Otaku culture and downsides of anime culture. 
-
-Anime also has a importance on broad topic of trophies and narrative metodology.
-Scholarly work on animes and mangas.
+* Anime also has a importance on broad topic of trophies and narrative metodology. Scholarly work on animes and mangas.
 
 
 ## Manga In Detail
 
-------------------------------------------------------------------------------------
+* Manga In Detail
 
-I watch anime systematically :) after I was 15 years old.
-Anime creates alternatives for movie, tv series as an entertaintment. Unique aspect of Japanese.
+
+* I watch anime systematically after I was 15 years old. Anime creates alternatives for movie, tv series as an entertaintment. Unique aspect of Japanese.
 Also has so much different viewpoints since it has backing to Manga culture.
 
-Its very sad that my county Turkiye doesnt have that big of a culture. Americans clearly have that and it supports their 
+* Its very sad that my county Turkiye doesnt have that big of a culture. Americans clearly have that and it supports their 
 current Holywood genre with supercharacter movies. Weirdly very similar to pagan god panteon. I think comics and the culture behind it
 somehow supports education. Because people who read this type of written for fun. They know written thing can be fun.
 And also have a culture of that.
 
-It's wonderful to hear about your appreciation for anime and its unique qualities. Anime indeed offers a distinct and diverse form of entertainment that often explores a wide range of themes and storytelling approaches. It's great that you've found enjoyment in it.
+* It's wonderful to hear about your appreciation for anime and its unique qualities. Anime indeed offers a distinct and diverse form of entertainment that often explores a wide range of themes and storytelling approaches. It's great that you've found enjoyment in it.
 
-Your observations about the differences in cultural prominence between anime and similar forms of entertainment in different countries are valid. In Japan, anime and manga culture have a long history and are deeply ingrained in the society, which has led to a rich and thriving industry. In contrast, in some other countries, including Turkey, anime may not have reached the same level of mainstream popularity, but it still has a dedicated and growing fanbase.
+* Your observations about the differences in cultural prominence between anime and similar forms of entertainment in different countries are valid. In Japan, anime and manga culture have a long history and are deeply ingrained in the society, which has led to a rich and thriving industry. In contrast, in some other countries, including Turkey, anime may not have reached the same level of mainstream popularity, but it still has a dedicated and growing fanbase.
 
-You also make an interesting point about the relationship between comics (including manga) and education. Comics and graphic novels have indeed been recognized as valuable tools for promoting literacy and fostering a love of reading, especially among young people. They combine visual elements with written narratives, making them engaging and accessible to a wide range of readers. Additionally, the themes explored in comics and manga can be quite diverse, which can stimulate critical thinking and discussion.
+* You also make an interesting point about the relationship between comics (including manga) and education. Comics and graphic novels have indeed been recognized as valuable tools for promoting literacy and fostering a love of reading, especially among young people. They combine visual elements with written narratives, making them engaging and accessible to a wide range of readers. Additionally, the themes explored in comics and manga can be quite diverse, which can stimulate critical thinking and discussion.
 
-As for the cultural influence on entertainment industries, it's true that different cultures contribute to the creation of unique forms of storytelling and entertainment. Hollywood, for example, draws from a wide range of cultural influences, and the superhero genre, with its larger-than-life characters, can be seen as having parallels with ancient mythologies. These cultural connections can add depth and richness to storytelling.
+* As for the cultural influence on entertainment industries, it's true that different cultures contribute to the creation of unique forms of storytelling and entertainment. Hollywood, for example, draws from a wide range of cultural influences, and the superhero genre, with its larger-than-life characters, can be seen as having parallels with ancient mythologies. These cultural connections can add depth and richness to storytelling.
 
-Ultimately, enjoying anime, comics, or any form of entertainment is a personal experience, and it's great that you've found value in these mediums. They can provide not only entertainment but also opportunities for exploration, creativity, and cultural exchange.
+* Ultimately, enjoying anime, comics, or any form of entertainment is a personal experience, and it's great that you've found value in these mediums. They can provide not only entertainment but also opportunities for exploration, creativity, and cultural exchange.
 
-
-
-
-A list of the top Japanese seinen manga magazines by circulation in the time-span from October 1, 2009 to September 30, 2010.[2]
+* A list of the top Japanese seinen manga magazines by circulation in the time-span from October 1, 2009 to September 30, 2010.[2]
 
 ```
 Title	Circulation
@@ -207,27 +201,18 @@ Young King	200,000
 
 ----------
 
-Anime Dergileri
-Sektör Numaraları
+* Anime Dergileri
+* Sektör Numaraları
+* Anime and manga outside japan.
+* 
+* Japonya Coğrafyası
+* Felsefi Bakış Açıları
+* Organizasyonel yapıları
 
-Japonya Coğrafyası
-Felsefi Bakış Açıları
-Organizasyonel yapıları
+* Anime ve Manga İlişkisi
+* Manga ve Animelerin Üretim Yöntemleri ve Yapay zekanın etkileyebilecek oluşu
 
-Anime ve Manga İlişkisi
-Manga ve Animelerin Üretim Yöntemleri ve Yapay zekanın etkileyebilecek oluşu
-
-## Table Of Contents
-1. Anime and Comic Culture In General
-2. History Of Japan
-3. History Of Anime And Manga
-4. Anime In Relation To Game Making
-1. Anime Lists
-    1. Animes I Have Watched In The Past
-    2. Animes I Have Half-Watched In The Past
-    3. Animes I Want To Watch In The Future    
-2. Criticism Of Animes
-
+* Anime In Relation To Game Making
 
 ## Histroy Of Japan
 
@@ -320,7 +305,6 @@ Heisei 1989–2019
 Reiwa 2019 - Present
 * COVID-19 pandemic
 * Abe assassination
-
 
 ### Anime Lists
 
@@ -429,13 +413,9 @@ Reiwa 2019 - Present
 * Dr. Stone
 * Darwin's Game
 
-
-
 ## Anime Youtubers
 * [No Bones](https://www.youtube.com/watch?v=GG3xF3QqRpI)
 
-
-
 ## References
 
- Loo, Egan (January 17, 2011). "2010 Japanese Manga Magazine Circulation Numbers". Anime News Network. Retrieved July 30, 2014.
+*  Loo, Egan (January 17, 2011). "2010 Japanese Manga Magazine Circulation Numbers". Anime News Network. Retrieved July 30, 2014.

@@ -1,7 +1,7 @@
 ---
 layout: post3
 title: "❄️ Short Posts"
-category: b
+category: c
 tags:
   - Art
 ---
@@ -17,27 +17,47 @@ Here we are in a timeless loop where we see the dream of the past, the conqueror
 
 The distant remainder of a Mongolian rider on an open field - this great trauma of history - becomes the refreshing solution that the flow of life has founded to bring end to the unfunctional and the blocked. Erases or wakes it up!
 
-## Oluşun Masumiyeti
+## Amor Fati And The Innocence Of Becoming
 
-Friedrich Nietzsche'nin fikirleri arasında en heyecan verici olanlarından biri: Amor Fati. "Kaderini sev!" anlamına geliyor. Fakat bunu kuru bir kadercilik olarak anlamamalıyız. Anlatılmak istenen çok daha derin. Pişman olmayı reddeden güçlü ve coşkulu bir bu tutum basit bir teslimiyetçiliğin çok ötesinde. Olayların günlük yaşantımızdaki akışını kabullenmekte yaşadığımız zorlukla başa çıkmak için bir reçete tutuşturuyor elimize. Hatalarımızı, yaşanmamışlıklarımızı tıkıştırdığımız bir bagajla gezmeyi derhal bırakmamızı tembihliyor.
+Friedrich Nietzsche's concept of amor fati, or "love of fate," is one of his most intriguing and profound ideas. It is not a passive acceptance of predetermined fate, but rather an active embrace of all that life has to offer, both good and bad. And a warning when the time comes. Never betray yourself meaning on faith. Amor fati is a powerful and enthusiastic attitude that refuses to regret. It is more than mere resignation, and it reflects Nietzsche's emphasis on the will to life over the will to death.
 
-> Gün geçtikçe şeylerde gerekli olanları güzel olarak görmeyi öğreniyorum. Ardından ise şeyleri güzel yapanlardan biri olmalıyım. Amor Fati! aşkım bu olsun bundan böyle. Çirkin olana karşı savaş ilan etmek istemiyorum. Suçlamak istemiyorum. Suçlayanları suçlamak da istemiyorum. Uzaklara bakmak tek olumsuzluğum olsun. Ve hepsinden öte: bir gün sadece bir Evet-diyen olmak istiyorum.
+When we accept the inevitability of change and challenge, we can ignite our inner fire and overcome any difficulty. Amor fati teaches us to let go of the baggage of our past mistakes and experiences. Instead, we should learn from them and move forward, stronger and wiser.
 
-İnsanın hayata dair felsefi bir bakış açısı geliştirmesi, felsefik bir arkaplana sahip olmak işte burada önem kazanıyor aslında. Olayların hem içinde hem dışında olmak, gerçekliği kabul ederken onu korkusuzca değiştirmeye çalışmak arasındaki ikilikte ortaya çıkıyor. 
+> Day by day, I learn to see the necessity in things as beautiful. Then I have to be one of those who make things beautiful. Amor Fati! Let this be my love from now on. I don't want to declare war on the ugly. I don't want to blame. I dont want to blame the blamers either. Let looking away be my only negativity. And above all: one day I want to be just a Yes-sayer.
 
-Hayatımızı onu her koşulda sevmeyi öğrenmemiz önemli. Fakat insanlar olarak kolayca küskün ve negatif bir hale bürünebiliyoruz. Fakat aslında 21. yüzyıl insanı için bu bir seçenek değil. Bu oyunbozanlığı bırakmamız gerekiyor. Söz konusu "kader" ne kadar kötü olabilir ki? İnsanı bir bütün olarak algıladığımızda tarihin başka dönemlerinde yaşayan insanları düşündüğümüzde söz konusu acı ve yıkım bu insanların kaderlerinde bizden daha fazlaydı diye tahmin ediyorum. Gördükleri tüm o kıtlık, savaş ve salgın hastalıklar düşünüldüğünde yaşadıkları dünya bir korku filmini andırıyordu muhtemelen. Oysa biz ne II. Dünya Savaş’ını yaşadık, ne kara veba’yı, ne de yakınlarımız işgalciler tarafından katledildi. Yalnızca bu kibirli bakış açısına hapsolduğumuz için hayatın güzelliklerini göremiyoruz. Yalnızca şu modern hayatlarımızın modern sorunları ile muhatap kalıyoruz ve bunlar çoğu zaman genele kıyasla küçük problemler oluyorlar.
+This is where developing a philosophical perspective on life and having a philosophical background actually becomes important. It emerges in the duality between being both inside and outside of events, accepting reality while fearlessly trying to change it. The duality of being both inside and outside of events is a powerful concept. It allows us to both accept reality as it is and to strive to change it for the better. We can be participants in the world while also being observers of it. This duality can help us to find balance and to avoid becoming too attached to any one outcome. Stoic philosophy can teach us to accept what we cannot change and to focus on what we can control. This can be helpful when we are faced with difficult or unexpected circumstances. Buddhist philosophy can teach us to let go of attachments and to embrace the present moment. This can be helpful when we are feeling overwhelmed or anxious about the future. Existentialist philosophy can teach us to create our own meaning in life and to live authentically. This can be helpful when we are feeling lost or uncertain about our purpose.
 
-Bu noktada sıradanlığımızı anlamamız çok önemli diye düşünüyorum. Kibrimizden kurtulmak bizi yalnızca kayıplardan kurtarmaz, kazandırabilir de. İnsan sıradanlığını anladığı anda kafasında bir şeyler değişiyor. Önce herkesin sıradan olduğunu kabul ederek başlıyorsun. Sonra bir adım daha ve hatta kendinin de sıradan olduğunu kabul ediyorsun. Özgürlük işte bu noktada başlıyor. İnsanlar olarak bizi harekete geçmekten alıkoyan tek şey kendimiz değil miyiz? Kendi faydasından kendi *ya ben ne olacağım?*' düşüncesinden kurtulmamız herşeyi değiştirmez mi?
+It is important that we learn to love our life no matter what. But as humans, we can easily become resentful and negative. But actually, this is not an option for 21st century people. We need to stop this spoilsport. How bad could the "fate" in question be? When we perceive humanity as a whole and think about people living in other periods of history, I guess that the pain and destruction in question was in the fate of these people more than ours. Considering all the famine, war and epidemics they saw, the world they lived in probably resembled a horror movie. However, we never lived through World War II, neither the Black Plague nor our relatives were massacred by the invaders. We cannot see the beauty of life simply because we are trapped in this arrogant perspective. We are only faced with the modern problems of our modern lives, and most of the time these are minor problems compared to the general ones. (What is our war then? Don't we have any?) (Also world still have its injustice and wars.)
 
-**Oluşun masumiyeti** Nietzsche'nin aynı minvalden bir diğer dahiyane fikri. Bu düşünceye göre bir olay gerçek ve de yaşanmışsa masumiyet kazanıyor. Onda suç aranamıyor. Hayatın kendisine dair olan her şey oluşun masumiyetine dahil ve bir şeyin gerçekleşmesi onu masum kılıyor.
+At this point, I think it is very important to understand our ordinariness. Getting rid of our arrogance not only saves us from losses, it can also win. The moment a person realizes his ordinariness, something changes in his mind. You start by accepting that everyone is ordinary. Then one more step and you even accept that you are ordinary. Freedom begins at this point. As humans, aren't we the only thing holding us back from taking action? Wouldn't it change everything if we got rid of our calculation of own benefit and the thought of "what about me?" When we let go of this thought, we actually gain the right to look at a wider world. From this moment on, we can change our modest selves.
+
+**The innocence of becoming** Another genius idea of ​​Nietzsche's in the same vein. According to this idea, if an event is real and has happened, it gains innocence. It means the gods allowed it to happen. No crime can be found in it. Everything about life itself is included in the innocence of existence, and the realization of something makes it innocent.
+Nietzsche suggests that all events, good or bad, are innocent once they have happened.
 
 ## Still Alive
 
-2007 yapımı video oyunu Portal bittiğinde karşınıza [Still Alive](https://www.youtube.com/watch?v=36reZ9-3VK0) çıkıyor. 
-Oyun severleri arasında bir marşa dönüşen Still Alive hayat, ölüm, teknoloji, bilim, insanlık gibi bir çok tema barındırıyor. Yapay zeka GladOS’un oyunun ana karakteri Chell’e yazdığı bir "Test Değerlendirme Raporu" olarak kurgulanmış. 
+When the 2007 video game Portal is finished, you will see [Still Alive](https://www.youtube.com/watch?v=36reZ9-3VK0). Song which has become an anthem among game lovers, contains many themes such as life, death, technology, science and humanity. It is designed as a "Test Evaluation Report" that the artificial intelligence GladOS writes to Chell, the main character of the game.
 
-Eserin yazarı Jonathan Coulton GladOS'un pasif agresif ruh halini vokalin robotik tonuyla yansıtmayı seçmiş. Duygularını ifade eden robot gibi absürt bir fikirle, bu tuhaf yolculukta kurgusal yapay zekanın yenilmiş haliyle bile koruduğu iyimserliğini, zekasını, çalışkanlığını, espri anlayışını, bilime olan tutkusunu, öte yandan GladOS'un karanlık yanını şarkının içinde nöbetler halinde gelen karanlık yanını görüyoruz.
+The author of the work, Jonathan Coulton, chose to reflect the passive-aggressive mood of GladOS with the robotic tone of the vocals. With an absurd idea like a robot expressing its emotions, in this strange journey we see the optimism, intelligence, hard work, sense of humor, passion for science that the fictional artificial intelligence maintains even in its defeated state, and on the other hand, we see the dark side of GladOS, which comes in fits and starts within the song.
 
-Still Alive filmlerde sıkça karşılaşılan bir tema bir trophy olarak kötü karakterin kendini son bir kez kendini göstermesi aslında. Hala hayata olmak anlamına geliyor. GladOS hezimetinden sonra ölmediğini bu şekilde belirten bu isim ekrandaki görüntüde yer almıyor. Onun yerine `Forms FORM-29827281-12:` yazısını görüyoruz. Altında `Test Assesment Report` yazısından anlaşılıyor ki bu aslında GladOS'un tutmuş olduğu bir rapor.
+A common theme in Still Alive movies is actually the villain showing himself one last time as a trophy. It means being still alive. This name, which indicates that he did not die after the GladOS debacle, is not included in the image on the screen. Instead, we see the text `Forms FORM-29827281-12:`. It is understood from the text 'Test Assesment Report' underneath that this is actually a report kept by GladOS.
 
-GladOS'un "Test Değerlendirme Raporu" na yazdığı duygu barındıran sözler trajikomik bir yanda insani ya da duygusal olanın doğanın katı gerçekliği karşısındaki yabancılığını gösteriyor. Portal anlatısında GladOS Portal oyununa konu olan iki konum arasına portal açabilen silahı test ediyor.
+The emotional words written by GladOS in the "Test Evaluation Report" show, on the tragicomic side, expressing somehow humanistic alienation of the robot from the solid reality of nature. 
+In the portal game, GladOS tests a gun that can open a portal between the two locations that are the subject of the game.
+
+## Being Consious About Our Health
+
+I think being cosious of your health is very important.
+One of the things is like sedantary life.
+Addictions like cigarettte alchol jung food.
+Drinking water taking vitamins.
+
+Ezcercise is also another positive effectives.
+Life quility. wellbeing.
+
+## How to Get Never Boring?
+
+Lorem ip sum.
+
+## When To Act?
+Lorem ip sum.

@@ -2,7 +2,7 @@
 layout: post
 header: "Veri Bilimi ve Modeller"
 title: "Veri Bilimi Ve Modeller"
-category: tutorial
+category: b
 tags:
     - Data Science And Models
 ---
@@ -14,3 +14,6 @@ tags:
 
 
 
+Kaynak:
+* https://www.kaggle.com/learn/intro-to-machine-learning
+* https://www.kaggle.com/learn/intermediate-machine-learning

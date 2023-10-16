@@ -2,7 +2,7 @@
 layout: post
 header: "Veri Bilimi ve Modeller"
 title: "Temel Veri İncelemesi"
-category: tutorial
+category: b
 tags:
     - Data Science And Models
 ---
