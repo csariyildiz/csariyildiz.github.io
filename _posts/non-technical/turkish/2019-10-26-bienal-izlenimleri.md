@@ -9,10 +9,7 @@ tags:
 
 26 Ekim Cumartesi günü 16. İstanbul Bienali'ni görmek için Bienal'in mekanlarından biri olan Tophane'deki MSGSÜ İstanbul Resim ve Heykel Müzesine gittim. İstanbul Kültür Sanat Vakfı (İKSV) tarafından düzenlenen ve katılımın ücretsiz olduğu Bienale bu yıl 500000 ziyaretçi bekleniyor. 14 Eylül - 10 Kasım 2019 tarihleri arasında olan Bienal üç mekanda yapılıyor. Büyükada, Pera Müzesi, ve MSGSÜ. İsterseniz belli bir ücret ödeyerek rehberli turlara katılabiliyorsunuz.  
 
-<div class="row" style="margin-bottom: 2.5rem; margin-top: 2.5rem;">
-   <div class="ten columns"><img class="u-max-full-width" src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/yedinci-kita.jpg" alt="Yedinci Kıta"></div>
-   <div class="two column"></div>
-</div>
+<img class="img-fluid" src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/yedinci-kita.jpg" alt="Yedinci Kıta">
 
 Cumartesi öğleden sonra orada olacağımız için aşırı kalabalık olabileceğinden endişeleniyordum. Fakat öyle olmadı. Gayet rahat bir şekilde giriş yaptıktan sonra saat 14.40’dan kapanış saatine kadar sergi binasında kaldık. Bu süre aralıksız gezerek sonlara doğru hafif aceleyle tam tamına yetti diyebilirim. Tam bir gün ayrılırsa mesela sabah 10.00 gibi gelip öğle yemeği yiyerek rahat rahat gezilebilir.
 
@@ -29,7 +26,7 @@ Bir diğer dikkat çeken konu Bienalin yerinin değiştirilmiş olması. Tarihi 
 Rehberdeki açıklama şöyle: 
 > Tarihi Haliç Tersaneleri'nde bir senedir süren yoğun çalışmalarmıza rağmen Bienal'in gerçekleştireceği alandaki asbestli malzemelerin halen temizlenenememiş olması nedeniyle mekanı kullanmama kararı aldık. Durumun insan sağlığı ve güvenliğini tehdit edebilecek olması bizi böyle bir kararı almaya mevcut bıraktı. Tam bu noktada Mimar Sinan Üniversitesi Güzel Sanatlar Fakültesi, Mart 2020 de üniversite bünyesinde İstanbul Resim ve Heykel Müzesi olarak kapılarını açacak beş numaralı Antrepo’nun, 2005 ve 2011 yıllarında olduğu gibi bienale ev sahipliği yapmasını kabul etti.
 
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/msgsu-5nolu-antrepo.jpg" alt="5 numaralı Antrepo" width="600"/>
+<img class="img-fluid" src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/msgsu-5nolu-antrepo.jpg" alt="5 numaralı Antrepo"/>
 
 Modern sanatın provoke edici bir tarafı var. Sanatçının bizi biz yapan şeylerle bir sevgi nefret ilişkisi içerisinde olduğunu görmek mümkün.
 Sanatçı modern dünyanın getirdiği üretim, tüketim, teknoloji, iktidar gibi hayati fikirlerin tam göbeğinde fakat aynı zamanda onlarla bir savaş halinde.
@@ -38,28 +35,24 @@ Elbette sanatçı sosyal sorumluluğu çerçevesinde bu ikilemin farkında olmal
 Fakat biraz tedbirli yaklaşmakta fayda var. Yıkıcı sahte anarşist bir tutumun ya da dar bir politikanın tekrarlayan sloganlarını kullanmak tam da sanatın karşı olduğu bir tembellik.
 Hele ki bu içinde bulunduğumuz ülke açısından politik bir yere tekabül edip araçsallaşıyorsa biraz şüpheyle yaklaşmalı.
 
-Bienal deneyimini kişiselleştirmek çok önemli. Kendince anlamlar çıkartıp ilişkiler kurmak mümkün. 
-Buradan alınan ilhamla insan kendini değiştirebilir. Kişisel deneyimizi zenginleştirmek demek bu ve bizler için bir serüvenin kapılarını açıyor. 
-Sanat eseri yeterince iyiyse zaten bizimle konuşuyor. Bize kendimizi anlatıyor.
-Değişmemiz için cesaret veriyor. Bu eserlerden bazılarının önünden hızlıca geçerken bazılarını ise saatlerce izlemek istedim. Bu da tam tamına aradığım kişisel tecrübeydi. 
-Bienal tanıtımında gördüğüm açıklamaların yanı sıra eserleri kendimce tanımlamaya, bir koleksiyoncu gibi onlarda ilgimi çeken imgeleri toparlamaya çalışıyorum.
-Doğru bulduğumuz şeyler üzerine yazmak onları keşfetmek kadar doğru bir şey yok. 
-Bunlar üzerinden bir temel inşa etmenin inanılmaz derecede pratik olduğunu düşünüyorum. Böylece onları kişiliğimiz yaparak onların birer sembolüne dönüşebiliriz.
+Bienal süresince bu deneyimi kişiselleştirerek, mümkün olduğunca sanatın dönüştürücü tarafını deneyimlemeye çalıştım. Sanat eserleri, kendimizi ve dünyayı farklı şekillerde görmemizi sağlıyor. Bu deneyimi kişiselleştirerek, sanatın bize ilettiği mesajları daha derinden anlayabiliyor ve kendi hayatımıza uygulayabilir hale geliyoruz. Sanat eserleri kolay ifade edemedimiz hislerin sembollerine dönüşüyorlar.
 
+Bizim için anlamlı olan eserleri bulup çıkarmak ve bunlardan ilham almak da olağanüstü bir deneyim. Bir sanat eseri ile kişisel deneyimlerinizi zenginleştirmek hedefiyle etkileşime giriyoruz. Bu maceraya giden bir kapıyı açıyor. Sanatsal bir eser yeterince iyi olduğunda, bize kişisel düzeyde sesleniyor ve bize kendimiz hakkında bir şeyler anlatıyor. Kimi zaman bize değişme cesareti veriyor. Anlamlı bulduğunuz şeylere odaklanmak ve onları diğerlerinden ayırmak değerli bir çaba. Sanatı anlamak ve takdir etmek için bir temel oluşturmanın son derece pratik bir yolu. Dahası, sanat bu şekilde bize kendimizi iletişimin diğer biçimlerinden farklı bir şekilde ifade etme imkanı veriyor. Bazı eserlerin kimisi bana çok daha etkileyici geldi. Ve aslında aradığım kişisel deneyim de tam olarak buydu. 
+
+Bienal için hazırlanan tanıtım materyallerine ek olarak, ilgimi çeken parçaları toplayan bir koleksiyoncu gibi, eserleri kendim tanımaya çalıştım.
+Yazının geri kalanında bu eselerin isimleri ve aldığım notlar yer alıyor.
+ 
 ### Suzanne Treister - Bahçıvan HFT
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/HFT_HFT-Diagram3.jpg" alt="Suzanne Treister - Bahçıvan HFT" width="600"/>
 
-Her bir bitki kartına gösterilen müthiş detay ilgi.
-İnsan konsantrasyonunun bu şekilde kullanılması.
-Numeroloji, sanrı yaratan maddeler. Darren Aronofsky'nin Pi filmindeki gibi. Fakat komplo teorisyeni. Deliliğin sınırlarında. Burada bahsedilen high frequency trading de ilginç bir konu.
-
 Bianel Tanıtımından:
-> Sermayenin hareketleri sanrılar yaratır: Hem mevcut hem görünmez, eşit derecede gerçek ve hayalidirler.
-Suzanne Treister, resim ve videolarının yanı sıra internet temelli ve işbirliğine dayalı çalışmalarında genellikle takma isimler kullanıyor, bu isimlere uygun sanatçı biyografileri ve çalışmalar üretiyor. Bahçıvan HFT, algoritmalar üstünden yüksek frekanslı işlemler (HFT) yapan bir borsacı ve “tekno-şaman” olan Hillel Fischer Traumberg’in eserlerinden bir derleme. Bu kurgusal karakter bir taraftan algıyı değiştiren ilaçlar ve bitkilerle deneyler yaparken, bir taraftan da bitkilerin hayatı, şamanizm, numeroloji ve sermayeye yüksek frekanslı işlemlerle yön verenler arasında bağlantılar kuruyor. Eser, sanrı yaratan maddeler, sermaye ve sanat, psikoaktif ilaçlar ve bilinç arasındaki bir dizi bağlantıyı sergiliyor
+> Sermayenin hareketleri sanrılar yaratır: Hem mevcut hem görünmez, eşit derecede gerçek ve hayalidirler. Suzanne Treister, resim ve videolarının yanı sıra internet temelli ve işbirliğine dayalı çalışmalarında genellikle takma isimler kullanıyor, bu isimlere uygun sanatçı biyografileri ve çalışmalar üretiyor. Bahçıvan HFT, algoritmalar üstünden yüksek frekanslı işlemler (HFT) yapan bir borsacı ve “tekno-şaman” olan Hillel Fischer Traumberg’in eserlerinden bir derleme. Bu kurgusal karakter bir taraftan algıyı değiştiren ilaçlar ve bitkilerle deneyler yaparken, bir taraftan da bitkilerin hayatı, şamanizm, numeroloji ve sermayeye yüksek frekanslı borsa işlemlerine yön verenler arasında bağlantılar kuruyor. Eser, sanrı yaratan maddeler, sermaye ve sanat, psikoaktif ilaçlar ve bilinç arasındaki bir dizi bağlantıyı sergiliyor.
 
 * Eserde kullanılan kağıt: *Archival giclée prints on Hahnemuhle Bamboo paper, 21 x 29.7 cm each*
 * https://www.artsy.net/show/annely-juda-fine-art-suzanne-treister-hft-the-gardener
+
+Bitki kartları, insanın konsantrasyon yeteneğinin bir kanıtı olan, şaşırtıcı bir detaycılığa sahip. Numeroloji ile psikedelik maddeler arasındaki bağlantı beni çok ilgilendirdi ve bunları borsaya uygulama çabaları bana Darren Aronofsky'nin filmi Pi'yi hatırlattı. Yüksek frekanslı alım satım ile deliliğin kesişimi de büyüleyici bir konu. 
 
 ### Johannes Büttner - Başka bir yaşam olasılığı kendisini yanan bir polis arabasında doğrudan, arkadaşlarımın yüzlerinde ise dolaylı olarak ifade eder, 2019
 
@@ -80,14 +73,14 @@ Bianel Tanıtımından:
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/atom-spirith.jpg" alt="Atom Spirith" width="600"/>
 
-Bianel Tanıtımından:
-> Atom Ruhu, biyomedikal yeniliklerin arttığı yakın bir gelecekte geçen spekülatif bir anlatı. Trinidad ve Tobago’da geçen ve bu iki adadaki toplulukla çekilen film, kriyojenik olarak dondurulmuş bir Nuh’un Gemisi oluşturmak için tüm yaşam biçimlerinden DNA örneklerini inceleyen ve toplayan bir grup evrim genetikçisinin çalışmasını ele alıyor. Soyu tükenmiş medeniyetlerden arta kalan titreşimlerin hâlâ hissedildiği tekno-bilimsel bir sibernetik gelecek sunan video, bilim ve mitolojiyi harmanlayarak, hesaplama ve biyoloji teknolojilerinin insanlığın ve çevrenin gelecekteki tekrarları üzerindeki etkilerine odaklanıyor.
+Bianel Tanıtımından:[*](https://bienal.iksv.org/tr/sanatcilar/ursula-mayer)
+> Atom Ruhu, biyomedikal yeniliklerin arttığı yakın bir gelecekte geçen spekülatif bir anlatı. Trinidad ve Tobago’da geçen ve bu iki adadaki LGBT topluluğu ile çekilen film, kriyojenik olarak dondurulmuş bir Nuh’un Gemisi oluşturmak için tüm yaşam biçimlerinden DNA örneklerini inceleyen ve toplayan bir grup evrim genetikçisinin çalışmasını ele alıyor. Soyu tükenmiş medeniyetlerden arta kalan titreşimlerin hâlâ hissedildiği tekno-bilimsel bir sibernetik gelecek sunan video, bilim ve mitolojiyi harmanlayarak, hesaplama ve biyoloji teknolojilerinin insanlığın ve çevrenin gelecekteki tekrarları üzerindeki etkilerine odaklanıyor.
 
 Film hakkında diğer bilgiler için:
-* http://www.ursulamayer.com/films/atomspirit.html
+* [ursulamayer.com](http://www.ursulamayer.com/films/atomspirit.html)
 
 Filmi İzlemek İçin:
-* https://vimeo.com/434339144 (Erişilebilir Değil)
+* [link](https://vimeo.com/434339144) (Erişilebilir Değil)
 
 ### Korakrit Arunanondchai - tarihle birlikte tuhaf isimli insanlarla dolu bir odada 4 
 *With history in a room filled with people with funny names 4, HD Video: 23’28”*
@@ -99,9 +92,9 @@ Bianel Tanıtımından:
 
 * Fragmanı: https://vimeo.com/261026131
 
-Bir diğer dikkatimi çeken nokta da filmleri festival dışında kolay kolay bulamıyor oluşunuz. Şu çağda şu ortamda bile ulaşmanın bu derece zor olması insana bir fikir veriyor. Demekki kaliteli görsel işitsel eğlence ürünü zor bulunuyor ve bizler kalitesizlere boğulmuş durumdayız.
+Festivale katıldıktan sonra bu gibi filmleri festival dışında kolay kolay bulamıyor oluşumuz dikkatimi çekti. Şu çağda şu ortamda bile ulaşmanın bu derece zor olması insana bir fikir veriyor. Demek ki kaliteli görsel işitsel eğlence ürünü zor bulunuyor ve internet üzerinden rastgele karşılaştıklarımız genellikle en kalitelileri olmuyor ve biz onlarla boğulmuş durumdayız.
 
-Bienal'den gayet mutlu ayrıldığımı belirtmeliyim. Hem atmosferden hem de gördüğüm sanat eserlerinden o kadar etkileniyorum ki farklı bir dünyaya yolculuk yapmış gibi oluyorum. İçinde bulunduğum ruh hali, modum tamamen değişiyor. Bizimle orada konuşan her ne ise gündelik hayatımızda karşımıza çıkmıyor. İzlediğimiz dizilerde ya da sosyal medya ile dolduramadığımız bir açlık buradaki. Demek ki bu sesi daha çok dinlemek gerekiyor, ona daha fazla zaman ayırmak gerekiyor, onu hayatımıza daha çok katmak gerekiyor ki buradan alacağımız enerjiyle hayatlarımıza bambaşka yerlere taşıyabilelim.
+Bienal'den gayet mutlu ayrıldığımı belirtmeliyim. Hem atmosferden hem de gördüğüm sanat eserlerinden o kadar etkileniyorum ki farklı bir dünyaya yolculuk yapmış gibi oldum. İçinde bulunduğum ruh hali, modum tamamen değişti. Böyle bir sanatsal aktivite esnasında karşı karşıya kaldığımız bizimle orada konuşan her ne ise gündelik hayatımızda karşımıza çıkmıyor. İzlediğimiz dizilerde ya da sosyal medya ile dolduramadığımız bir açlık buradaki. Demek ki bu sesi daha çok dinlemek gerekiyor, ona daha fazla zaman ayırmak gerekiyor, onu hayatımıza daha çok katmak gerekiyor ki buradan alacağımız enerjiyle hayatlarımıza bambaşka yerlere taşıyabilelim.
 
 Referans:
 * https://www.youtube.com/watch?v=J45xP0mc-0M&t=117s

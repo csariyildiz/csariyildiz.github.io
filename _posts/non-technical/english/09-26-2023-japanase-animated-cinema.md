@@ -324,6 +324,7 @@ Reiwa 2019 - Present
 * "12",School Days, "na","Anime","Watched","8/10"
 * "11","Castlevania","na","Anime","Watched","8/10"
 * "12","Parasyte","na","Anime","Watched","8/10"
+* Boku no Hero Academia
 * "13","Higurashi no Naku Koro ni","na","Anime","Watched","8/10"
 * "14","Rohan Kishibe","na","Anime","Watched","8/10"
 * "15","Another","na","Anime","Watched","7/10"
@@ -335,6 +336,10 @@ Reiwa 2019 - Present
 * "20","Gantz","na","Anime","Watched","6/10"
 * "21","Ajin","na","Anime","Watched","6/10"
 * "22",Kakegurui , 6/10, "Watched", ""
+
+### Currently Watching
+* "31","Drifters","na","Anime","To Watch","7.89 376"
+* Land of the Lustrous
 
 ### Animes I Have Half-Watched In The Past
 
@@ -361,26 +366,37 @@ Reiwa 2019 - Present
 * Akame ga Kill!
 * Chainsaw Man
 * Shiki
+* Highschool of the Dead
+* Steins;Gate
 * Seikon no Qwaser
 * Jin-Roh: The Wolf Brigade
 * "30","Trinity Blood","2005","Anime","To Watch","7.29 2652"
+* Ghost In The Shell
+* XXXholic
 
 ## Animes I Want To Watch In The Future
+* "85","Violet Evergarden","na","Anime","To Watch","na"
 * "11",Kizumonogatari 
 * "11",Demon Slayer: Kimetsu no Yaiba
+* Girls und Panzer
+* 
 * "36","Devil May Cry","na","Anime","To Watch","na"
 * "68","Vagabond","na","Anime","To Watch","na"
+* Nejimaki Seirei Senki: Tenkyou no Alderamin
 * "55","Vinland Saga","na","Anime","To Watch","8.74 46"
 * "56","Goblin Slayer","na","Anime","To Watch","na"
+* JoJo no Kimyou na Bouken (TV)
+* Kaguya-sama wa Kokurasetai: Tensai-tachi no Renai Zunousen
 * "70","Mahouka Koukou no Rettousei","na","Anime","To Watch","na"
 * "64","Zankyou no Terror","na","Anime","To Watch","na"
 * "62","Angel Beats!","na","Anime","To Watch","na"
+* Btooom!
+* Arifureta Shokugyou de Sekai Saikyou
 * "67","Kuroshitsuji: Book of Murder","na","Anime","To Watch","na"
+* 86 Eighty-Six
 * "77","Terra Formars","na","Anime","To Watch","na"
 * "74","JoJo's Bizarre Adventure: Battle Tendency","na","Anime","To Watch","na"
-* "31","Drifters","na","Anime","To Watch","7.89 376"
 * "32","Black Butler","2008","Anime","To Watch","na"
-* "85","Violet Evergarden","na","Anime","To Watch","na"
 * "86","Spy × Family","na","Anime","To Watch","na"
 * "79","Umineko no Naku Koro ni","na","Anime","To Watch","na"
 * "80","Another: The Other - Inga","na","Anime","To Watch","na"
@@ -389,29 +405,36 @@ Reiwa 2019 - Present
 * "43","Ninja Scroll","na","Anime","To Watch","na"
 * "35","Jormungand","na","Anime","To Watch","7.80 937"
 * Psycho-Pass
-* Land of the Lustrous
+* Darker Than Black
 * Yamishibai: Japanese Ghost Stories
 * INUYASHIKI
+* Angel Cop
+* Akuma no Riddle
 * FROM THE NEW WORLD, 2013
 * HAKABA NO KITARO, 2008
 * PET SHOP OF HORRORS, 1999
 * 91 DAYS, 2016
 * NINJA SCROLL, 1993
 * JUNJI ITO COLLECTION, 2018
+* Re:ZERO -Starting Life in Another World-
 * HELL GIRL, 2005
 * SHOUJO TSUBAKI, 1992
 * UMINEKO WHEN THEY CRY, 2009
 * KEMONOZUME, 2006
+* Gosick
 * Puella Magi Madoka Magica
 * Texhnolyze
 * Blue Gender 
 
 ## Animes I Might Consider To Watch
 
+
 * Made in Abyss
 * Kiddy Grade
 * Dr. Stone
 * Darwin's Game
+* Versailles no Bara
+
 
 ## Anime Youtubers
 * [No Bones](https://www.youtube.com/watch?v=GG3xF3QqRpI)

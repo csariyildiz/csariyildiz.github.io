@@ -2399,3 +2399,11 @@ padding: 0px !important;
 .algolia-docsearch-footer--logo {
     color: inherit
 }
+
+blockquote {
+    margin: 0 0 1rem;
+    font-style: italic;
+    padding-left: 10px;
+    margin-left: 5px;
+    border-left: 4px solid black;
+}

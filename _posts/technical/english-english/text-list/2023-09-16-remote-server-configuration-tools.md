@@ -8,6 +8,17 @@ tags:
   - Hardware
 ---
 
+
+
+How to make ilo secure?
+
+Keeping ilo updated.
+ilo 5 has embedded risk tool inside ilo. It gives alerts like health check.
+SNMPv1 is a security risk. Password complexity. Using a different SSL certificate from default needed. RBSU doesnt need login in some cases. Secure boot is disabled.
+IPMI/DCMI Over LAN is also.
+
+
+
 The general term for server management controllers is baseboard management controllers (BMCs). BMCs are embedded processors on server motherboards that provide out-of-band management and monitoring capabilities. They can be used to access and manage the server even if the server is turned off or the operating system is not working. This allows administrators to perform tasks such as power on and off the server, monitor its health, and troubleshoot problems.
 
 BMCs are typically implemented using industry-standard specifications such as the Intelligent Platform Management Interface (IPMI) or the Redfish API. This allows BMCs from different vendors to be managed using the same tools and software.
@@ -19,11 +30,7 @@ BMCs are an important part of modern server management infrastructure. They prov
 * Monitoring: BMCs can monitor the health and status of servers, and can alert administrators to any problems.
 * Troubleshooting: BMCs can help administrators to troubleshoot problems with servers, even if the server is not working properly.
 
-remotely power on, power off, or restart a server.
-monitor the server's temperature, fan speed, and other vital signs.
-install or update the server's firmware.
-troubleshoot problems with the server's hardware or software.
-
+BMC can be used remotely power on, power off, or restart a server, monitor the server's temperature, fan speed, and other vital signs, install or update the server's firmware and troubleshoot problems with the server's hardware or software.
 
 Some examples of BMCs include:
 
@@ -112,6 +119,8 @@ Gen8 (released in February 2012)
 - Networking: 10 GbE and 40 GbE Ethernet
 ```
 
+
+
 ```
 Gen9 (released in July 2015)
 - Processors: Intel Xeon E5-2600 v4 and v5 processors
@@ -128,9 +137,11 @@ Gen10 (released in June 2017)
 - Networking: 10 GbE, 25 GbE, 40 GbE, and 100 GbE Ethernet
 ```
 
+* As an example HPE BladeSystem c7000 Enclosure. Blade servers has ilo for each. It has 16 bays.
+
 ## Updating The ILO
 
-HP Servers come in all shapes and formes such as HP Proliant series.
+HP Servers come in different shapes and formes such as HP Proliant series.
 
 * https://pingtool.org/latest-hp-ilo-firmwares/
 
