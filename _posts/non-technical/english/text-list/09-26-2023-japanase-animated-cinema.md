@@ -1,7 +1,7 @@
 ---
 layout: post3
 title: "Japanese Animated Cinema"
-category: c
+category: e
 tags:
   - Art
 ---
@@ -157,7 +157,6 @@ Josei often places a strong emphasis on the emotional depth of relationships, in
 
 * Manga In Detail
 
-
 * I watch anime systematically after I was 15 years old. Anime creates alternatives for movie, tv series as an entertaintment. Unique aspect of Japanese.
 Also has so much different viewpoints since it has backing to Manga culture.
 
@@ -179,11 +178,11 @@ And also have a culture of that.
 * A list of the top Japanese seinen manga magazines by circulation in the time-span from October 1, 2009 to September 30, 2010.[2]
 
 ```
-Title	Circulation
-Weekly Young Magazine	807,871
-Weekly Young Jump	768,980
-Big Comic Original	729,750
-Weekly Manga Goraku	500,000
+Title                   Circulation
+Weekly Young Magazine   807,871
+Weekly Young Jump       768,980
+Big Comic Original      729,750
+Weekly Manga Goraku     500,000
 Big Comic	454,000
 Comic Kairakuten	350,000
 Weekly Morning	340,209
@@ -204,7 +203,6 @@ Young King	200,000
 * Anime Dergileri
 * Sektör Numaraları
 * Anime and manga outside japan.
-* 
 * Japonya Coğrafyası
 * Felsefi Bakış Açıları
 * Organizasyonel yapıları
@@ -427,7 +425,6 @@ Reiwa 2019 - Present
 * Blue Gender 
 
 ## Animes I Might Consider To Watch
-
 
 * Made in Abyss
 * Kiddy Grade
