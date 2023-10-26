@@ -2,7 +2,7 @@
 layout: post3
 title: "16. İstanbul Bienali İzlenimleri"
 date: "2019-10-26"
-category: c
+category: d
 tags:
   - Sanat
 ---
