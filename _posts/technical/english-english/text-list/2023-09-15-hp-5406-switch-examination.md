@@ -56,7 +56,7 @@ After verification, it appears that the port is not blocked by either Port Secur
 
 Running configuration:
 
-
+```
 ; J8697A Configuration Editor; Created on release #K.15.06.0017
 ; Ver #02:10.0d:1f
 
@@ -75,6 +75,4 @@ exit
 interface A4 
    name "MYBRANCHSERV1" 
 ....
-
-
-
+```
