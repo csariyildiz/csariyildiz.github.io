@@ -8,17 +8,28 @@ tags:
   - WinRM
 ---
 
-WinRM (Windows Remote Management) is a powerful management protocol in Windows that allows you to remotely execute commands and manage systems. 
-It is a protocol that PowerShell uses to establish remote connections inside Windows. It is not enabled by default in Windows, so WinRM needs to be configured to listen for WinRM client calls.
+WinRM (Windows Remote Management) is a management protocol within the Windows Systems, allowing remote command execution and system management. As a tool for remote connectivity, WinRM serves as way automatize task with PowerShell commands to establish and govern remote connections within the Windows environment.
 
+Since by default, WinRM isn't activated in Windows systems, it is necessary to configure it to receive WinRM client requests. This process involves setting up WinRM to listen for incoming calls from WinRM clients. thereby establishing the secure remote management and execution of commands within Windows networks.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/winrm.jpg" class="img-fluid" alt="winrm">
 
+There various alternatives to WinRM exist in Windows, including WMIC, PsExec (Sysinternals Suite), WinRS (Windows Remote Shell), and OpenSSH.
+Different tools might be preferred based on specific needs, limitations, or security requirements but WinRM is the one of the most preferred ones.
 
-WinRM consists of two components: the client, which establishes outbound calls, and the service, which listens for inbound calls.
+It's very beneficial on for automating specific administrative tasks instead of manually doing them by RDP connections. 
+Using these tools we can across multiple machines simultaneously and handling remote configurations using PowerShell's functionality.
+Its also remember that these capabilities also require a strong need for security.
+These access methods should be tightly restricted and, if possible, passed through strong security mechanisms.
+It should be noted that strong security vulnerabilities can be seen on these systems with their exploits.
 
-To check if WinRM is properly configured on a device, you can use the cmdlet Test-WSMan. If no error is returned, it means WinRM has the basic settings correctly configured. Here's an example of the output:
+WinRM, comprising both a client for outbound calls and a service for inbound calls, can be checked for proper configuration using the `Test-WSMan` `cmdlet`. 
+We have detailed configurations for client, server (service in this case) and the listener. We can use `Invoke-Command` after opening a session on one or many computers.
 
+We can test WinRM is exist on a computer by using `Test-WSMan` command.
+When `Test-WSMan` command returns no errors, it indicates that `WinRM` has its basic settings correctly configured. 
+
+An example of a successful output could be:
 
 ```
 > Test-WSMan
@@ -28,113 +39,94 @@ ProductVendor   : Microsoft Corporation
 ProductVersion  : OS: 0.0.0 SP: 0.0 Stack: 3.0
 ```
 
+If a computer encounters an error, such as "The client cannot connect," while running Test-WSMan, it typically indicates that the system isn't set up to receive or send calls properly.
 
-## 1. WinRM Configuration
+## 1. Configurations
 
-### Basic WinRM configuration with default settings
+We can use `winrm quickconfig` command perform basic WinRM configuration.
+It helps establish the basic WinRM settings on a computer by providing remote connectivity.
 
 ```
 winrm quickconfig
 ```
 
-Running this command in the Command Prompt or PowerShell will perform a quick configuration of WinRM using the default settings. It will enable the WinRM service and create a listener for the HTTP transport on the default port (5985). This basic configuration is suitable for testing and development purposes within a local network.
+Running `winrm quickconfig` in the command prompt or powerShell will perform a quick configuration of `WinRM` using the default settings. 
+It will enable the `WinRM` service and create a listener for the HTTP transport on the default port `5985`. 
+This basic configuration is suitable for testing and development purposes within a local network.
+It will configure it with default settings for both server and the client.
 
-
-### Example of making more specific settings with quickconfig
+We can see an example of making more specific settings with `quickconfig` as below.
 
 ```
 winrm quickconfig -transport:https
 ```
 
-This command is specifically configures WinRM to use the HTTPS transport instead of HTTP. This is a more secure option for production environments or scenarios where data needs to be encrypted during transmission. When using HTTPS, the default port used is 5986.
-
-### Check WinRM settings
-
-To check the current WinRM client and service configurations, you can use the following commands:
-
-To view the WinRM client configuration:
+The command above is specifically configures WinRM to use the HTTPS transport instead of HTTP. 
+As a more secure option for production environments or scenarios where data needs to be encrypted during transmission. WinRM uses port 5986 as the default port for HTTPS.
+To check the current WinRM client and service configurations, we can use the following command:
 
 ```
 winrm get winrm/config/client
 ```
-This command will display the client-specific configurations, such as the default authentication settings and the maximum number of concurrent operations allowed.
 
-To view the WinRM service configuration:
+`winrm get winrm/config/client` will display the client-specific configurations, such as the default authentication settings and the maximum number of concurrent operations allowed.
+
+To view the WinRM service configuration we need to use `winrm get winrm/config/service`:
 
 ```
 winrm get winrm/config/service
 ```
 
-This command will display the service-specific configurations, including the listeners configured (HTTP or HTTPS), the maximum number of concurrent connections allowed, and the authentication settings accepted by the service.
-
-These commands allow you to verify the current WinRM settings on your system, which can be helpful in troubleshooting and ensuring that the configuration aligns with your specific requirements.
-
-For remote management using WinRM, you may also need to configure firewall rules to allow the necessary traffic to pass through to the target machine. 
-
-Depending on our network setup and security requirements, we might need to set up authentication mechanisms like HTTPS certificates or configure WinRM to use different ports or specific IP addresses for listening. 
-
-Its good to always consider security best practices when configuring WinRM for remote management.
-
-
-### Check Client Configuration
+We also have a `listener configuration on the service side apart from `client` and service configurations:
 
 ```
-PS C:\> winrm get winrm/config/client
-
+winrm enumerate winrm/config/listener
 ```
 
-We see that the configuration shown below is defined.
+In following sections we will look at this configurations in some detail.
+
+### 1.1 Client Configuration
+
+If we check the client configuration in detail by using `winrm get winrm/config/client` we see that the configuration shown below is defined:
 
 ```
 Client Configuration:
     Network Delay (ms) = 5000
     URL Prefix = wsman
     Allow Unencrypted = false
-    Authentication:
+    Authentication: // This client is configured to use default auth protocols (authentication methods).
         - Basic = enabled
         - Digest = enabled
         - Kerberos = enabled
         - Negotiate = enabled
         - Certificate = enabled
         - CredSSP = disabled
-    Default Ports:
+    Default Ports: // This client will use default ports to connect outbound.
         - HTTP = 5985
         - HTTPS = 5986
-    Trusted Hosts = MyServer
-
+    Trusted Hosts = MyServer // One trusted port.
 ```
 
-The network delay, set to 5000 milliseconds (5 seconds), determines the maximum time the client waits for a response from the server during a WinRM operation. If a response is not received within this time, the operation might be terminated.
+As we can see 5985 for HTTP and 5986 default ports are defined for the client. Client will use this default ports to connect outbound. 
 
-The setting "Allow Unencrypted" is set to false, which means that WinRM is configured to reject unencrypted traffic. This enhances security by ensuring that communications are encrypted when using WinRM.
+Also by default WinRM operates on port 5985 using HTTP for communication. This is commonly utilized for domain-to-domain traffic. It can be reconfigured to use HTTPS for enhanced security and encrypted communication.  
 
-The client configuration shows that it supports various authentication protocols, such as Basic, Digest, Kerberos, Negotiate, and Certificate.
+We also see that this client is configured to use default auth protocols like Kerberos, Negotiate and CredSSP.
 
-The client is configured to use the default ports (HTTP: 5985 and HTTPS: 5986) when establishing outbound connections to other devices.
-These ports are the standard ports for WinRM communication.
+### 1.2 Service Configuration
 
-It is important to note that WinRM is typically intended for use within trusted networks (e.g., domain to domain traffic) and not exposed directly to the internet.
-
-It is likely that HTTPS is the preferred and secure method for communication.
-
-The client is enabled for various authentication protocols, making it capable of authenticating using the following methods:
-
-* Basic: Basic authentication is enabled, which sends credentials in plain text. It is recommended to use this over a secure channel like HTTPS.
-* Digest: Digest authentication is enabled, providing a more secure alternative to Basic authentication.
-* Kerberos: Kerberos authentication is enabled, typically used in domain environments for secure authentication between computers.
-* Negotiate: This refers to the SPNEGO (Simple and Protected GSSAPI Negotiation Mechanism) authentication, which negotiates the best authentication method supported by both client and server.
-* Certificate: Certificate-based authentication is enabled, allowing for secure authentication using X.509 certificates.
-* CredSSP: CredSSP (Credential Security Support Provider) is disabled, which is generally preferred for security reasons, as it can expose user credentials to remote servers.
-
-### Checking Service Configuration
-
-This is for listening inbound communications.
-
+* We can check the service configuration like in similar with the client.
+* By default service is enabled to receve inbound communications. 
+* We have to make sure that we run `winrm get winrm/config/service` command as an administrator; otherwise, it probably result in a `WSManFault` error due to the restricted permission.
 
 ```
-PS C:\GroupMembers\other\newfolder> winrm get winrm/config/service
+winrm get winrm/config/service
 ```
 
+As we can see the configuration below:
+* Contrasting from the client, server only accepts Kerberos and Negotiate authentication protocols as default.
+* Server utilizes the default ports 5985 and 5986 as same as we see in the client configuration.
+* We see the `AllowRemoteAccess = true` line which signifies that remote access is permitted.
 
 ```
 Service Configuration:
@@ -160,57 +152,20 @@ Service Configuration:
     EnableCompatibilityHttpListener = false
     EnableCompatibilityHttpsListener = false
     CertificateThumbprint
-    AllowRemoteAccess = true
+    AllowRemoteAccess = true 
 ```
 
-* The "RootSDDL" (Security Descriptor Definition Language) setting specifies the security descriptor for the WinRM service's root resource. It defines access control settings for different users and groups. The provided SDDL grants specific access rights to certain groups, such as "BA" (Built-in Administrators) and "IU" (Interactive Users), while also granting more limited access to "WD" (Everyone) with read, execute, and read/execute permissions. It's essential to ensure that these permissions are appropriately configured to maintain the security and integrity of the WinRM service.
+## 1.3 Listener Configuration
 
-* The "MaxConcurrentOperations" setting is set to the maximum value of 4294967295, indicating that the WinRM service can handle an extremely high number of concurrent operations. This can be advantageous for scenarios with high demand for simultaneous operations, but it also requires sufficient system resources to accommodate the increased workload.
+Finally, there is a component known as the listener, responsible for monitoring calls on a server. 
 
-* The "MaxConcurrentOperationsPerUser" specifies that a single user can have up to 1500 concurrent operations at a time. Limiting the number of concurrent operations per user helps prevent resource abuse and ensures fair usage across multiple clients.
-
-* The "EnumerationTimeoutms" defines the timeout period in milliseconds for enumerating resources. With a value of 240,000 milliseconds (240 seconds or 4 minutes), WinRM allows sufficient time to retrieve enumeration results, which can be particularly useful when querying large sets of data or resources.
-
-* The "MaxConnections" setting is set to 300, which limits the maximum number of simultaneous connections to the WinRM service. This restriction helps manage resource utilization and prevents potential service degradation due to an excessive number of connections.
-
-* The "MaxPacketRetrievalTimeSeconds" specifies the maximum time in seconds that the service will spend retrieving a packet. Setting it to 120 seconds ensures that the service promptly processes and delivers packets, avoiding unnecessary delays during data retrieval.
-
-* The "AllowUnencrypted" setting is set to false, indicating that the service does not allow unencrypted traffic. By enforcing encrypted connections, WinRM ensures the confidentiality and integrity of data transmitted between clients and the service.
-  
-* The "Auth" section specifies the authentication methods allowed by the service. It is only accepts Kerberos and Negotiate.
-  * Basic = false: Basic authentication is disabled, which is generally a secure configuration, as it involves transmitting credentials in plain text.
-  * Kerberos = true: Kerberos authentication is enabled, providing a secure and efficient authentication mechanism, especially in domain environments.
-  * Negotiate = true: SPNEGO (Negotiate) authentication is enabled, allowing negotiation of the best authentication mechanism supported by both client and server. This can enhance compatibility and security when multiple authentication methods are available.
-
-* The "DefaultPorts" setting specifies the default ports used by the WinRM service:
-
-  * HTTP = 5985: WinRM listens for HTTP connections on port 5985, commonly used for non-encrypted communication.
-  * HTTPS = 5986: WinRM listens for HTTPS connections on port 5986, offering encrypted and secure communication.
-
-* The "IPv4Filter" is set to "", which means that the service accepts connections from any IPv4 address. This configuration allows communication from any IPv4-enabled device on the network.
-
-* The "IPv6Filter" is set to "", indicating that the service accepts connections from any IPv6 address. This allows communication from any IPv6-enabled device on the network.
-
-* The "EnableCompatibilityHttpListener" is set to false, indicating that the service does not use the compatibility HTTP listener. Compatibility listeners are older, deprecated components, and disabling them ensures that the service adheres to modern security standards.
-
-* The "EnableCompatibilityHttpsListener" is set to false, indicating that the service does not use the compatibility HTTPS listener. As with the HTTP listener, this configuration maintains modern security standards by avoiding the use of deprecated components.
-
-* The "CertificateThumbprint" is not specified, meaning that no specific certificate thumbprint is associated with the service. In scenarios where the service requires client authentication using certificates, this field would contain the appropriate certificate thumbprint.
-
-
-
-* The "AllowRemoteAccess" setting is set to true, which means that the service is currently allowing remote access. Allowing remote access is common for administrative purposes, as it enables managing the machine from other systems on the network. However, it's crucial to apply proper access controls and firewall rules to restrict remote access to authorized administrators only and prevent unauthorized access to the WinRM service.
-
-The WinRM service currently alowing remote access. The configuration appears to be well-optimized for security and performance. It enforces encrypted communication, allows for efficient authentication with Kerberos and Negotiate methods, and provides high concurrency capabilities. The allowance of remote access can be beneficial for remote management but should be coupled with strong access controls to maintain the service's security posture. Regular audits and monitoring of the service's access logs can help identify and respond to potential security concerns.
-
-
-## 1.3 Listener
-
-To inspect the current WinRM listener configuration, execute the following command in PowerShell or Command Prompt:
+To examine the existing WinRM listener setup, one can execute the following command in either PowerShell or the command prompt:
 
 ```
-PS C:\GroupMembers\other\newfolder>  winrm enumerate winrm/config/listener
+winrm enumerate winrm/config/listener
 ```
+
+The listener configuration is displayed as follows:
 
 ```
 Listener
@@ -224,121 +179,118 @@ Listener
     ListeningOn = 127.0.0.1, 172.16.1.193, ::1
 ```
 
-* The "Address" setting specifies that the WinRM listener is bound to all available IP addresses, represented by the asterisk (). This means that the listener accepts inbound connections from any IP address, including multiple NICs (Network Interface Cards) if present.
-
-* The "ListeningOn" field displays the IP addresses on which the WinRM listener is actively listening for incoming connections. In this example, the listener is listening on three IP addresses: 127.0.0.1 (localhost), 172.16.1.193 (an IPv4 address), and ::1 (IPv6 localhost address).
-
-* The "Transport" is set to HTTP, indicating that the WinRM listener is currently configured to use the HTTP protocol. This means that communication with the WinRM service occurs over unencrypted HTTP connections, which might not be suitable for sensitive data transmission.
-
-* The "Port" is set to 5985, which is the default port for HTTP-based WinRM communication. It specifies the port number on which the WinRM service listens for incoming HTTP connections.
-
-* The "Hostname" field is empty, indicating that the WinRM listener is not bound to a specific hostname. In this configuration, it listens on all available hostnames.
-
-* The "Enabled" setting is set to true, indicating that the WinRM listener is active and ready to accept incoming connections.
-
-* The "URLPrefix" specifies the URL prefix used for WinRM connections, and it is set to "wsman," which is the default prefix for WinRM communication.
-
-* The "CertificateThumbprint" field is empty, indicating that no specific certificate thumbprint is associated with the listener. When using HTTPS (secure communication), this field would contain the thumbprint of the SSL certificate used for encryption.
-
-* We see currently listening ip addresses. (multiple NIC's.) We can configure listener ip address.
-* It is HTTP only. Listens any address ip address inbound.
-* It can be very granular and very secured. (only from certain addresses, over certain protocols, using cetain authentication mechanisms.)
-
-
-
-The current WinRM listener configuration reveals that it is listening on all available IP addresses and is configured to use the HTTP protocol. This setup allows inbound connections from any IP address, which may not always be the most secure option, especially when dealing with sensitive data or in production environments.
-
-WinRM listeners can be customized to be more granular and secure by configuring them to accept connections from specific IP addresses or subnets, limiting the allowed protocols (e.g., HTTPS only), and enforcing specific authentication mechanisms (e.g., Kerberos, HTTPS with certificates). Such configurations are often employed to ensure better security, compliance, and network control when using WinRM for remote management.
-
-To enhance the security of WinRM communications, it is recommended to consider switching to HTTPS (encrypted communication) and restrict listener access to specific trusted IP addresses or subnets. This can be achieved by modifying the listener settings and firewall rules to align with the organization's security policies and requirements. Additionally, using SSL certificates for encryption can further protect sensitive data during transmission.
-
-
-
+* The currently active IP addresses for listening, accommodating multiple NICs. It can be configured to listen IP addresses.
+* It is strictly using HTTP.
+* While the current configuration is basic, it can be customized for enhanced security, such as restricting access to specific addresses, employing specific protocols, and utilizing designated authentication mechanisms.
 
 ## 2. Windows To Windows Remote Connection
 
-* In our scenario both devices on the same domain. (Common scenario with Enterprise Environment)
-* They will use WinRM HTTP by default.
+In our scenario, both devices operate within the same domain, a common occurrence in an enterprise environment. 
 
-* We will verify WinRM connection on the remote device.
-* We must specft the authentication type.
-* If not sure then set it to Negotiate.
+We can see computername and domain by accessing writing the name of the variables like $env:COMPNAME and $env:USERDOMAIN.
 
-We are getting credentials using Get-Credential cmdlet. 
-Loading results to credential variable.
+We will WinRM on HTTP by default.
+
+We acquire credentials securely using the Get-Credential cmdlet and store the results in a variable named 'credential':
 
 ```
 $credential = Get-Credential
 ```
 
-* Enter domain credentials.
-* Password is stored securely.
+To confirm the WinRM connection on the remote device we specify the authentication type. 
+If unsure, setting it to 'Negotiate' is a recommended approach.
 
 ```
 $RemoteDeviceName = 'remotewindows01'
 Test-WSMan $RemoteDeviceName -Authentication Negotiate -Credential $credential
 ```
 
-Same as local results. Indicating credentials, authentication methods, remote machine has WinRM and its configuration successfull. 
+Same as the local results, the remote setup, indicating the configured credentials, authentication methods, and confirmation that the remote machine is set up with WinRM and is accepting connections.
 
-We can also verify local device is listening on WinRM port
+To verify if the local computer is listening on the WinRM port (5985), use the following command:
 
 ```
 Get-NetTCPConnection -LocalPort 5985
 ```
 
-We need powershell 5.1 for this command. Powershell 6 vs 5.1 has difference not all commands are avaible.
+Please note, the execution of this command requires PowerShell version 5.1. You can check your PowerShell version using:
 
 ```
 $PSVersionTable
 ```
 
-Open powershell 5 and write command there.
-```
+If you need to access PowerShell 5 on the same computer, launch it separately and execute the command there.
 
-#verify a remote device is listening on WinRM port
+To check if a remote device is listening on the WinRM port:
+
+```
 Test-NetConnection -Computername 192.168.34.13 -Port 5985
 ```
 
-## Establishing Remote Session
-
-Similar to ssh in Linux world.
-Enter a Powershell session on remote device.
+Similar to how SSH operates in Linux, you can establish a PowerShell session on a remote device using the following commands:
 
 ```
-# Open a Powershell session to remote device.
 $credential = Get-Credential
 Enter-PSSession -ComputerName RemoteDeviceName -Credential $credential
 ```
 
-Better than rdp.
+The Enter-PSSession command facilitates a connection to a single remote device. 
 
-We can get out by exit.
-
-
-## Remote Configuration
-
-We will use New-PSSession to affect many devices.
+To exit the session, simply type:
 
 ```
-# Basic session opened to remote device
-$session = New-PSSession -ComputerName RemoteDeviceName -Credential domain\user
+exit
 ```
+
+We used a single session but WinRM allows the management of multiple servers through sessions, streamlining administrative tasks across a network of servers
+
+## 3. Make It Work On Many Devices
+
+Using New-PSSession allows managing multiple devices concurrently. 
+
+Initially, we can create a session for a single device by using past credentials:
+
+```
+$session = New-PSSession -ComputerName RemoteDeviceName -Credential $credential
+```
+
+The created sessions are stored in the $session object. We can verify the sessions with:
+
 ```
 $session
 ```
-We can use this session with Invoke-Command to perform various tasks.
+
+To execute tasks on these sessions, we can utilize Invoke-Command with its ScriptBlock parameter:
 
 ```
 Invoke-Command -Session $session -ScriptBlock {hostname}
 ```
 
+This command retrieves the hostname of the respective server.
+
+Extending this to multiple devices involves using a list of servers stored in a file (e.g., C:\listOfServers.txt) and establishing sessions for each device:
+
 ```
-#establish session to an entire list of devices
 $devices = Get-Content -Path C:\listOfServers.txt
 $credential = Get-Credential
 $multiSession = New-PSSession -ComputerName $devices -Credential $credential
+Invoke-Command -Session $multiSession -ScriptBlock {hostname}
 ```
+
+This script reads a list of servers from the file, creates sessions for each server using the stored credentials, and executes a command to retrieve the hostname from each session.
+
+For executing specific tasks across multiple devices: (Number of CPU's fotr that case.)
+
+```
+Invoke-Command -Session $sessions -ScriptBlock { (Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors }
+```
+
+Remember, when running tasks across multiple sessions, they execute in parallel, making it difficult to determine the exact sequence of completion.
+
+
+## Advance Usages
+
+
 
 ## Questions:
 * How to use WinRM?
