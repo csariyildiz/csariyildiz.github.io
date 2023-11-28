@@ -279,7 +279,7 @@ Invoke-Command -Session $multiSession -ScriptBlock {hostname}
 
 This script reads a list of servers from the file, creates sessions for each server using the stored credentials, and executes a command to retrieve the hostname from each session.
 
-For executing specific tasks across multiple devices: (Number of CPU's fotr that case.)
+For executing specific tasks across multiple devices: (Number of CPU's for that case.)
 
 ```
 Invoke-Command -Session $sessions -ScriptBlock { (Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors }
@@ -287,23 +287,53 @@ Invoke-Command -Session $sessions -ScriptBlock { (Get-CimInstance Win32_Computer
 
 Remember, when running tasks across multiple sessions, they execute in parallel, making it difficult to determine the exact sequence of completion.
 
+The script below performs remote tasks on multiple servers specified in the $servers array using Invoke-Command. 
 
-## Advance Usages
+It gathers information about the number of CPUs on each server and handles any connection errors that might occur during the process.
 
+Splatting It's particularly helpful when you have a lot of parameters to pass to a command, making your script more readable and maintainable.
 
+```
+# Define the list of servers
+$servers = 'Server1', 'Server2', 'Server3', 'Server4'
 
-## Questions:
-* How to use WinRM?
-* Can WinRM 
+# Retrieve credentials for remote access
+$creds = Get-Credential
 
+# Initialize an array to store remote execution results
+$remoteResults = @()
 
+# Declare a splat to pass parameters to Invoke-Command
+$invokeSplat = @{
+    ComputerName  = $servers
+    Credential    = $creds
+    ErrorVariable = 'connectErrors'
+    ErrorAction   = 'SilentlyContinue'
+}
+
+# Execute a command on remote servers to fetch CPU information
+$remoteResults = Invoke-Command @invokeSplat -ScriptBlock {
+    $obj = [PSCustomObject]@{
+        Name = $using:env:COMPUTERNAME  # Use $using to access local variables
+        CPUs = "-------"
+    }
+
+    $obj.CPUs = (Get-CimInstance Win32_ComputerSystem).NumberOfLogicalProcessors
+    return $obj
+}
+
+# Handle any connection failures that occurred during remote execution
+$remoteFailures = $connectErrors.CategoryInfo `
+    | Where-Object {$_.Reason -eq 'PSRemotingTransportException'} `
+    | Select-Object TargetName, @{n = 'ErrorInfo'; E = {$_.Reason} }
+```
+    
 ## References
 
-* https://www.youtube.com/watch?v=qvJRaYlxI1w&t=199s
+* [https://www.techthoughts.info/powershell-remoting/](https://www.techthoughts.info/powershell-remoting/)
 * [Running Remote Commands](https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/running-remote-commands?view=powershell-6)
 * [Windows Remote Management](https://docs.microsoft.com/en-us/windows/win32/winrm/portal)
 * [Installation and Configuration for Windows Remote Management](https://docs.microsoft.com/en-us/windows/win32/winrm/installation-and-configuration-for-windows-remote-management)
 * [Making the second hop in PowerShell Remoting](https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ps-remoting-second-hop?view=powershell-6)
 * [PowerShell remoting over SSH](https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6)
 * [How to configure WinRM for HTTPS manually](https://www.visualstudiogeeks.com/devops/how-to-configure-winrm-for-https-manually)
-* hostname, #PSVersionTable
