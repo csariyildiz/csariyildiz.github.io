@@ -9,17 +9,17 @@ tags:
 ---
 
 
-The HP 5406, part of the HP ProCurve switch lineup, continues to be utilized in networking solutions. Alongside models like the 5900 and 5510, the 5406, although slightly dated, is still widely deployed. Typically serving as branch or edge switches, they also function as backbone switches.
+The `HP 5406`, part of the `HP ProCurve switch` lineup, continues to be utilized in networking solutions. Alongside models like the 5900 and 5510, the 5406, although slightly dated, is still widely deployed. Typically serving as branch or edge switches, they also function as backbone switches. The `HP E5406zl` switch was introduced in the `mid-2000s`. It was part of the HP ProCurve line of network switches and offered various modular configurations to suit different network requirements. The exact release date was around `2006-2007`, but specific launch dates for networking hardware can sometimes vary by region or market availability.
 
-Such a switch is typically connected to the center via fiber if it is on the floor. 
-The cables go with one fiber pair for the entire floor. Ethernet cables are used on the same floor. 
-The patch panel where each wall connection goes is connected to these switches via Ethernet.
+Such a switch is typically connected to the center via fiber cables if it is on the one floor. 
+The cables go with one fiber pair for all floors. `Ethernet` cables are used on the same floor. 
+The `patch-panel` where each wall connection goes is connected to these switches via Ethernet.
 
-Accessing these switches involves using their IP address via SSH or a web interface, requiring a valid username and password for authentication.
+Accessing these switches involves using their `IP` address via `SSH` or a web interface, requiring a valid username and password for authentication.
 
 ## Overview
 
-A sample setup includes an HP Switch E5406zl (J8697A) operating on ROM version K.15.06.0017, complemented by an additional ROM, K.15.30, identified as SW-HP_5406-MYBRANCH1.
+A sample setup includes an HP Switch `E5406zl (J8697A)` operating on `ROM` version `K.15.06.0017`, complemented by an additional `ROM`, `K.15.30`, identified as `SW-HP_5406-MYBRANCH1`.
 
 This switch is comprised of two modules, A and B, housing 24 ports each, labeled A1-24 and B1-24. The majority of these ports default to VLAN 1 and remain untagged, while some may be dedicated to other VLANs for specific phone communication purposes.
 
@@ -56,7 +56,6 @@ Considering potential blockages, the switch might employ Port Security or Spanni
 * Regarding STP, ports can temporarily be in a "blocking" state as part of the convergence process to prevent loops. To assess the STP status on a port, I use: "show spanning-tree <port-number>."
 
 After verification, it appears that the port is not blocked by either Port Security or Spanning Tree Protocol.
-
 
 ## Examination Of Configuration
 
