@@ -14,7 +14,7 @@ Since by default, WinRM isn't activated in Windows systems, it is necessary to c
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/winrm.jpg" class="img-fluid" alt="winrm">
 
-There various alternatives to WinRM exist in Windows, including WMIC, PsExec (Sysinternals Suite), WinRS (Windows Remote Shell), and OpenSSH.
+There various alternatives to WinRM exist in Windows, including WMIC, PsExec (Sysinternals Utility), WinRS (Windows Remote Shell), and OpenSSH.
 Different tools might be preferred based on specific needs, limitations, or security requirements but WinRM is the one of the most preferred ones.
 
 It's very beneficial on for automating specific administrative tasks instead of manually doing them by RDP connections. 
