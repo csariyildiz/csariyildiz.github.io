@@ -1,3 +1,24 @@
+
+PsExec, a command-line tool developed by Sysinternals (now a part of Microsoft), typically uses the Server Message Block (SMB) protocol to execute commands remotely on Windows systems. It establishes communication with remote systems over TCP ports 445 (SMB) and 135 (RPC) to perform tasks like running processes, transferring files, and executing commands on remote machines.
+
+SMB (Server Message Block) is a network file sharing protocol that allows applications to read and write to files and request services from server programs in a computer network. It is the underlying protocol used by PsExec to execute commands on remote computers. PsExec works by establishing a connection with the target system using the SMB protocol. Once connected, PsExec creates a temporary service on the remote machine, known as PSEXESVC.exe. This service acts as an agent for the PsExec client, receiving commands and executing them on the remote system. The output of the remote process is then streamed back to the PsExec client, allowing the user to interact with the remote application as if it were running locally.
+
+
+We can use it by downloading. In a download folder it has many executables. PsExec64.exe. SMB (445) is always activated on windows unless it is explicitly disabled. 
+  
+```
+./PsExec64.exe \\192.168.2.109 -u Administrator -p Passw00rd! ipconfig 
+```
+
+
+```
+./PsExec64.exe \\192.168.2.109 -u Administrator -p Passw00rd! cmd.exe 
+```
+
+* https://www.sans.org/blog/protecting-privileged-domain-accounts-psexec-deep-dive/
+
+
+```
 # Define the list of servers
 $servers = 'Server1', 'Server2', 'Server3', 'Server4'
 
@@ -39,3 +60,4 @@ Remove-Item -Path $tempDir -Recurse -Force
 # Collect and process the remote execution results
 $remoteResults = Get-Content -Path $tempDir\remoteResults.txt
 $remoteResults | Select-Object Name, CPUs -OutFile 'remoteCPUInfo.txt'
+```
