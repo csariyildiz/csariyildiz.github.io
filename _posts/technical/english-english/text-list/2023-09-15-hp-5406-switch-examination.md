@@ -8,62 +8,48 @@ tags:
   - Switch
 ---
 
-HP 5406 is a HP ProCurve switch which are most commonly used. 
-There are other HP switches like 5900 and 5510. 
-HP 5406 are a little old still in use.
-They generally used as branch or edge switches. Backbone switches their equvailent is.
-They have command line and web interface. We access it with its ip through ssh or web interface with using username and password.
+
+The HP 5406, part of the HP ProCurve switch lineup, remains a prevalent choice in networking solutions. Alongside models such as the 5900 and 5510, the 5406, although slightly dated, remains in active deployment. Typically serving as branch or edge switches, they are analogous to the HPE J9533A 5406 zl Switch, functioning as backbone switches.
+
+Equipped with command line and web interfaces, accessing these switches involves utilizing their IP address via SSH or a web interface, requiring a valid username and password for authentication.
 
 ## Overview
 
-Mine is HP Switch E5406zl(J8697A) with ROM version K.15.06.0017, ROM K.15.30. Named like SW-HP_5406-MYBRANCH1.
+A sample setup includes an HP Switch E5406zl (J8697A) operating on ROM version K.15.06.0017, complemented by an additional ROM, K.15.30, identified as SW-HP_5406-MYBRANCH1.
 
-It has two modules A and B. Each has 24 Ports. Port numbers goes A1-24 and B1-24. Most ports are in default VLAN 1 and not tagged.
-There might be other VLANS for phone communication.
+This switch is comprised of two modules, A and B, housing 24 ports each, labeled A1-24 and B1-24. The majority of these ports default to VLAN 1 and remain untagged, while some may be dedicated to other VLANs for specific phone communication purposes.
 
-Details of gui:
+The graphical user interface (GUI) is neatly organized with a left sidebar housing folders such as Home, System, Interface, VLAN, Traffic Mgmt, Spanning Tree, Multicast, Security, and Troubleshooting. These folders lead to specific pages and windows:
 
-Left sidebar has : Home, System, Interface, VLAN, Traffic Mgmt, Spanning Tree, Multicast, Security and Troubleshooting folders.
-Each one has their pages and windows beneath. 
+* Home: Offers Quick Setup and Status information.
+* System: Includes Logging, SNMP, and Updates/Downloads.
+* Interface: Provides access to Port Info/Config and POE settings.
+* VLAN: Offers VLAN Management, Traffic Management, and QOS configurations.
+* Spanning Tree: Manages tree configurations.
+* Multicast: Includes IGMP settings.
+* Security: Encompasses Device Passwords, Security Wizard, IP Authorization, Port Security, Intrusion Log, and SSL settings.
+* Troubleshooting: Provides options for Ping/Link Test, Configuration Report, Core Dump, and Port Mirroring.
 
-Home: Quick Setup, Status
-System: Logging, SNMP, Updates/Downloads
-Interface: Port Info/Config, POE
-VLAN : VLAN Mgmt, Traffic Mgmt, QOS
-Spanning Tree : Tree Management
-Multicast : IGMP
-Security : Device Passwords, Security Wizard, IP Authorization: Port Security, Intrusion Log, SSL
-Troubleshooting : Ping/Link Test, Configuration Report, Core Dump, Port Mirroring
+The "Configuration Report" section allows for quick access to review the current configuration details. For a more in-depth examination, a detailed version of the configuration settings is available within the configuration menu.
 
-I can go configuration report to see the configuration quickly. You can see detailed version in configuration.
+## Case Example: Connectivity Issue Investigation
 
-## Example Case: Problem Of Access
+I've got ILO access to this server, and despite providing the correct IP and router gateway (a branch firewall in this scenario), there's still no connection. This raises concerns about potential network issues, perhaps a block on the switch port.
 
-I have ILO access of this server. Even I gave IP and correct gateway of the router. (in this case its a branch firewall) 
-It still doesnt connect. This makes us suspicious about the network and maybe a block on switch port.
+Firstly, I need to inspect the server's port. I'm equipped with an HP5406 switch and administrator privileges for the device. To retrieve the MAC addresses of devices connected to each port through the Command Line Interface (CLI), here's what I do:
 
-First I need to check the port of the server.
-Ok. I have HP5406 switch. I have administrator access to device.
-I need mac addresses devices connected to each port. How can I do that through CLI?
+1. Enter Privileged EXEC Mode by typing "enable."
+2. Access Configuration Mode by entering "configure terminal."
+3. Now in the global configuration mode, I use "show mac-address" to display all MAC addresses for every port.
 
-I can ask chatgpt. I enter Privileged EXEC Mode by writing enable. Access Configuration Mode by writing configure terminal.
-Know I accessed global configuration mode. Show MAC Addresses for All Ports I write show mac-address. 
-Know I match the mac address of the server and find the port its connected. Its something like A20.
-show mac-address A20 which gives MAC address and VLAN of the port.
-Like all Ethernet interfaces, every port on a switch has a unique factory-assigned MAC address. 
-I can also learn that by writing show interfaces A24.
+By matching the server's MAC address, I can identify its connected port, often labeled something like "A20." To retrieve detailed information, I enter "show mac-address A20," which provides both the MAC address and VLAN of that specific port. Additionally, I can gather factory-assigned MAC addresses for all Ethernet interfaces using "show interfaces A24."
 
-Switch my be blocked this port with Port-Security or Spanning tree.
+Considering potential blockages, the switch might employ Port Security or Spanning Tree Protocol (STP). To examine this:
 
-I can check if a port has port security enabled and whether it has been triggered (i.e., a violation has occurred). 
-I can use the following command on an HP ProCurve switch (such as the HP 5406):
-show port-security <port-number>
+* To check if port security is active and triggered (e.g., a violation occurred), I utilize the command: "show port-security <port-number>" on an HP ProCurve switch like the HP 5406.
+* Regarding STP, ports can temporarily be in a "blocking" state as part of the convergence process to prevent loops. To assess the STP status on a port, I use: "show spanning-tree <port-number>."
 
-that use Spanning Tree Protocol (STP), ports can be in a "blocking" state as part of the STP convergence process to prevent loops. To check the status of STP on a port, you can use the following command:
-show spanning-tree <port-number>
-
-I see its not blocked.
-
+After verification, it appears that the port is not blocked by either Port Security or Spanning Tree Protocol.
 
 
 ## Examination Of Configuration
