@@ -9,9 +9,13 @@ tags:
 ---
 
 
-The HP 5406, part of the HP ProCurve switch lineup, remains a prevalent choice in networking solutions. Alongside models such as the 5900 and 5510, the 5406, although slightly dated, remains in active deployment. Typically serving as branch or edge switches, they are analogous to the HPE J9533A 5406 zl Switch, functioning as backbone switches.
+The HP 5406, part of the HP ProCurve switch lineup, continues to be utilized in networking solutions. Alongside models like the 5900 and 5510, the 5406, although slightly dated, is still widely deployed. Typically serving as branch or edge switches, they also function as backbone switches.
 
-Equipped with command line and web interfaces, accessing these switches involves utilizing their IP address via SSH or a web interface, requiring a valid username and password for authentication.
+Such a switch is typically connected to the center via fiber if it is on the floor. 
+The cables go with one fiber pair for the entire floor. Ethernet cables are used on the same floor. 
+The patch panel where each wall connection goes is connected to these switches via Ethernet.
+
+Accessing these switches involves using their IP address via SSH or a web interface, requiring a valid username and password for authentication.
 
 ## Overview
 
@@ -19,7 +23,9 @@ A sample setup includes an HP Switch E5406zl (J8697A) operating on ROM version K
 
 This switch is comprised of two modules, A and B, housing 24 ports each, labeled A1-24 and B1-24. The majority of these ports default to VLAN 1 and remain untagged, while some may be dedicated to other VLANs for specific phone communication purposes.
 
-The graphical user interface (GUI) is neatly organized with a left sidebar housing folders such as Home, System, Interface, VLAN, Traffic Mgmt, Spanning Tree, Multicast, Security, and Troubleshooting. These folders lead to specific pages and windows:
+The graphical user interface (GUI) is neatly organized with a left sidebar has folders such as Home, System, Interface, VLAN, Traffic Mgmt, Spanning Tree, Multicast, Security, and Troubleshooting. 
+
+These folders lead to specific pages and windows:
 
 * Home: Offers Quick Setup and Status information.
 * System: Includes Logging, SNMP, and Updates/Downloads.
@@ -46,7 +52,7 @@ By matching the server's MAC address, I can identify its connected port, often l
 
 Considering potential blockages, the switch might employ Port Security or Spanning Tree Protocol (STP). To examine this:
 
-* To check if port security is active and triggered (e.g., a violation occurred), I utilize the command: "show port-security <port-number>" on an HP ProCurve switch like the HP 5406.
+* To check if port security is active and triggered (e.g., a violation occurred), I utilize the command: `show port-security <port-number>` on an HP ProCurve switch like the HP 5406.
 * Regarding STP, ports can temporarily be in a "blocking" state as part of the convergence process to prevent loops. To assess the STP status on a port, I use: "show spanning-tree <port-number>."
 
 After verification, it appears that the port is not blocked by either Port Security or Spanning Tree Protocol.
