@@ -15,10 +15,9 @@ Since by default, WinRM isn't activated in Windows systems, it is necessary to c
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/winrm.jpg" class="img-fluid" alt="winrm">
 
 There various alternatives to WinRM exist in Windows, including WMIC, PsExec (Sysinternals Utility)[1](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec), WinRS (Windows Remote Shell), and OpenSSH.
-Different tools might be preferred based on specific needs, limitations, or security requirements but WinRM is the one of the most preferred ones.
-WinRM (Windows Remote Management) can be considered the "official" way for remote management and automation tasks in Windows environments. It's a Microsoft-supported feature that provides a standardized management interface and protocol for remote access and execution of PowerShell commands, scripts, and other management tasks.
+Different tools might be preferred based on specific needs, limitations, or security requirements but WinRM is the one of the most preferred ones.WinRM (Windows Remote Management) can be considered the "official" way for remote management and automation tasks in Windows environments. It's a Microsoft-supported feature that provides a standardized management interface and protocol for remote access and execution of PowerShell commands, scripts, and other management tasks. 
 
-Tools like Ansible, Chef, Puppet, and SaltStack also offer remote management and configuration capabilities for Windows systems, allowing administrators to automate tasks, manage configurations, and deploy software across multiple machines.
+Tools like Ansible, Chef and Puppet also offer remote management and configuration capabilities for Windows systems, allowing administrators to automate tasks, manage configurations, and deploy software across multiple machines. Ansible communicates with Windows servers over WinRM using the Python's pywinrm package and to remotely run PowerShell scripts and commands.[1](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html)
 
 It's very beneficial on for automating specific administrative tasks instead of manually doing them by RDP connections. 
 Using these tools we can across multiple machines simultaneously and handling remote configurations using PowerShell's functionality.
