@@ -1,5 +1,12 @@
+---
+layout: post3
+date: "2023-01-02"
+title: "PsExec : Administration Tool Used By Adversaries"
+category: a
+tags:
+  - "Administration"
+---
 
-PsExec : Administration Tool Used By Adversaries
 
 `PsExec`, a command-line tool (utiliy) developed by `sysinternals` (company now a part of Microsoft), enables users to execute commands remotely on Windows systems. `PsExec` typically uses the `Server Message Block (SMB)` protocol. It establishes communication with remote systems over TCP ports `445 (SMB)` and `135 (RPC)` to perform tasks like running processes, transferring files, and executing commands on remote machines.
 
