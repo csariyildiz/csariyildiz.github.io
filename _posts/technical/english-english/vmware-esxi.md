@@ -1,4 +1,4 @@
-A complete system within an enterprise environdment, whether it's a server or a comprehensive infrastructure setup, comprises both hardware and software components that work together to achieve specific functionalities.
+A complete system within an enterprise environment, whether it's a server or a comprehensive infrastructure setup, comprises both hardware and software components that work together to achieve specific functionalities.
 As an hardware a datacenter should have server hardware, storage infrastructure, networking equipment and additional elements like backup hardware, power supplies.
 
 * Server hardware such as Dell EMC PowerEdge Servers form the core hardware, providing processing power, memory, storage, and networking capabilities.
