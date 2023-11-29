@@ -1,9 +1,8 @@
-A complete system, whether it's a server or a comprehensive infrastructure setup, comprises both hardware and software components that work together to achieve specific functionalities.
-
-As an hardware a datacenter should have server hardware, storage infrastructure, networking equipment and additional elements like backup hardware, power supplies etc.
+A complete system within an enterprise environdment, whether it's a server or a comprehensive infrastructure setup, comprises both hardware and software components that work together to achieve specific functionalities.
+As an hardware a datacenter should have server hardware, storage infrastructure, networking equipment and additional elements like backup hardware, power supplies.
 
 * Server hardware such as Dell EMC PowerEdge Servers form the core hardware, providing processing power, memory, storage, and networking capabilities.
-* A storage infrastructure consists of storage arrays or drives. Storage including HDDs, SSDs, or storage systems from vendors like Dell EMC Unity, NetApp store data and provide access to it. Dell EMC Unity storage management software offering unified storage with features for performance optimization and data protection.
+* A storage infrastructure consists of storage arrays or drives. Storage including HDDs, SSDs, or storage systems from vendors like Dell EMC Unity, NetApp store data and provide access to it. Storage management platforms like Dell EMC Unity provides unified storage with features for performance optimization and data protection. 
 * There is also a need for networking equipment such as switches, routers, firewalls, certain appliances like VPN, loadbalancers. These devices facilitates network communication within the infrastructure and with external systems.
 * We additionally need additional sensor sensor (netbotz), power supplies (ups), cooling system (enterprise cooling products) to maintaining server and infrastructure reliability by ensuring uninterrupted power and proper cooling.
 * Also a backup system can be used such as Dell EMC Networker. Dell EMC Networker is a backup and recovery software work optimally with Dell EMC storage solutions and hardware, enhancing backup and recovery performance in Dell EMC environments.
@@ -13,6 +12,14 @@ As a software, datacenter should have Hypervisors to achieve virtualization. Vir
 * Virtualization management software such as VMware vSphere and Microsoft System Center are tools for managing virtualized environments, including VM provisioning, monitoring, and resource allocation.
 
 Finally as a software upper layers will consists of network management tools, workloads and Applications, monitoring and security tools, configuration Management tools and integration layers.
+
+## SAN Switches
+
+SAN Switches use specialized protocols like Fibre Channel (FC) or Fibre Channel over Ethernet (FCoE) for data transmission in storage networks.  They also often incorporate features like zoning and masking. Zoning allows administrators to create logical groups of devices that can communicate with each other, enhancing security and isolation. Masking restricts access to specific storage resources for certain devices, adding another layer of security and access control.
+
+They also have various port types such as Fibre Channel ports, supporting much higher speeds like 32 Gbps to 128 Gbps. They offer redundancy and high availability options with redundant power supplies, hot-swappable components, and support for features like Multipath I/O (MPIO) to ensure continuous access to storage even if a component fails.
+
+They also differ in management and Monitoring Capabilities: SAN switches come with management interfaces and software that cater specifically to storage network configurations.
 
 ## VMware ESXi and VMware vSphere
 
@@ -43,4 +50,4 @@ Storage policies and features like thin provisioning, snapshots, and replication
 
 VMware vSphere features like Storage vMotion enable live migration of virtual machine storage between datastores. Integration with storage systems like Dell EMC Unity allows for efficient migrations without downtime.
 
-## Hyper-converged Systems
+## Hyper-Converged Systems
