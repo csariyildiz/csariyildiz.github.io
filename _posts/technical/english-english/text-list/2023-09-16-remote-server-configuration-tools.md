@@ -128,7 +128,7 @@ Problems may be encountered when installing old ilo 5 versions over Version 1.40
 
 For example, to update an older ILO 5 to the "iLO 5 - 2.97 Sep 12 2023" version, we must first switch to 1.40.
 
-To upgrade to version 1.40 or later for iLO 5, you need to install the following update:
+To upgrade to version 1.40 or later for iLO 5, we need to install the following update:
 
 ```
 Online ROM Flash Component for Windows x64 - HPE Integrated Lights-Out 5 
