@@ -63,19 +63,19 @@ ProLiant server family is divided into generations, each of which offers new fea
 
 Version history of ILO:
 
-| Date          | Generation             | ILO Model | ILO Latest Version |
-|---------------|------------------------|-----------|--------------------|
-|1999 (November)| HP ProLiant  Gen1      |           |                    |
-|2001 (November)| HP ProLiant  Gen2      |           |                    |
-|2003 (November)| HP ProLiant  Gen3      |           |                    |
-|2005 (November)| HP ProLiant  Gen4      |           |                    |
-|2007 (November)| HP ProLiant  Gen5      |   ILO 2   |                    |
-|2009 (November)| HP ProLiant  Gen6      |           |                    |
-|2010 (November)| HP ProLiant  Gen7      |           |                    |
-|2012 (February)| HP ProLiant  Gen8      |  ILO 3    |                    |
-| July 2015     | HP ProLiant  Gen9      |  ILO 4    |                    |
-| June 2017     | HP ProLiant  Gen10     |  ILO 5    |                    |
-| June 2023     | HP ProLiant  Gen11     |  ILO 6    |                    |
+| Date          | Generation              | ILO Model | ILO Latest Version |
+|---------------|-------------------------|-----------|--------------------|
+|1999 (November)| HP ProLiant  Gen 1      |           |                    |
+|2001 (November)| HP ProLiant  Gen 2      |           |                    |
+|2003 (November)| HP ProLiant  Gen 3      |           |                    |
+|2005 (November)| HP ProLiant  Gen 4      |           |                    |
+|2007 (November)| HP ProLiant  Gen 5      |   ILO 2   |                    |
+|2009 (November)| HP ProLiant  Gen 6      |           |                    |
+|2010 (November)| HP ProLiant  Gen 7      |           |                    |
+|2012 (February)| HP ProLiant  Gen 8      |  ILO 3    |                    |
+| July 2015     | HP ProLiant  Gen 9      |  ILO 4    |                    |
+| June 2017     | HP ProLiant  Gen 10     |  ILO 5    |                    |
+| June 2023     | HP ProLiant  Gen 11     |  ILO 6    |                    |
 
 iLO 1 and 2 are based on a different architecture than iLO 3 and later. iLO 1 released in 2004 and iLO 2 released in 2007. iLO 1 and 2 are no longer supported by HPE, and they are not compatible with Gen8 and later servers.
 
