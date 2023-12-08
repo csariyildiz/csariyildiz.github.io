@@ -10,9 +10,10 @@ In this article, we will evaluate two very useful functions on Excel: VLOOKUP an
 
 ## VLOOKUP
 
-VLOOKUP stands for "Vertical Lookup." It's an Excel function used to search for a value in the first column of a table, then retrieve a corresponding piece of information located in the same row but from a specified column within that table.
+`VLOOKUP` stands for `Vertical Lookup`. It's an `Excel function` used to search for a value in the first column of a table, then retrieve a corresponding piece of information located in the same row but from a specified column within that table.
 
-Understanding how to use VLOOKUP in Excel might seem challenging at first. 
+Use `VLOOKUP` in Excel might seem challenging at first but its a very powerfull tool once you learned.
+
 `VLOOKUP` function operates on four parameters: 
 * the cell to inspect, (values to search for each row).
 * the table to search (usually represented as a range of columns).
@@ -38,9 +39,12 @@ We write this function in a column in our Table5.
 For every value of `DOI` we want to get `Authors` from `Table7` with the same `DOI`. If `DOI` velues are matched than the `Authors` retrived. 
 If it can't find any corresponding `DOI` than it will get `N\A` values.
 
-Here, the question of how we can do a similar operation in SQL may come to mind. 
+We can copy the column and paste with values to remove the formulas by keeping the results.
 
-In SQL, the LEFT JOIN statement matches DOI values from Table_X to DOI values in Table_Y, retrieving Authors for matching DOIs. If there's no match in Table7 for a particular DOI from Table5, it would show NULL for Authors in the result set.
+Additionally, the question of how we can do a similar operation in SQL may come to mind. 
+
+In SQL, the `LEFT JOIN statement` matches `DOI` values from `Table_X` to `DOI values` in `Table_Y`, retrieving Authors for matching DOIs. 
+If there's no match in `Table_Y` for a particular DOI from `Table_X`, it would show `NULL` for `Authors` in the result set.
 
 ```
 SELECT t1.DOI, t2.Authors
