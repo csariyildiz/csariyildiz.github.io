@@ -9,50 +9,47 @@ tags:
 Türkiye'de nüfus sayımı ilk olarak 1927 yılında yapılıyor. 13 milyon 649 bin 945 kişi olarak belirleniyor 1950'de bu sayı 20 milyonu, 1975'te 40 milyonun üstünde. 
 1985 sayımında 50 milyonu aşan Türkiye nüfusu, 2007'de 70 milyonu, 2017'de ise 80 milyonu aşıyor. 2021 sonu itibariyle Türkiye nüfusu 85 milyon sınırında bulunuyor.
 
-
 ## İstanbul
 
-Türkiye'nin en kalabalık şehri 2020' yılı rakamlarıyla 15.46 milyon nüfusa sahip. 
-Bu haliyle bir çok ülkeden kalabalık olan İstanbul Türkiye'nin kuzeybatısında, Marmara Bölgesinde, Haliç'i çevreleyen, Marmara kıyısı ve Boğaz boyunca yeralıyor.
+Türkiye'nin en kalabalık şehri, 2020 yılı verilerine göre 15.46 milyon nüfusa sahip. Türkiye'nin kuzeybatısında, Marmara Bölgesi'nde bulunan İstanbul, Haliç'i çevreleyen, Marmara kıyısı ve Boğaz boyunca yer alan İstanbul bu özelliğiyle, birçok ülkeden daha kalabalık bir konumda yer alıyor.
 
-İstanbul'un coğrafi konumu haricinde dikkat çeken özelliği tarihi. Şehir yaklaşık 1600 yıl boyunca çeşitli imparatorluklara başkent olmuş. 
-Roma/Bizans (330–1204), Latin (1204–1261), geç Bizans (1261–1453) ve Osmanlı (1453–1922) imparatorlukları döneminde.
-Yenikapı kazılarında 8 bin 500 yıllık mezar bulunması şehrin İnsanlık için ne kadar eski bir yerleşim yeri olduğunu gösteriyor. [*](https://istanbultarihi.ist)
+İstanbul sadece coğrafi konumuyla değil, aynı zamanda tarihi zenginliğiyle de etkileyici bir şehir. 1600 yılı aşkın bir süredir çeşitli imparatorluklara başkentlik yapmtığını biliyoruz. Roma/Bizans (330–1204), Latin (1204–1261), geç Bizans (1261–1453) ve Osmanlı (1453–1922) imparatorlukları döneminde büyük öneme sahip olmuş. Yenikapı'da yapılan kazılarda keşfedilen 8 bin 500 yıllık mezarlar, şehrin insanlık için ne kadar eski bir yerleşim yeri olduğunu gösteriyor.
 
-İstanbul'un Cumhuriyet dönemindeki tarihi incelendiğinde 80'li yıllarda yaşanan göç dikkat çekiyor. Kırsal alanlardan göç bu dönemi kontrolsüz yerleşmeye neden olmuş.
+Cumhuriyet döneminde, özellikle 1980'lerde yaşanan büyük göç dalgası, İstanbul'un demografik yapısını derinden etkilemiştir. Kırsal bölgelerden şehre yapılan bu göç, zamanla kontrolsüz bir yerleşim ve altyapı sorunlarına yol açmıştır.
 
-1925 yılında 881.000'lik İstanbul nufusu 1927'ye gelindiğinde 691.000'e düşüyor. Daga sonra 1934, 1940 ve 1945 'de %1 lik artış var. Daga sonra bu %4 ve %3 seviyesine yükseliyor. 1980-1985 yılları arasında ise şehrin
-nufusu %14 artmış görünüyor. 1990'dan itibaren ise yine her sayımda %2-%3'lük bir artış söz konusu.
+İstanbul'un nüfusundaki değişimleri ele aldığımızda ilginç bir seyir görüyoruz. 1925'te 881.000 olan nüfus, 1927'de 691.000'e düşmüş. Daha sonra 1934, 1940 ve 1945 yıllarında %1'lik bir artış yaşanmış, bu oran daha sonra %4 ve %3 seviyelerine yükselmiş. 1980-1985 arasında ise şehir nüfusunda %14'lük bir artış gözlenmiş. 1990'lardan itibaren ise her sayımda %2-%3 arası bir artış kaydedilmiştir.
 
-İstanbul'un ilçe ve mahalleleri ele alındığında, Haliç, Marmara Denizi ve surlarla çevrili, nefs-i İstanbul veya Ders-aadet olarak bilinen Tarihi Yarımada merkezi oluşturuyor. Bilâd-ı Selâse olarak bilinen Galata, Eyüp ve Üsküdar ise adli mahalleler halinde zamanla şehre entegre olmuş; bu nedenle tamamlayıcı bir unsur oluşturuyorlar.
+İstanbul'un ilçe ve mahalleleri incelendiğinde, Tarihi Yarımada olarak bilinen Haliç, Marmara Denizi ve surlarla çevrili bir merkez oluştururken, Galata, Eyüp ve Üsküdar gibi bölgeler zamanla şehre entegre olmuş ve şehrin dokusuna katkıda bulunmuşlardır.
 
-1868 yılında çıkarılan Dersaadet İdare-i Belediye Nizamnamesi ile İstanbul 14 belediyeye ayrılmış; bunlar Ayasofya, Aksaray, Fatih, Eyüp, Kasımpaşa, Beyoğlu, Beşiktaş, Mirgün, Büyükdere, Beykoz, Beylerbeyi, Üsküdar, Kadıköy ve Adalar. [*](https://istanbultarihi.ist/451-districts-and-neighborhoods-of-istanbul-1453-1923)
+Şehir yönetimi açısından, 1868'de çıkarılan Dersaadet İdare-i Belediye Nizamnamesi ile İstanbul, 14 ayrı belediyeye ayrılmıştır. Bu belediyelerden bazıları Ayasofya, Aksaray, Fatih, Eyüp, Kasımpaşa, Beyoğlu, Beşiktaş, Mirgün, Büyükdere, Beykoz, Beylerbeyi, Üsküdar, Kadıköy ve Adalar'dır. Daha sonraki yıllarda ise şehirdeki ilçe sayısı artmış ve 1930 yılında İstanbul 15 ilçeden oluşmaya başlamıştır.
+1930 yılında İstanbul'un 15 ilçeden oluştuğu görülmektedir. Bunlar Adalar, Bakırköy, Beşiktaş, Beykoz, Beyoğlu, Çatalca, Eminönü, Fatih, Kadıköy, Kartal, Sarıyer, Silivri, Şile, Üsküdar ve Yalova'dır.
 
-1930 yılına gelindiğinde İstanbul 15 ilçeden oluştuğunu görüyoruz. Bunlar Adalar, Bakırköy, Beşiktaş, Beykoz, Beyoğlu, Çatalca, Eminönü, Fatih, Kadıköy, Kartal, Sarıyer, Silivri, Şile, Üsküdar ve Yalova.
+Avrupa Yakası için Hacıosman metrosu, İstanbul'un merkezi noktalarından geçerek Yenikapı'dan başlayıp Hacıosman'a kadar uzanan önemli bir ulaşım hattıdır. Bu hat, sadece trafiği azaltmakla kalmaz, aynı zamanda şehrin önemli noktalarına kolay ulaşım sağlar. Haliç'in kıyısından geçerek etkileyici manzaralar sunar ve şehrin farklı bölgelerini birbirine bağlar. İstanbul'un ulaşım ağında bu tür hatlar, insanların günlük yaşamlarını kolaylaştırır ve şehrin dinamik yapısına katkıda bulunuyor.
 
 
 ## Ankara
 
 1927 yılında İstanbul'un nüfusu 691.0000 iken Ankara'nın nüfusu ise 75,000. 1932'de onaylanan Jansen planında. Kırmızı sınır, Lörcher planına dahil edilen alanı, taranmış alanlar ise 1932'deki mevcut yerleşimleri gösteriyor. * [*](https://core.ac.uk/download/pdf/52923933.pdf).
 
-## Eskisehir
+-------------------------------------------------------------------
 
-* Between Ankara and Istanbul.
+* İstanbul
+  * Tarihi Yarımada
+  * Şişli  
+  * Adalar
+  * Polonezköy
+* Eskişehir
+* Sivas
 
-## Sivas
+* United States
+  * Los Angeles (West LA, Santa Monica, )
+  * San Diego
+  * Las Vegas
+  * New York
 
-* dd
+* Yunanistan
+  * Limnos
+ 
+    ## Kitap
 
-## List Of Places
-* Istanbul
-  * Princes Islands
-  * Polonezkoy
-
-## United States
-* Los Angeles (West LA, Santa Monica, )
-* San Diego
-* Las Vegas
-* New York
-
-## Greece
-* Limnos
+    * Murat Belge - 
