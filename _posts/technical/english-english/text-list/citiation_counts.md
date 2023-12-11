@@ -1,4 +1,7 @@
 
+* Histogram.
+
+
 Binning, in the context of data analysis, is the process of grouping values together into bins or intervals. It's a way to categorize continuous numerical variables into discrete groups. This method helps simplify the data and analyze patterns or distributions more easily.
 
 For instance, consider a set of numerical values ranging from 1 to 1000. Instead of analyzing each individual value, binning could involve grouping them into ranges like 1-100, 101-200, 201-300, and so on. Each range becomes a "bin" containing a subset of the original values.
