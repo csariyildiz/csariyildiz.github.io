@@ -1,4 +1,49 @@
 
+```
+import pandas as pd
+import numpy as np
+
+citation_counts = [75981, 64823, 28389, 15982, 11681, 9772, 3606, 2380, 1780, 1377,
+                   1149, 1123, 1106, 744, 632, 620, 550, 495, 418, 319, 297, 253, 207,
+                   206, 201, 199, 196, 172, 169, 160, 144, 141, 132, 132, 127, 121,
+                   112, 109, 100, 96, 92, 86, 84, 78, 75, 69, 57, 57, 57,
+                   56, 55, 51, 51, 50, 49, 46, 45, 45, 45, 44, 43, 43,
+                   42, 42, 41, 40, 39, 39, 39, 39, 39, 39, 38, 38, 38,
+                   37, 36, 36, 35, 35, 35, 34, 33, 32, 31, 30, 30, 29,
+                   28, 28, 27, 27, 26, 26, 26, 24, 24, 24, 23, 23, 23,
+                   22, 22, 21, 20, 20, 19, 19, 19, 19, 19, 18, 18, 17,
+                   17, 17, 17, 17, 17, 16, 16, 16, 15, 15, 15, 14, 14, 14,
+                   13, 13, 13, 12, 12, 12, 12, 11, 10, 10, 10, 9, 9, 9, 9, 8,
+                   8, 8, 8, 8, 8, 7, 7, 7, 7, 6, 6, 6, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, 4,
+                   3, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1,
+                   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+df = pd.DataFrame(citation_counts, columns=['Count'])
+
+print(df.describe())
+
+def get_ideal_bins(data):
+    # Calculate interquartile range (IQR)
+    q3, q1 = np.percentile(data, [75, 25])
+    iqr = q3 - q1
+    
+    # Calculate bin width using Freedman-Diaconis rule
+    bin_width = 2 * iqr / (len(data) ** (1/3))
+    
+    # Calculate data range and minimum value
+    data_range = np.max(data) - np.min(data)
+    min_value = np.min(data)
+    
+    # Calculate number of bins
+    num_bins = int((data_range + bin_width) / bin_width)  # Adjusted for bin width
+    
+    return num_bins
+
+# Example usage:
+num_bins = get_ideal_bins(citation_counts)
+print("Ideal number of bins:", num_bins)
+```
+
 * Histogram.
 
 
