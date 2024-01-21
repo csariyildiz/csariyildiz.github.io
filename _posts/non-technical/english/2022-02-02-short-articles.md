@@ -59,6 +59,8 @@ In essence, being mindful of these aspects and incorporating healthy habits into
 
 Vitamins and minerals are essential nutrients that play a crucial role in maintaining optimal health and supporting various bodily functions. While it's generally best to obtain these nutrients through a balanced diet, certain circumstances may necessitate the use of supplements.
 
-* Vitamin A, Vitamin C, Vitamin D, Vitamin E, Vitamin K, B Vitamins (B1, B2, B3, B5, B6, B7, B9, B12), Calcium, Iron, Zinc, Magnesium, Omega 3, Tribulus Terrestris.
-* Vitamin D, B12, Zinc
+* Vitamin A, Vitamin C, Vitamin D, Vitamin E, Vitamin K, B Vitamins (B1, B2, B3, B5, B6, B7, B9, B12), Calcium, Iron, Zinc, Magnesium, Omega 3.
+* MoreVitamin D, B12, Zinc
+* Testesterone enhancers can cause hair loss.
 
+Tribulus Terrestris is a plant that has been used in traditional medicine for various purposes. It is often marketed as a dietary supplement with claims of enhancing athletic performance, libido, and testosterone levels. However, the scientific evidence supporting these claims is limited, and the effects of Tribulus Terrestris on testosterone levels in humans are not well-established.
