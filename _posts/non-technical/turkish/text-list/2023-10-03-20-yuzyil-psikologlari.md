@@ -14,6 +14,8 @@ Sıralamalar için üç kriter kullanılmış. Akademik dergilerde yapılan atı
 
 Listede ilk 10'da Amerikalı olmayan yalnızca iki kişi var. Jean Piaget ve Sigmund Freud. Jung'a listede ancak 23. sırada rastlayabiliyoruz. Alfred Adler 67. sırada. Cumhuriyetin ilk yıllarında Türkiye'deki eğitim sistemini inceleyip, modernleşmesi için uygun tavsiyelerde bulunmak üzere çalışan John Dewey 93. sırada. Noam Chomsky 38. sırada, Fransız psikanalist Jacques Lacan ise listede yok. Liste biraz eski 2023 yılı itibari ile 21 yıl olmuş. Fakat benzer makaleler bulunsa da APA tarafından çıkarılan yeni bir versiyonuna rastlamadım.
 
+## 1. Skinner
+
 Listenin başında yer alan B. F. Skinner davranışçı teori ile biliniyor. Davranışçı Psikoloji, gözlemlenebilir davranışları ve onları şekillendiren çevresel faktörleri vurgulayan ve genellikle öğrenme, koşullanma ve davranışların nasıl pekiştirildiği veya söndürüldüğüne odaklanan psikoloji yaklaşımı.
 
 * The Behavior of Organisms (1938): Skinner'ın edimsel koşullanma teorisinin temellerini ortaya koyduğu bu kitap, davranışçı psikolojinin en önemli eserlerinden biridir.
