@@ -1,6 +1,6 @@
 ---
 layout: post3
-title: "📇 Good Repositories"
+title: "Repositories"
 category: main
 tags:
   - Software
