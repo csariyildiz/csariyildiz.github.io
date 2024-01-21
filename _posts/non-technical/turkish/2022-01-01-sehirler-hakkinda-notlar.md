@@ -1,10 +1,4 @@
----
-layout: post3
-title: "Şehirler Hakkında Notlar"
-category: d
-tags:
-  - Places
----
+
 
 Türkiye'de nüfus sayımı ilk olarak 1927 yılında yapılıyor. 13 milyon 649 bin 945 kişi olarak belirleniyor 1950'de bu sayı 20 milyonu, 1975'te 40 milyonun üstünde. 
 1985 sayımında 50 milyonu aşan Türkiye nüfusu, 2007'de 70 milyonu, 2017'de ise 80 milyonu aşıyor. 2021 sonu itibariyle Türkiye nüfusu 85 milyon sınırında bulunuyor.
