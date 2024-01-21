@@ -1,12 +1,3 @@
----
-layout: post3
-title: "❄️ About This Blog"
-category: main
-tags:
-  - Blog
-  - Jekyll
----
-
 Hi! Since every good project needs a good documentation I write this post to provide information about the blog itself. 
 In this post, usage of the blog, technical deails licensing and copyright information provided.
 
