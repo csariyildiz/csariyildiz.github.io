@@ -74,7 +74,7 @@ Bianel Tanıtımından:
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/atom-spirith.jpg" alt="Atom Spirith" width="600"/>
 
 Bianel Tanıtımından:[*](https://bienal.iksv.org/tr/sanatcilar/ursula-mayer)
-> Atom Ruhu, biyomedikal yeniliklerin arttığı yakın bir gelecekte geçen spekülatif bir anlatı. Trinidad ve Tobago’da geçen ve bu iki adadaki LGBT topluluğu ile çekilen film, kriyojenik olarak dondurulmuş bir Nuh’un Gemisi oluşturmak için tüm yaşam biçimlerinden DNA örneklerini inceleyen ve toplayan bir grup evrim genetikçisinin çalışmasını ele alıyor. Soyu tükenmiş medeniyetlerden arta kalan titreşimlerin hâlâ hissedildiği tekno-bilimsel bir sibernetik gelecek sunan video, bilim ve mitolojiyi harmanlayarak, hesaplama ve biyoloji teknolojilerinin insanlığın ve çevrenin gelecekteki tekrarları üzerindeki etkilerine odaklanıyor.
+> Atom Ruhu, biyomedikal yeniliklerin arttığı yakın bir gelecekte geçen spekülatif bir anlatı. Trinidad ve Tobago’da geçen film, kriyojenik olarak dondurulmuş bir Nuh’un Gemisi oluşturmak için tüm yaşam biçimlerinden DNA örneklerini inceleyen ve toplayan bir grup evrim genetikçisinin çalışmasını ele alıyor. Soyu tükenmiş medeniyetlerden arta kalan titreşimlerin hâlâ hissedildiği tekno-bilimsel bir sibernetik gelecek sunan video, bilim ve mitolojiyi harmanlayarak, hesaplama ve biyoloji teknolojilerinin insanlığın ve çevrenin gelecekteki tekrarları üzerindeki etkilerine odaklanıyor.
 
 Film hakkında diğer bilgiler için:
 * [ursulamayer.com](http://www.ursulamayer.com/films/atomspirit.html)
