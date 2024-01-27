@@ -6,12 +6,9 @@ tags:
     - Books
 ---
 
-Lime my other list regarding text books. In my previous posts I have listed textbooks regarding.
+Last year I attended to Cyber Security masters program in Bahcesehir University In Istanbul. Cyber Security focuses on ensuring the security of computer systems. The increasing importance of cyber security has been effective in choosing this department. I want to share my opinions about them and give some notes on the class. 
 
-Last year I attended to Cyber Security masters program in Bahcesehir University In Istanbul.
-Cyber Security focuses on ensuring the security of computer systems. The increasing importance of cyber security has been effective in choosing this department. I want to share my opinions about them and give some notes on the class. 
-
-The two-year education lasts for four semesters. In the first two semesters of programme, I took eight courses.
+The two-year education lasts for four semesters. In the first two semesters of programme, I took eight courses and thesis :
 
 ```
 1. Digital Forensics
@@ -22,35 +19,11 @@ The two-year education lasts for four semesters. In the first two semesters of p
 6. Malware Analysis
 7. Information Security Management
 8. Number Theory And Coding Theory For Cryptography
-9. Thesis
 ```
-
-I made a broad definitions of classes. And books related to them.
-I also created secondary list for books and online resources.
-
-I also created other lists representing basic concepts, tools, certifications, organizations in cyber security.
-
-## Table Of Contents
-1. Definition Of The Classes
-2. Books
-3. Other Areas Of Cyber Security
-4. Secondary List Of Books
-5. Operating Systems In Cyber Security
-6. Tools In Cyber Security
-7. Certifications In Cyber Security
-8. Important Concepts In Cyber Security
-9. Terms
-10. Notes
-
-## 1. Definition Of The Classes
-
-These are just a few of the many topics that fall under the umbrella of cyber security. Cyber security is a complex and rapidly evolving field,
-
 
 ### Digital Forensics
 
 Digital Forensics is the process of collecting, preserving, analyzing, and presenting digital evidence. Digital evidence can be anything from computer files to social media posts to text messages. Digital forensics is used to investigate a variety of crimes, including cybercrime, fraud, and intellectual property theft.
-
 
 Incident Response is a big part of forensics. In the unfortunate event of a malware infection, having an incident response plan in place is crucial. This plan should outline the steps to isolate and remove the malware, recover any lost data, and prevent future incidents.
 
@@ -104,7 +77,6 @@ BurpSuite
 * Warior Mindset - Michael J. Asken, Ph. D.
 
 
-
 ### Research Methods And Ethics
 
 Research Methods and Ethics is the study of how to conduct research in a fair and ethical manner. Research methods are the techniques used to collect and analyze data. Research ethics are the principles that guide researchers in their conduct. Research methods and ethics are important in all fields of research, including cyber security research.
@@ -115,7 +87,6 @@ We Made A Sample Research. Literature review.
 ```
 
 ### Introduction To Cyber Security
-
 
 Introduction to Cyber Security is a course that provides students with a basic understanding of cyber security concepts and practices. Topics covered in an introduction to cyber security course may include: What is cyber security? The different types of cyber attacks. How to protect yourself from cyber attacks. The role of security professionals.
 
@@ -155,7 +126,6 @@ WinDbg
 Information Security Management is the process of protecting information from unauthorized access, use, disclosure, disruption, modification, or destruction. Information security management includes a variety of practices, such as risk assessment, security policies and procedures, and security awareness training.
 
 Cyber Security can be called spesific branch of Information Security. Information security had the basic
-
 
 ```
 Risk
