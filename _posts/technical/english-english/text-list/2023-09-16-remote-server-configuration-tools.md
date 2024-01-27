@@ -1,7 +1,7 @@
 ---
 layout: post3
 date: "2023-10-05"
-title: "Remote Server Configuration Tools: iLO and System Management HomePage"
+title: "Remote Server Conf Tools: iLO and SMH"
 category: a
 tags:
   - Server
