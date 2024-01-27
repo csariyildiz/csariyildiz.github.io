@@ -1,3 +1,24 @@
+I made a broad definitions of classes. And books related to them.
+I also created secondary list for books and online resources.
+I also created other lists representing basic concepts, tools, certifications, organizations in cyber security.
+
+## Table Of Contents
+1. Definition Of The Classes
+2. Books
+3. Other Areas Of Cyber Security
+4. Secondary List Of Books
+5. Operating Systems In Cyber Security
+6. Tools In Cyber Security
+7. Certifications In Cyber Security
+8. Important Concepts In Cyber Security
+9. Terms
+10. Notes
+
+## 1. Definition Of The Classes
+
+These are just a few of the many topics that fall under the umbrella of cyber security. Cyber security is a complex and rapidly evolving field,
+
+
 ### Thesis
 
 İki dönemi kapsayan tez süreci. 
