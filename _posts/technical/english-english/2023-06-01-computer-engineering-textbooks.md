@@ -1,11 +1,10 @@
 ---
-layout: post3
+layout: post3_table
 title: "Computer Engineering Textbooks"
 category: main
 tags:
     - Books
 ---
-
 
 I recently created a list of computer engineering textbooks, mostly using the books recommended by my university's [department](https://www.ogu.edu.tr/). I think lists like these can be helpful as references for both professionals and the people who more focused on academic work.
 
@@ -64,14 +63,3 @@ The list below covers only a part of the full list. I usually add primary source
                         </tr>
                       </tfoot>
 </table>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        $('#example').DataTable({
-          ajax: '/data/booklist_comp1.json',
-        });
-      });
-    </script>
