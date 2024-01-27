@@ -45,3 +45,33 @@ The list below covers only a part of the full list. I usually add primary source
 [^6]: Steven C. Chapra, Raymond P. Canale, Numerical Methods for Engineers, McGraw-Hill, 5th ed., 2006
 [^7]: Brassard, G.-Bratley, P. Algorithmics Theory and Practice
 
+
+<table id="example" class="table table-bordered mt-3 mb-3 display" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Subject</th>
+                          <th>Category</th>
+                          <th>Textbook</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>ID</th>
+                          <th>Subject</th>
+                          <th>Category</th>
+                          <th>Textbook</th>
+                        </tr>
+                      </tfoot>
+</table>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#example').DataTable({
+          ajax: '/data/booklist_comp1.json',
+        });
+      });
+    </script>
