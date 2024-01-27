@@ -17,23 +17,81 @@ The list below covers only a part of the full list. I usually add primary source
 
 ## Book List
 
-* Physics I and II [^1] [^2], Calculus [^3], Differential Equations [^4], Linear Algebra [^5], Numerical Methods[^6]
-* Algorithms And Complexity[^7], Probability, Dicrete Computational Structures,  Formal Languages and Automata
-* Digital Design, Fundementals Of Electronics, Data Structures
-* Programming, Database Programming, Object Oriented Programming I and II
-* Advanced Programming, Enterprise Java, Database Management Systems
-* Introduction To Microcomputers, Computer Architecture, Advanced Computer Architecture
-* Computer Programming For Engineering Problems, Software Engineering, Business Intelligence
-* Introduction To Operating Systems, Computer Networks
-* Distributed Systems, Introduction To Autonomous Mobile Robots, Introduction To Wireless Sensor Networks
-* System Programming, Mobile Programming, Introduction To Secure Coding, Data Structures And Algoritm Analysis
-* Economics, Entrepreneurship, Introduction To Financial Markets
-* Algorithms For Optimization, Parallel Programing, Computational Geometry
-* Pattern Recognition, Data Mining, Data Security, Image Processing
-* Introduction To Artificial Intelligence, Big Data Mining, Introduction To Deep Learning, Introduction To Data Mining
-* Introduction To Text Mining, Neural Networks, Machine Learning, Fuzzy Logic
-* Digital Communication, Network Applications UE, Introduction To VHDL
-* Web Based Technologies, Web Based Technologies II, Others
+
+<style>
+
+    #example_wrapper {
+
+        padding:0px;
+    }
+</style>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Class Subject
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Physics</a>
+    <a class="dropdown-item" href="#">Calculus</a>  
+    <a class="dropdown-item" href="#">Differential Equations</a>
+    <a class="dropdown-item" href="#">Linear Algebra</a>
+    <a class="dropdown-item" href="#">Numerical Methods</a>
+    <a class="dropdown-item" href="#">Algorithms And Complexity</a>
+    <a class="dropdown-item" href="#">Probability</a>
+    <a class="dropdown-item" href="#">Dicrete Computational Structures</a>
+    <a class="dropdown-item" href="#">Formal Languages and Automata</a>
+    <a class="dropdown-item" href="#">Digital Design</a>
+    <a class="dropdown-item" href="#">Fundementals Of Electronics</a>
+    <a class="dropdown-item" href="#">Data Structures</a>
+    <a class="dropdown-item" href="#">Programming</a>
+    <a class="dropdown-item" href="#">Database Programming</a>
+    <a class="dropdown-item" href="#">Object Oriented Programming I and II</a>
+    <a class="dropdown-item" href="#">Advanced Programming</a>
+    <a class="dropdown-item" href="#">Enterprise Java</a>
+    <a class="dropdown-item" href="#">Database Management Systems</a>
+    <a class="dropdown-item" href="#">Introduction To Microcomputers</a>
+    <a class="dropdown-item" href="#">Computer Architecture</a>
+    <a class="dropdown-item" href="#">Advanced Computer Architecture</a>
+    <a class="dropdown-item" href="#">Computer Programming For Engineering Problems</a>
+    <a class="dropdown-item" href="#">Software Engineering</a>
+    <a class="dropdown-item" href="#">Business Intelligence</a>
+    <a class="dropdown-item" href="#">Introduction To Operating Systems</a>
+    <a class="dropdown-item" href="#">Computer Networks</a>
+    <a class="dropdown-item" href="#">Distributed Systems</a>
+    <a class="dropdown-item" href="#">Introduction To Autonomous Mobile Robots</a>
+    <a class="dropdown-item" href="#">Introduction To Wireless Sensor Networks</a>
+    <a class="dropdown-item" href="#">System Programming</a>
+    <a class="dropdown-item" href="#">Mobile Programming</a>
+    <a class="dropdown-item" href="#">Introduction To Secure Coding</a>
+    <a class="dropdown-item" href="#">Data Structures And Algoritm Analysis</a>
+    <a class="dropdown-item" href="#">Economics</a>
+    <a class="dropdown-item" href="#">Entrepreneurship</a>
+    <a class="dropdown-item" href="#">Introduction To Financial Markets</a>
+    <a class="dropdown-item" href="#">Algorithms For Optimization</a>
+    <a class="dropdown-item" href="#">Parallel Programing</a>
+    <a class="dropdown-item" href="#">Computational Geometry</a>
+    <a class="dropdown-item" href="#">Pattern Recognition</a>
+    <a class="dropdown-item" href="#">Data Mining</a>
+    <a class="dropdown-item" href="#">Data Security</a>
+    <a class="dropdown-item" href="#">Image Processing</a>
+    <a class="dropdown-item" href="#">Introduction To Artificial Intelligence</a>
+    <a class="dropdown-item" href="#">Big Data Mining</a>
+    <a class="dropdown-item" href="#">Introduction To Deep Learning</a>
+    <a class="dropdown-item" href="#">Introduction To Data Mining</a>
+    <a class="dropdown-item" href="#">Introduction To Text Mining</a>
+    <a class="dropdown-item" href="#">Neural Networks</a>
+    <a class="dropdown-item" href="#">Machine Learning</a>
+    <a class="dropdown-item" href="#">Fuzzy Logic</a>
+    <a class="dropdown-item" href="#">Digital Communication</a>
+    <a class="dropdown-item" href="#">Network Applications UE</a>
+    <a class="dropdown-item" href="#">Introduction To VHDL</a>
+    <a class="dropdown-item" href="#">Web Based Technologies</a>
+    <a class="dropdown-item" href="#">Web Based Technologies II</a>
+    <a class="dropdown-item" href="#">Others</a>
+  </div>
+</div>
+
+
 
 
 ## Books
@@ -46,13 +104,13 @@ The list below covers only a part of the full list. I usually add primary source
 [^7]: Brassard, G.-Bratley, P. Algorithmics Theory and Practice
 
 
-<table id="example" class="table table-bordered mt-3 mb-3 display" style="width:100%">
+<table id="example" class="table table-bordered mt-3 mb-3 display" style="width:100% font-size:13px;">
                       <thead>
                         <tr>
-                          <th>ID</th>
-                          <th>Subject</th>
-                          <th>Category</th>
-                          <th>Textbook</th>
+                          <th style="min-width: 59px;">ID</th>
+                          <th style="min-width: 150px;">Subject</th>
+                          <th style="min-width: 100px;">Category</th>
+                          <th style="min-width: 100px;">Textbook</th>
                         </tr>
                       </thead>
                       <tfoot>
