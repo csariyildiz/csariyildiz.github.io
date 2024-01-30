@@ -144,16 +144,23 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        
-      $(document).ready(function() {
-        $('#example').DataTable({
-          ajax: '{{ page.my_variable }}' ,
-        });
-      var table = $('#example').DataTable();
-      $('#myselect').on('change', function(){
-           $('#example').DataTable.search($(this).val()).draw();
-      });
-      });
+$(document).ready(function() {
+  // Initialize DataTable with Ajax data source
+  var myDataTable = $('#example').DataTable({
+    ajax: '{{ page.my_variable }}',
+  });
+
+  // Change event listener for #myselect
+  $('#myselect').on('change', function(){
+    var selectedValue = $(this).val();
+
+    // Set the value of input[type="search"] inside #example_filter
+    $('#example_filter input[type="search"]').val(selectedValue);
+
+    // Search for the entered value and redraw the DataTable
+    myDataTable.search(selectedValue).draw();
+  });
+});
     </script>
     </body>
 </html>
