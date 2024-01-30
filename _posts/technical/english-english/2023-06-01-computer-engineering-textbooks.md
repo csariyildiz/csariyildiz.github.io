@@ -39,6 +39,18 @@ I recently created a list of computer engineering textbooks, mostly using the bo
 
 The [full list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names, each accompanied by their respective textbooks around 140. This compilation can serve as a foundation to access well-established texts in the field. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
 
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">Action</button>
+    <button class="dropdown-item" type="button">Another action</button>
+    <button class="dropdown-item" type="button">Something else here</button>
+  </div>
+</div>
+
 Although some books may appear dated, they still hold significant value as they provide valuable insights into the subject matter. The textbooks are categorized into base, additional, and tools sections, while the "Other" category is reserved for uncategorized resources included in the list. A student does not actually take all of the courses. Apart from the books, I also include a section showing what the student has chosen. The list was taken in 2023, so it is appropriate to consider that both the courses and the books may become outdated over time. Some books come with new versions and new versions of these books can be found.
 
 The list below covers only a part of the full list. I usually add primary sources. Surprisingly, since some of the books are open source, it is possible me to share their links directly from various sources such as archive.org. Otherwise I just add the links to websites like Google Books which provide additional information about spesific book.
@@ -47,10 +59,10 @@ The list below covers only a part of the full list. I usually add primary source
 
 
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Class Subject
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu6">
     <a class="dropdown-item" href="#">Physics</a>
     <a class="dropdown-item" href="#">Calculus</a>  
     <a class="dropdown-item" href="#">Differential Equations</a>
