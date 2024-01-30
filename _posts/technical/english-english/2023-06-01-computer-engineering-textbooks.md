@@ -85,10 +85,10 @@ The list below covers only a part of the full list. I usually add primary source
 <table id="example" class="table table-bordered mt-3 mb-3 display" style="width:100% font-size:13px;">
                       <thead>
                         <tr>
-                          <th style="min-width: 59px;">ID</th>
-                          <th style="min-width: 150px;">Subject</th>
-                          <th style="min-width: 100px;">Category</th>
-                          <th style="min-width: 100px;">Textbook</th>
+                          <th style="min-width: 30px;">ID</th>
+                          <th style="min-width: 56px;">Subject</th>
+                          <th style="min-width: 40px;">Category</th>
+                          <th style="min-width: 225px;">Textbook</th>
                         </tr>
                       </thead>
                       <tfoot>
