@@ -15,7 +15,7 @@ The [full list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class 
 
 
   <select name="cars"  class="form-select form-select-sm" aria-label=".form-select-sm example" id="cars">
-    <option value="volvo">Volvo</option>
+    <option value="">Select a class name.</option>
     <option value="saab">Saab</option>
     <option value="opel">Opel</option>
     <option value="audi">Audi</option>
@@ -29,70 +29,66 @@ The list below covers only a part of the full list. I usually add primary source
 ## Book List
 
 
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Class Subject
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu6">
-    <a class="dropdown-item" href="#">Physics</a>
-    <a class="dropdown-item" href="#">Calculus</a>  
-    <a class="dropdown-item" href="#">Differential Equations</a>
-    <a class="dropdown-item" href="#">Linear Algebra</a>
-    <a class="dropdown-item" href="#">Numerical Methods</a>
-    <a class="dropdown-item" href="#">Algorithms And Complexity</a>
-    <a class="dropdown-item" href="#">Probability</a>
-    <a class="dropdown-item" href="#">Dicrete Computational Structures</a>
-    <a class="dropdown-item" href="#">Formal Languages and Automata</a>
-    <a class="dropdown-item" href="#">Digital Design</a>
-    <a class="dropdown-item" href="#">Fundementals Of Electronics</a>
-    <a class="dropdown-item" href="#">Data Structures</a>
-    <a class="dropdown-item" href="#">Programming</a>
-    <a class="dropdown-item" href="#">Database Programming</a>
-    <a class="dropdown-item" href="#">Object Oriented Programming I and II</a>
-    <a class="dropdown-item" href="#">Advanced Programming</a>
-    <a class="dropdown-item" href="#">Enterprise Java</a>
-    <a class="dropdown-item" href="#">Database Management Systems</a>
-    <a class="dropdown-item" href="#">Introduction To Microcomputers</a>
-    <a class="dropdown-item" href="#">Computer Architecture</a>
-    <a class="dropdown-item" href="#">Advanced Computer Architecture</a>
-    <a class="dropdown-item" href="#">Computer Programming For Engineering Problems</a>
-    <a class="dropdown-item" href="#">Software Engineering</a>
-    <a class="dropdown-item" href="#">Business Intelligence</a>
-    <a class="dropdown-item" href="#">Introduction To Operating Systems</a>
-    <a class="dropdown-item" href="#">Computer Networks</a>
-    <a class="dropdown-item" href="#">Distributed Systems</a>
-    <a class="dropdown-item" href="#">Introduction To Autonomous Mobile Robots</a>
-    <a class="dropdown-item" href="#">Introduction To Wireless Sensor Networks</a>
-    <a class="dropdown-item" href="#">System Programming</a>
-    <a class="dropdown-item" href="#">Mobile Programming</a>
-    <a class="dropdown-item" href="#">Introduction To Secure Coding</a>
-    <a class="dropdown-item" href="#">Data Structures And Algoritm Analysis</a>
-    <a class="dropdown-item" href="#">Economics</a>
-    <a class="dropdown-item" href="#">Entrepreneurship</a>
-    <a class="dropdown-item" href="#">Introduction To Financial Markets</a>
-    <a class="dropdown-item" href="#">Algorithms For Optimization</a>
-    <a class="dropdown-item" href="#">Parallel Programing</a>
-    <a class="dropdown-item" href="#">Computational Geometry</a>
-    <a class="dropdown-item" href="#">Pattern Recognition</a>
-    <a class="dropdown-item" href="#">Data Mining</a>
-    <a class="dropdown-item" href="#">Data Security</a>
-    <a class="dropdown-item" href="#">Image Processing</a>
-    <a class="dropdown-item" href="#">Introduction To Artificial Intelligence</a>
-    <a class="dropdown-item" href="#">Big Data Mining</a>
-    <a class="dropdown-item" href="#">Introduction To Deep Learning</a>
-    <a class="dropdown-item" href="#">Introduction To Data Mining</a>
-    <a class="dropdown-item" href="#">Introduction To Text Mining</a>
-    <a class="dropdown-item" href="#">Neural Networks</a>
-    <a class="dropdown-item" href="#">Machine Learning</a>
-    <a class="dropdown-item" href="#">Fuzzy Logic</a>
-    <a class="dropdown-item" href="#">Digital Communication</a>
-    <a class="dropdown-item" href="#">Network Applications UE</a>
-    <a class="dropdown-item" href="#">Introduction To VHDL</a>
-    <a class="dropdown-item" href="#">Web Based Technologies</a>
-    <a class="dropdown-item" href="#">Web Based Technologies II</a>
-    <a class="dropdown-item" href="#">Others</a>
-  </div>
-</div>
+<select name="myselect"  class="form-select form-select-sm" aria-label=".form-select-sm example" id="myselect">
+<option value="">Physics</option>
+<option value="Physics">Physics</option>
+<option value="Calculus">Calculus</option>  
+<option value="Differential Equations">Differential Equations</option>
+<option value="Linear Algebra">Linear Algebra</option>
+<option value="Numerical Methods">Numerical Methods</option>
+<option value="Algorithms And Complexity">Algorithms And Complexity</option>
+<option value="Probability">Probability</option>
+<option value="Dicrete Computational Structures">Dicrete Computational Structures</option>
+<option value="Formal Languages and Automata">Formal Languages and Automata</option>
+<option value="Digital Design">Digital Design</option>
+<option value="Fundementals Of Electronics">Fundementals Of Electronics</option>
+<option value="Data Structures">Data Structures</option>
+<option value="Programming">Programming</option>
+<option value="Database Programming">Database Programming</option>
+<option value="Object Oriented Programming">Object Oriented Programming</option>
+<option value="Advanced Programming">Advanced Programming</option>
+<option value="Enterprise Java">Enterprise Java</option>
+<option value="Database Management Systems">Database Management Systems</option>
+<option value="Introduction To Microcomputers">Introduction To Microcomputers</option>
+<option value="Computer Architecture">Computer Architecture</option>
+<option value="Advanced Computer Architecture">Advanced Computer Architecture</option>
+<option value="Computer Programming For Engineering Problems">Computer Programming For Engineering Problems</option>
+<option value="Software Engineering">Software Engineering</option>
+<option value="Business Intelligence">Business Intelligence</option>
+<option value="Introduction To Operating Systems">Introduction To Operating Systems</option>
+<option value="Computer Networks">Computer Networks</option>
+<option value="">Distributed Systems</option>
+<option value="">Introduction To Autonomous Mobile Robots</option>
+<option value="">Introduction To Wireless Sensor Networks</option>
+<option value="">System Programming</option>
+<option value="">Mobile Programming</option>
+<option value="">Introduction To Secure Coding</option>
+<option value="">Data Structures And Algoritm Analysis</option>
+<option value="">Economics</option>
+<option value="">Entrepreneurship</option>
+<option value="">Introduction To Financial Markets</option>
+<option value="">Algorithms For Optimization</option>
+<option value="">Parallel Programing</option>
+<option value="">Computational Geometry</option>
+<option value="">Pattern Recognition</option>
+<option value="">Data Mining</option>
+<option value="">Data Security</option>
+<option value="">Image Processing</option>
+<option value="">Introduction To Artificial Intelligence</option>
+<option value="">Big Data Mining</option>
+<option value="">Introduction To Deep Learning</option>
+<option value="">Introduction To Data Mining</option>
+<option value="">Introduction To Text Mining</option>
+<option value="">Neural Networks</option>
+<option value="">Machine Learning</option>
+<option value="">Fuzzy Logic</option>
+<option value="">Digital Communication</option>
+<option value="">Network Applications UE</option>
+<option value="">Introduction To VHDL</option>
+<option value="">Web Based Technologies</option>
+<option value="">Web Based Technologies II</option>
+<option value="Others">Others</option>
+</select>
 
 
 [^1]: [Fundamentals Of Physics Extended 8th Edition](https://archive.org/details/fundamentals-of-physics-8th)
