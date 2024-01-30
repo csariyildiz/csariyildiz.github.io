@@ -144,12 +144,13 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
     <script>
+        
       $(document).ready(function() {
         $('#example').DataTable({
           ajax: '{{ page.my_variable }}' ,
         });
-
-      $('#cars').on('change', function(){
+      var table = $('#example').DataTable();
+      $('#myselect').on('change', function(){
            $('#example').DataTable.search($(this).val()).draw();
       });
       });
