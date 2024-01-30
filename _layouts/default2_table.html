@@ -150,7 +150,7 @@
         });
 
       $('#cars').on('change', function(){
-        console.log('Selected value:', $(this).val());
+           $('#example').DataTable.search($(this).val()).draw();
       });
       });
     </script>
