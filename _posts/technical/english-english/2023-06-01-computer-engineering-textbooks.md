@@ -7,8 +7,6 @@ tags:
     - Books
 ---
 
-
-
 I recently created a list of computer engineering textbooks, mostly using the books recommended by my university's [department](https://www.ogu.edu.tr/). I think lists like these can be helpful as references for both professionals and the people who more focused on academic work.
 
 The [full list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names, each accompanied by their respective textbooks around 140. This compilation can serve as a foundation to access well-established texts in the field. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
@@ -85,7 +83,7 @@ The list below covers only a part of the full list. I usually add primary source
 <table id="example" class="table table-bordered mt-3 mb-3 display" style="width:100% font-size:13px;">
                       <thead>
                         <tr>
-                          <th style="min-width: 30px;">ID</th>
+                          <th style="min-width: 45px;">ID</th>
                           <th style="min-width: 150px;">Subject</th>
                           <th style="min-width: 100px;">Category</th>
                           <th style="min-width: 225px;">Textbook</th>
