@@ -7,6 +7,34 @@ tags:
     - Books
 ---
 
+
+
+<style>
+
+    #example_wrapper {
+    font-size: 13px !important;
+        padding:0px;
+    }
+    #example_wrapper .row {
+    margin-bottom: 0px !important;
+    padding-top: 15px !important;
+    border: none !important;
+    padding-bottom: 15px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    background: white;
+}
+
+    .form-select-sm {
+    float: left !important;
+}
+
+     #example{
+    /* width: 758px; */
+    margin-top: 5px !important;
+}
+</style>
+
 I recently created a list of computer engineering textbooks, mostly using the books recommended by my university's [department](https://www.ogu.edu.tr/). I think lists like these can be helpful as references for both professionals and the people who more focused on academic work.
 
 The [full list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names, each accompanied by their respective textbooks around 140. This compilation can serve as a foundation to access well-established texts in the field. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
@@ -17,14 +45,6 @@ The list below covers only a part of the full list. I usually add primary source
 
 ## Book List
 
-
-<style>
-
-    #example_wrapper {
-
-        padding:0px;
-    }
-</style>
 
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,9 +112,6 @@ The list below covers only a part of the full list. I usually add primary source
 </div>
 
 
-
-
-## Books
 [^1]: [Fundamentals Of Physics Extended 8th Edition](https://archive.org/details/fundamentals-of-physics-8th)
 [^2]: [Physics for Scientists and Engineers with Modern Physics (2007)](https://books.google.com.tr/books?id=AVkGAAAAQBAJ)
 [^3]: Calculus, A Complete Course-Fifth Edition, Robert A. Adams, Addison-Wesley, 2001.
