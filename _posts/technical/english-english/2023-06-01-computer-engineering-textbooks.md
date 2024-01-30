@@ -19,9 +19,9 @@ The list below covers only a part of the full list. I usually add primary source
 
 ## Book List
 
-<div>
+<div style=" margin-bottom: 20px; margin-top: 25px; ">
 <select name="myselect" style="max-width:200px;" class="form-select form-select-sm" aria-label=".form-select-sm example" id="myselect">
-<option value="">Physics</option>
+<option value="">Select topics.</option>
 <option value="Physics">Physics</option>
 <option value="Calculus">Calculus</option>  
 <option value="Differential Equations">Differential Equations</option>
