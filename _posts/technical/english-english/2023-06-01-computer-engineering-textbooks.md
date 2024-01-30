@@ -14,7 +14,7 @@ I recently created a list of computer engineering textbooks, mostly using the bo
 The [full list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names, each accompanied by their respective textbooks around 140. This compilation can serve as a foundation to access well-established texts in the field. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
 
 
-  <select name="cars" id="cars">
+  <select name="cars"  class="form-select form-select-sm" aria-label=".form-select-sm example" id="cars">
     <option value="volvo">Volvo</option>
     <option value="saab">Saab</option>
     <option value="opel">Opel</option>
