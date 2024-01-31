@@ -1,0 +1,13 @@
+{"data":[
+
+[1,"NDG Linux", "Chapter 9" ,"You type gzip myfile.tar. What happens? (choose two)" ,["An error; you forgot to specify the file with -f", "myfile.tar is removed", "An error; you forgot to pass the name of the output file", "myfile.tar is unarchived into the current directory", "myfile.tar.gz holds a compressed version of myfile.tar"],["myfile.tar is removed", "myfile.tar.gz holds a compressed version of myfile.tar"]]
+
+]
+}
+
+
+
+
+
+
+
