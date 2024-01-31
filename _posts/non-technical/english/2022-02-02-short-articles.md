@@ -1,5 +1,5 @@
 ---
-layout: post3
+layout: post
 title: "❄️ Short Posts"
 category: c
 tags:
