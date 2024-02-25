@@ -2,6 +2,7 @@
 layout: post3
 title: "Importing Enron Mail Dataset To MongoDB"
 category: main
+cat: Data
 tags:
   - NLP
   - MongoDB

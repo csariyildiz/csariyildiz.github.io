@@ -2,6 +2,7 @@
 layout: post3
 category: main
 title: "A Sample Thesis Structure"
+cat: Research
 tags:
   - Academy
 ---

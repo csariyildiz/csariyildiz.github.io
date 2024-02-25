@@ -2,6 +2,7 @@
 layout: post3
 title: "PowerShell Remoting With WinRM"
 category: main
+cat: System
 tags:
   - PowerShell
   - CLI

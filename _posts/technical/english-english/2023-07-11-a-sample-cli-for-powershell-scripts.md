@@ -2,6 +2,7 @@
 layout: post3
 title: "A Sample CLI For Powershell Scripts"
 category: main
+cat: SysAdmin
 tags:
   - PowerShell
   - CLI

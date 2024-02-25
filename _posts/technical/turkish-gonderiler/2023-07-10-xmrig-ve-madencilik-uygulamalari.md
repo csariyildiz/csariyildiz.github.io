@@ -2,6 +2,7 @@
 layout: post3
 title: "XMRig ve Madencilik Üzerine Bir İnceleme"
 category: "gonderiler"
+cat: System
 tags:
   - XMRig
   - Monero
