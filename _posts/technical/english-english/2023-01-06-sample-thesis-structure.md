@@ -7,7 +7,7 @@ tags:
   - Academy
 ---
 
-This is a guide for a graduate thesis structure. Hope you find it useful!
+This was a very simple outline for my graduate thesis structure. Hope you find it useful!
 
 * General Volume And Initial Notes
 * Thesis Structure
@@ -19,9 +19,7 @@ This is a guide for a graduate thesis structure. Hope you find it useful!
 * Listing sections and give usable information each section.
 
 As a rough approximation, using standard formatting guidelines (12-point Times New Roman font, double-spaced, 1-inch margins), 80,000 words in a thesis would likely result in approximately 320 to 350 pages.
-
 The page counts are approximate, and actual lengths can vary based on the depth of content and the formatting of thesis.
-
 It's essential to focus on the quality of your research, writing, and analysis rather than strictly adhering to predefined page counts.
 
 It takes APA (6th ed.) as the basis.
@@ -148,7 +146,7 @@ After the writing is completed, the pages can be converted back to latex format.
 
 Although it is easier to write with Word than Latex, unfortunately Word does not directly accept references in bib format. One solution for this is to store it as bib, upload it one by one or all together to Mendeley, and convert it to XML format that Word accepts. I did this for each section. At the same time, I am making a literature review section where I add all of them.
 
-## Keywords
+## Important Concepts
 
 * **Preliminary Pages :** The preliminary pages are the initial components of thesis that provide essential information about the work.
 * **The Cover Page** is the outermost page and typically displays the title of the thesis, the name, university logo, and other relevant details.
