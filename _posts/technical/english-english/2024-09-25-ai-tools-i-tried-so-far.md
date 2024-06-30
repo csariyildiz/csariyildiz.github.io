@@ -1,52 +1,45 @@
-Kullanmış olduğum yapay zeka araçlarının bir listesini çıkarmak istedim. 
-Aslında AI toollarını denenebileceği bir websitesi de güzel bir proje olabilir.
-
 **Chatbot:**
+As a chatbot I use ChatGPT, Gemini and Bing.
 
-ChatGPT ve Gemini'yi bir süredir kullanıyoruz. 
+Academical Tools.
 
 
-**Söz Ve Tanımdan Müzik Üretme (Suno):**
-Söz ve tanım girerek şarkı üretmeye olanak sağlayan  Suno'yu kullanma fırsatı buldum.
-Doğa filozofları ile ilgili bir metni göndererek önce ChatGPT ve Gemini arasında gidip gelerek bir söz oluşturdum.
 
-Daha sonra bunu Suno'ya yalnızca yorumunu yaparak ekledim. 
 
-**Müzik Aletlerini Birbirinden Ayırma: (AI Stem Splitter)**
+**Creating Music from Lyrics and Description (Suno):**
+
+Suno, which allows creating songs by entering lyrics and descriptions.
+By sending a text, I first created a mention by going back and forth between ChatGPT and Gemini.
+I then added it to Suno, just commenting on it.
+
+**Separating Musical Instruments from Each Other: (AI Stem Splitter)**
 Müzik aletlerini birbirinden ayıran örneğin [SplitMySong](https://www.splitmysong.com/) uygulama çok başarılı. 
 
+**Turning Humming into an Instrument (Humming To Melody)**
+He can also turn humming into a specific musical instrument. "turn voice into instrument ai"
+Music-related tools attracted my attention. What I was looking for was an application that would turn humming into music (or even midi output).
+It's also an app that can turn this into professionally sounding songs. But what I'm looking for is the ability to take the sound, change it, and turn it into professional sounding songs in a way that Suno doesn't do.
+An application that can create different versions.
 
-**Mırıldanmayı Enstrümana Çevirme (Humming To Melody)**
-Yine mırıldanmayı belirli bir müzik aletine çevirebiliyor. "turn voice into instrument ai"
-Müzikle ilgili araçlar ilgimi çekti. Aradığım mırıldanmayı müziğe (hatta midi çıktısına) çevirecek bir uygulamaydı. 
-Aynı zamanda bunu profesyonelce görülen şarkılara çevirebilecek bir uygulama. Ama aradığım Suno'nun yapmadığı şekliyle sesi alıp değiştirecek ve profesyonelce görünen şarkılara çevirebilecek. 
-Farklı versiyonlarını yaratabilecek bir uygulama.
-
-FL Studio ve Ableton'a yüklediğim eklentilerde belirli bir seviyede yapılabiliyor ama AI toolları ile çok daha ileri seviyede yapılabileceğini tahmin ediyorum.
-
+It can be done at a certain level with the plugins I installed in FL Studio and Ableton, but I guess it can be done at a much more advanced level with AI tools.
 * [https://create.musicfy.lol/create/voice](https://musicfy.lol/) : Başarılı
 * Melodyne
 * https://vochlea.com/
 
-[Bu](https://www.reddit.com/r/artificial/comments/13496vd/free_ai_software_to_convert_humming_into_melody/) şekilde reddit gönderileri 
-ya da [bu](https://www.aimusicpreneur.com/ai-tools-news/the-best-ai-stem-separation-tools-ai-stem-splitter/)  şekilde makaleler de yine aranabilir.
-
-
-* LALAL.AI	Precise stem separation, customizable output options
-* Bandlab Splitter	Advanced stem separation algorithms, easy-to-use interface
-* SongDonkey.AI	High-quality stem separation, collaborative features
+* [Reddit - /free_ai_software_to_convert_humming_into_melody](https://www.reddit.com/r/artificial/comments/13496vd/free_ai_software_to_convert_humming_into_melody/) 
+* [Reddit - /the-best-ai-stem-separation-tools-ai-stem-splitter/](https://www.aimusicpreneur.com/ai-tools-news/the-best-ai-stem-separation-tools-ai-stem-splitter/) 
+* LALAL.AI:	Precise stem separation, customizable output options
+* Bandlab Splitter:	Advanced stem separation algorithms, easy-to-use interface
+* SongDonkey.AI:	High-quality stem separation, collaborative features
 * Vocal Remover	Uses AI to easily separate vocals, drums, bass & other stems from songs in high quality without loss
-* Audioshake	Deconstruct any song into its individual instrumental and vocal elements.
+* Audioshake:	Deconstruct any song into its individual instrumental and vocal elements.
+* https://google-research.github.io/seanet/musiclm/examples/
+* Midi to song ai.
 
-https://google-research.github.io/seanet/musiclm/examples/
+**Turkish Voice Over**
 
-Midi to song ai.
-
-**Türkçe Seslendirme**
-
-Özellikle Türkçe seslendirme konusu dikkatimi çekiyor. Eğer mekaniklikten kurtulur ve insan sesinden ayırmak zorlaşırsa. 
-Youtube kullanıcılarını rahatsız etmez ve metinler çabucak youtube üzerinden görsel olarak tüketilebilecek formata gelir diye düşünüyorum.
-
+Especially the Turkish dubbing issue attracts my attention. If it becomes mechanical and becomes difficult to distinguish from the human voice.
+I think it will not disturb YouTube users and the texts will quickly become available for visual consumption on YouTube.
 
 
 
