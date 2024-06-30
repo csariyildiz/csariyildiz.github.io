@@ -1,7 +1,7 @@
 ---
 layout: post3
 title: "XMRig ve Madencilik Üzerine Bir İnceleme"
-category: "gonderiler"
+category: "X"
 cat: System
 tags:
   - XMRig
