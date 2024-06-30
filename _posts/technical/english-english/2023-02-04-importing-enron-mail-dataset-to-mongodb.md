@@ -99,7 +99,7 @@ We are using Python's email module to parse headers.
 
 <script src="https://gist.github.com/csariyildiz/05dd402d6deb28d5caf1ae3595794547.js"></script>
 
-### 4. Editing Fields
+## 4. Editing Fields
 
 We dont need unparsed "message" field since we have the "body" field. I delete it using  query on MongoDB compass interface.
 
