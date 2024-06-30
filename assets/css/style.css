@@ -2413,3 +2413,9 @@ h3{
     font-size: 1.3rem;
     font-weight: bold;
 }
+
+
+.csa_toc {
+	list-style-type: none;
+	font-size:13px;
+}
