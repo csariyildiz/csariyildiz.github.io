@@ -68,7 +68,7 @@
             <div class="row" style="transform: none;">
                 <div class="col-xl-9 col-lg-9">{{ content }}</div>
                 <div class="col-xl-3 col-lg-3 hidden-xs hidden-sm hidden-md" style="">
-              {% include toc.html html=content %}
+              {% include toc.html html=content sanitize=true class="inline_toc" id="csa_toc" h_min=2 h_max=3 %}
                 </div>
             </div>
        <div class="container">
