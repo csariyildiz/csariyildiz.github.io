@@ -15,6 +15,8 @@ Since it is not enabled by default on Windows systems, it is necessary to config
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/winrm.jpg" class="img-fluid" alt="winrm">
 
+## Overview
+
 There are various alternatives to WinRM exist in Windows environment, including WMIC, PsExec (Sysinternals Utility)[1](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec), WinRS (Windows Remote Shell), and OpenSSH. Different tools might be preferred based on specific needs, limitations, or security requirements but WinRM is the one of the most preferred ones. However, WinRM (Windows Remote Management) can be considered the "official" way for remote management and automation tasks in Windows environments. It's a Microsoft-supported feature that provides a standardized management interface and protocol for remote access and execution of PowerShell commands, scripts, and other management tasks. 
 
 Tools like Ansible, Chef and Puppet also offer remote management and configuration capabilities for Windows systems, allowing administrators to automate tasks, manage configurations, and deploy software across multiple machines. Ansible communicates with Windows servers over WinRM using the Python's pywinrm package and to remotely run PowerShell scripts and commands.[1](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html)
