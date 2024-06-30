@@ -8,8 +8,7 @@ tags:
     - Books
 ---
 
-I recently created a list of computer engineering textbooks using DataTables , mostly using the books recommended by my former university's [department](https://www.ogu.edu.tr/). I think lists like these can be helpful as references for both professionals and the people who more focused on academic work. The list contains only the name and categorization, not links to the books themselves.
-
+I recently created a list of computer engineering textbooks, mostly using the books recommended by my former university's [department](https://www.ogu.edu.tr/). Its also a display of using DataTables JavaScript Plugin with Jekyll and Github Pages. I think lists like these can be helpful as references for both professionals and the people who more focused on academic work. The list contains only the name and categorization, not links to the books themselves.
 
 The [full list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names, each accompanied by their respective textbooks around 140. This compilation can serve as a foundation to access well-established texts in the field. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
 
