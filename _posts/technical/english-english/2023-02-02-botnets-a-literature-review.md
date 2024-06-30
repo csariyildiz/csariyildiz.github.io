@@ -7,15 +7,7 @@ tags:
   - Botnets
 ---
 
-This post is a document created as a minimal literature review. Hope you find it useful!
-
-## Table Of Contents
-1. Introduction
-2. Basic Concepts
-3. Tools And Techniques
-4. Discussion
-5. Conclusion & Future Directions
-6. References
+<div class="bd-callout bd-callout-info">This post is a document created as a minimal literature review. Hope you find it useful!</div>
 
 --------------------------------------
 
@@ -124,7 +116,7 @@ It is predicted that botnets will continue to interest the public view and acade
 
 In the current landscape, it would be unrealistic to think that the existing literature on botnets fully reflects the nature of the phenomenon. While the Botnets are not static entities. They adapt and evolve to avoid detection and improve their capabilities. New techniques and strategies are continually developed by cybercriminals, making it challenging for the existing literature to keep up. Understanding the behavior of botnets, including their tactics, techniques, and procedures (TTPs), is critical for effective defense. Much of the botnet landscape operates in underground forums and communities. Researchers often have limited access to these spaces, making it difficult to gain a comprehensive understanding of the actors, motivations, and strategies behind botnet operations. The future direction of botnet research and cybersecurity efforts will likely involve several key trends and areas of focus including implications of emerging machine learning and AI capabilities, improvement of the underlying legal frameworks for legal systems, implications of emerging quantum computing capabilities. Area has need more detailed analysis of nature and innerworkings of emerging botnets with in-depth research and analysis of current botnets as well as new and evolving botnet variants.
 
-## Resources
+## References
 
 * García, S.; Zunino, A.; Campo, M. Survey on network-based botnet detection methods. Secur. Commun. Netw. 2014, 7, 878–903.
 * Thanh Vu SN, Stege M, El-Habr PI, Bang J, Dragoni N. A Survey on Botnets: Incentives, Evolution, Detection and Current Trends. Future Internet. 2021; 13(8):198.
