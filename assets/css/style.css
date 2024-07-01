@@ -1018,12 +1018,16 @@ padding: 0px !important;
 .highlight {
     padding: 1rem;
     margin-bottom: 1rem;
-    background-color: #f8f9fa
+    background-color: #f8f9fa    
+    border: 1px solid #737373;
+
 }
 
 @media (min-width: 576px) {
     .highlight {
-        padding:1rem 1.5rem
+        padding:1rem 1.5rem;
+        border: 1px solid #737373;
+
     }
 }
 
