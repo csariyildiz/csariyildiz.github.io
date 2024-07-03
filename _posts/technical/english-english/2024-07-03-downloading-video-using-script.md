@@ -1,11 +1,11 @@
 ---
 title: "Downloading Video Using A Bat Script"
 ---
-One may need to download a video from a website in certain situations. 
-While there are online platforms that facilitate the task, there are also specialized libraries developed for this purpose. 
-For instance, the `yt-dlp` library offers a comprehensive tool for video downloading. In this document we will explore the process of downloading videos using `yt-dlp` and `a batch file with .bat extension` in a `Windows` operating system.
+One may need to download a video from a website in certain purposes. 
+While there are online platforms that facilitate the task, there are also specialized libraries developed by groups or individual developers.
+One of them is the `yt-dlp` library offers a comprehensive tool for video downloading from YouTube. In this document we will explore the process of downloading videos using `yt-dlp` and `a batch file with .bat extension` in a `Windows` operating system.
 
-Note: Be mindful of copyright issues if you monetize or use this commercially.
+Please keep in mind there could be copyright issues if you monetize or use this commercially.
  
 
 ## Overview
