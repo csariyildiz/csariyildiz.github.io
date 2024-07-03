@@ -1,19 +1,48 @@
+## Fields
+* Chatbots
+* Text To Speech Conversion
+* Turkish Voice Over
+* Text To Stock Video Footage
+* Text To Image
+* Creating Music From Lyrics And Description
+* Seperating Musical Instruments
+* Turning Humming To Instrument
+* Turning MIDI To A Song
+* Academical Tools 
+
+--------------------------------------------------------------------------
 **Chatbot:**
 * Chatgpt
 * Gemini
 * Bing
 
-* https://elevenlabs.io/
+**Text To Speech:**
+* [elevenlabs.io](https://elevenlabs.io/)
+
+**Turkish Voice Over**
+
+Especially the Turkish dubbing issue attracts my attention. If it becomes mechanical and becomes difficult to distinguish from the human voice.
+I think it will not disturb YouTube users and the texts will quickly become available for visual consumption on YouTube.
+
+* [elevenlabs.io](https://elevenlabs.io/)
+
+
+**Text To Stock Footage:**
 
 
 **Creating Music from Lyrics and Description:**
 
-Suno, which allows creating songs by entering lyrics and descriptions.
+* suno
+
+Note: Suno, which allows creating songs by entering lyrics and descriptions.
 By sending a text, I first created a mention by going back and forth between ChatGPT and Gemini.
 I then added it to Suno, just commenting on it.
 
 **Separating Musical Instruments from Each Other: (AI Stem Splitter)**
-Müzik aletlerini birbirinden ayıran örneğin [SplitMySong](https://www.splitmysong.com/) uygulama çok başarılı. 
+
+* [SplitMySong](https://www.splitmysong.com/) 
+
+Note: Stem splitting is seperating musical instruments of a song.
 
 **Turning Humming into an Instrument (Humming To Melody)**
 He can also turn humming into a specific musical instrument. "turn voice into instrument ai"
@@ -22,7 +51,7 @@ It's also an app that can turn this into professionally sounding songs. But what
 An application that can create different versions.
 
 It can be done at a certain level with the plugins I installed in FL Studio and Ableton, but I guess it can be done at a much more advanced level with AI tools.
-* [https://create.musicfy.lol/create/voice](https://musicfy.lol/) : Başarılı
+* [https://create.musicfy.lol/create/voice](https://musicfy.lol/)
 * Melodyne
 * https://vochlea.com/
 
@@ -36,11 +65,6 @@ It can be done at a certain level with the plugins I installed in FL Studio and 
 * https://google-research.github.io/seanet/musiclm/examples/
 * Midi to song ai.
 
-**Turkish Voice Over**
 
-Especially the Turkish dubbing issue attracts my attention. If it becomes mechanical and becomes difficult to distinguish from the human voice.
-I think it will not disturb YouTube users and the texts will quickly become available for visual consumption on YouTube.
-
-
-
-Academical Tools.
+  
+**Academical Tools**
