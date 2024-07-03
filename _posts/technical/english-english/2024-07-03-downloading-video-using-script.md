@@ -50,6 +50,33 @@ yt-dlp -f "bv+ba/b" "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 * The executables can be placed in the Windows32 directory, where the actual binary file is located. But its not necessary to alter operating systems folder.
 * Alternatively, we could have also created an executable ourselves using `C` or `C++` with `GCC` or a `.NET console application` using `Visual Studio`.
 * Some also using a list, although I didn't find it necessarry.
+* When we click and run the bat file:
+  
+```
+Batch Script to take input.
+Type YouTube URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+Running: yt-dlp -f "bv+ba/b" "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+[youtube] Extracting URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+[youtube] dQw4w9WgXcQ: Downloading webpage
+[youtube] dQw4w9WgXcQ: Downloading ios player API JSON
+[youtube] dQw4w9WgXcQ: Downloading m3u8 information
+[info] dQw4w9WgXcQ: Downloading 1 format(s): 616+251
+[hlsnative] Downloading m3u8 manifest
+[hlsnative] Total fragments: 39
+[download] Destination: Rick Astley - Never Gonna Give You Up (Official Music Video) [dQw4w9WgXcQ].f616.mp4
+[download] 100% of   94.86MiB in 00:00:07 at 12.73MiB/s
+[download] Destination: Rick Astley - Never Gonna Give You Up (Official Music Video) [dQw4w9WgXcQ].f251.webm
+[download] 100% of    3.28MiB in 00:00:00 at 24.28MiB/s
+[Merger] Merging formats into "Rick Astley - Never Gonna Give You Up (Official Music Video) [dQw4w9WgXcQ].webm"
+Deleting original file Rick Astley - Never Gonna Give You Up (Official Music Video) [dQw4w9WgXcQ].f251.webm (pass -k to keep)
+Deleting original file Rick Astley - Never Gonna Give You Up (Official Music Video) [dQw4w9WgXcQ].f616.mp4 (pass -k to keep)
+Done.
+Press any key to continue . . .
+```
+
+* The requested video `Rick Astley - Never Gonna Give You Up (Official Music Video) [dQw4w9WgXcQ].webm` file is downloaded with size of 100,495 KB.
+* It downloads sound and video seperately (we can see this steps in folder) later if it finds ffmpeg it also uses it to merge. Our version merges because ffmpeg is also defined.
+* I also convert this to mp4 but it doesnt necessarry. We didnt gave any input for video or sound it automatically selects the best one.
 
 Thats it! This is what meets our need. However, we will examine the inner workings of `yt-dlp` in more detail in the following sections.
 
