@@ -1027,6 +1027,7 @@ padding: 0px !important;
     .highlight {
         padding:1rem 1.5rem;
         border: 1px solid #737373;
+	background: #191919;
 
     }
 }
@@ -1042,7 +1043,7 @@ padding: 0px !important;
 
 .highlight pre code {
     font-size: inherit;
-    color: #212529;
+    color: white;
     word-wrap: normal
 }
 
