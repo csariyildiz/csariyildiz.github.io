@@ -26,6 +26,7 @@ With yt-dlp, users can download videos in various formats and qualities, and it 
 * In `scripts` folder I got a file named `yt.bat`.
 * In `bin` folder i got four files named `ffmpeg.exe`, `ffplay.exe`, `ffprobe.exe` and `yt-dlp.exe`.
 * Content of my `yt.bat` file is:
+
 ```
 @echo off
 echo Batch Script to take input.
@@ -36,16 +37,17 @@ echo Running: %message%
 echo Done.
 pause
 ```
+
 * When its run the bat file asks for a `YouTube URL` of the video such as `https://www.youtube.com/watch?v=dQw4w9WgXcQ`. 
 * It runs `yt-dlp` with parameter `-f bv+ba/b`. And passes video URL as also a parameter `%input%`.
 * It runs the command like below:
+  
 ```
 yt-dlp -f "bv+ba/b" "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 ```
 
 * My `bin` folder is defined in `Path` in `environment variables` of Windows so I can run `yt-dlp` directly from command line.
-* The executables can be placed in the Windows32 directory, where the actual binary file is located. 
-But its not necessary to alter operating systems folder.
+* The executables can be placed in the Windows32 directory, where the actual binary file is located. But its not necessary to alter operating systems folder.
 * Alternatively, we could have also created an executable ourselves using `C` or `C++` with `GCC` or a `.NET console application` using `Visual Studio`.
 * Some also using a list, although I didn't find it necessarry.
 
@@ -75,23 +77,25 @@ yt-dlp.exe	- Windows (Win7 SP1+) standalone x64 binary (recommended for Windows)
 ```
 
 There is 2 other for recommended Linux/BSD and MacOS.
+
 ```
 yt-dlp	Platform-independent zipimport binary. Needs Python (recommended for Linux/BSD)
 yt-dlp_macos	Universal MacOS (10.15+) standalone executable (recommended for MacOS)
 ```
+
 There are other release files aswell.
 Keep in mind this one has the auto-update feature.
 
 ### Format Specifiers
 
-The -f flag allows you to specify the format of the media file(s) you want to download. Formats can include different qualities of video and audio, as well as options for merging them together.
-* -f "bv+ba/b": This option specifies the format or formats in which the video and audio should be downloaded. Formats are specified using a string format specifier.
+The `-f` flag allows you to specify the format of the media file(s) you want to download. Formats can include different qualities of video and audio, as well as options for merging them together.
 
-* bv: the video stream should be downloaded in its best available quality.
-* ba: the audio stream should also be downloaded in its best available quality.
-* /b: merge the downloaded video and audio streams into a single file after downloading.
+* `-f "bv+ba/b"`: This option specifies the format or formats in which the video and audio should be downloaded. Formats are specified using a string format specifier.
+* `bv`: the video stream should be downloaded in its best available quality.
+* `ba`: the audio stream should also be downloaded in its best available quality.
+* `/b`: merge the downloaded video and audio streams into a single file after downloading.
   
-When we run this command, yt-dlp will fetch the video from the YouTube URL https://www.youtube.com/watch?v=dQw4w9WgXcQ, download the best video and audio streams available, and merge them into a single file (/b) for you to watch or use offline.
+When we run this command, yt-dlp will fetch the video from the YouTube URL `https://www.youtube.com/watch?v=dQw4w9WgXcQ`, download the best video and audio streams available, and merge them into a single file (/b) for you to watch or use offline.
 This flexibility allows users to tailor their downloads based on their preferences for quality, file size, or specific use cases.
 
 ### Binary Files ffmpeg ffplay and ffprobe
