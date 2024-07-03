@@ -1,12 +1,12 @@
 **Chatbot:**
-As a chatbot I use ChatGPT, Gemini and Bing.
+* Chatgpt
+* Gemini
+* Bing
 
-Academical Tools.
+* https://elevenlabs.io/
 
 
-
-
-**Creating Music from Lyrics and Description (Suno):**
+**Creating Music from Lyrics and Description:**
 
 Suno, which allows creating songs by entering lyrics and descriptions.
 By sending a text, I first created a mention by going back and forth between ChatGPT and Gemini.
@@ -43,3 +43,4 @@ I think it will not disturb YouTube users and the texts will quickly become avai
 
 
 
+Academical Tools.
