@@ -35,16 +35,10 @@ The executables can be placed in the Windows32 directory, where the actual binar
 Alternatively, we could have created an executable ourselves using C++ or a Windows Console Program. 
 I was using a Windows machine for this task. Some people also try using a list, although I didn't do that. 
 
-## What Is yt-dlp?
+## Details
+
 
 
 ## 
 
 
-
-
-Par-1 : "MongoDB is a very popular no-sql database with JSON-like documents. I find it very robust usefull for many use cases including application development and data pipelines. In this document we will explore its features and commands which can be useful when we dealing with data."
-Par-2 : "MongoDB has versions like Cloud (Named Atlas), Enterprise and Community. Community version is free to use. It also has a GUI named MongoDB Compass. Because MongoDB is no-sql its data stored as unstructured or semi-structured. Contrasting from relational databases such as MSSQL, MySQL or Oracle with its collections and documents instead of structured tables columns and rows. MongoDB has many features like indexing, replication, load-balancing. And its queries are formed in a JSON-like manner which makes flexible and it easy to use."
-
-Par-3 : "Sometimes we may want to download a video from a site. Although there are sites that do this purpose online, there are also special libraries developed for this purpose. For example, the yt-dlp library provides a surprisingly detailed tool that does this. This document explains how to download videos using yt-dlp and bat file in Windows operating system."
-Par-4 : ""
