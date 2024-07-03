@@ -7,6 +7,8 @@ One of them is the `yt-dlp` library offers a comprehensive tool for video downlo
 
 Please keep in mind there could be copyright issues if you monetize or use this commercially.
  
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/yt-dlp-post.png" class="img-fluid" alt="ytdlp post">
+
 
 ## Overview
 
