@@ -96,12 +96,12 @@ This flexibility allows users to tailor their downloads based on their preferenc
 
 ### Binary Files ffmpeg ffplay and ffprobe
 
-ffmpeg.exe: Purpose: ffmpeg is a powerful command-line tool for handling multimedia files. It can convert audio and video formats, resize videos, apply filters, and perform many other operations.
-When it's needed: You would use ffmpeg.exe whenever you need to manipulate multimedia files—such as converting formats, cutting or joining videos, adding subtitles, or applying effects.
+ffmpeg.exe: ffmpeg is a powerful command-line tool for handling multimedia files. It can convert audio and video formats, resize videos, apply filters, and perform many other operations.
+You would use ffmpeg.exe whenever you need to manipulate multimedia files—such as converting formats, cutting or joining videos, adding subtitles, or applying effects.
 
-ffplay.exe: Purpose: ffplay is a simple media player based on FFmpeg libraries. It can play audio and video files from the command line without the need for a graphical interface.
-When it's needed: You might use ffplay.exe to quickly preview multimedia files, check encoding results, or debug issues related to multimedia playback.
+ffplay.exe: ffplay is a simple media player based on FFmpeg libraries. It can play audio and video files from the command line without the need for a graphical interface.
+You might use ffplay.exe to quickly preview multimedia files, check encoding results, or debug issues related to multimedia playback.
 
-ffprobe.exe: Purpose: ffprobe is a tool to analyze multimedia streams. It provides detailed information about the multimedia content of a file, such as codec details, bitrates, stream information, and metadata.
-When it's needed: Use ffprobe.exe when you need to inspect the characteristics and properties of audio or video files programmatically or to gather detailed technical information about multimedia streams.
+ffprobe.exe: ffprobe is a tool to analyze multimedia streams. It provides detailed information about the multimedia content of a file, such as codec details, bitrates, stream information, and metadata.
+Use ffprobe.exe when you need to inspect the characteristics and properties of audio or video files programmatically or to gather detailed technical information about multimedia streams.
 
