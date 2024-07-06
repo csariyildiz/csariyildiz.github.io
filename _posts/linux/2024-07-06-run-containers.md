@@ -19,9 +19,9 @@ Practical Objectives:
 * Practical: Verify configurations of podman.
 * Practical: Download and run an image in podman.
 
-## Running Containers
+## 1. Running Containers
 
-### What is a container?
+### 1.1 What is a container?
 
 Container technology allows developers or programmers to test and build application on any computer just by putting in a container.
 
