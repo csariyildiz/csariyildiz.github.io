@@ -9,9 +9,6 @@ tags:
   - Containers
 ---
 
-Enron dataset is commonly used dataset by scientific community and researchers as a  test or training data for various NLP tasks.
-In this article, we will load this dataset into MongoDB for faster parsing.
-
 ## Overview
 
 Practical Objectives:
