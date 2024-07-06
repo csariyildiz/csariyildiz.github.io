@@ -16,7 +16,6 @@ desc: "Linux ve Kernel"
 
 * Kernel adı verilen işletim sisteminin çekirdeği kabuktan ve diğer fonksiyonaliteden ayrılır. Kimi zaman birbirleri yerine kullanılsalar da linux aslında çekirdeğin ismidir. Çekirdek bir yazılım olarak GNU yazılımına ek bir parçadır. İkisi beraber kullanıldıklarında aslında linux olarak tanımlanan yapıyı oluştururlar. Yani işletim sistemini çekirdeği ancak ona ek olarak gelen GNU araçları işletim sistemini meydana getirir. Bu nedenle doğru kullanım aslında yazılımların kümesi olan GNU ve Linux'un beraber kullanımı olan GNU/Linux'tur.
 
-
 * Linux'un kökeni 1970'lerde AT&T Bell Laboratuarlarından kaynaklanan UNIX'e dayanmaktadır. UNIX C dilinde yazılmış bir işletim sistemidir. Taşınabilir ve donanımdan bağımsız olması ile öne çıkar. Sertifikalı UNIX'in aksine Linux, Open Group sertifikasına sahip değildir, bu da onu UNIX benzeri yapar, ancak belirli sebeplerden tam olarak UNIX değildir.
 
 * Linux'un ilk geliştirilmesi MINIX lisanslamasından rahatsız olan Linus Torwards Unix-benzeri bir işletim sistemini eğitim amacıyla tasarlamasıyla başlar.
@@ -29,9 +28,11 @@ desc: "Linux ve Kernel"
 
 * Açık kaynaklı linux dağıtımlarında kernel herkese açık olarak yayınlandığından kullanıcılar, geliştiriciler ve sistem yöneticileri kendi sürümlerini özelleştirebilir. Hatta gerek duyarlarsa kendi kernellerini üretebilirler. (kernel compile) Bu spesifik donanıma uyumluluk sağlamak, kimi özellikleri açmak ya da kapatmak ya da özelleştirilmiş değişiklikler yapmak amacıyla yapılabilir. Kernel compile işlemi aynı zamanda kernel seçeneklerinin (kernel options) konfigüre edilmesi gerkeli driverların seçilmesi ve "make" gibi bir komut kullanılarak kaynak konunun binary kernel imajına compile edilmesini içerir.
 
+## İşletim Sisteminin Katmanları
+
 * İşletim sistemini açıklamak için kimi zaman farklı katmanlar ve terimler kullanılabilmektedir. Kullanılan linux dağıtımına özgü (Örneğin [Ubuntu dokümantasyonu](https://ubuntu.com/core/docs/uc20/inside) veya RedHat gibi) kaynaklar çekirdeğin iç işleyişine dair kimi zaman daha gerçekçi bir manzara ortaya koyabilir.
 
-* En bariz olarak üç ana seviyeden (Hardware, Kernel ve User) ayrımından söz etmek mümkündür. Hardware tabanda yer alır.
+* En bariz olarak üç ana seviyeden (Hardware, Kernel ve User) ayrımından söz etmek mümkündür.
 
 ```
 3- Kullanıcı Katmanı (User Space Layer)
@@ -39,7 +40,7 @@ desc: "Linux ve Kernel"
 1- Donanım Katmanı (Hardware Layer)
 ```
 
-* Donanım, belleğin (memory) yanı sıra hesaplamayı gerçekleştirmek ve bellekten okumak ve belleğe yazmak için bir veya daha fazla merkezi işlem birimini (CPU) içerir.
+*  Hardware tabanda yer alır. Donanım, belleğin (memory) yanı sıra hesaplamayı gerçekleştirmek ve bellekten okumak ve belleğe yazmak için bir veya daha fazla merkezi işlem birimini (CPU) içerir.
 * Diskler ve ağ arayüzleri (netwok interface) gibi cihazlar da donanımın bir parçasıdır.
 
 * Bir sonraki seviye, işletim sisteminin çekirdeği olan kernel'dir.
@@ -64,9 +65,7 @@ desc: "Linux ve Kernel"
 * Örneğin, bir kullanıcı işlemi diskteki verileri tamamen bozabilir mi? Doğru izinlerle bu tehlikeli işlemi gerçekleştirebilir.
 * Ancak bunu önleyecek önlemler mevcuttur ve çoğu processin bu şekilde hasara yol açmasına izin verilmez.
  
-## Context Switch (Bağlam Geçişi)
-
-* Linux'ta, CPU user modu ve kernel modu arasında geçiş yapar.
+* Linux'ta, CPU user modu ve kernel modu arasında geçiş yapar. Bu geçişe Context Switch (Bağlam Geçişi) denir.
 * Context switch donanım ve sistem kaynaklarına güvenli ve kontrollü erişim sağlayan bir mekanizmadır.
 
 * System Call or Interrupt: A context switch from user space to kernel space is typically triggered by a system call (e.g., file I/O, memory allocation) or a hardware interrupt (e.g., a timer interrupt).
@@ -88,6 +87,8 @@ desc: "Linux ve Kernel"
 
 * To optimize performance the kernel takes some precautions. Context switches are relatively expensive due to saving and restoring state, changing stacks, and CPU cache invalidation.
 * The Linux kernel employs various optimization techniques to minimize context switch overhead, such as reducing the frequency of interrupts and batching system calls.
+
+## Katmanlar
 
 ```
 1- Donanım Katmanı (Hardware Layer)
@@ -111,8 +112,10 @@ Her bilgisayarda bir kernel ve user space ayrımı bulunur. Böylelikle kernel k
 
 * Kullanıcı Uygulamaları Katmanı: Bu katman, web tarayıcıları, ofis paketleri, medya oynatıcılar ve metin düzenleyiciler gibi kullanıcı merkezli uygulamaları ve araçları kapsar.
 
+## Kaynak Yönetimi
 
-## Kabuk Shell
+
+## Kabuk (Shell)
 
 * Komut satırı arayüzü (CLI) ya da kabuk GNU projesinin Bash (Bourne-Again SHell) ya da diğer uyumlu kabularının (örn. Zsh, Fish) kullanıcılar ve uygulamalarla etkileşimini sağlar.
 
