@@ -1,7 +1,7 @@
 ---
 layout: post3
 title: "Run Containers"
-category: Linux
+category: linux
 cat: "System Administration"
 tags:
   - Containers
