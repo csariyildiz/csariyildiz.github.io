@@ -1,6 +1,6 @@
 ---
 layout: post3
-title: "Run Containers"
+title: "Running Containers"
 category: linux
 cat: "System Administration"
 desc: "Using Podman in RHEL9"
