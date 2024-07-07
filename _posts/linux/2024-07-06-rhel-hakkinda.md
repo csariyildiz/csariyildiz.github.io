@@ -1,13 +1,10 @@
 ---
 layout: post3
-title: "RHEL Hakkında"
+title: "Red Hat Enterprise Linux (RHEL) Nedir?"
 category: linux
 number: 1
-desc: "RHEL Hakkında"
+desc: "Red Hat Enterprise Linux (RHEL) Nedir?"
 ---
-
-
-## Red Hat Enterprise Linux (RHEL) Nedir?
 
 Red Hat Enterprise Linux (RHEL), Red Hat tarafından geliştirilen ticari bir Linux dağıtımı. 
 Sağlamlık ve güvenlik konusunda ek geliştirmeler ve bir çok araç ile kurumsal düzeyde kullanıma odaklanıyor. 
