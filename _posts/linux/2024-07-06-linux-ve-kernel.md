@@ -139,12 +139,18 @@ Her bilgisayarda bir kernel ve user space ayrımı bulunur. Böylelikle kernel k
 
 * Komut satırı arayüzü (CLI) ya da kabuk GNU projesinin Bash (Bourne-Again SHell) ya da diğer uyumlu kabularının (örn. Zsh, Fish) kullanıcılar ve uygulamalarla etkileşimini sağlar.
 
-* Shell aslında kullanıcı seviyesinde bir programdır fakat diğer kullanıcı seviyesi programlardan farklı olarak işletim sisteminin fonksiyonlarını dışarıya kullanıcılarin görebileceği ve etkileşime girebileceği şekilde açar. Shell bu özelliği ile kernel'i kullanıcıya ifşa etmesi bakımından kritiktir. Shell ile kullanıcılar uygulamalara kütüphanelere ve çekirdeğe erişim sağlayabilirler. Böylece kullanıcı sistemin kaynakları ve fonksiyonları hakkında bilgi edinebilir ve değişiklik yapabilir duruma gelirler. 
+* Shell aslında kullanıcı seviyesinde bir programdır fakat diğer kullanıcı seviyesi programlardan farklı olarak işletim sisteminin fonksiyonlarını dışarıya kullanıcılarin görebileceği ve etkileşime girebileceği şekilde açar. Shell bu özelliği ile kernel'i kullanıcıya açıldığı nokta olması bakımından kritiktir. Shell ile kullanıcılar uygulamalara, kütüphanelere ve dolaylı da olsa çekirdeğe erişim sağlayabilirler. Böylece kullanıcı sistemin kaynakları ve fonksiyonları hakkında bilgi edinebilir ve değişiklik yapabilir duruma gelir. 
 
-* Bash için bazı işlemleri aşağıdaki gibi özetleyebiliriz: Linux sistemlerde yaygın olarak kullanılan Bash örneğin kullanıcı dizinini değiştirmek için chdir isminde bir system call çalıştırır. Bu system call ile kernel tarafında çağrılan processin çalıştırıldığı dizini değiştirir. Çalışma dizini alt (çocuk) processler tarafından miras alınır.
+* Bash için bazı işlemleri aşağıdaki gibi özetleyebiliriz: Linux sistemlerde yaygın olarak kullanılan Bash örneğin kullanıcı dizinini değiştirmek için chdir isminde bir "system call" çalıştırır. Bu system call ile kernel tarafında çağrılan processin çalıştırıldığı dizini değiştirir. Çalışma dizini alt (çocuk) processler tarafından miras alınır.
 
-* Bir program çalıştırmak için ise Bash bir fork ya da örneğin vfork ya da bir benzerini çağırır. Bu komut da yine bir çocuk (child) proses oluşturur. Bu proses orjinalin (parent) bir kopyasıdır. Ardından bu proses execve isminde bir system call çağırır. Bu da kendi programını çalıştırılmak istenen programla değiştirir. Daha sonra bash bir system call olan wait'in bir versiyonunun çağırarak çocuk process terminate olana kadar bekler.
+Bash kabuğu, bir program çalıştırmak için genellikle fork ya da benzeri bir sistem çağrısı kullanarak yeni bir süreç (child process) oluşturur. Bu yeni süreç, mevcut sürecin (parent process) bir kopyasıdır. fork çağrısı, child process'in yaratılmasını sağlar ve bu süreç, parent process ile aynı kodu çalıştırmaya başlar. 
 
+Alternatif olarak, vfork kullanılabilir ve bu da child process'in parent ile aynı adres alanını paylaşmasına izin vererek daha hızlı bir süreç yaratılmasını sağlar, ancak bu durumda child process'in execve çağrısına kadar parent process beklemek zorunda kalır. 
+
+Child process oluşturulduktan sonra, execve sistem çağrısını kullanarak kendi kodunu çalıştırılmak istenen yeni programla değiştirir. Bu aşamada, child process'in adres alanı silinir ve yeni program yüklenerek başlatılır, böylece child process artık yeni programın kodunu çalıştırır ve parent process'in kodu tamamen silinir. Parent process ise wait veya waitpid sistem çağrısını kullanarak child process'in bitmesini bekler. Bu bekleme işlemi, child process bitene kadar parent process'in beklemesine neden olur ve child process tamamlandığında parent process, bekleme durumundan çıkar. 
+
+ ./test_program gibi bir komut çalıştırıldığında, Bash bu adımları takip eder: fork ile child process yaratılır, child process execve ile kendisini yeni programla değiştirir ve parent process wait ile child process'in tamamlanmasını bekler. Bu süreç, yeni programların güvenli ve kontrollü bir şekilde çalıştırılmasını sağlar ve Linux işletim sisteminin çekirdeğinin sağladığı önemli mekanizmalardandır.
+ 
 * Yukarıdaki anlatımdan da anlayabileceğimiz gibi sistem çağrıları (system calls), kullanıcı alanından (user space) çekirdekle etkileşim kurmanın önerilen yoludur.
   
 * Kullanıcı uygulamaları ve çekirdek işlevleri arasındaki etkileşimleri izlemek ve hata ayıklamak için strace ve gdb gibi hata ayıklama araçları kullanılabilir.
