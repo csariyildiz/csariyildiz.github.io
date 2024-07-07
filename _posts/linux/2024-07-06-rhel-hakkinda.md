@@ -47,25 +47,26 @@ dnf install podman -y
 rpm -ihv ksh-1.0.0~beta.1-3.el9.x86_64.rpm
 ```
 
-### Erişim ve Güvenlik
+### Erişim ve Güvenlik ve Yönetim Araçları
 
 İşletim sistemine en basit olarak SSH ile key veya parola ile erişim sağlanıyor. Diğer linux dağıtımlarından aşina olunan standart kullanıcı yapısı ve izinleri dosya, proses ve servisler için geçerli.
-İşletim sisteminin içerisinde lisans kontrolü yapan araçlar mevcut.
 
-Temelde güvenlik için SELinux, ACL (setfacl) ve Firewalld (Iptables kullanılmıyor.) ile detaylı olarak policy oluşturulabiliyor.
+Temelde güvenlik için SELinux, ACL (setfacl) ve Firewalld kullanılıyor. (Iptables kullanılmıyor.) Bu araçlarla işletim sisteminde erişimi sınırlandırıcı politikalar oluşturulabiliyor.
 
-Kurumsal bir yapıda işletim sisteminin kendisi haricinde güvenlik amaçlı PAM (Privileged Access Management), ağ üzerinde sınırlandırmalar, firewall cihazları, VPN gibi farklı sistemler bulunacaktır.
-Red Hat'in de Red Hat Single Sign-On (SSO), 
+Kurumsal bir yapıda işletim sisteminin kendisi haricinde güvenlik amaçlı PAM (Privileged Access Management), ağ üzerinde sınırlandırmalar, firewall cihazları, VPN gibi farklı sistemler bulunması muhtemel.
+Erişim mekanizmalari ile ilgili Red Hat'in de Red Hat Single Sign-On (SSO), Red Hat Identity Management (IdM) gibi çözümleri bulunuyor.
 
-Bunların dışında temel olarak bazı işlevleri aşağıdaki gibi listeleyebiliriz:
+systemd, temel sistem ve servis yöneticisi. Sistem önyükleme sürecini, servis başlatılmasını ve durdurulmasını, günlük kayıtlarının tutulması ve bir çok işleyişi yürütüyor. systemctl komutuyla kontrol edilir. (örn systemctl status httpd) 
 
-* Cockpit adında sunucuları yönetebileceğimiz araç. sos gibi raporlama toolları.
-* Disk Management: LVM ve Stratis ile sanallaştırma yapılabiliyor. Dosya sistemi  olarak ext4. 
-* Task Scheduling: contab ve at.
-* Performance Tuning:
-* Network Tools:
-* File Compression And Archiving:
-* Process Monitoring:
+Bunların dışında temel olarak işletim sisteminin bazı araçlarını aşağıdaki gibi listeleyebiliriz:
+* İşletim sisteminin içerisinde lisans kontrolü yapan araçlar
+* Cockpit adında sunucuları yönetebileceğimiz bir web arayüzü ve sos gibi raporlama toolları
+* Disk Yönetimi: LVM ve Stratis ile sanallaştırma yapılabiliyor. Dosya sistemi olarak ext4 kullanılıyor.
+* Zamanlandırılmış Görevler: crontab ve at.
+* Performans Tuning: tuned ve Performance Co-Pilot (PCP) araçları ile sistem performansını izleme ve ayarlama.
+* Network Araçları: nmcli, nmtui ve ip komutları ile ağ yapılandırmaları yapılabiliyor.
+* Dosya Sıkıştırma ve Arşivleme: tar, gzip, bzip2 ve zip gibi araçlarla dosya sıkıştırma ve arşivleme işlemleri gerçekleştirilebiliyor.
+* Process Görüntüleme ve Yönetimi: ps, top, htop ve systemd komutları ile sistemde çalışan süreçleri izleme ve yönetme.
 
 ### Sistem Gereksinimleri
 
@@ -78,9 +79,7 @@ Farklı kurulum türlerinin spesifik gereksinimleri oluyor. Örneğin yoğun hes
 
 Minimumda x86_64 (64 bit) mimarisinde, 2 GHz hıza sahip ve çok çekirdekli (multi-core) işlemci, minimum 2 GB RAM, grafik arayüz içeren kurulumlar veya daha iyi performans için 4 GB RAM ve 20GB ek veri ve 20GB işletim sistemi için 40GB disk alanı öneriliyor. Sunucu için uzaktan erişilebilir bir arayüze sahip ILO veya BMC kart kullanılabilir. Ekran için 1024x768 veya daha üstü çözünürlük bekleniyor.
 
-VMware vSphere, VirtualBox, KVM/QEMU, Hyper-V gibi sanallaştırma ortamları için örnek bir host sistemin minimumda yine 64-bit x86 işlemcinin Sanallaştırma uzantılarına (Intel VT-x veya AMD-V) ve en az 2 CPU çekirdeğine ihtiyacı var. 
-A virtual network adapter is required, with the choice of bridged, NAT, or host-only mode depending on your configuration; bridged mode is preferred for direct network access.. A virtual network adapter is required, with the choice of bridged, NAT, or host-only mode depending on your configuration; bridged mode is preferred for direct network access.
-
+VMware vSphere, VirtualBox, KVM/QEMU, Hyper-V gibi sanallaştırma ortamları için örnek bir host sistemin minimumda yine 64-bit x86 işlemcinin Sanallaştırma uzantılarına (Intel VT-x veya AMD-V) ve en az 2 CPU çekirdeğine ihtiyacı var. Sanallaştırıcı için NAT, bridged, host-only gibi modlarda kullanabileceğimiz bir sanal network adaptörüne ihtiyacımız var.
 
 ### Açık Kaynak ve Ticari Sürüm
 
@@ -95,7 +94,13 @@ Gelecekteki RHEL sürümlerine sonradan dahil edilebilecek teknolojiler için bi
 
 ### Pazar Payı
 
+Market search firm IDC: redhat-bloghttps://www.redhat.com/en/blog/red-hat-leading-enterprise-linux-server-market
 
+(Image)
+
+As of 2024, Red Hat Enterprise Linux (RHEL) controls approximately 33.9% of the global server operating environment market, maintaining its leadership position in the enterprise Linux server market. This significant market share underscores Red Hat's dominance and widespread adoption in the industry​ (The world's open source leader)​​ (Techjury)​.
+
+Linux overall powers a substantial portion of the enterprise server market, with various distributions contributing to its usage. Linux-based systems are favored for their reliability, security, and cost-effectiveness, making them a popular choice for enterprise environments. The broader Linux market continues to grow, driven by increasing demand for cloud computing and virtualized environments​ (Fortune Business Insights)​.![image]
 ### RHEL'in Ürün Yaşam Döngüsü
 
 RHEL versiyonları da her yazılım ürünü gibi bir Yaşam Döngüsüne (Product Life Cycle) ve yazılım geliştirme döngüsüne (Software Development Lifecycle - SDLC) sahip.
@@ -113,14 +118,14 @@ Her bir versiyon için production (üretim) ve uzatılmış destek (extended sup
 
 ### RHEL'in BT Mimarisindeki Yeri
 
-Bir işletim sistemi BT mimarisinde aşağıdaki gibi pek çok işleve sahip olabilir.
+Bir işletim sistemi altyapı içerisinde aşağıdaki gibi pek çok işleve sahip olabilir.
 
 ```
 Active Directory Server (Windows sunucular için)
 File Server
 Mail Server
 Remote Desktop Server
-Application Server
+Application Server (Prod/Test/Prod-like)
 Database server
 Backup server
 DFS server
@@ -129,11 +134,10 @@ Systems Management Server
 ```
 
 * Azure ve AWS (Amazon Web Services) üzerinden RedHat imajları sanal makineler olarak yüklenebiliyor.
-
 * Uygulama sunucusu olarak JBoss EAP, Nginx ve Apache Tomcat'i örnek olarak verebiliriz.
-JBoss EAP: Java tabanlı uygulamalar için bir uygulama sunucusudur ve RHEL9 üzerinde kurumsal uygulamaları çalıştırmak için kullanılabilir.
-Nginx: Yük dengeleyici ve web sunucusudur ve RHEL9 üzerinde yüksek performanslı web hizmetleri sağlamak için kullanılabilir.
-Apache Tomcat: Java tabanlı web uygulama sunucusudur ve RHEL9 üzerinde Java servlet ve JSP tabanlı uygulamaları çalıştırmak için kullanılabilir.
+* JBoss EAP: Java tabanlı uygulamalar için bir uygulama sunucusudur ve RHEL9 üzerinde kurumsal uygulamaları çalıştırmak için kullanılabilir.
+* Nginx: Yük dengeleyici ve web sunucusudur ve RHEL9 üzerinde yüksek performanslı web hizmetleri sağlamak için kullanılabilir.
+* Apache Tomcat: Java tabanlı web uygulama sunucusudur ve RHEL9 üzerinde Java servlet ve JSP tabanlı uygulamaları çalıştırmak için kullanılabilir.
 
 * Veritabanı sunucusu olarak MongoDB, MySQL ve PostgreSQL örnek olarak verilebilir.
 
@@ -148,8 +152,6 @@ Apache Tomcat: Java tabanlı web uygulama sunucusudur ve RHEL9 üzerinde Java se
 * OpenShift: Kubernetes tabanlı bir konteyner platformu. RHEL9 üzerinde bulut yerel uygulamaları dağıtmak için kullanılır.
 * GitLab: DevOps platformu. RHEL9 üzerinde kod yönetimi ve CI/CD süreçlerinde kullanılır.
 * Jenkins: Sürekli entegrasyon ve sürekli teslimat (CI/CD) aracı. RHEL9 üzerinde yazılım geliştirme süreçlerini otomatikleştirmek için kullanılabilir.
-
-
 
 
 ### Kaynaklar
