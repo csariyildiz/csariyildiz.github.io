@@ -3,16 +3,18 @@ layout: post3
 title: "Red Hat Enterprise Linux (RHEL) Nedir?"
 category: linux
 number: 1
-desc: "Red Hat Enterprise Linux (RHEL) Nedir?"
+desc: ""
 ---
 
 Red Hat Enterprise Linux (RHEL), Red Hat tarafından geliştirilen ticari, UNIX ve GNU\Linux tabanlı bir işletim sistemidir. 
 Sağlamlık ve güvenlik konusunda RedHat firmasının yaptığı ek geliştirmeler ve bir çok araç ile kurumsal düzeyde kullanıma odaklanır. 
+
 Red Hat işletim sisteminin 4, 5, 6, 7, 8 ve 9 olmak üzere çeşitli versiyonları bulunuyor.
+
 Bu yazının yazıldığı tarih itibarıyla en son sürüm olan RHEL 9, Mayıs 2022'de piyasaya sürüldü.  
 RHEL 9'un saban anlamına gelen "Plow" lakabı, RHEL'in kurucularından biri olan ve RHEL mühendislik ekibinin eski lideri Tim Burke'ün Appalachian Trail (Appalachian doğa yürüyüşü) takma adından geliyor.
 
-### CPU Mimarileri
+## CPU Mimarileri
 
 RHEL, x86-64, Power ISA, ARM64 ve IBM Z dahil olmak üzere birden fazla CPU mimarisini destekliyor. 
 x86-64 bildiğimiz üzere genellikle hepimizin kullandığı masaüstü - laptop bilgisayarlarda, sunucularda ve sunucu clusterlarında kullanıyor. 
@@ -20,14 +22,14 @@ Power ISA kurumsal sunucularda kullanılan IBM mimarisi.
 ARM64 bildiğimiz üzere ARM işlemci mimarisine sahip sistemlerde kullanılıyor, mobil cihazların yanı sıra hem sunucularda hem de gömülü sistemlerde giderek daha popüler hale geliyor. 
 IBM Z IBM'in ana bilgisayar sistemlerinde kullanılıyor. 
 
-### Kernel ve Gnome
+## Kernel ve Gnome
 
 RHEL 9'u komut satırı arayüzü ile yükleyebileceğimiz gibi x86-64 için bir masaüstü sürümü ile de yükleyebiliyoruz. 
 RHEL 9 sürümü, Linux Kernel 5.14.0 ve Gnome 40 ile beraber kullanılıyor.
 Bash komut satırı arayüzüne (CLI) ek olarak GUI arayüzü olarak Gnome Shell'i kullanıyor.
 Diğer Linux dağıtımlarının çoğunun ve çekirdek Unix yardımcı programlarının yeteneklerine sahip.
 
-### Paket Yönetimi
+## Paket Yönetimi
 
 RHEL, paket yönetimi için DNF ve YUM adında iki ana aracı var. Hem DNF (Dandified YUM) hem de YUM (Yellowdog Updater, Modified), RPM tabanlı paketlerle çalışıyorlar.
 Her ikisi de işletim sisteminde yüklü olarak geliyor. RHEL için favori olan DNF'in zamanla YUM'un yerini alması amaçlanıyor. (DNF bağımlılık çözümlemesini daha verimli bir şekilde gerçekleştirmek için tasarlanmış. )
@@ -47,7 +49,7 @@ dnf install podman -y
 rpm -ihv ksh-1.0.0~beta.1-3.el9.x86_64.rpm
 ```
 
-### Erişim ve Güvenlik ve Yönetim Araçları
+## Erişim ve Güvenlik ve Yönetim Araçları
 
 İşletim sistemine en basit olarak SSH ile key veya parola ile erişim sağlanıyor. Diğer linux dağıtımlarından aşina olunan standart kullanıcı yapısı ve izinleri dosya, proses ve servisler için geçerli.
 
@@ -68,7 +70,7 @@ Bunların dışında temel olarak işletim sisteminin bazı araçlarını aşağ
 * Dosya Sıkıştırma ve Arşivleme: tar, gzip, bzip2 ve zip gibi araçlarla dosya sıkıştırma ve arşivleme işlemleri gerçekleştirilebiliyor.
 * Process Görüntüleme ve Yönetimi: ps, top, htop ve systemd komutları ile sistemde çalışan süreçleri izleme ve yönetme.
 
-### Sistem Gereksinimleri
+## Sistem Gereksinimleri
 
 RHEL işletim sisteminin yazılımsal gereksinimleri bootloader (sistem UEFI veya BIOS bootloader desteklemesi gerekiyor.), Network bağlantısı NIC (Network Interface Card) arayüzünü gerektiriyor. 
 RHEL 9 çeşitli ext4 default olmak üzere XFS ve Btrfs gibi çeşitli dosya sistemlerini destekliyor.
@@ -81,7 +83,7 @@ Minimumda x86_64 (64 bit) mimarisinde, 2 GHz hıza sahip ve çok çekirdekli (mu
 
 VMware vSphere, VirtualBox, KVM/QEMU, Hyper-V gibi sanallaştırma ortamları için örnek bir host sistemin minimumda yine 64-bit x86 işlemcinin Sanallaştırma uzantılarına (Intel VT-x veya AMD-V) ve en az 2 CPU çekirdeğine ihtiyacı var. Sanallaştırıcı için NAT, bridged, host-only gibi modlarda kullanabileceğimiz bir sanal network adaptörüne ihtiyacımız var.
 
-### Açık Kaynak ve Ticari Sürüm
+## Açık Kaynak ve Ticari Sürüm
 
 RHEL 9 ticari bir sürüm ama açık kaynak olma iddiasında, şirket gizlilik koşullarına uygun bir biçimde talep edildiğinde dağıtılmaması şartıyla kullanıcılarla kaynak kodu paylaşabiliyor.
 
@@ -92,7 +94,7 @@ RHEL 9 ticari bir sürüm ama açık kaynak olma iddiasında, şirket gizlilik k
 CentOS Stream, Red Hat gelişimini takip eden, sürekli güncellenen, sürekli yayınlanan bir dağıtım olarak tanıtıldı.
 Gelecekteki RHEL sürümlerine sonradan dahil edilebilecek teknolojiler için bir deneme alanı görevi görüyor. Ama bu sürüm önceki CentOS sürümleri gibi RHEL'in yeniden build edilmiş hali değil.
 
-### Pazar Payı
+## Pazar Payı
 
 Market search firm IDC: redhat-bloghttps://www.redhat.com/en/blog/red-hat-leading-enterprise-linux-server-market
 
@@ -101,7 +103,8 @@ Market search firm IDC: redhat-bloghttps://www.redhat.com/en/blog/red-hat-leadin
 As of 2024, Red Hat Enterprise Linux (RHEL) controls approximately 33.9% of the global server operating environment market, maintaining its leadership position in the enterprise Linux server market. This significant market share underscores Red Hat's dominance and widespread adoption in the industry​ (The world's open source leader)​​ (Techjury)​.
 
 Linux overall powers a substantial portion of the enterprise server market, with various distributions contributing to its usage. Linux-based systems are favored for their reliability, security, and cost-effectiveness, making them a popular choice for enterprise environments. The broader Linux market continues to grow, driven by increasing demand for cloud computing and virtualized environments​ (Fortune Business Insights)​.![image]
-### RHEL'in Ürün Yaşam Döngüsü
+
+## RHEL'in Ürün Yaşam Döngüsü
 
 RHEL versiyonları da her yazılım ürünü gibi bir Yaşam Döngüsüne (Product Life Cycle) ve yazılım geliştirme döngüsüne (Software Development Lifecycle - SDLC) sahip.
 RHEL in her major versiyonu 3-5 yıl içerisinde çıkıyor. Major versiyon önceki versiyondan farklı bir lisansa sahip ve ana değişiklikleri içerirken minör versiyonlar ufak güncellemeleri, yamaları (patches) ve güvenlik yamalarını (security patches) içeriyor.
@@ -112,14 +115,13 @@ Tablodan görebileceğimiz üzere RHEL6 2010 yılında sürülmüş
 
 Her bir versiyon için production (üretim) ve uzatılmış destek (extended support) süreçleri bulunuyor.
 
-
-### RHEL Kaynakları
+## RHEL Kaynakları
 
 * https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9
 * https://www.redhat.com/sysadmin/install-linux-rhel-9
 * https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-managing_users_and_groups
 
-### RHEL'in Kullanımı
+## RHEL'in Kullanımı
 
 Bir işletim sistemi altyapı içerisinde aşağıdaki gibi pek çok işleve sahip olabilir.
 
@@ -142,7 +144,7 @@ Systems Management Server
 * Apache Tomcat yine Java tabanlı web uygulama sunucusu olarak, işletim sistemi üzerinde Java servlet ve JSP tabanlı uygulamaları çalıştırmak için kullanılabilir.
 * Veritabanı sunucusu olarak MongoDB, MySQL ve PostgreSQL örnek olarak verilebilir.
 
-### RHEL ve Diğer Araçlar
+## RHEL ve Diğer Araçlar
 * Podman: Docker'a benzer bir konteyner yönetim aracı. RHEL9 üzerinde konteynerleri yönetmek 
 * Satellite: RHEL sistemlerini yönetmek ve güncellemek için kullanılan araç.
 * OpenStack: Bulut altyapısı oluşturma ve yönetme platformu. RHEL9 üzerinde bulut çözümleri geliştirmek
@@ -154,5 +156,4 @@ Systems Management Server
 * GitLab: DevOps platformu. RHEL9 üzerinde kod yönetimi ve CI/CD süreçlerinde kullanılır.
 * Jenkins: Sürekli entegrasyon ve sürekli teslimat (CI/CD) aracı. RHEL9 üzerinde yazılım geliştirme süreçlerini otomatikleştirmek
 
-
-### Kaynaklar
+## Kaynaklar
