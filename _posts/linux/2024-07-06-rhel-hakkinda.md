@@ -115,8 +115,11 @@ Her bir versiyon için production (üretim) ve uzatılmış destek (extended sup
 
 ### RHEL Kaynakları
 
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9
+* https://www.redhat.com/sysadmin/install-linux-rhel-9
+* https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-managing_users_and_groups
 
-### RHEL'in BT Mimarisindeki Yeri
+### RHEL'in Kullanımı
 
 Bir işletim sistemi altyapı içerisinde aşağıdaki gibi pek çok işleve sahip olabilir.
 
@@ -133,25 +136,23 @@ PKI Server
 Systems Management Server
 ```
 
-* Azure ve AWS (Amazon Web Services) üzerinden RedHat imajları sanal makineler olarak yüklenebiliyor.
+* Bulut ortamda Azure ve AWS (Amazon Web Services) üzerinden RedHat imajları sanal makineler olarak yüklenebilmektedir.
 * Uygulama sunucusu olarak JBoss EAP, Nginx ve Apache Tomcat'i örnek olarak verebiliriz.
-* JBoss EAP: Java tabanlı uygulamalar için bir uygulama sunucusudur ve RHEL9 üzerinde kurumsal uygulamaları çalıştırmak için kullanılabilir.
-* Nginx: Yük dengeleyici ve web sunucusudur ve RHEL9 üzerinde yüksek performanslı web hizmetleri sağlamak için kullanılabilir.
-* Apache Tomcat: Java tabanlı web uygulama sunucusudur ve RHEL9 üzerinde Java servlet ve JSP tabanlı uygulamaları çalıştırmak için kullanılabilir.
-
+* JBoss EAP, Java tabanlı kurumsal uygulamalar için, Nginx, yük dengeleyici ve web sunucusu olarak yüksek performanslı web hizmetleri sağlamak için kullanılabilir
+* Apache Tomcat yine Java tabanlı web uygulama sunucusu olarak, işletim sistemi üzerinde Java servlet ve JSP tabanlı uygulamaları çalıştırmak için kullanılabilir.
 * Veritabanı sunucusu olarak MongoDB, MySQL ve PostgreSQL örnek olarak verilebilir.
 
 ### RHEL ve Diğer Araçlar
-* Podman: Docker'a benzer bir konteyner yönetim aracı. RHEL9 üzerinde konteynerleri yönetmek için kullanılır.
+* Podman: Docker'a benzer bir konteyner yönetim aracı. RHEL9 üzerinde konteynerleri yönetmek 
 * Satellite: RHEL sistemlerini yönetmek ve güncellemek için kullanılan araç.
-* OpenStack: Bulut altyapısı oluşturma ve yönetme platformu. RHEL9 üzerinde bulut çözümleri geliştirmek için kullanılıyor.
+* OpenStack: Bulut altyapısı oluşturma ve yönetme platformu. RHEL9 üzerinde bulut çözümleri geliştirmek
 * Puppet: IT altyapı yönetim aracı. RHEL9 üzerinde konfigürasyon yönetimi için kullanılabilir.
-* Terraform: Infrastructure as Code (IaC) aracı. RHEL9 üzerinde altyapıyı kod olarak tanımlamak için kullanılır.
-* Ansible: Otomasyon aracı. RHEL9 üzerinde yazılım kurulumlarını ve yapılandırmalarını otomatikleştirmek için kullanılır.
+* Terraform: Infrastructure as Code (IaC) aracı. RHEL9 üzerinde altyapıyı kod olarak tanımlamak
+* Ansible: Otomasyon aracı. RHEL9 üzerinde yazılım kurulumlarını ve yapılandırmalarını otomatikleştirmek
 * Kubernetes: Konteyner orkestrasyon aracı. RHEL9 üzerinde konteyner uygulamalarını yönetmek için kullanılır.
-* OpenShift: Kubernetes tabanlı bir konteyner platformu. RHEL9 üzerinde bulut yerel uygulamaları dağıtmak için kullanılır.
+* OpenShift: Kubernetes tabanlı bir konteyner platformu. RHEL9 üzerinde bulut yerel uygulamaları dağıtmak
 * GitLab: DevOps platformu. RHEL9 üzerinde kod yönetimi ve CI/CD süreçlerinde kullanılır.
-* Jenkins: Sürekli entegrasyon ve sürekli teslimat (CI/CD) aracı. RHEL9 üzerinde yazılım geliştirme süreçlerini otomatikleştirmek için kullanılabilir.
+* Jenkins: Sürekli entegrasyon ve sürekli teslimat (CI/CD) aracı. RHEL9 üzerinde yazılım geliştirme süreçlerini otomatikleştirmek
 
 
 ### Kaynaklar
