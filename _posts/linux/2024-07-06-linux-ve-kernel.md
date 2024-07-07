@@ -2,7 +2,7 @@
 layout: post3
 title: "Linux ve Kernel"
 category: linux
-number: 1
+number: Ek 1
 desc: "Linux ve Kernel"
 ---
 
