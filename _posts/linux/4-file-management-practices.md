@@ -1,70 +1,43 @@
-# File Management Practices
 
 ## Table Of Contents
+1. Creating Files And Directories
+2. Hard Links And Soft Links
+3. Standard Streams
+4. Pipes, Wildcards And Globbing 
+
+## Tasks
+
 ## 1. Creating Files And Directories
+
+1. **Creating Files:**
+    -   Use the touch command to create empty files.
+    -   Use the cp command to copy files.
+    -   Use the vi editor to create and edit files.
+
+2. **Creating Directories:**
+    -  Use the mkdir command to create new directories.
+
+3. **File and Directory Operations:**
+    -   Identify the current user with the whoami command.
+    -   Display the current directory with the pwd command.
+    -   Create multiple files (jerry, kramer, george) using the touch command.
+    -   List files in the directory using the ls -l and ls -ltr commands.
+    -   Copy a file (jerry) to multiple new files (lex, clark, lewis) using the cp command.
+    -   Create and edit a file (homer) using the vi editor and save the changes.
+    -   Create multiple files (bart, lisa, marge) using the touch command.
+    -   Verify the current directory with the pwd command.
+    -   Create multiple directories (seinfeld, superman, simpsons) using the mkdir command.
+    -   Navigate to the /etc directory using the cd command.
+    -   Attempt to create a file (test123) in the /etc directory and understand permission issues (permission denied as root owns it).
+    -   Display the current directory with the pwd command.
+    -   Make your user able to write /etc directory.
+    -   Verify permission.
+    -   Create a file named  example.txt in /etc with user and write into it.
+    -   Delete the file. Remove the permission.
+
+
 ## 2. Hard Links And Soft Links
-## 3. Standard Streams
-## 4. Pipes, Wildcards And Globbing 
 
-## 1. Creating Files And Directories
-
-### Tasks:
-
-1. Creating Files:
-* Use the touch command to create empty files.
-* Use the cp command to copy files.
-* Use the vi editor to create and edit files.
-
-2. Creating Directories:
-
-* Use the mkdir command to create new directories.
-
-3. File and Directory Operations:
-
-* Identify the current user with the whoami command.
-* Display the current directory with the pwd command.
-* Create multiple files (jerry, kramer, george) using the touch command.
-* List files in the directory using the ls -l and ls -ltr commands.
-* Copy a file (jerry) to multiple new files (lex, clark, lewis) using the cp command.
-* Create and edit a file (homer) using the vi editor and save the changes.
-* Create multiple files (bart, lisa, marge) using the touch command.
-* Verify the current directory with the pwd command.
-* Create multiple directories (seinfeld, superman, simpsons) using the mkdir command.
-* Navigate to the /etc directory using the cd command.
-* Attempt to create a file (test123) in the /etc directory and understand permission issues (permission denied as root owns it).
-* Display the current directory with the pwd command.
-* Make your user able to write /etc directory.
-* Verify permission.
-* Create a file named  example.txt in /etc with user and write into it.
-* Delete the file. Remove the permission.
-
-### Answers:
-
-1.  **Creating Files:**
-    -   Use the `touch` command to create empty files.
-    -   Use the `cp` command to copy files.
-    -   Use the `vi` editor to create and edit files.
-2.  **Creating Directories:**
-    -   Use the `mkdir` command to create new directories.
-3.  **File and Directory Operations:**
-    -   Identify the current user with the `whoami` command.
-    -   Display the current directory with the `pwd` command.
-    -   Create multiple files (`jerry`, `kramer`, `george`) using the `touch` command.
-    -   List files in the directory using the `ls -l` and `ls -ltr` commands.
-    -   Copy a file (`jerry`) to multiple new files (`lex`, `clark`, `lewis`) using the `cp` command.
-    -   Create and edit a file (`homer`) using the `vi` editor and save the changes.
-    -   Create multiple files (`bart`, `lisa`, `marge`) using the `touch` command.
-    -   Verify the current directory with the `pwd` command.
-    -   Create multiple directories (`seinfeld`, `superman`, `simpsons`) using the `mkdir` command.
-    -   Navigate to the `/etc` directory using the `cd` command.
-    -   Attempt to create a file (`test123`) in the `/etc` directory and understand permission issues (permission denied as root owns it).
-    -   Display the current directory with the `pwd` command.
-    -   chmod o+w /etc
-    -   vi example.txt
-
-## 2. Understanding and Creating Links
-
-### Tasks:
 1.  **Understanding and Creating Soft Links:**
     -   Create a soft link and observe its behavior when the target file is removed.
     -   Use the `pwd` command to display the current directory.
@@ -95,7 +68,80 @@
     -   Write additional text to the `hulk` file and verify the content from the linked location.
     -   List files in the home directory and `/tmp` directory using the `ls -ltr` command to verify the existence of the hard link after the original file is removed.
 
-### Answers :
+
+## 3. Standard Streams
+
+1.  **Redirect Standard Output to a File:**
+    -   Redirect the output of the `ls -l` command to a file named `listing`.
+    -   Redirect the output of the `pwd` command to a file named `findpath`.
+    -   Make sure you show that using `>` will overwrite the contents of the file.
+2.  **Append Standard Output to a File:**
+    -   Append the output of the `ls -la` command to a file named `listings`.
+    -   Append the text "Hello World" to a file named `findpath`.
+    -   Make sure you show that `ls -la` includes hidden files.
+3.  **Redirect Standard Input from a File:**
+    -   Use the `cat` command to display the contents of the `listings`file.
+    -   Use the `mail` command to send an email with the contents of `memoletter`.
+4.  **Redirect Standard Error to a File:**
+    -   Redirect errors from the `ls -l /root` command to a file named `errorfile`.
+    -   Redirect errors from the `telnet localhost` command to a file named `errorfile`.
+
+## 4. Pipes, Wildcards And Globbing 
+
+1.  **Navigating Directories:**
+    -   Display the current directory using the `pwd` command.
+    -   Change to the `/etc` directory using the `cd` command.
+2.  **Listing Directory Contents:**
+    -   List the contents of the `/etc` directory with detailed information using the `ls -ltr` command.
+3.  **Using `more` for Paginated Output:**
+    -   List the contents of the `/etc` directory with detailed information and view the output one page at a time using the `more` command.
+4.  **Using `ll` for Detailed Listing:**
+    -   List the contents of the current directory with detailed information using the `ll` command (note that `ll` is often an alias for `ls -l`).
+5.  **Using `tail` to View Last Lines:**
+    -   List the contents of the current directory and view only the last lines using the `tail -l` command.
+6.  **Understanding and Using Pipes:**
+    -   Combine the `ls` command with `grep` to filter results.
+    -   Use the `ps` command with `grep` to find specific processes.
+    -   Count the number of lines in the output of the `ls` command using `wc`.
+    -   Display disk usage information and sort the output by size.
+7.  **Using Wildcards and File Globbing:**
+    -   List all files with a `.txt` extension in the current directory.
+    -   List all files that start with `a` in the current directory.
+    -   List all files that start with any character followed by `log`.
+    -   List all files that start with either `a` or `b` in the current directory.
+    -   List all files that do not start with `a` or `b` in the current directory.
+    -   List all files with a single character name in the current directory.
+    -   List all files with a specific range of characters (e.g., `a` to `c`).
+
+## Answers
+
+## Creating Files And Directories
+
+1.  **Creating Files:**
+    -   Use the `touch` command to create empty files.
+    -   Use the `cp` command to copy files.
+    -   Use the `vi` editor to create and edit files.
+2.  **Creating Directories:**
+    -   Use the `mkdir` command to create new directories.
+3.  **File and Directory Operations:**
+    -   Identify the current user with the `whoami` command.
+    -   Display the current directory with the `pwd` command.
+    -   Create multiple files (`jerry`, `kramer`, `george`) using the `touch` command.
+    -   List files in the directory using the `ls -l` and `ls -ltr` commands.
+    -   Copy a file (`jerry`) to multiple new files (`lex`, `clark`, `lewis`) using the `cp` command.
+    -   Create and edit a file (`homer`) using the `vi` editor and save the changes.
+    -   Create multiple files (`bart`, `lisa`, `marge`) using the `touch` command.
+    -   Verify the current directory with the `pwd` command.
+    -   Create multiple directories (`seinfeld`, `superman`, `simpsons`) using the `mkdir` command.
+    -   Navigate to the `/etc` directory using the `cd` command.
+    -   Attempt to create a file (`test123`) in the `/etc` directory and understand permission issues (permission denied as root owns it).
+    -   Display the current directory with the `pwd` command.
+    -   chmod o+w /etc
+    -   vi example.txt
+
+
+## Hard Links And Soft Links
+
 1.  **Understanding and Creating Soft Links:**
     -   Create a soft link and observe its behavior when the target file is removed.
         -   `pwd`
@@ -127,7 +173,7 @@
         -   `cd /tmp`
         -   `ls -ltr hulk` (observe the broken link)
         -   `cat hulk` (should not work)
-        -   `rm hulk` (remove broken link)
+        -   `rm hulk` (remove broken link
 2.  **Understanding and Creating Hard Links:**
     -   Create a hard link and observe its behavior when the target file is removed.
         -   `touch hulk`
@@ -150,23 +196,7 @@
         -   `ls -ltr` (verify the hard link still exists)
         -   (note that the hard link retains the original content even after the original file is removed)
 
-## 3. Understand Standard Streams in Linux:
-### Tasks:
-1.  **Redirect Standard Output to a File:**
-    -   Redirect the output of the `ls -l` command to a file named `listing`.
-    -   Redirect the output of the `pwd` command to a file named `findpath`.
-    -   Make sure you show that using `>` will overwrite the contents of the file.
-2.  **Append Standard Output to a File:**
-    -   Append the output of the `ls -la` command to a file named `listings`.
-    -   Append the text "Hello World" to a file named `findpath`.
-    -   Make sure you show that `ls -la` includes hidden files.
-3.  **Redirect Standard Input from a File:**
-    -   Use the `cat` command to display the contents of the `listings`file.
-    -   Use the `mail` command to send an email with the contents of `memoletter`.
-4.  **Redirect Standard Error to a File:**
-    -   Redirect errors from the `ls -l /root` command to a file named `errorfile`.
-    -   Redirect errors from the `telnet localhost` command to a file named `errorfile`.
-## Answers:
+## Standard Streams
 1.  **Redirect Standard Output to a File:**
         -   `ls -l > listing`
         -   `pwd > findpath`
@@ -180,34 +210,8 @@
 4.  **Redirect Standard Error to a File:**
         -   `ls -l /root 2> errorfile`
         -   `telnet localhost 2> errorfile`
-## 4. Pipes, Wildcards And Globbing 
-### Tasks:
-1.  **Navigating Directories:**
-    -   Display the current directory using the `pwd` command.
-    -   Change to the `/etc` directory using the `cd` command.
-2.  **Listing Directory Contents:**
-    -   List the contents of the `/etc` directory with detailed information using the `ls -ltr` command.
-3.  **Using `more` for Paginated Output:**
-    -   List the contents of the `/etc` directory with detailed information and view the output one page at a time using the `more` command.
-4.  **Using `ll` for Detailed Listing:**
-    -   List the contents of the current directory with detailed information using the `ll` command (note that `ll` is often an alias for `ls -l`).
-5.  **Using `tail` to View Last Lines:**
-    -   List the contents of the current directory and view only the last lines using the `tail -l` command.
-6.  **Understanding and Using Pipes:**
-    -   Combine the `ls` command with `grep` to filter results.
-    -   Use the `ps` command with `grep` to find specific processes.
-    -   Count the number of lines in the output of the `ls` command using `wc`.
-    -   Display disk usage information and sort the output by size.
-7.  **Using Wildcards and File Globbing:**
-    -   List all files with a `.txt` extension in the current directory.
-    -   List all files that start with `a` in the current directory.
-    -   List all files that start with any character followed by `log`.
-    -   List all files that start with either `a` or `b` in the current directory.
-    -   List all files that do not start with `a` or `b` in the current directory.
-    -   List all files with a single character name in the current directory.
-    -   List all files with a specific range of characters (e.g., `a` to `c`).
 
-### Answers:
+## Pipes, Wildcards And Globbing
 1.  **Navigating Directories:**
     -   Display the current directory using the `pwd`command:
         `pwd`
