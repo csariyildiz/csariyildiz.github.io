@@ -1,8 +1,14 @@
 # File Management Practices
 
+## Table Of Contents
+## 1. Creating Files And Directories
+## 2. Hard Links And Soft Links
+## 3. Standard Streams
+## 4. Pipes, Wildcards And Globbing 
+
 ## 1. Creating Files And Directories
 
-### Tasks
+### Tasks:
 
 1. Creating Files:
 * Use the touch command to create empty files.
@@ -27,9 +33,12 @@
 * Navigate to the /etc directory using the cd command.
 * Attempt to create a file (test123) in the /etc directory and understand permission issues (permission denied as root owns it).
 * Display the current directory with the pwd command.
+* Make your user able to write /etc directory.
+* Verify permission.
+* Create a file named  example.txt in /etc with user and write into it.
+* Delete the file. Remove the permission.
 
-
-### Answers
+### Answers:
 
 1.  **Creating Files:**
     -   Use the `touch` command to create empty files.
@@ -50,11 +59,12 @@
     -   Navigate to the `/etc` directory using the `cd` command.
     -   Attempt to create a file (`test123`) in the `/etc` directory and understand permission issues (permission denied as root owns it).
     -   Display the current directory with the `pwd` command.
+    -   chmod o+w /etc
+    -   vi example.txt
 
 ## 2. Understanding and Creating Links
 
-### Tasks
-
+### Tasks:
 1.  **Understanding and Creating Soft Links:**
     -   Create a soft link and observe its behavior when the target file is removed.
     -   Use the `pwd` command to display the current directory.
@@ -85,8 +95,7 @@
     -   Write additional text to the `hulk` file and verify the content from the linked location.
     -   List files in the home directory and `/tmp` directory using the `ls -ltr` command to verify the existence of the hard link after the original file is removed.
 
-### Answers
-
+### Answers :
 1.  **Understanding and Creating Soft Links:**
     -   Create a soft link and observe its behavior when the target file is removed.
         -   `pwd`
@@ -143,7 +152,6 @@
 
 ## 3. Understand Standard Streams in Linux:
 ### Tasks:
-
 1.  **Redirect Standard Output to a File:**
     -   Redirect the output of the `ls -l` command to a file named `listing`.
     -   Redirect the output of the `pwd` command to a file named `findpath`.
@@ -173,8 +181,7 @@
         -   `ls -l /root 2> errorfile`
         -   `telnet localhost 2> errorfile`
 ## 4. Pipes, Wildcards And Globbing 
-### Tasks
-
+### Tasks:
 1.  **Navigating Directories:**
     -   Display the current directory using the `pwd` command.
     -   Change to the `/etc` directory using the `cd` command.
@@ -200,48 +207,47 @@
     -   List all files with a single character name in the current directory.
     -   List all files with a specific range of characters (e.g., `a` to `c`).
 
-### Answers
-
+### Answers:
 1.  **Navigating Directories:**
     -   Display the current directory using the `pwd`command:
         `pwd`
     -   Change to the `/etc` directory using the `cd`command:
-        `cd /etc   `
+        `cd /etc`
 2.  **Listing Directory Contents:**
     -   List the contents of the `/etc` directory with detailed information using the `ls -ltr`command:
-        `ls -ltr   `
+        `ls -ltr`
 3.  **Using `more` for Paginated Output:**
     -   List the contents of the `/etc` directory with detailed information and view the output one page at a time using the `more`command:
         `ls -ltr | more   `
 4.  **Using `ll` for Detailed Listing:**
     -   List the contents of the current directory with detailed information using the `ll` command (note that `ll` is often an alias for `ls -l`):
-        `ll   `
+        `ll`
     -   If `ll`is not available, use:
-        `ls -l   `
+        `ls -l`
 5.  **Using `tail` to View Last Lines:**
     -   List the contents of the current directory and view only the last lines using the `tail -l`command:
         `ls -l | tail -l   `
 6.  **Understanding and Using Pipes:**
     -   Combine the `ls` command with `grep`to filter results:
-        `ls -l | grep ".conf"   `
+        `ls -l | grep ".conf"`
     -   Use the `ps` command with `grep`to find specific processes:
-        `ps aux | grep "sshd"   `
+        `ps aux | grep "sshd"`
     -   Count the number of lines in the output of the `ls` command using `wc`:
-        `ls -l | wc -l   `
+        `ls -l | wc -l`
     -   Display disk usage information and sort the output by size:
         `du -sh * | sort -hr   `
 7.  **Using Wildcards and File Globbing:**
     -   List all files with a `.txt`extension in the current directory:
-        `ls *.txt   `
+        `ls *.txt`
     -   List all files that start with `a`in the current directory:
-        `ls a*   `
+        `ls a*`
     -   List all files that start with any character followed by `log`:
-        `ls ?log   `
+        `ls ?log`
     -   List all files that start with either `a` or `b`in the current directory:
-        `ls [ab]*   `
+        `ls [ab]*`
     -   List all files that do not start with `a` or `b`in the current directory:
-        `ls [!ab]*   `
+        `ls [!ab]*`
     -   List all files with a single character name in the current directory:
-        `ls ?   `
+        `ls ?`
     -   List all files with a specific range of characters (e.g., `a` to `c`):
-        `ls [a-c]*   `
+        `ls [a-c]*`
