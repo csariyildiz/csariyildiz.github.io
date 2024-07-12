@@ -1,5 +1,5 @@
 ---
-layout: default6
+layout: post4
 page_name: "Network Configuration Commands"
 title: "Network Configuration Commands"
 ---
