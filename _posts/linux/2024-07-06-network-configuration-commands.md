@@ -3,6 +3,7 @@ layout: default6
 page_name: "Network Configuration Commands"
 title: "Network Configuration Commands"
 ---
+
 * `cat /etc/os-release` :  Contains information about the operating system, such as the name, version, and distribution.
 * `cat /etc/redhat-release` :  Contains information about the operating system, such as the name, version, and distribution.
 * `uname -a` :  Displays information about the kernel, including the name, version, hostname, and architecture.
