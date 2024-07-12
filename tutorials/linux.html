@@ -3,40 +3,36 @@ layout: default6
 page_name: Linux
 ---
 
-<h3 style="margin-top: 0.5rem;padding-bottom: 0.5rem;">Linux System Administration</h3>
+<p>Linux System Administration</p>
+<p>Hi ! These are Linux operating system notes are organized in commands notes and topics. </p>
+<ul>
+	<li>Commands</li>
+	<li>Notes</li>
+	<li>Topics</li>
+</ul>
 
-  <table class="table table-borderless table-dark" style="margin-top: 16px;">
-    <thead style="border-bottom: 1px solid white; border-top: 1px solid rgba(255, 255, 255, 0.15); ">
-      <tr style="border-bottom: 1px solid white;">
-        <th>Date</th>
-	<th></th>
-        <th>Subject</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+<p>I mainly used RHCSA exam objectives along with udemy courses and chatbots. Didn't copy any direct material. </p>
+<p>Notes are organized in commands notes and topics for each section. This way I tried to keep them more practice oriented. Each section has its commands, notes and topic section. If a topic is not practice oriented (such as explaining linux kernel) than I share them in different section. Commands are created for using with flashcards.</p>
+ 
+<p>Sections:</p>
+<p>For now I got 30 main sections. Not all sections have their notes or topics section.</p>
+<ul>
+	<li>1 - Network Configuration.</li>
+	<li>2 - User Account Management.</li>
+	<li>3 - File Permissions.</li>
+	<li>4 - Manual Pages.</li>
+	<li>5 - Text Editing.</li>
+	<li>6 - Task Scheduling.</li>
+</ul>
+	  
+<p>Additional:</p>
+<ul>
+<li>Practice with virtual machines: Set up virtual machines like VirtualBox to experiment with network configurations in a safe environment.</li>
+<li>Focus on memorization: Make flashcards for key commands, options, and configuration file parameters.</li>
+<li>Focus on understanding: Aim to understand the functionality of each command rather than just memorizing syntax. This will help you apply your knowledge in different scenarios.</li>
+<li>Creating checklists: Make checklists using any educational material and evaluate covered tasks with requirements.</li>
+<li>Simulate exam conditions: Practice working on network configuration tasks under timed conditions to get used to exam pressure.</li>
+<li>Review past exam papers (if available): Familiarize yourself with the types of questions asked in previous exams to tailor your studying accordingly.</li>
+</ul>
 
-  <tbody>
-
-	 {% for post in site.categories.linux %}  {% if post.url %}
-	
-    <tr style=" border-bottom: 1px solid rgba(255, 255, 255, 0.15); ">
-      <td>
-        <a href="{{ post.url }}" style="color: #fff; text-decoration: none;">{{ post.date | date: "%d-%m-%Y" }}</a>
-      </td>
-	      <td>
-        <a href="{{ post.url }}" style="color: #fff; text-decoration: none;">{{ post.number }}</a>
-      </td>
-      <td>
-        <a href="{{ post.url }}" style="color: #fff; text-decoration: none;">{{ post.title }}</a>
-      </td>
-      <td>
-        <a href="{{ post.url }}" style="color: #fff; text-decoration: none;">{{ post.desc }}</a>
-      </td>
-      
-    </tr>
-
-	   {% endif %}
-          {% endfor %}
-
-  </tbody>
-</table>
+<p>Thanks! Hope it becomes benefical.</p>
