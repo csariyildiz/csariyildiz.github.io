@@ -12,7 +12,7 @@ title: "Network Configuration Commands"
 * `hostname-ctl set-hostname pparker.oscorp.com` Sets the hostname of the system.
 * `ip addr` Displays information about network devices managed by NetworkManager.
 * `nmcli device` Displays information about network devices managed by NetworkManager.
-* `nmcli connection modify enp0s3 ipv4.address 10.253.1211/24` Sets ipv4 address with prefix.
+* `nmcli connection modify enp0s3 ipv4.address 10.253.121/24` Sets ipv4 address with prefix.
 * `nmcli connection modify enp0s3 ipv4.gateway 10.253.1.1` Sets gateway.
 * `nmcli connection modify enp0s3 ipv4.method manual` Sets static. This method can be set to either manual or dhcp.
 * `nmcli connection modify enp0s3 ipv4.dns 8.8.8.8` Sets primary DNS.
