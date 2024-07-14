@@ -1,3 +1,9 @@
+---
+layout: post4
+page_name: "Linux ve Kernel"
+title: "Linux ve Kernel"
+---
+
 Linux modern işletim sistemi teknolojisinde önemli bir yere sahiptir. Dolaylı ve doğrudan bugün milyonlarca insan iş ve kişisel yaşamlarının büyük kısmında linux tabanlı bilgisayar sistemlerini kullanmaktadır. Linux işletim sistemleri siber güvenlik, bulut bilişim, yazılım geliştirme, oyunlar, sanatsal üretim ve yapay zekaya gibi kullanıcıların karşına çıkar.
 
 Linux tabanlı işletim sistemleri standart kullanıcı tipi bilgisayarlar haricinde sunucularda, endüstriyel sistemler ve gömülü cihazlarda gibi pek çok farklı elektronik cihazda kullanılır.
