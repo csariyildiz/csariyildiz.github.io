@@ -1,3 +1,9 @@
+---
+layout: post4
+page_name: "Identity Management"
+title: "Identity Management"
+---
+
 * `whoami`: Displays the current logged-in username.
 * `su spiderman` : Switches to the user spiderman.
 * `passwd` : Changes the password for a user. If run as root, it can set or change the password for any user.
