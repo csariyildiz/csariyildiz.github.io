@@ -8,7 +8,7 @@ Linux modern işletim sistemi teknolojisinde önemli bir yere sahiptir. Dolaylı
 
 Linux tabanlı işletim sistemleri standart kullanıcı tipi bilgisayarlar haricinde sunucularda, endüstriyel sistemler ve gömülü cihazlarda gibi pek çok farklı elektronik cihazda kullanılır.
 
-Unix ve Linux ilişkisini, Linux distribution'ları ve shell gibi konu başlıklarıyla değerlendirilmektedir.
+Unix ve Linux ilişkisi, Linux distribution'ları ve shell gibi konu başlıklarıyla değerlendirilmektedir.
 
 İşletim sistemi ele alınırken göze ilk çarpan özellikle linux işletim sisteminde bulunan çekirdek ve kabuk ayrımıdır.
 
