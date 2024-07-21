@@ -13,7 +13,6 @@ We will explain tcpdump and netstat in network details section.
 2. Walkthrough
 3. Details
 
-
 ## 1. Command List
 
 
