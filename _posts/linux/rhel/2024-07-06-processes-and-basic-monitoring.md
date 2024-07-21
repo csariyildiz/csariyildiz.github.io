@@ -11,27 +11,22 @@ We will explain tcpdump and netstat in network details section.
 
 1. Command List
 2. Walkthrough
+    2.1 df
+    2.2 du
+    2.3 Finding Large Files
+    2.4 uptime and load average
+    2.5 top
+    2.6 ps
+    2.7 proc
+    2.8 free
+    2.9 lsof
+    2.10 kill
 3. Details
 
 ## 1. Command List
 
 
 ```
-ps -aux
-
-ps -ef
-ps -ef | grep top
-
-
-vmstat 1
-
-pidstat
-
-free
-
-sar
-
-
 kill [PID]: Sends the default TERM signal to terminate a process with the specified PID.
 kill -9 [PID]: Sends the KILL signal to forcefully terminate a process.
 
@@ -103,6 +98,7 @@ getsebool -a: Lists all SELinux booleans and their current values.
 pmap: Reports memory map of a process.
 pmap [PID]: Displays the memory map of the process with the specified PID.
 pmap -x [PID]: Provides extended information about memory usage.
+
 pidof: Finds the process ID of a running program.
 pidof [program_name]: Displays the PID(s) of the running program.
 
@@ -130,6 +126,7 @@ uptime: Displays system uptime, number of users, and load averages.
 ps: Reports a snapshot of the current processes.
 ps aux: Displays all running processes.
 ps -ef: Another format to display all running processes.
+ps -ef | grep top : XX
 
 top: Displays real-time information about running processes, CPU, and memory usage.
 top: Opens the interactive top interface.
@@ -164,8 +161,6 @@ sar: Displays various system performance information.
 ```
 
 ## 2. Walkthrough
-
-### Monitoring Disk Usage
 
 First we can start by monitoring disk and memory usage with df and du.
 
@@ -547,18 +542,38 @@ httpd───68*[{httpd}]
 
 ### ps
 
-* Process status
-* Just like top but top not shows all the processes only highest running.
+For a repetitive update of the selection and the displayed information, we can top instead.
+ps displays information about a selection of the active processes.  
 
 ```
-man ps
-ps
-ps -ef
-ps -ef | grep top
-# open another terminal and run top
-ps -ef | grep top
-# it also grabs its running process.
+[acs@rhel-9-3 ~]$ whatis ps
+ps (1)               - report a snapshot of the current processes.
+ps (1p)              - report process status
 ```
+
+`ps -ef` `ps -eLf`  
+
+```
+[acs@rhel-9-3 ~]$ ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 Jul21 ?        00:00:04 /usr/lib/systemd/systemd rhgb --switched-root --system --deserialize
+root           2       0  0 Jul21 ?        00:00:00 [kthreadd]
+root           3       2  0 Jul21 ?        00:00:00 [rcu_gp]
+...
+```
+
+`ps -aux`
+
+```
+[acs@rhel-9-3 ~]$ ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.1  0.4 108548 17640 ?        Ss   Jul21   0:04 /usr/lib/systemd/systemd rhgb --switched-root --syste
+root           2  0.0  0.0      0     0 ?        S    Jul21   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   Jul21   0:00 [rcu_gp]
+...
+```
+
+
 
 ### proc
 
@@ -613,11 +628,14 @@ NStgid: 1138
 
 ### free
 
+As we can learn from info free display physical and swap memory information parsing proc.
 
 ```
 free displays the total amount of free and used physical and swap memory in the system, as well as the buffers
-and caches used by the kernel. The information is gathered by parsing  /proc/meminfo.
+and caches used by the kernel. The information is gathered by parsing /proc/meminfo.
 ```
+
+Whatis command also provides a brief description.
 
 ```
 [acs@rhel-9-3 ~]$ whatis free
@@ -626,6 +644,8 @@ free (1)             - Display amount of free and used memory in the system
 free (3p)            - free allocated memory
 ```
 
+We can get information without using options.
+
 ```
 [acs@rhel-9-3 ~]$ free
                total        used        free      shared  buff/cache   available
@@ -633,7 +653,11 @@ Mem:         3747536     1364364     1641468       20352      997852     2383172
 Swap:        2097148           0     2097148
 ```
 
--m, --mebi displays the amount of memory in mebibytes.
+We can get more clear information using free with -h and -m options. -m also --mebi displays the amount of memory in mebibytes (Mib). -h gives human readible information.
+
+Mib is a unit of measurement which is different from MB. Using powers of 1024 is more useful than 1000 when measuring memory.
+* 1 Megabyte (MB) is 1000 kilobyte. 1 MB is 1000 Bytes. 1 byte is 8 bit.
+* 1 Mebibyte (Mib) is 1024 Kibibyte. 1 KIB is 1024 Bytes. 1 byte is 8 bit (same).
 
 ```
 [acs@rhel-9-3 ~]$ free -mh
@@ -642,23 +666,101 @@ Mem:           3.6Gi       1.3Gi       1.6Gi        19Mi       976Mi       2.3Gi
 Swap:          2.0Gi          0B       2.0Gi
 ```
 
-* In oracle virualbox we gave 4096 MB = 4G memory. "Mem:" . 3.6GB close to 4GB.  The difference in allocated memory on a virtual machine is indeed more likely to be influenced by virtualization mechanisms, hypervisor overhead, guest operating system requirements, and other factors specific to the virtualization environment.
+In oracle virualbox we gave 4096 MB = 4G as a memory. Mem value 3.6GB close to 4GB. The difference in allocated memory on a virtual machine is indeed more likely to be influenced by virtualization mechanisms, hypervisor overhead, guest operating system requirements, and other factors specific to the virtualization environment.
 
 ### lsof
+
+The `lsof` command in Unix-like operating systems stands for "list open files." 
+It is a powerful and versatile command-line utility used to gather information about files and processes that are currently accessing them. 
+Here's a brief overview of how to use the `lsof` command:
+
+
+List all open files and processes
+
+```    
+lsof
+
+```
+
+List open files for a specific process (using process ID - PID)
+
+```    
+lsof -p <PID>
+```
+
+List open files for a specific user
+
+```    
+lsof -u <username>
+```
+
+List open files for a specific file or directory
+
+```    
+lsof /path/to/file_or_directory
+```
+
+List open network connections
+
+```
+lsof -i
+```
+
+Show which files are using a specific file (by name)
+
+```    
+lsof /path/to/target_file
+```
+
+List open files for a specific process and its children
+
+```    
+lsof -p <PID> -r 1
+```
+
+Show network-related information in a human-readable format
+
+```    
+lsof -i -n
+```
+
+Find processes using a specific port (e.g., port 80):
+    
+```
+lsof -i :80
+```
+
+List open files for a specific process and its children
+
+```    
+lsof -p <PID> -r 1
+```
+
+List all network connections opened by a specific user
+
+```    
+lsof -u <username> -i
+```
+
+Running `lsof` typically requires superuser (root) privileges to access information about all processes and files on the system.
+    
+The output of `lsof` can be extensive, so it's often useful to pipe it through other commands or redirect it to a file for easier analysis.
+    
+The information provided by `lsof` includes details about file descriptors, file types, access modes, and other relevant information about open files and processes.
 
 
 ### kill
 
-* If a process is not stopping gracefully.
+If a process is not stopping gracefully.
 
 ```
 kill 34440
-# gone.
-# not getting killed force kill
-kill -9 34440
 ```
 
 
+```
+kill -9 34440
+```
 
 
 ## 3. Details

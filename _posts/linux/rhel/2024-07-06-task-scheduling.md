@@ -4,27 +4,24 @@ page_name: "Task Scheduling"
 title: "Task Scheduling"
 ---
 
-Bu bölümde linux içerisinde tarih yapılandırması ve crontab ve at araçları ile zamanlandırılmış görev oluşturmayı ele alacağız.
-
+In this section, we will discuss date configuration in Linux and creating scheduled tasks with crontab and at tools.
 
 ## Table Of Contents
 
 1. Command List
 2. Walkthrough
+  2.1 chrony and chronyd
+  2.2 crond and crontab
 3. Details
 
 ## 1. Command List
 
-## Walkthrough
-
-1. chrony ve chronyd
-2. crond ve crontab
-3. at
-
+## 2. Walkthrough
 
 ## chrony ve chronyd
 
-chrony NTP clientı olarak çalışıyor. Bir daemon olarak chronyd tanımlanmış yani arayüzü yok.
+
+chrony works as NTP client. chronyd is defined as a daemon, so it has no interface.
 
 ```
 [root@rhel-9-3 home]# ps aux | grep /usr/sbin/chronyd
@@ -37,14 +34,16 @@ root@rhel-9-3 home]# systemctl status chronyd
        Docs: man:chronyd(8)
 ```
 
-Konfigürasyonu var:
+As a deamon it has configuration file under /etc/chrony.conf. And service unit file for systemd under /usr/lib/systemd/system/chronyd.service
+
 
 ```
 cat /etc/chrony.conf
 ```
 
 
-Arayüz olarak chronyc kullanıyor:
+chrony uses chronyc as the interface:
+
 
 ```
 root@rhel-9-3 home]# whatis chronyc
@@ -73,8 +72,11 @@ Benzer şekilde bir de crond daemonumuz var. Bu direkt cron joblarını çalış
 [root@rhel-9-3 home]# ps aux | grep cron
 root       45144  0.0  0.0 223924  3724 ?        Ss   02:11   0:00 /usr/sbin/crond -n
 ```
+
+```
 systemctl status crond
 ```
+
 
 Lists detailed information about the /etc/crontab file, including permissions, owner, group, size, and modification time.
 
@@ -114,13 +116,13 @@ Lists the cron jobs for the current user.
 crontab -l
 ```
 
-Opens the current user's cron table for editing in the default text editor.
+Opens the current users cron table for editing in the default text editor.
 
 ```
 crontab -e
 ```
 
-A cron job added to the user's crontab that runs at 13:22 (1:22 PM) every day in March, and writes the text "This is my first crontab entry" to a file named crontab-entry.
+A cron job added to the users crontab that runs at 13:22 (1:22 PM) every day in March, and writes the text "This is my first crontab entry" to a file named crontab-entry.
 
 ```
 22 13 * 3 * echo "This is my first crontab entry" > crontab-entry
@@ -173,3 +175,5 @@ If you need to remove a scheduled job, use the atrm command followed by the job 
 ```
 atrm <job_id>
 ```
+
+## 3. Details
