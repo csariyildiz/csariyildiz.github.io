@@ -11,17 +11,22 @@ We will explain tcpdump and netstat in network details section.
 
 1. Command List
 2. Walkthrough
-    2.1 df
-    2.2 du
-    2.3 Finding Large Files
-    2.4 uptime and load average
-    2.5 top
-    2.6 ps
-    2.7 proc
-    2.8 free
-    2.9 lsof
-    2.10 kill
+    1. df
+    2. du
+    3. Finding Large Files
+    4. Uptime And Load Average
+    5. top
+    6. ps
+    7. proc
+    8. free
+    9. lsof
+    10. kill
+
 3. Details
+    1. Processes
+    2. Threads
+    3. Execution Context
+    4. Asembly Code
 
 ## 1. Command List
 
