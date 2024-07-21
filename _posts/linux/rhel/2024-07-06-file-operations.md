@@ -5,9 +5,10 @@ title: "File Operations"
 ---
 
 ## Table Of Contents
-1) Command List
-2) Walkthrough
-3) Details
+
+1. Command List
+2. Walkthrough
+3. Details
 
 ## 1. Command List
 

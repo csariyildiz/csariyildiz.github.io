@@ -5,33 +5,24 @@ title: "Processes And Basic Monitoring"
 ---
 
 In this section we will list commands, details and walkthough for linux processes and monitoring commands on memory, network and disk usage.
+We will explain tcpdump and netstat in network details section.
 
 ## Table Of Contents
 
-1) Command List
-2) Walkthrough
-3) Details
+1. Command List
+2. Walkthrough
+3. Details
 
 
 ## 1. Command List
 
 
 ```
-top
-```
-
-```
-htop
-```
-
-```
 ps -aux
 
 ps -ef
-
 ps -ef | grep top
 
-kill
 
 vmstat 1
 
@@ -47,136 +38,129 @@ kill -9 [PID]: Sends the KILL signal to forcefully terminate a process.
 
 killall [process_name]: Sends the default TERM signal to terminate processes with the specified name.
 killall -9 [process_name]: Sends the KILL signal to forcefully terminate processes with the specified name.
-nice -n [priority] [command]: Starts a command with the specified priority.
 
+nice -n [priority] [command]: Starts a command with the specified priority.
 nice: Starts a process with a specified priority.
-
 nice -n [priority] [command]: Starts a command with the specified priority.
+
 renice: Changes the priority of an already running process.
-
 renice [priority] -p [PID]: Changes the priority of the process with the specified PID.
+
 nohup: Runs a command immune to hangups and keeps it running after logging out.
-
 nohup [command] &: Runs the command in the background and immune to hangups.
+
 bg: Resumes a suspended job in the background.
-
 bg [job_id]: Resumes the specified job in the background.
+
 fg: Brings a background job to the foreground.
-
 fg [job_id]: Brings the specified job to the foreground.
+
 jobs: Lists current jobs.
-
 jobs: Displays all current jobs with their statuses.
-systemctl: Manages systemd services.
 
+systemctl: Manages systemd services.
 systemctl start [service_name]: Starts a service.
 systemctl stop [service_name]: Stops a service.
 systemctl restart [service_name]: Restarts a service.
 systemctl status [service_name]: Checks the status of a service.
-These commands will help you effectively monitor and manage processes on a Linu
 
 systemctl (additional usage):
-
 systemctl enable [service_name]: Enables a service to start at boot.
 systemctl disable [service_name]: Disables a service from starting at boot.
 systemctl list-units --type=service: Lists all loaded services.
-chkconfig: Updates and queries runlevel information for system services.
 
+chkconfig: Updates and queries runlevel information for system services.
 chkconfig --list: Lists all services and their runlevel settings.
 chkconfig [service_name] on: Enables a service.
 chkconfig [service_name] off: Disables a service.
-service: Controls the system services.
 
+service: Controls the system services.
 service [service_name] start: Starts a service.
 service [service_name] stop: Stops a service.
 service [service_name] restart: Restarts a service.
 service [service_name] status: Checks the status of a service.
-tuned-adm: Tunes system settings for specific workloads.
 
+tuned-adm: Tunes system settings for specific workloads.
 tuned-adm list: Lists all available profiles.
 tuned-adm active: Shows the current active profile.
 tuned-adm profile [profile_name]: Activates the specified profile.
-yum: Package manager for RHEL.
 
+yum: Package manager for RHEL.
 yum install [package_name]: Installs a package.
 yum update [package_name]: Updates a package.
 yum remove [package_name]: Removes a package.
 yum list installed: Lists all installed packages.
-firewall-cmd: Configures the firewall.
 
+firewall-cmd: Configures the firewall.
 firewall-cmd --state: Checks the state of the firewall.
 firewall-cmd --add-port=[port]/[protocol] --permanent: Adds a port to the firewall permanently.
 firewall-cmd --reload: Reloads the firewall configuration.
-setsebool: Manages SELinux booleans.
 
+setsebool: Manages SELinux booleans.
 setsebool -P [boolean] on|off: Sets the specified SELinux boolean.
 getsebool: Queries SELinux booleans.
-
 getsebool -a: Lists all SELinux booleans and their current values.
 
 pmap: Reports memory map of a process.
-
 pmap [PID]: Displays the memory map of the process with the specified PID.
 pmap -x [PID]: Provides extended information about memory usage.
 pidof: Finds the process ID of a running program.
-
 pidof [program_name]: Displays the PID(s) of the running program.
-watch: Executes a program periodically and shows the output.
 
+watch: Executes a program periodically and shows the output.
 watch [command]: Runs the specified command every 2 seconds by default.
 watch -n [seconds] [command]: Runs the specified command at the specified interval.
+
 dstat: Versatile resource statistics.
-
 dstat: Provides a combination of vmstat, iostat, netstat, and ifstat.
+
 nmon: Performance monitor for Linux.
-
 nmon: Interactive interface for performance monitoring.
-strace: Traces system calls and signals.
 
+strace: Traces system calls and signals.
 strace [command]: Traces the system calls made by the specified command.
 strace -p [PID]: Attaches to the process with the specified PID to trace its system calls.
-lsof: Lists open files.
 
+lsof: Lists open files.
 lsof: Lists information about files opened by processes.
 lsof -p [PID]: Lists files opened by the specified process.
-uptime: Shows how long the system has been running.
 
+uptime: Shows how long the system has been running.
 uptime: Displays system uptime, number of users, and load averages.
 
 ps: Reports a snapshot of the current processes.
-
 ps aux: Displays all running processes.
 ps -ef: Another format to display all running processes.
+
 top: Displays real-time information about running processes, CPU, and memory usage.
-
 top: Opens the interactive top interface.
-Press q to quit.
-htop: An interactive process viewer (similar to top) with a more user-friendly interface. (May need to install: sudo yum install htop or sudo apt install htop).
 
+htop: An interactive process viewer (similar to top) with a more user-friendly interface. 
+(May need to install: sudo yum install htop or sudo apt install htop).
 htop: Opens the interactive htop interface.
 Use arrow keys to navigate, F3 to search, F9 to kill a process, and F10 to quit.
+
 atop: Advanced system and process monitor for Linux.
-
 atop: Opens the interactive atop interface.
+
 vmstat: Reports virtual memory statistics.
-
 vmstat 1: Provides real-time updates every second.
-iostat: Reports CPU and I/O statistics.
 
+iostat: Reports CPU and I/O statistics.
 iostat: Displays average CPU and I/O statistics since the last reboot.
 iostat 1: Provides real-time updates every second.
-mpstat: Reports CPU statistics.
 
+mpstat: Reports CPU statistics.
 mpstat: Displays average CPU statistics.
 mpstat 1: Provides real-time updates every second.
+
 pidstat: Reports statistics for Linux tasks (processes).
-
 pidstat: Displays CPU usage of processes.
+
 free: Displays memory usage.
-
 free -h: Displays memory usage in human-readable format.
-sar: Collects, reports, or saves system activity information.
 
+sar: Collects, reports, or saves system activity information.
 sar: Displays various system performance information.
 ```
 
@@ -186,7 +170,7 @@ sar: Displays various system performance information.
 
 First we can start by monitoring disk and memory usage with df and du.
 
-## df
+### df
 
 As a root we will use df:
 
@@ -223,7 +207,7 @@ tmpfs                     366M  112K  366M   1% /run/user/1000
 
 From outside we got two disks 20G for first and 2G added as additional disk for virtual machine as vdi files. We got 4G (4096 MB) RAM.
 
-All tmpfs filesystems (/dev/shm, /run, /run/user/1000) and devtmpfs (/dev) are in RAM, providing fast access to temporary data. The root filesystem (/ on /dev/mapper/rhel_10-root) and the boot partition (/boot on /dev/sda1) are on disk, providing persistent storage.
+All `tmpfs` filesystems (`/dev/shm, /run, /run/user/1000`) and `devtmpfs` (`/dev`) are in RAM, providing fast access to temporary data. The root filesystem (`/` on `/dev/mapper/rhel_10-root`) and the boot partition (/boot on /dev/sda1) are on disk, providing persistent storage.
 
 `devtmpfs` is a virtual filesystem used to represent the device-specific information in a temporary filesystem (`tmpfs`) mounted on `/dev`. Its also fully resides in RAM.  It provides a dynamic directory structure for device files. Manages device nodes in the /dev directory. It dynamically creates and maintains device files as hardware devices are added or removed.
 
@@ -259,7 +243,7 @@ Last `tmpfs` is mounted on `/run/user/1000` directory is a tmpfs filesystem moun
 When a filesystem is mounted, it means that the storage represented by that filesystem is made accessible. 
 Storages are integrated into the overall directory structure of the operating system.
 
-Each entry in the "Filesystem" column identifies the type and source of the mounted filesystem. It can include various types such as physical partitions (`/dev/sd*`), device-mapper devices, network file systems (NFS), and more. Understanding these names helps to identify where the storage is coming from and how it is organized on the system.
+Each entry in the "filesystem" column identifies the type and source of the mounted filesystem. It can include various types such as physical partitions (`/dev/sd*`), device-mapper devices, network file systems (NFS), and more. Understanding these names helps to identify where the storage is coming from and how it is organized on the system.
 
 We can also use df with -T option as df -T it will also show disk filesystem type.
 
@@ -276,7 +260,7 @@ tmpfs                    tmpfs       374776     112    374664   1% /run/user/100
 
 As we can see /dev/mapper/rhel_10-root and /dev/sda1 are using xfs file system.
 
-## du
+### du
 
 In case of a near full disk, we can use the du command to detect an excessively large file or directory.
 
@@ -373,7 +357,8 @@ du: cannot access '/run/user/1000/gvfs': Permission denied
 0       /var/log/speech-dispatcher
 ```
 
-## Finding Large Files
+
+### Finding Large Files
 
 To find large files specifically, we use the find command in combination with du.
 
@@ -423,7 +408,7 @@ Find Large Directories in /var: sudo du -sh /var/* | sort -rh | head -n 10
 Using these commands, you can identify large files and directories and take action to free up disk space or manage storage more effectively.
 
 
-## uptime and load average
+### uptime and load average
 
 ```
 
@@ -455,7 +440,7 @@ The load average is a useful metric for administrators to gauge the overall syst
 
 If a system has slow response time. We can check it by using uptime. If load is high High Load Average (exceeding the number of CPU cores) zuggests that the system is under stress, and processes may be queuing up, waiting for available resources.
 
-## top
+### top
 
 ```
 [root@rhel-9-3 acs]# whatis top
@@ -561,8 +546,22 @@ httpd───68*[{httpd}]
 {httpd}
 ```
 
+### ps
 
-## proc
+* Process status
+* Just like top but top not shows all the processes only highest running.
+
+```
+man ps
+ps
+ps -ef
+ps -ef | grep top
+# open another terminal and run top
+ps -ef | grep top
+# it also grabs its running process.
+```
+
+### proc
 
 `/proc` is a virtual filesystem that provides a view into kernel and process information. It does not actually store data on disk but rather provides real-time access to kernel data structures. Since /proc is a virtual filesystem, it exists `entirely in RAM`. The data presented in `/proc` is generated by the kernel on-the-fly and reflects the current state of the system.
 
@@ -612,6 +611,56 @@ Groups: 48
 NStgid: 1138
 ...
 ```
+
+### free
+
+
+```
+free displays the total amount of free and used physical and swap memory in the system, as well as the buffers
+and caches used by the kernel. The information is gathered by parsing  /proc/meminfo.
+```
+
+```
+[acs@rhel-9-3 ~]$ whatis free
+free (3)             - allocate and free dynamic memory
+free (1)             - Display amount of free and used memory in the system
+free (3p)            - free allocated memory
+```
+
+```
+[acs@rhel-9-3 ~]$ free
+               total        used        free      shared  buff/cache   available
+Mem:         3747536     1364364     1641468       20352      997852     2383172
+Swap:        2097148           0     2097148
+```
+
+-m, --mebi displays the amount of memory in mebibytes.
+
+```
+[acs@rhel-9-3 ~]$ free -mh
+               total        used        free      shared  buff/cache   available
+Mem:           3.6Gi       1.3Gi       1.6Gi        19Mi       976Mi       2.3Gi
+Swap:          2.0Gi          0B       2.0Gi
+```
+
+* In oracle virualbox we gave 4096 MB = 4G memory. "Mem:" . 3.6GB close to 4GB.  The difference in allocated memory on a virtual machine is indeed more likely to be influenced by virtualization mechanisms, hypervisor overhead, guest operating system requirements, and other factors specific to the virtualization environment.
+
+### lsof
+
+
+### kill
+
+* If a process is not stopping gracefully.
+
+```
+kill 34440
+# gone.
+# not getting killed force kill
+kill -9 34440
+```
+
+
+
 
 ## 3. Details
 
