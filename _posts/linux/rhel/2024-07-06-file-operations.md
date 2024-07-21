@@ -4,6 +4,13 @@ page_name: "File Operations"
 title: "File Operations"
 ---
 
+## Table Of Contents
+1) Command List
+2) Walkthrough
+3) Details
+
+## 1. Command List
+
 * `mkdir spiders` : Creates a directory named spiders.
 * `touch spidertxt` : Creates an empty file named spidertxt.
 * `ln -s spiders spidersoftlink` : Creates a symbolic (soft) link named spidersoftlink that points to spiders.

@@ -1,8 +1,16 @@
 ---
 layout: post4
-page_name: "Identity Management"
-title: "Identity Management"
+page_name: "User Account Management"
+title: "User Account Management"
 ---
+
+## Table Of Contents
+
+1) Command List
+2) Walkthrough
+3) Details
+
+## 1. Command List
 
 * `whoami`: Displays the current logged-in username.
 * `su spiderman` : Switches to the user spiderman.
