@@ -14,7 +14,6 @@ Lorem ipsum dolor sit amet, consecteur adipiscing elit. Maecenas hendrerit a odi
 
 ## 1. Command List
 
-
 * List information about the operating system, such as the name, version, and distribution.
 
 ```
@@ -39,109 +38,109 @@ uname -a
 uname -nsro
 ```
 
-Displays the hostname of the system.
+* Displays the hostname of the system.
 
 ```
 hostname
 ```
 
-Sets the hostname of the system.
+* Sets the hostname of the system.
 
 ```
 hostname-ctl set-hostname pparker.oscorp.com
 ```
 
-Displays information about network devices managed by NetworkManager.
+* Displays information about network devices managed by NetworkManager.
 
 ```
 ip addr
 ```
 
-Displays information about network devices managed by NetworkManager.
+* Displays information about network devices managed by NetworkManager.
 
 ```
 nmcli device
 ```
 
-Sets ipv4 address with prefix.
+* Sets ipv4 address with prefix.
 
 ```
 nmcli connection modify enp0s3 ipv4.address 10.253.121/24
 ```
 
-Sets gateway.
+* Sets gateway.
 
 ```
 nmcli connection modify enp0s3 ipv4.gateway 10.253.1.1
 ```
 
-Sets static. This method can be set to either manual or dhcp.
+* Sets static. This method can be set to either manual or dhcp.
 
 ```
 nmcli connection modify enp0s3 ipv4.method manual
 ```
 
-Sets primary DNS.
+* Sets primary DNS.
 
 ```
 nmcli connection modify enp0s3 ipv4.dns 8.8.8.8
 ```
 
-Restarts the interface enp0s3.
+* Restarts the interface enp0s3.
 
 ```
 nmcli connection down enp0s3 && nmcli connection enp0s3 up
 ```
 
-Similar to the ip addr command, but it only displays information for the network interface named enp0s3.
+* Similar to the ip addr command, but it only displays information for the network interface named enp0s3.
 
 ```
 ip address show enps3
 ```
 
-Edits conf for a specific network interface. Give line each, IPADDR,PREFIX,GATEWAY,DNS1.
+* Edits conf for a specific network interface. Give line each, IPADDR,PREFIX,GATEWAY,DNS1.
 
 ```
 vi etc/sys/config/network-scripts/ifcfg-<interface>
 ```
 
-Displays the default route for the system. 
+* Displays the default route for the system. 
 
 ```
 ip route show default
 ```
 
-Restarts the NetworkManager service. 
+* Restarts the NetworkManager service. 
 
 ```
 systemctl restart NetworkManager
 ```
 
-Sends a ping request to the host with the IP address 8.8.8.8, which is a public DNS server operated by Google.
+* Sends a ping request to the host with the IP address 8.8.8.8, which is a public DNS server operated by Google.
 
 ```
 ping 8.8.8.8
 ```
 
-Attempts telnet connection to the host with the IP address 10.55.3.100 on port 2022. 
+* Attempts telnet connection to the host with the IP address 10.55.3.100 on port 2022. 
 
 ```
 telnet 10.55.3.100 -p 2022
 ```
 
-Attempts SSH connection to the host with the IP address 10.253.1.55 and as the user.
+* Attempts SSH connection to the host with the IP address 10.253.1.55 and as the user.
 
 ```
 ssh spiderman@10.253.1.55
 ```
 
-Displays information about active network connections on the system. Relies on the live state of the system.
+* Displays information about active network connections on the system. Relies on the live state of the system.
 
 ```
 netstat -antp | grep ':80/tcp
 ```
 
-Searches the file /etc/services for lines that contain the string 80/tcp. Doesn't show any live connection details.
+* Searches the file /etc/services for lines that contain the string 80/tcp. Doesn't show any live connection details.
 
 ```
 grep -w '80/tcp' /etc/services
