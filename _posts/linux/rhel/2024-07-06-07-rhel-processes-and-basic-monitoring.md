@@ -27,142 +27,263 @@ We will explain tcpdump and netstat in network details section.
     2. Threads
     3. Execution Context
     4. Asembly Code
+    5. Additional Commands
 
 ## 1. Command List
 
+## Disk Usage and Filesystem
+
+* Displays disk space usage in a human-readable format.
 
 ```
-kill [PID]: Sends the default TERM signal to terminate a process with the specified PID.
-kill -9 [PID]: Sends the KILL signal to forcefully terminate a process.
+df -h
+```
 
-killall [process_name]: Sends the default TERM signal to terminate processes with the specified name.
-killall -9 [process_name]: Sends the KILL signal to forcefully terminate processes with the specified name.
+* Shows swap space usage.
 
-nice -n [priority] [command]: Starts a command with the specified priority.
-nice: Starts a process with a specified priority.
-nice -n [priority] [command]: Starts a command with the specified priority.
+```
+swapon --show
+```
 
-renice: Changes the priority of an already running process.
-renice [priority] -p [PID]: Changes the priority of the process with the specified PID.
+* Displays disk space usage along with filesystem types.
 
-nohup: Runs a command immune to hangups and keeps it running after logging out.
-nohup [command] &: Runs the command in the background and immune to hangups.
+```
+df -T
+```
 
-bg: Resumes a suspended job in the background.
-bg [job_id]: Resumes the specified job in the background.
+* Shows disk usage in kilobytes for the root directory, sorted by size in descending order, and paginates the output.
 
-fg: Brings a background job to the foreground.
-fg [job_id]: Brings the specified job to the foreground.
+```
+du -k / 2>/dev/null | sort -nr | more
+```
 
-jobs: Lists current jobs.
-jobs: Displays all current jobs with their statuses.
+* Shows total disk usage for the /usr/bin directory in a human-readable format.
 
-systemctl: Manages systemd services.
-systemctl start [service_name]: Starts a service.
-systemctl stop [service_name]: Stops a service.
-systemctl restart [service_name]: Restarts a service.
-systemctl status [service_name]: Checks the status of a service.
+```
+du -sh /usr/bin
+```
 
-systemctl (additional usage):
-systemctl enable [service_name]: Enables a service to start at boot.
-systemctl disable [service_name]: Disables a service from starting at boot.
-systemctl list-units --type=service: Lists all loaded services.
+* Displays disk usage for the /home/acs/myscripts directory in a human-readable format.
 
-chkconfig: Updates and queries runlevel information for system services.
-chkconfig --list: Lists all services and their runlevel settings.
-chkconfig [service_name] on: Enables a service.
-chkconfig [service_name] off: Disables a service.
+```
+du -h /home/acs/myscripts
+```
 
-service: Controls the system services.
-service [service_name] start: Starts a service.
-service [service_name] stop: Stops a service.
-service [service_name] restart: Restarts a service.
-service [service_name] status: Checks the status of a service.
+* Shows disk usage for the /var/log directory in a human-readable format.
 
-tuned-adm: Tunes system settings for specific workloads.
-tuned-adm list: Lists all available profiles.
-tuned-adm active: Shows the current active profile.
-tuned-adm profile [profile_name]: Activates the specified profile.
+```
+du -h /var/log
+```
 
-yum: Package manager for RHEL.
-yum install [package_name]: Installs a package.
-yum update [package_name]: Updates a package.
-yum remove [package_name]: Removes a package.
-yum list installed: Lists all installed packages.
+* Displays disk usage for the root directory and shows the top 10 largest entries.
 
-firewall-cmd: Configures the firewall.
-firewall-cmd --state: Checks the state of the firewall.
-firewall-cmd --add-port=[port]/[protocol] --permanent: Adds a port to the firewall permanently.
-firewall-cmd --reload: Reloads the firewall configuration.
+```
+du -h / | sort -rh | head -n 10
+```
 
-setsebool: Manages SELinux booleans.
-setsebool -P [boolean] on|off: Sets the specified SELinux boolean.
-getsebool: Queries SELinux booleans.
-getsebool -a: Lists all SELinux booleans and their current values.
+* Displays disk usage for the /var/log directory and shows the top 10 largest entries.
 
-pmap: Reports memory map of a process.
-pmap [PID]: Displays the memory map of the process with the specified PID.
-pmap -x [PID]: Provides extended information about memory usage.
+```
+du -h /var/log | sort -rh | head -n 10
+```
 
-pidof: Finds the process ID of a running program.
-pidof [program_name]: Displays the PID(s) of the running program.
+* Finds files larger than 1GB.
 
-watch: Executes a program periodically and shows the output.
-watch [command]: Runs the specified command every 2 seconds by default.
-watch -n [seconds] [command]: Runs the specified command at the specified interval.
+```
+sudo find / -type f -size +1G
+```
 
-dstat: Versatile resource statistics.
-dstat: Provides a combination of vmstat, iostat, netstat, and ifstat.
+* Shows disk usage for each directory in /var, sorted by size, and displays the top 10.
 
-nmon: Performance monitor for Linux.
-nmon: Interactive interface for performance monitoring.
+```
+sudo du -sh /var/* | sort -rh | head -n 10
+```
 
-strace: Traces system calls and signals.
-strace [command]: Traces the system calls made by the specified command.
-strace -p [PID]: Attaches to the process with the specified PID to trace its system calls.
+* Finds files larger than 100MB.
 
-lsof: Lists open files.
-lsof: Lists information about files opened by processes.
-lsof -p [PID]: Lists files opened by the specified process.
+```
+sudo find / -type f -size +100M 2>/dev/null
+```
 
-uptime: Shows how long the system has been running.
-uptime: Displays system uptime, number of users, and load averages.
 
-ps: Reports a snapshot of the current processes.
-ps aux: Displays all running processes.
-ps -ef: Another format to display all running processes.
-ps -ef | grep top : XX
+## System Monitoring
 
-top: Displays real-time information about running processes, CPU, and memory usage.
-top: Opens the interactive top interface.
+* Shows how long the system has been running.
 
-htop: An interactive process viewer (similar to top) with a more user-friendly interface. 
-(May need to install: sudo yum install htop or sudo apt install htop).
-htop: Opens the interactive htop interface.
-Use arrow keys to navigate, F3 to search, F9 to kill a process, and F10 to quit.
+```
+uptime 
+```
 
-atop: Advanced system and process monitor for Linux.
-atop: Opens the interactive atop interface.
+* Displays real-time system resource usage
 
-vmstat: Reports virtual memory statistics.
-vmstat 1: Provides real-time updates every second.
+```
+top
+```
 
-iostat: Reports CPU and I/O statistics.
-iostat: Displays average CPU and I/O statistics since the last reboot.
-iostat 1: Provides real-time updates every second.
+* Shows threads in the top output.
 
-mpstat: Reports CPU statistics.
-mpstat: Displays average CPU statistics.
-mpstat 1: Provides real-time updates every second.
+```
+top -H
+```
 
-pidstat: Reports statistics for Linux tasks (processes).
-pidstat: Displays CPU usage of processes.
+* Displays real-time resource usage for the process with PID 1144.
 
-free: Displays memory usage.
-free -h: Displays memory usage in human-readable format.
+```
+top -p 1144
+```
 
-sar: Collects, reports, or saves system activity information.
-sar: Displays various system performance information.
+* Displays threads for the process with PID 1144.
+
+```
+top -p 1144 -H
+```
+
+* Displays a tree of processes starting from the process with PID 1138.
+
+```
+pstree 1138
+```
+
+* Shows all running processes.
+
+```
+ps -ef
+```
+
+* Shows all threads of all processes.
+
+```
+ps -eLf
+```
+
+* Filters the thread list for the process with PID 1138.
+
+```
+ps -eLf | grep 1138
+```
+
+* Displays status information for the thread with TID 1147 of the process with PID 1138.
+
+```
+cat /proc/1138/task/1147/status
+```
+
+* Shows memory usage in a human-readable format.
+
+```
+free -mh
+```
+
+* Lists open files.
+
+```
+lsof
+```
+
+* Lists processes using port 80.
+
+```
+lsof -i :80
+```
+
+* Lists network connections for a specific user.
+
+```
+lsof -u <username> -i
+```
+
+* Display messages errors from the kernel ring buffer using dmesg with specific log levels (crit, alert, emerg).
+
+```
+dmesg -l err,crit,alert,emerg
+```
+
+## Process Management
+
+* Sends the default TERM signal to terminate the process with PID 34440.
+
+```
+kill 34440
+```
+
+* Sends the KILL signal to forcefully terminate the process with PID 34440.
+
+```
+kill -9 34440
+```
+
+* Sends the default TERM signal to terminate all processes with the specified name.
+
+```
+killall [process_name]
+```
+
+* Sends the KILL signal to forcefully terminate all processes with the specified name.
+
+```
+killall -9 [process_name]
+```
+
+## Miscellaneous
+
+* Displays who is logged in and what they are doing.
+
+```
+w
+```
+
+* Reports virtual memory statistics.
+
+```
+vmstat
+```
+
+* Reports virtual memory statistics every second.
+
+```
+vmstat 1
+```
+
+* Traces system calls made by a command.
+
+```
+strace [command]
+```
+
+* Attaches to a process with a specified PID to trace its system calls.
+
+```
+strace -p [PID]
+```
+
+* Displays filesystem status.
+
+```
+stat -f /
+```
+
+* Runs ls command repeatedly and displays output.
+
+```
+watch ls
+```
+
+* Finds the PID of the httpd process.
+
+```
+pidof httpd
+```
+
+* Displays detailed memory map of the process with PID 1117.
+
+```
+pmap -x 1117
+```
+
+* Lists active jobs.
+
+```
+jobs
 ```
 
 ## 2. Walkthrough
@@ -257,7 +378,7 @@ tmpfs                    tmpfs       749556   10152    739404   2% /run
 tmpfs                    tmpfs       374776     112    374664   1% /run/user/1000
 ```
 
-As we can see /dev/mapper/rhel_10-root and /dev/sda1 are using xfs file system.
+As we can see `/dev/mapper/rhel_10-root` and `/dev/sda1` are using xfs file system.
 
 ### du
 
@@ -361,7 +482,9 @@ du: cannot access '/run/user/1000/gvfs': Permission denied
 
 To find large files specifically, we use the find command in combination with du.
 
-To find Large Files (e.g., larger than 1 GB) we can use find /path/to/search -type f -size +1G Arguments -type f: Searches for files, -size +1G: Finds files larger than 1 GB.
+To find Large Files (e.g., larger than 1 GB) we can use find `/path/to/search -type f -size +1G`. 
+
+Arguments `-type f` searches for files, `-size +1G` finds files larger than 1 GB.
 
 ```
 [root@rhel-9-3 acs]# sudo find / -type f -size +1G
@@ -373,7 +496,7 @@ find: ‘/run/user/1000/gvfs’: Permission denied
 
 
 
-Find Large Directories in /var: sudo du -sh /var/* | sort -rh | head -n 10
+Find Large Directories in `/var` we can use command `sudo du -sh /var/* | sort -rh | head -n 10`.
 
 ```
 [root@rhel-9-3 acs]#  sudo du -sh /var/* | sort -rh | head -n 10
@@ -407,7 +530,7 @@ Find Large Directories in /var: sudo du -sh /var/* | sort -rh | head -n 10
 Using these commands, you can identify large files and directories and take action to free up disk space or manage storage more effectively.
 
 
-### uptime and load average
+### Uptime And Load Average
 
 ```
 
@@ -420,10 +543,10 @@ uptime (1)           - Tell how long the system has been running.
 
 ```
 
-The information you provided indicates the system's uptime, which is the duration for which the system has been running since its last reboot. In this case the system has been up for 1 hour, 19 minutes. There are currently 3 users logged in. The load average values indicate the system's average workload over the last 1, 5, and 15 minutes, respectively. 
+The information indicates the system's uptime, which is the duration for which the system has been running since its last reboot. In this case the system has been up for 1 hour, 19 minutes. There are currently 3 users logged in. The load average values indicate the system's average workload over the last 1, 5, and 15 minutes, respectively. 
 
 In this case, the load averages are 0.03, 0.03, and 0.00. These values represent a relatively low system load, suggesting that the system is not heavily loaded.
-The load average, as displayed in the output you provided (0.03, 0.03, 0.00), represents the average number of processes in a runnable or uninterruptible state over a certain period of time. In Unix-like operating systems, including Linux, the load average is a measure of system activity.
+The load average, as displayed in the output provided (0.03, 0.03, 0.00), represents the average number of processes in a runnable or uninterruptible state over a certain period of time. In Unix-like operating systems, including Linux, the load average is a measure of system activity.
 
 The load average values are typically displayed for three different time intervals 1 minute, 5 minutes, and 15 minutes. Each value represents the average number of processes in the system's run queue over the specified time interval.
 
@@ -1080,4 +1203,145 @@ Examine Binary Content: Use hexdump to view raw binary data:
 
 ```
 hexdump -C ./your_program
+```
+
+### Additional Commands
+
+```
+kill [PID]: Sends the default TERM signal to terminate a process with the specified PID.
+kill -9 [PID]: Sends the KILL signal to forcefully terminate a process.
+
+killall [process_name]: Sends the default TERM signal to terminate processes with the specified name.
+killall -9 [process_name]: Sends the KILL signal to forcefully terminate processes with the specified name.
+
+nice -n [priority] [command]: Starts a command with the specified priority.
+nice: Starts a process with a specified priority.
+nice -n [priority] [command]: Starts a command with the specified priority.
+
+renice: Changes the priority of an already running process.
+renice [priority] -p [PID]: Changes the priority of the process with the specified PID.
+
+nohup: Runs a command immune to hangups and keeps it running after logging out.
+nohup [command] &: Runs the command in the background and immune to hangups.
+
+bg: Resumes a suspended job in the background.
+bg [job_id]: Resumes the specified job in the background.
+
+fg: Brings a background job to the foreground.
+fg [job_id]: Brings the specified job to the foreground.
+
+jobs: Lists current jobs.
+jobs: Displays all current jobs with their statuses.
+
+systemctl: Manages systemd services.
+systemctl start [service_name]: Starts a service.
+systemctl stop [service_name]: Stops a service.
+systemctl restart [service_name]: Restarts a service.
+systemctl status [service_name]: Checks the status of a service.
+
+systemctl (additional usage):
+systemctl enable [service_name]: Enables a service to start at boot.
+systemctl disable [service_name]: Disables a service from starting at boot.
+systemctl list-units --type=service: Lists all loaded services.
+
+chkconfig: Updates and queries runlevel information for system services.
+chkconfig --list: Lists all services and their runlevel settings.
+chkconfig [service_name] on: Enables a service.
+chkconfig [service_name] off: Disables a service.
+
+service: Controls the system services.
+service [service_name] start: Starts a service.
+service [service_name] stop: Stops a service.
+service [service_name] restart: Restarts a service.
+service [service_name] status: Checks the status of a service.
+
+tuned-adm: Tunes system settings for specific workloads.
+tuned-adm list: Lists all available profiles.
+tuned-adm active: Shows the current active profile.
+tuned-adm profile [profile_name]: Activates the specified profile.
+
+yum: Package manager for RHEL.
+yum install [package_name]: Installs a package.
+yum update [package_name]: Updates a package.
+yum remove [package_name]: Removes a package.
+yum list installed: Lists all installed packages.
+
+firewall-cmd: Configures the firewall.
+firewall-cmd --state: Checks the state of the firewall.
+firewall-cmd --add-port=[port]/[protocol] --permanent: Adds a port to the firewall permanently.
+firewall-cmd --reload: Reloads the firewall configuration.
+
+setsebool: Manages SELinux booleans.
+setsebool -P [boolean] on|off: Sets the specified SELinux boolean.
+getsebool: Queries SELinux booleans.
+getsebool -a: Lists all SELinux booleans and their current values.
+
+pmap: Reports memory map of a process.
+pmap [PID]: Displays the memory map of the process with the specified PID.
+pmap -x [PID]: Provides extended information about memory usage.
+
+pidof: Finds the process ID of a running program.
+pidof [program_name]: Displays the PID(s) of the running program.
+
+watch: Executes a program periodically and shows the output.
+watch [command]: Runs the specified command every 2 seconds by default.
+watch -n [seconds] [command]: Runs the specified command at the specified interval.
+
+
+
+strace: Traces system calls and signals.
+strace [command]: Traces the system calls made by the specified command.
+strace -p [PID]: Attaches to the process with the specified PID to trace its system calls.
+
+lsof: Lists open files.
+lsof: Lists information about files opened by processes.
+lsof -p [PID]: Lists files opened by the specified process.
+
+uptime: Shows how long the system has been running.
+uptime: Displays system uptime, number of users, and load averages.
+
+ps: Reports a snapshot of the current processes.
+ps aux: Displays all running processes.
+ps -ef: Another format to display all running processes.
+ps -ef | grep top : Display process top.
+
+top: Displays real-time information about running processes, CPU, and memory usage.
+top: Opens the interactive top interface.
+
+
+vmstat: Reports virtual memory statistics.
+vmstat 1: Provides real-time updates every second.
+
+
+htop: An interactive process viewer (similar to top) with a more user-friendly interface. 
+(May need to install: sudo yum install htop or sudo apt install htop).
+htop: Opens the interactive htop interface.
+Use arrow keys to navigate, F3 to search, F9 to kill a process, and F10 to quit.
+
+nmon: Performance monitor for Linux.
+nmon: Interactive interface for performance monitoring.
+
+dstat: Versatile resource statistics.
+dstat: Provides a combination of vmstat, iostat, netstat, and ifstat.
+
+
+atop: Advanced system and process monitor for Linux.
+atop: Opens the interactive atop interface.
+
+iostat: Reports CPU and I/O statistics.
+iostat: Displays average CPU and I/O statistics since the last reboot.
+iostat 1: Provides real-time updates every second.
+
+mpstat: Reports CPU statistics.
+mpstat: Displays average CPU statistics.
+mpstat 1: Provides real-time updates every second.
+
+pidstat: Reports statistics for Linux tasks (processes).
+pidstat: Displays CPU usage of processes.
+
+free: Displays memory usage.
+free -h: Displays memory usage in human-readable format.
+
+sar: Collects, reports, or saves system activity information.
+sar: Displays various system performance information.
 ```

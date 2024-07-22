@@ -576,12 +576,12 @@ MAC adreslerini tutan ARP tablosuna da bakalım.
 
 ```
 [acs@rhel-9-3 ~]$ ip neigh show
-10.55.3.1 dev enp0s3 lladdr 52:54:00:12:35:00 STALE
-10.55.3.2 dev enp0s3 lladdr 52:54:00:12:35:00 DELAY
+10.55.3.1 dev enp0s3 lladdr 52:54:00:XX:XX:00 STALE
+10.55.3.2 dev enp0s3 lladdr 52:54:00:XX:XX:00 DELAY
 
 [acs@rhel-9-3 ~]$ arp -a
-_gateway (10.55.3.1) at 52:54:00:12:35:00 [ether] on enp0s3
-? (10.55.3.2) at 52:54:00:12:35:00 [ether] on enp0s3
+_gateway (10.55.3.1) at 52:54:00:XX:XX:XX [ether] on enp0s3
+? (10.55.3.2) at 52:54:00:XX:XX:XX [ether] on enp0s3
 ```
 
 ## 4. Problemlerin Troubleshoot Edilmesi
