@@ -1,21 +1,57 @@
+
+body{
+
+	    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--white-color);
+    color: var(--primary-text-color);
+    font-family: Mulish,sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    transition: background-color .3s var(--animation-base);
+    word-break: break-word;
+}
+
 .ab1{max-width: 1140px;}
-.ab2{display: flex;width: 500px;float: left;}
+.ab2{display: flex;width: 640px;float: left;}
 .ab3{}
 .ab4{
     display: flex;
+    margin-right: 0px;
+    
+    
+    
 font-family Mulish, sans-serif; font-size 24px; font-weight 700; -webkit-font-smoothing antialiased;}
 .ab5{
     padding: 8px;
+    font-size: 24px;
+    font-weight: bold;
+    padding-right: 0px;
 }
 .ab6{
     padding: 8px;
+    padding-left: 0px;
 }
 .ab7{
     text-decoration: none;
     color: black;
     padding: 8px;
+    font-size: 24px;
+    font-weight: bold;
 }
-.ab8{margin-left: 20px;}
+.ab8{margin-left: 20px;font-size: 24px;font-weight: bold;margin-top: 3px;}
 .ac1{}
-.ac2{}
-.ac3{}
+.ac2{
+    color: black;
+    font-size: 20px;
+}
+.ac3{
+    font-size: 16px;
+    font-family: Mulish, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: black;
+}
