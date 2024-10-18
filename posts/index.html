@@ -2,8 +2,12 @@
 layout: page
 language: eng
 ---
+<div>
+<div class="card"></div>
 
-<ul class="list-group">
+<div class="card">
+
+<ul class="list-group list-group-flush">
 {% for post in site.categories.main %}  {% if post.url %}
 <li class="list-group-item">
 <a href="{{ post.url }}" style="color: #212529; text-decoration: none;">
@@ -12,3 +16,5 @@ language: eng
 {% endif %}
 {% endfor %}
 </ul>
+</div>
+</div>
