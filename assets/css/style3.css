@@ -1,7 +1,7 @@
 body{text-rendering: optimizeLegibility;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;background-color: var(--white-color);color: var(--primary-text-color);font-family: Mulish,sans-serif;font-size: 16px;line-height: 1.65;transition: background-color .3s var(--animation-base);word-break: break-word;padding: 0px !important;margin: 0px !important;!i;!;!i;!;}
 
 .ab1{
-	max-width: 1140px;
+
 }
 
 .nav-link{
@@ -9,7 +9,7 @@ body{text-rendering: optimizeLegibility;-webkit-font-smoothing: antialiased;-moz
 	padding-bottom: 0px !important;
 
 }
-.ab2{display: flex;width: 553px;float: left;background-color: #000000;color: white;}
+.ab2{display: flex;width: 300px;float: left;background-color: #232529;color: white;}
 .ab3{}
 .ab4{display: flex;margin: 0px !important;padding: 0px;!i;!;
 font-family Mulish, sans-serif; 
