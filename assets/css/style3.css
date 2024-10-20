@@ -1,28 +1,30 @@
-
-body{
-
-	    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: var(--white-color);
-    color: var(--primary-text-color);
-    font-family: Mulish,sans-serif;
-    font-size: 16px;
-    line-height: 1.65;
-    transition: background-color .3s var(--animation-base);
-    word-break: break-word;
+body{ 
+text-rendering: optimizeLegibility; 
+-webkit-font-smoothing: antialiased; 
+-moz-osx-font-smoothing: grayscale; 
+background-color: var(--white-color); 
+color: var(--primary-text-color); 
+font-family: Mulish,sans-serif;
+font-size: 16px; 
+line-height: 1.65; 
+transition: background-color .3s var(--animation-base); 
+word-break: break-word; 
 }
 
-.ab1{max-width: 1140px;}
-.ab2{display: flex;width: 640px;float: left;}
+.ab1{
+	max-width: 1140px;
+}
+
+.ab2{display: flex;width: 553px;float: left;}
 .ab3{}
 .ab4{
-    display: flex;
-    margin-right: 0px;
-    
-    
-    
-font-family Mulish, sans-serif; font-size 24px; font-weight 700; -webkit-font-smoothing antialiased;}
+display: flex;
+margin-right: 0px;
+font-family Mulish, sans-serif; 
+font-size 24px; 
+font-weight 700; 
+-webkit-font-smoothing antialiased;
+}
 .ab5{
     padding: 8px;
     font-size: 24px;
@@ -54,4 +56,5 @@ font-family Mulish, sans-serif; font-size 24px; font-weight 700; -webkit-font-sm
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     color: black;
+    text-align: justify;
 }
