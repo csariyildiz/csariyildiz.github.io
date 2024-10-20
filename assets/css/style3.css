@@ -1,9 +1,8 @@
 body{text-rendering: optimizeLegibility;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;background-color: var(--white-color);color: var(--primary-text-color);font-family: Mulish,sans-serif;font-size: 16px;line-height: 1.65;transition: background-color .3s var(--animation-base);word-break: break-word;padding: 0px !important;margin: 0px !important;!i;!;!i;!;}
 
 .ab1{
-	max-width: 1140px;
+max-width:1140px;
 }
-
 
 .nav-link{
 	padding-top: 0px !important;
@@ -19,11 +18,11 @@ font-weight 700;
 -webkit-font-smoothing antialiased;
 }
 .ab5{
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 30px;
     padding: 0px;
     margin: 0px;
+    color: rgba(255, 255, 255, 0.55);
 }
 .ab6{
     line-height: 24px;
@@ -32,12 +31,13 @@ font-weight 700;
 }
 .ab7{
     text-decoration: none;
-    color: white;
+    color: rgba(255, 255, 255, 0.55);
     padding: 8px;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 30px;
 }
-.ab8{margin-left: 20px;font-size: 24px;font-weight: bold;margin-top: 0px;line-height: 24px;color: white;}
+.ab8{margin-left: 8px;font-size: 18px;margin-top: 0px;line-height: 30px;color: rgba(255, 255, 255, 0.55);font-weight: 100;margin-right: 8px;}
 .ac1{}
 .ac2{
     color: black;
