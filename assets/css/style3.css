@@ -4,7 +4,12 @@ body{text-rendering: optimizeLegibility;-webkit-font-smoothing: antialiased;-moz
 	max-width: 1140px;
 }
 
-.ab2{display: flex;width: 553px;float: left;}
+.nav-link{
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+
+}
+.ab2{display: flex;width: 553px;float: left;background-color: #000000;color: white;}
 .ab3{}
 .ab4{display: flex;margin: 0px !important;padding: 0px;!i;!;
 font-family Mulish, sans-serif; 
@@ -26,12 +31,12 @@ font-weight 700;
 }
 .ab7{
     text-decoration: none;
-    color: black;
+    color: white;
     padding: 8px;
     font-size: 24px;
     font-weight: bold;
 }
-.ab8{margin-left: 20px;font-size: 24px;font-weight: bold;margin-top: 0px;line-height: 24px;}
+.ab8{margin-left: 20px;font-size: 24px;font-weight: bold;margin-top: 0px;line-height: 24px;color: white;}
 .ac1{}
 .ac2{
     color: black;
