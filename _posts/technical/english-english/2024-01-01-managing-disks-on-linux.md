@@ -35,7 +35,7 @@ It has components such as PVs, VGs and LVs.
 
 #### 1. Take snapshot.
 
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_1.png" class="img-fluid" alt="">
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_2.png" class="img-fluid" alt="">
 
 ```
 Its important the take snapshot since its easy to broke partitions etc.
@@ -43,7 +43,18 @@ Its important the take snapshot since its easy to broke partitions etc.
 
 #### 2. Add a new disk to virtual machine. (2GB) 
 
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_2.png" class="img-fluid" alt="">
+```
+[acs@rhel9-4 /]$ lsblk
+NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+sda             8:0    0  20G  0 disk 
+├─sda1          8:1    0   1G  0 part /boot
+└─sda2          8:2    0  19G  0 part 
+  ├─rhel-root 253:0    0  17G  0 lvm  /
+  └─rhel-swap 253:1    0   2G  0 lvm  [SWAP]
+sdb             8:16   0   2G  0 disk 
+└─sdb1          8:17   0   1G  0 part 
+sr0            11:0    1  51M  0 rom
+```
 
 ```
 We are using rhel9-4 on Oracle VM VirtualBox.
@@ -53,7 +64,17 @@ Controller Sata VdI
 
 #### 3. Display the amount of disk space used and available on filesystems.
 
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_3.png" class="img-fluid" alt="">
+```
+[acs@rhel9-4 /]$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+```
 
 ```
 df -h
