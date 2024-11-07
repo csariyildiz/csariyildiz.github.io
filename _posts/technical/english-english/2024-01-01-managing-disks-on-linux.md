@@ -15,8 +15,18 @@ tags:
 
 * We can use the command `lsblk` to list block devices. 
 
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_4.png" class="img-fluid" alt="">
-
+```
+[acs@rhel9-4 /]$ lsblk
+NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+sda             8:0    0  20G  0 disk 
+├─sda1          8:1    0   1G  0 part /boot
+└─sda2          8:2    0  19G  0 part 
+  ├─rhel-root 253:0    0  17G  0 lvm  /
+  └─rhel-swap 253:1    0   2G  0 lvm  [SWAP]
+sdb             8:16   0   2G  0 disk 
+└─sdb1          8:17   0   1G  0 part 
+sr0            11:0    1  51M  0 rom
+```
 
 * Are items on the list are block devices.
 * `Block Devices` : Block devices are places where linux store data and retrieve data from.
@@ -33,7 +43,16 @@ It has components such as PVs, VGs and LVs.
 
 ## Steps
 
-#### 1. Take snapshot.
+#### 1. Add a new disk to virtual machine. (2GB) 
+
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_1.png" class="img-fluid" alt="">
+
+```
+We are using rhel9-4 on Oracle VM VirtualBox.
+Controller Sata VdI
+```
+
+#### 2. Take snapshot.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_2.png" class="img-fluid" alt="">
 
@@ -41,31 +60,11 @@ It has components such as PVs, VGs and LVs.
 Its important the take snapshot since its easy to broke partitions etc.
 ```
 
-#### 2. Add a new disk to virtual machine. (2GB) 
-
-```
-[acs@rhel9-4 /]$ lsblk
-NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
-sda             8:0    0  20G  0 disk 
-├─sda1          8:1    0   1G  0 part /boot
-└─sda2          8:2    0  19G  0 part 
-  ├─rhel-root 253:0    0  17G  0 lvm  /
-  └─rhel-swap 253:1    0   2G  0 lvm  [SWAP]
-sdb             8:16   0   2G  0 disk 
-└─sdb1          8:17   0   1G  0 part 
-sr0            11:0    1  51M  0 rom
-```
-
-```
-We are using rhel9-4 on Oracle VM VirtualBox.
-Controller Sata VdI
-
-```
-
 #### 3. Display the amount of disk space used and available on filesystems.
 
 ```
-[acs@rhel9-4 /]$ df -h
+acs@rhel9-4 /]$ sudo df -h
+[sudo] password for acs: 
 Filesystem             Size  Used Avail Use% Mounted on
 devtmpfs               4.0M     0  4.0M   0% /dev
 tmpfs                  1.8G     0  1.8G   0% /dev/shm
@@ -77,7 +76,10 @@ tmpfs                  366M   40K  366M   1% /run/user/1000
 ```
 
 ```
-df -h
+- First three devtmpfs tmpfs tmpfs are all swap space. (2 gig carved)
+- First filesystem is /dev/mapper/rhel_10-root filesystem.
+- Second is /dev/sda1 1 gig. Reserved files for boot. We boot our system there are certain files located the boot. Operating system uses hem to boot up the system.
+- 98 97 percent means file system is full which is critical.
 ```
 
 #### 5. Space of files and directories.
