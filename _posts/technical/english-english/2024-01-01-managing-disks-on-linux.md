@@ -86,8 +86,3 @@ tmpfs                  366M   40K  366M   1% /run/user/1000
 
 #### 4. Space of files and directories.
 
-<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_4.png" class="img-fluid" alt="">
-
-```
-df -h
-```
