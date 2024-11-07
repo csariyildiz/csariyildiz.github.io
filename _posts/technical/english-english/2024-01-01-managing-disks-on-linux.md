@@ -11,10 +11,11 @@ tags:
 ---
 
 * Block Device Concepts
-* 1. Add a new disk to virtual machine. (2GB)
-* 2. Take snapshot.
-* 3. Display the amount of disk space used and available on filesystems.
-* 4. Space of files and directories.
+  
+1. Add a new disk to virtual machine. (2GB)
+2. Take snapshot.
+3. Display the amount of disk space used and available on filesystems.
+4. Space of files and directories.
 
 ## Block Device Concepts
 
@@ -44,7 +45,7 @@ sr0            11:0    1  51M  0 rom
 * `Why we need partitions?`: Assume we got 2TB SSD. Partitions divide disk. For example both Windows Linux operating systems can use their NTFS and ext4 by logical seperation provided by the partitions. Partition informations is the first data written on the disk. This data is crucial because it defines the layout and structure of the storage space on the disk.
 * `What are MBR And GPT?`: MBR (Master Boot Record) and GPT (GUID Partition Table) partition standarts MBR is the legacy option supports up to 4 primary partitions. Can use extended partitions to create more than 4 partitions. Limited to disks up to 2TB. GPT (GUID Partition Table) supports a large number of partitions (typically up to 128). Allows disks larger than 2TB. Includes redundancy with a backup table at the end of the disk.
 * `What is LVM?`: LVM is a layer of abstraction over traditional partitioning, allowing flexible management of disk space.
-It has components such as PVs, VGs and LVs.
+* It has components such as PVs, VGs and LVs.
 
 ## Steps
 
@@ -52,11 +53,9 @@ It has components such as PVs, VGs and LVs.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_1.png" class="img-fluid" alt="">
 
-```
-We are using rhel9-4 on Oracle VM VirtualBox.
-Controller Sata VdI
-```
-
+* We are using rhel9-4 on Oracle VM VirtualBox.
+* Controller Sata VdI
+  
 #### 2. Take snapshot.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_2.png" class="img-fluid" alt="">
@@ -80,12 +79,10 @@ tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
 tmpfs                  366M   40K  366M   1% /run/user/1000
 ```
 
-```
-- First three devtmpfs tmpfs tmpfs are all swap space. (2 gig carved)
-- First filesystem is /dev/mapper/rhel_10-root filesystem.
-- Second is /dev/sda1 1 gig. Reserved files for boot. We boot our system there are certain files located the boot. Operating system uses hem to boot up the system.
-- 98 97 percent means file system is full which is critical.
-```
+* First three devtmpfs tmpfs tmpfs are all swap space. (2 gig carved)
+* First filesystem is /dev/mapper/rhel_10-root filesystem.
+* Second is /dev/sda1 1 gig. Reserved files for boot. We boot our system there are certain files located the boot. Operating system uses hem to boot up the system.
+* 98 97 percent means file system is full which is critical.
 
 #### 4. Space of files and directories.
 
