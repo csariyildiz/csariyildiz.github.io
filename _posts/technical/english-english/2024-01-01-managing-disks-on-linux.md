@@ -10,6 +10,11 @@ tags:
   - Disk Management
 ---
 
+* Block Device Concepts
+* 1. Add a new disk to virtual machine. (2GB)
+* 2. Take snapshot.
+* 3. Display the amount of disk space used and available on filesystems.
+* 4. Space of files and directories.
 
 ## Block Device Concepts
 
@@ -82,7 +87,7 @@ tmpfs                  366M   40K  366M   1% /run/user/1000
 - 98 97 percent means file system is full which is critical.
 ```
 
-#### 5. Space of files and directories.
+#### 4. Space of files and directories.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_4.png" class="img-fluid" alt="">
 
