@@ -1,6 +1,6 @@
 ---
 forms: blog15
-layout: post3
+layout: post5
 title: "Managing Disks On Linux"
 category: main
 cat: Linux
