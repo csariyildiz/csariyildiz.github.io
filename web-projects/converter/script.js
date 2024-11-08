@@ -1,4 +1,14 @@
-    $(document).ready(function() {
+// script.js
+import { toggleDarkMode, initializeDarkMode } from '../assets/web-project.js';
+
+$(document).ready(function() {
+
+  $('#darkModeToggle').click(function() {
+    toggleDarkMode();
+  });
+
+  $('.container').fadeIn();
+
       $('#convertButton').click(function() {
         const htmlContent = $('#htmlInput').val();
         
