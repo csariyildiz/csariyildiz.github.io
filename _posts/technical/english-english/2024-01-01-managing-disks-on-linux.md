@@ -47,7 +47,17 @@ sr0            11:0    1  51M  0 rom
 
 #### Mounting
 
+Mounting is the process of making a filesystem accessible at a specific directory (called a mount point) in the Linux directory tree. 
+Linux attaches storage devices (like hard drives, USBs, or network shares) to the system so users can access their data.
+Mount Point could be any directory where the filesystem will be accessible (e.g., /mnt, /home, /media/usb).
 
+Unlike some operating systems that automatically assign drive letters to new devices, Linux integrates everything into a single directory tree. 
+This approach requires devices to be manually or automatically mounted before their contents can be accessed.
+Fstab file automatically mount filesystems at boot, add entries in /etc/fstab.
+
+```
+/dev/sdX1  /mnt/mydisk  ext4  defaults  0  0
+```
 
 #### Why we need partitions?
 
