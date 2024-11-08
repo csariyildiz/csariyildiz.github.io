@@ -197,5 +197,49 @@ tmpfs                 tmpfs         1024       0      1024   0% /run/stratisd/ns
 tmpfs                 tmpfs       374752      40    374712   1% /run/user/1000
  ```
 
+#### 9. List block devices
 
+* `lsblk` lists block devices.
+  
+```
+[acs@rhel9-4 /]$ lsblk
+NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+sda             8:0    0  20G  0 disk 
+├─sda1          8:1    0   1G  0 part /boot
+└─sda2          8:2    0  19G  0 part 
+  ├─rhel-root 253:0    0  17G  0 lvm  /
+  └─rhel-swap 253:1    0   2G  0 lvm  [SWAP]
+sdb             8:16   0   2G  0 disk 
+└─sdb1          8:17   0   1G  0 part 
+sr0            11:0    1  51M  0 rom
+```
 
+#### 9. The directory block files representing devices.
+
+* We can list `/dev/` directory for files of block devices.
+
+```
+[acs@rhel9-4 ~]$ sudo ls -ltr /dev/ | grep sda
+brw-rw----. 1 root disk      8,   0 Nov  7 23:28 sda
+brw-rw----. 1 root disk      8,   1 Nov  7 23:28 sda1
+brw-rw----. 1 root disk      8,   2 Nov  7 23:28 sda2
+```
+
+* These files do not contain stored content in the traditional sense. Instead, their content is the interface they provide to the underlying hardware or kernel feature.
+* b means they are block devices. There are also pipes sockets and speacial interfaces like /dev/null /dev/zero /dev/random.
+
+```
+[acs@rhel9-4 ~]$ sudo hexdump /dev/sda | head -n 10
+0000000 63eb 1090 d08e 00bc b8b0 0000 d88e c08e
+0000010 befb 7c00 00bf b906 0200 a4f3 21ea 0006
+0000020 be00 07be 0438 0b75 c683 8110 fefe 7507
+0000030 ebf3 b416 b002 bb01 7c00 80b2 748a 8b01
+0000040 024c 13cd 00ea 007c eb00 00fe 0000 0000
+0000050 0000 0000 0000 0000 0000 8000 0001 0000
+0000060 0000 0000 faff 9090 c2f6 7480 f605 70c2
+0000070 0274 80b2 79ea 007c 3100 8ec0 8ed8 bcd0
+0000080 2000 a0fb 7c64 ff3c 0274 c288 be52 7d80
+0000090 17e8 be01 7c05 41b4 aabb cd55 5a13 7252
+```
+
+* This is the raw disk data. 63eb, 1090, d08e: Bootloader instructions. 7c00: The memory address where the BIOS loads the bootloader. This is typical in MBR-based boot systems. 13cd: A BIOS interrupt call to perform disk operations. 0000 0000: Unused or reserved space in the MBR. Etc.
