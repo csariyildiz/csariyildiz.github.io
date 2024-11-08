@@ -83,11 +83,10 @@ LVM is a another layer of abstraction over traditional partitioning, allowing fl
 
 * Its important the take snapshot since its easy to broke partitions.
 
-#### 3. Display the amount of disk space used and available on filesystems.
+#### 3. Display the amount of disk space used and available on filesystem.
 
 ```
 acs@rhel9-4 /]$ sudo df -h
-[sudo] password for acs: 
 Filesystem             Size  Used Avail Use% Mounted on
 devtmpfs               4.0M     0  4.0M   0% /dev
 tmpfs                  1.8G     0  1.8G   0% /dev/shm
@@ -100,8 +99,94 @@ tmpfs                  366M   40K  366M   1% /run/user/1000
 
 * First three devtmpfs tmpfs tmpfs are all swap space. (2 gig carved)
 * First filesystem is /dev/mapper/rhel_10-root filesystem.
-* Second is /dev/sda1 1 gig. Reserved files for boot. We boot our system there are certain files located the boot. Operating system uses hem to boot up the system.
+* Second is /dev/sda1 1 G. Reserved files for boot. System is booted using certain files located the boot. Operating system uses this files to boot up the system.
 * 98 97 percent means file system is full which is critical.
 
-#### 4. Space of files and directories.
+#### 4. Display size of a spesific directory. (/bin)
+
+* We may also want to list usage for certain files and directories.
+* We can see disk usage of `/bin/` using the command `du -sh /bin/`.
+
+```
+[acs@rhel9-4 ~]$ sudo du -sh /bin/
+208M    /bin/
+```
+
+#### 5. Display size of files in a directory. (/var/log and /)
+
+* The sort -nr option sorts numerically and in reverse order, so the largest sizes appear at the top.
+
+```
+[acs@rhel9-4 ~]$ sudo du -kh /var/log | sort -nr | more
+232K    /var/log/rhsm
+28K     /var/log/tuned
+12M     /var/log
+12K     /var/log/cups
+...
+```
+
+* `du -kh / 2>/dev/null | sort -nr | more` will search all the file system for biggest files.
+* Errors are send to /dev/null.
+
+```
+[acs@rhel9-4 ~]$ sudo du -kh / 2>/dev/null | sort -nr | more
+1012K   /usr/share/microcode_ctl/ucode_with_caveats/intel-06-8e-9e-0x-0xca
+1012K   /usr/lib/modules/5.14.0-427.31.1.el9_4.x86_64/kernel/drivers/net/wireless/realtek/rtlwifi
+1008K   /usr/lib/modules/5.14.0-427.13.1.el9_4.x86_64/kernel/drivers/net/wireless/realtek/rtlwifi
+1000K   /usr/lib64/spa-0.2/bluez5
+1000K   /usr/lib64/python3.9/multiprocessing
+996K    /usr/share/microcode_ctl/ucode_with_caveats/intel-06-8e-9e-0x-0xca/intel-ucode
+996K    /usr/lib/python3.9/site-packages/orca/scripts/apps
+...
+ ```
+
+#### 7. Show all mounted filesystems and their mount points.
+
+* `df -h` will show filesystems mount points.
+
+```
+[acs@rhel9-4 ~]$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+```
+
+* `mount | column -t` will show all mount points.
+
+```
+[acs@rhel9-4 ~]$ mount | column -t
+proc        on  /proc                   type  proc         (rw,nosuid,nodev,noexec,relatime)
+sysfs       on  /sys                    type  sysfs        (rw,nosuid,nodev,noexec,relatime,seclabel)
+devtmpfs    on  /dev                    type  devtmpfs     (rw,nosuid,seclabel,size=4096k,nr_inodes=460757,mode=755,inode64)
+securityfs  on  /sys/kernel/security    type  securityfs   (rw,nosuid,nodev,noexec,relatime)
+tmpfs       on  /dev/shm                type  tmpfs        (rw,nosuid,nodev,seclabel,inode64)
+devpts      on  /dev/pts                type  devpts       (rw,nosuid,noexec,relatime,seclabel,gid=5,mode=620,ptmxmode=000)
+tmpfs       on  /run                    type  tmpfs        (rw,nosuid,nodev,seclabel,size=749508k,nr_inodes=819200,mode=755,inode64)
+cgroup2     on  /sys/fs/cgroup          type  cgroup2      (rw,nosuid,nodev,noexec,relatime,seclabel,nsdelegate,memory_recursiveprot)
+pstore      on  /sys/fs/pstore          type  pstore       (rw,nosuid,nodev,noe...
+...
+```
+
+#### 8. Show filesystems.
+
+* `df -T` will show filesystems.
+  
+```
+[acs@rhel9-4 ~]$ df -T
+Filesystem            Type     1K-blocks    Used Available Use% Mounted on
+devtmpfs              devtmpfs      4096       0      4096   0% /dev
+tmpfs                 tmpfs      1873768       0   1873768   0% /dev/shm
+tmpfs                 tmpfs       749508    9068    740440   2% /run
+/dev/mapper/rhel-root xfs       17756160 4929928  12826232  28% /
+/dev/sda1             xfs         983040  421020    562020  43% /boot
+tmpfs                 tmpfs         1024       0      1024   0% /run/stratisd/ns_mounts
+tmpfs                 tmpfs       374752      40    374712   1% /run/user/1000
+ ```
+
+
 
