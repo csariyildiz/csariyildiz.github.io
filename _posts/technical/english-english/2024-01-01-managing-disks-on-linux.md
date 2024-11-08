@@ -76,7 +76,6 @@ LVM is a another layer of abstraction over traditional partitioning, allowing fl
 ####  Further Concepts
 
 * Boot Process In Linux
-* 
 
 ## Steps
 
