@@ -1,5 +1,5 @@
 // project.js
-var acsWebProject = {
+var wProject = {
   
   toggleTheme: function() {
     if (localStorage.getItem('darkMode') === 'enabled') {
