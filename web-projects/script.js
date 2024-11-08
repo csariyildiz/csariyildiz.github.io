@@ -2,8 +2,8 @@
 
 $(document).ready(function() {
   
-  $('#toggleTheme').click(function() {
-    acsWebProject.toggleTheme();
+  $('#toggleThemeButton').click(function() {
+    wProject.toggleTheme();
   });
   
 
