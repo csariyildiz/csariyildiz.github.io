@@ -1,20 +1,14 @@
 // script.js
-function toggleDarkMode() {
-  $('body').toggleClass('dark-mode');
-  localStorage.setItem('darkMode', $('body').hasClass('dark-mode') ? 'enabled' : 'disabled');
-}
-
-function initializeDarkMode() {
-  if (localStorage.getItem('darkMode') === 'enabled') {
-    $('body').addClass('dark-mode');
-  }
-}
 
 $(document).ready(function() {
+  
+  WebProject.initializeDarkMode();
 
+  // Bind dark mode toggle to button
   $('#darkModeToggle').click(function() {
-    toggleDarkMode();
+    WebProject.toggleDarkMode();
   });
+  
 
   $('.container').fadeIn();
 
