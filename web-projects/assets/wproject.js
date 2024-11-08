@@ -1,5 +1,5 @@
 // project.js
-var wProject = {
+var wproject = {
   
   toggleTheme: function() {
     if (localStorage.getItem('darkMode') === 'enabled') {
