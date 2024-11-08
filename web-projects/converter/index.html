@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML to Markdown Converter</title>
+  <title>Web Projects - Converter</title>
+  <link rel="stylesheet" href="assets/style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -28,28 +30,71 @@
   </style>
 </head>
 <body>
-  <h1>HTML to Markdown Converter</h1>
-  
-  <textarea id="htmlInput" placeholder="Enter your HTML here..."></textarea>
-  <button id="convertButton">Convert to Markdown</button>
-  <h2>Markdown Output:</h2>
-  <pre id="markdownOutput"></pre>
+  <div class="container">
+  <div class="nav" >
+     <div class="nav-left" >
+    
+    <div class="nav-brand">
+      <div class="nav-logo">🔖 </div>
+      <div class="nav-brand">csariyildiz </div>
+      <div class="nav-brand2">/ ⚙️ Web Projects </div>
+      <div class="nav-brand3">/ 🔁 Converter </div>
+    </div>
+    <div>
+    <div><ul><li>📋 Other</li></ul></div>
+  </div>
+      
+  </div>
+        <div class="nav-right" >
+<ul><li>🌙 Dark Mode</li></ul>
+  </div>
+     </div>
 
-  <script>
-    $(document).ready(function() {
-      $('#convertButton').click(function() {
-        const htmlContent = $('#htmlInput').val();
-        
-        // Create a new instance of Showdown's converter
-        const converter = new showdown.Converter({ tables: true, simplifiedAutoLink: true });
-        
-        // Convert HTML to Markdown
-        const markdown = converter.makeMarkdown(htmlContent);
-        
-        // Display the result
-        $('#markdownOutput').text(markdown);
-      });
-    });
-  </script>
+    <div class="nav-second">
+      <div><ul><li>"> 🔁 Converter /</li><li>📄 Convert HTML To Markdown</li></ul></div>
+    </div>
+  <div class="content">
+    <div class="content-left">
+        <div class="content-item">
+           <div class="content-item-header"> <h2>HTML Input:</h2></div>
+          <div class="content-item-body"><textarea id="htmlInput" placeholder="Enter your HTML here..."></textarea></div>
+ 
+        <div class="content-item">
+            <div class="content-item-header"> <h2>Convert:</h2></div>
+           <div class="content-item-body"> <button id="convertButton">Convert to Markdown</button></div>
+    </div>
+          </div>
+    </div>
+    <div class="content-right">
+      <div class="content-item">
+        <div class="content-item-header"><h2>Markdown Output:</h2></div>
+ <div class="content-item-body"><pre id="markdownOutput"></pre></div>
+  
+      </div>
+   <div class="content-item">
+   <div class="content-item-header"> <h2>HTML Log:</h2></div>
+    <div class="content-item-body"> <pre id="logOutput"></pre> </div>
+ 
+  
+        </div>
+      <div>
+   </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer-left" >
+             <div class="footer-brand">
+      <div class="footer-logo">🔖 </div>
+      <div class="footer-brand">csariyildiz </div>
+      <div class="footer-text">csariyildiz </div>
+  
+    </div>
+          
+        </div>
+       <div class="footer-right" ></div>
+    </div>
+    </div>
+      <script src="script.js"></script>
+ 
 </body>
 </html>
