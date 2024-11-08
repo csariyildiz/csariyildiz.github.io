@@ -1,12 +1,10 @@
 // script.js
 
 $(document).ready(function() {
-  
-  WebProject.initializeDarkMode();
-
+ 
   // Bind dark mode toggle to button
-  $('#darkModeToggle').click(function() {
-    WebProject.toggleDarkMode();
+  $('#toggleTheme').click(function() {
+    acsWebProject.toggleTheme();
   });
   
 
