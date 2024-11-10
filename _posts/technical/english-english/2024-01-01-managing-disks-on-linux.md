@@ -226,7 +226,7 @@ brw-rw----. 1 root disk      8,   2 Nov  7 23:28 sda2
 ```
 
 * These files do not contain stored content in the traditional sense. Instead, their content is the interface they provide to the underlying hardware or kernel feature.
-* b means they are block devices. There are also pipes sockets and speacial interfaces like /dev/null /dev/zero /dev/random.
+* b means they are block devices. There are also pipes sockets and speacial interfaces like `/dev/null` `/dev/zero` and `/dev/random`.
 
 ```
 [acs@rhel9-4 ~]$ sudo hexdump /dev/sda | head -n 10
@@ -242,4 +242,10 @@ brw-rw----. 1 root disk      8,   2 Nov  7 23:28 sda2
 0000090 17e8 be01 7c05 41b4 aabb cd55 5a13 7252
 ```
 
-* This is the raw disk data. 63eb, 1090, d08e: Bootloader instructions. 7c00: The memory address where the BIOS loads the bootloader. This is typical in MBR-based boot systems. 13cd: A BIOS interrupt call to perform disk operations. 0000 0000: Unused or reserved space in the MBR. Etc.
+* This is the raw disk data. `63eb, 1090, d08e` are bootloader instructions.
+* `7c00`: The memory address where the BIOS loads the bootloader.
+* This is typical in MBR-based boot systems.
+* `13cd`: A BIOS interrupt call to perform disk operations.
+* `0000 0000`: Unused or reserved space in the MBR. Etc.
+
+
