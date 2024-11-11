@@ -1,1 +1,46 @@
+:root {
+  --c0: #ffffff;
+  --c1:#333;
+  --c2:#fafafa;
+  --c3:#f5f5f7;
+}
 
+
+html[data-theme="dark"] {
+  --c0: #181818;
+  --c1: #c1bec1;
+  --c2: #050505;
+  --c3: #0a0a08;
+}
+
+html[data-theme="light"] {
+  --c0: #ffffff;
+  --c1: #333;
+  --c2: #fafafa;
+  --c3: #f5f5f7;
+}
+
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    background-color: var(--back1);
+  }
+
+.container{}
+.nav{}
+.navleft{}
+.nav-element{}
+.nav-element {}
+.navtitle{}
+.navright{}
+.navbutton{}
+.content{}
+.btnlist{}
+.btnlisthead{}
+.Playground{}
+.btnlist{}
+.btnlisthead{}
+.btn{}
+.footer{}
+.footertext{}
+.navright{}
