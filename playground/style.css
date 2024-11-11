@@ -24,7 +24,7 @@ html[data-theme="light"] {
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--c0);
+  background-color: FAFAFA;
   margin: 0;
   padding: 0;
   color: var(--c1);
@@ -42,13 +42,17 @@ h2 {margin-top: 60px;font-size: 30px;}
     margin-bottom: 20px;
 }
 
-.postlist{list-style-type: none; /* Remove bullets */padding: 0; /* Remove padding */margin: 0; /* Remove margins */}
+.postlist{list-style-type: none; /* Remove bullets */ /* Remove padding */margin: 0; /* Remove margins */padding: 0px;border-radius: 5px;}
 
-.postlist li{margin-bottom:20px;}
+.postlist li{margin-bottom:20px;padding-left: 20px;margin-top: 20px;border: 1px solid #d1d9e0;margin-left: 20px;margin-right: 20px;padding-top: 10px;padding-bottom: 10px;background-color: #FFFFFF;}
 
 .postlist li a{margin-right: 24px;font-size: 16px;color: var(--c1);cursor: pointer;text-decoration: none;}
 
-.postpage{margin: 0px;margin-left: 120px;}
+.postpage{
+    padding: 0px;
+}
+
+.containery.postpage {}
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
@@ -68,7 +72,7 @@ nav {
 
 /* First Navigation */
 .primary-nav {
-  /* background-color:  var(--c3); */
+  background-color: #ebebeb;
   height: 44px;
   display: flex;
   justify-content: space-between;
@@ -257,16 +261,20 @@ nav {
 .containerx {
   display: flex;
   flex-direction: row;
-  min-height: 100vh;
+  min-height: calc(100vh - 40px);
   background-color: var(--c2);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.containerx {}
 
 /* Main content styling */
 .main-contentx {
   flex: 1;
-  padding-right: 20px;
-  padding-left: 20px;
   background-color: var(--c0);
+  padding: 0px;
 }
 
 /* Sidebar styling */
@@ -365,18 +373,18 @@ pre code {
 
 
 .footer-container {
-    min-height: 235px;
     background: #282A35;
     color: var(--c0);
     border-top: 1px solid #919191;
+    height: 30px;
   }
 
 
 .footer-content {
-    min-height: 235px;
     background: #282A35;
     color: var(--c0);
     border-top: 1px solid #919191;
+    height: 30px;
   }
 
 
