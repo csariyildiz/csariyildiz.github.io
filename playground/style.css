@@ -44,7 +44,7 @@ h2 {margin-top: 60px;font-size: 30px;}
 
 .postlist{list-style-type: none; /* Remove bullets */ /* Remove padding */margin: 0; /* Remove margins */padding: 0px;border-radius: 5px;}
 
-.postlist li{margin-bottom:20px;padding-left: 20px;margin-top: 20px;border: 1px solid #d1d9e0;margin-left: 20px;margin-right: 20px;padding-top: 10px;padding-bottom: 10px;background-color: #FFFFFF;}
+.postlist li{margin-bottom:20px;padding-left: 20px;margin-top: 20px;border: 1px solid #d1d9e0;margin-left: 20px;margin-right: 20px;padding-top: 10px;padding-bottom: 10px;background-color: #FFFFFF;border-radius: 25px;}
 
 .postlist li a{margin-right: 24px;font-size: 16px;color: var(--c1);cursor: pointer;text-decoration: none;}
 
@@ -79,7 +79,7 @@ nav {
 /* First Navigation */
 .primary-nav {
   background-color: #F6F8FA;
-  height: 30px;
+  height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
