@@ -123,19 +123,6 @@ nav {
   display: inline;
 }
 
-.nav-actions button {
-  background-color: #f6f8fa;
-  color: var(--c0);
-  border: none;
-  padding: 2px 5px;
-  cursor: pointer;
-  font-size: 14px;
-  border-radius: 4px;
-  border: 1px solid rgb(209, 217, 224);
-  height: 22px;
-  padding: 0px;
-}
-
 .nav-actions button:hover {
   background-color: #555;
 }
@@ -448,5 +435,14 @@ pre code {
 
 .author-desc {
   font-size: 13px;
- 
+ }
+
+.nav-actions button {
+  background-color: var(--c1);
+  color: var(--c0);
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
 }
