@@ -214,7 +214,7 @@ sdb             8:16   0   2G  0 disk
 sr0            11:0    1  51M  0 rom
 ```
 
-#### 9. The directory block files representing devices.
+#### 9. List block files that are representing devices.
 
 * We can list `/dev/` directory for files of block devices.
 
@@ -249,3 +249,147 @@ brw-rw----. 1 root disk      8,   2 Nov  7 23:28 sda2
 * `0000 0000`: Unused or reserved space in the MBR. Etc.
 
 
+#### 10. List partition details.
+
+* `sudo fdisk -l | more`
+
+```
+[acs@rhel9-4 ~]$ sudo fdisk -l | more
+Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
+Disk model: VBOX HARDDISK   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xd69fb96d
+
+Device     Boot   Start      End  Sectors Size Id Type
+/dev/sda1  *       2048  2099199  2097152   1G 83 Linux
+/dev/sda2       2099200 41943039 39843840  19G 8e Linux LVM
+
+Disk /dev/sdb: 2 GiB, 2147483648 bytes, 4194304 sectors
+Disk model: VBOX HARDDISK   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: E5AC1884-65BC-9149-9D23-BE472C69F870
+
+Device     Start     End Sectors Size Type
+/dev/sdb1   2048 2099199 2097152   1G Linux filesystem
+
+Disk /dev/mapper/rhel-root: 17 GiB, 18249416704 bytes, 35643392 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+Disk /dev/mapper/rhel-swap: 2 GiB, 2147483648 bytes, 4194304 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+```
+
+* `fdisk` : Fdisk is a preinstalled partition utility shows the partitions on disk block device. 
+* `sectors` : Just like a meter devided in milimeters storage devices devided into sectors. We can see the sector size. 
+* `start sector` : Also start sector 2048. 2048 x 512 exact 1 MB. So it places 1 MB not partitioned space as standart procedure. Reason is bootloader might needs to be installed in that area.
+  
+#### 10. Format disk without ui by manipulating disk partition table.
+
+* `sudo fdisk /dev/sdb` (Note that disk is 2G total. )
+
+```
+- Press d to delete existing partitions (if any).
+- Press n to create a new partition.
+	  - Choose default options for the new partition.
+      - Partition number (1-128, default 1):  (Press enter.)
+      - First sector (2048-4194270, default 2048): (Press enter.)
+      - Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-4194270, default 4194270):
+              - (Default will be single partition of 2G. Write +1G will be 1G first partition. Add rest as second partition. )
+              - Note that second became 1023MB not 1G.
+- Press w to write changes and exit.
+```
+
+* Verify with `sudo fdisk -l` or `lsblk`.
+
+```
+sdb             8:16   0    2G  0 disk
+├─sdb1          8:17   0    1G  0 part
+└─sdb2          8:18   0 1023M  0 part
+```
+
+#### 11. Create xfs filesystem on sdb1 partition.
+
+```
+[acs@rhel9-4 ~]$ sudo mkfs.xfs /dev/sdb1
+meta-data=/dev/sdb1              isize=512    agcount=4, agsize=65536 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=1, sparse=1, rmapbt=0
+         =                       reflink=1    bigtime=1 inobtcount=1 nrext64=0
+data     =                       bsize=4096   blocks=262144, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
+log      =internal log           bsize=4096   blocks=16384, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+```
+
+#### 12. Create mount directory and mount filesystem.
+
+* Create a directory named data under root directory.
+
+```
+[acs@rhel9-4 ~]$ sudo mkdir /data/
+```
+
+* Mount the file system to a directory.
+
+
+```
+[acs@rhel9-4 ~]$ sudo mount /dev/sdb1 /data2
+```
+
+#### 13. Check mounted filesystems to verify mount.
+
+```
+[acs@rhel9-4 ~]$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+/dev/sdb1              960M   39M  922M   5% /data
+```
+
+#### 14. Make mount persistent at boot.
+
+* Edit `/etc/fstab`file with vim.
+
+* `sudo vim /etc/fstab`
+  
+```
+- Press o to add line.
+  - Add the line below.
+  - /data   /       xfs defaults 0 0
+    - Two tabs and rest is space.
+- Press :wq! write and quit.
+```
+
+* Details can be checked using `man fstab`.
+* Man page gives sample entry `LABEL=t-home2   /home      ext4    defaults,auto_da_alloc      0  2`.
+* `0` : This field is used by dump(8) to determine which filesystems need to be dumped.
+* `2` : This field is used by fsck(8) to determine the order in which filesystem checks are done at boot time.
+
+#### 15. Reboot gracefully and check mounting.
+
+```
+sudo systemctl reboot
+```
+
+* Wait system to reboot.
+* `df -h` will show if mounting is made.
+
+```
+```
