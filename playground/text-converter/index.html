@@ -9,32 +9,58 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
 
 </head>
-<body>
+  <body cz-shortcut-listen="true">
   <noscript>
   <div class="awesome-fancy-styling">
     This site requires JavaScript. I will only be visible if you have it disabled.
   </div>
 </noscript>
-  <div class="container" style="display: none;">
-  <div class="nav" >
-     <div class="nav-left" >
+  <div class="container" style="">
+  <div class="nav">
+     <div class="nav-left">
     <div class="nav-brand">
-      <div class="nav-logo">🔖 </div>
-      <div class="nav-brand">csariyildiz </div>
-      <div class="nav-brand2">/ 👾 Playground </div>
-      <div class="nav-brand3">/ 🔁 Text Converter </div>
+      <div class="nav-brand-logo" style="
+    height: 40.33px;
+    width: 40.33px;
+"><div class="nav-logo"> </div></div>
+      
+      
+      <div class="nav-brand2">🔁 Text Converter </div>
     </div>
         
   </div>
-        <div class="nav-right" >
-<ul><li><div id="toggleTheme">🌙 Dark Mode</div></li></ul>
+        <div class="nav-right">
+<ul><li><div id="toggleTheme" style="
+    display: block;
+    margin-left: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    line-height: 25px;
+    margin-right: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
+">🌙 Dark Mode</div></li>
+<li><div style="
+    display: block;
+    margin-left: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    line-height: 25px;
+    margin-right: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 10px;
+">👾 Playground</div></li></ul>
   </div>
      </div>
 
   <div class="content">
     <div class="content-left">
         <div class="content-item">
-           <div class="content-item-header"> <h2>HTML Input:</h2></div>
+           <div class="content-item-header"> <p>Type input:</p></div>
           <div class="content-item-body"><textarea id="htmlInput" placeholder="Enter your HTML here..."></textarea></div>
  
         <div class="content-item">
@@ -45,22 +71,22 @@
     </div>
     <div class="content-right">
       <div class="content-item">
+   <div class="content-item-header"> <p>Query:</p></div>
+    <div class="content-item-body"> <pre id="logOutput"></pre> </div>
+ 
+  
+        </div><div class="content-item">
         <div class="content-item-header"><h2>Markdown Output:</h2></div>
  <div class="content-item-body"><pre id="markdownOutput"></pre></div>
   
       </div>
-   <div class="content-item">
-   <div class="content-item-header"> <h2>HTML Log:</h2></div>
-    <div class="content-item-body"> <pre id="logOutput"></pre> </div>
- 
-  
-        </div>
+   
       <div>
    </div>
   </div>
 </div>
     <div class="footer">
-        <div class="footer-left" >
+        <div class="footer-left">
              <div class="footer-brand">
       <div class="footer-logo">🔖 </div>
       <div class="footer-brand">csariyildiz </div>
@@ -69,7 +95,7 @@
     </div>
           
         </div>
-       <div class="footer-right" ></div>
+       <div class="footer-right"></div>
     </div>
     </div>
 
