@@ -1,0 +1,45 @@
+<div style="max-width: 920px; margin: auto; padding-top: 30px;">
+  <canvas id="myChart"></canvas>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  $(document).ready(function() {
+    var myData;
+    const lbs = [];
+    const dta = [];
+    $.getJSON('../data/enron.json', function(data) {
+      myData = data;
+      myData.forEach(function(dataPoint) {
+        lbs.push(dataPoint.user_folder);
+        dta.push(dataPoint.count);
+      });
+      
+  
+      
+const ctx = document.getElementById('myChart');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: lbs,
+    datasets: [{
+      label: 'count of messages by user_folder',
+      data: dta,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+      
+    });
+  });
+</script>
+
+
