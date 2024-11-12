@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Function to update button text
   function updateButtonText(theme) {
     if (theme === 'dark') {
-      toggleButton.textContent = '🌙 Light Mode';
+      toggleButton.textContent = '🔅 Light Mode';
       toggleButton.setAttribute('aria-label', 'Switch to Light Mode');
     } else {
-      toggleButton.textContent = '🔅 Dark Mode';
+      toggleButton.textContent = '🌙 Dark Mode';
       toggleButton.setAttribute('aria-label', 'Switch to Dark Mode');
     }
   }
