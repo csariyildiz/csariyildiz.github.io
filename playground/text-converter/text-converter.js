@@ -1,4 +1,4 @@
-// script.js
+// text-converter/text-converter.js
 
 $(document).ready(function() {
  
