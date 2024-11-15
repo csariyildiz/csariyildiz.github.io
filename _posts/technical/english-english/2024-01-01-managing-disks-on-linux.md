@@ -371,8 +371,10 @@ tmpfs                  366M   40K  366M   1% /run/user/1000
   
 ```
 - Press o to add line.
+  - Add the line.
+  - <mount-dev-file>   <mount-point>    <file-system-type> defaults 0 0
   - Add the line below.
-  - /data   /       xfs defaults 0 0
+  - /dev/sdb1   /data       xfs defaults 0 0
     - Two tabs and rest is space.
 - Press :wq! write and quit.
 ```
@@ -392,4 +394,66 @@ sudo systemctl reboot
 * `df -h` will show if mounting is made.
 
 ```
+[acs@rhel9-4 ~]$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+/dev/sdb1              960M   39M  922M   5% /data
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
 ```
+
+#### 16. Unmount /dev/sdb1
+
+* Unmount by using mount point.
+ 
+```
+sudo umount /data
+```
+
+* Verify.
+ 
+```
+[acs@rhel9-4 ~]$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+```
+
+#### 17. Mount all using fstab File.
+
+* Mount all by using fstab file.
+
+```
+[acs@rhel9-4 ~]$ sudo mount -a
+```
+
+* Verify.
+  
+```
+[acs@rhel9-4 ~]$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+/dev/sdb1              960M   39M  922M   5% /data
+```
+
+#### 18. Format disk with ui by manipulating disk partition table.
+
+```
+sudo cfdisk /dev/sdb
+```
+
