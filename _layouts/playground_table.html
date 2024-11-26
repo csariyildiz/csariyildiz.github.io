@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   {% include head.html %}
+   <style>
+      #example_wrapper {
+      font-size: 13px !important;
+      padding: 0px;
+      border-top: 1px solid #dde2e6;
+      margin-right: 0px;
+      }
+      #example_wrapper .row {
+      margin-bottom: 0px !important;
+      padding-top: 15px !important;
+      border: none !important;
+      padding-bottom: 15px !important;
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+      background: white;
+      }
+      #example_length label select{
+      float: left;
+      }
+      #example{
+      margin-top: 5px !important;
+      }
+   </style>
+   <body>
+
+      <div class="container">
+         <div class="row">
+            {{ content }}
+            
+         </div>
+        
+      </div>
+      <script src="assets/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/js/script.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+      <script>
+         $(document).ready(function() {
+           // Initialize DataTable with Ajax data source
+           var myDataTable = $('#example').DataTable({
+             ajax: '{{ page.my_variable }}',
+           });
+         
+           // Change event listener for #myselect
+           $('#myselect').on('change', function(){
+             var selectedValue = $(this).val();
+         
+             // Set the value of input[type="search"] inside #example_filter
+             $('#example_filter input[type="search"]').val(selectedValue);
+         
+             // Search for the entered value and redraw the DataTable
+             myDataTable.search(selectedValue).draw();
+           });
+         });
+             
+      </script>
+   </body>
+</html>
