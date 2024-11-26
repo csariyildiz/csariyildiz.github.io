@@ -1,63 +1,96 @@
-<!DOCTYPE html>
-<html lang="en" class="h-100" data-theme="dark"><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="acsariyildiz | Playground">
-    <meta name="author" content="csariyildiz">
-    <link rel="canonical" href="https://csariyildiz.github.io/playground">
-    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="img/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="img/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="img/favicon/manifest.json">
-    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#7952b3">
-    <link rel="icon" href="img/favicon/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
-    <link href="style.css" rel="stylesheet">
-</head>
-<body cz-shortcut-listen="true" style="opacity: 1;" class="">
-    <button id="top-button" style="display: none;">Return To Top ↑</button>
+---
+layout: playground
+title: "Computer Engineering Textbooks"
+my_variable: "/data/booklist_comp1.json"
+---
 
-    <header>
-        <nav class="primary-nav">
-            <div class="brand-container">
-                <div class="logo-icon">
-                </div>
-                <div class="brand-name">csariyildiz.github.io | 👾 Playground</div>
-            </div>
-    
-            <div class="nav-actions">
-                <ul>
-                    <li><button id="theme-toggle" aria-label="Switch to Dark Mode">🌙 Dark Mode</button></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-   
-    <div class="containery postpage">
-            <div class="containerx">
-            <main class="main-contentx">
-    <div class="postlisthead"><div class="postlistheadimg"></div><div class="postlistheadtext">👾 Playground Apps</div></div>
- <ul class="postlist">
- 
-<li><div><div></div><div></div><div><a href="text-converter">🔁 Text Converter</a></div></div></li>
-<li><a href="ui-design">📔 UI Design</a></li>
-<li><a href="librarycat">📔 Librarycat Sample App</a></li>
-<li><a href="books">📖 Books</a></li>
- </ul>               
-            </main>
-           
-        </div>
-        
+<div class="row">
+
+  <div class="col">
+<div style=" margin-bottom: 20px; margin-top: 25px; ">
+    <select name="myselect" style="max-width:200px;" class="form-select form-select-sm" aria-label=".form-select-sm example" id="myselect">
+    <option value="">Select topics.</option>
+    <option value="Physics">Physics</option>
+    <option value="Calculus">Calculus</option>  
+    <option value="Differential Equations">Differential Equations</option>
+    <option value="Linear Algebra">Linear Algebra</option>
+    <option value="Numerical Methods">Numerical Methods</option>
+    <option value="Algorithms And Complexity">Algorithms And Complexity</option>
+    <option value="Probability">Probability</option>
+    <option value="Dicrete Computational Structures">Dicrete Computational Structures</option>
+    <option value="Formal Languages and Automata">Formal Languages and Automata</option>
+    <option value="Digital Design">Digital Design</option>
+    <option value="Fundementals Of Electronics">Fundementals Of Electronics</option>
+    <option value="Data Structures">Data Structures</option>
+    <option value="Programming">Programming</option>
+    <option value="Database Programming">Database Programming</option>
+    <option value="Object Oriented Programming">Object Oriented Programming</option>
+    <option value="Advanced Programming">Advanced Programming</option>
+    <option value="Enterprise Java">Enterprise Java</option>
+    <option value="Database Management Systems">Database Management Systems</option>
+    <option value="Microcomputers">Microcomputers</option>
+    <option value="Computer Architecture">Computer Architecture</option>
+    <option value="Advanced Computer Architecture">Advanced Computer Architecture</option>
+    <option value="Computer Programming For Engineering Problems">Computer Programming For Engineering Problems</option>
+    <option value="Software Engineering">Software Engineering</option>
+    <option value="Business Intelligence">Business Intelligence</option>
+    <option value="Operating Systems">Operating Systems</option>
+    <option value="Computer Networks">Computer Networks</option>
+    <option value="Distributed Systems">Distributed Systems</option>
+    <option value="Autonomous Mobile Robots">Autonomous Mobile Robots</option>
+    <option value="Wireless Sensor Networks">Wireless Sensor Networks</option>
+    <option value="System Programming">System Programming</option>
+    <option value="Mobile Programming">Mobile Programming</option>
+    <option value="Secure Coding">Secure Coding</option>
+    <option value="Data Structures And Algoritm Analysis">Data Structures And Algoritm Analysis</option>
+    <option value="Economics">Economics</option>
+    <option value="Entrepreneurship">Entrepreneurship</option>
+    <option value="Financial Markets">Financial Markets</option>
+    <option value="Algorithms For Optimization">Algorithms For Optimization</option>
+    <option value="Parallel Programing">Parallel Programing</option>
+    <option value="Computational Geometry">Computational Geometry</option>
+    <option value="Pattern Recognition">Pattern Recognition</option>
+    <option value="Data Mining">Data Mining</option>
+    <option value="Data Security">Data Security</option>
+    <option value="Image Processing">Image Processing</option>
+    <option value="Artificial Intelligence">Artificial Intelligence</option>
+    <option value="Big Data Mining">Big Data Mining</option>
+    <option value="Deep Learning">Deep Learning</option>
+    <option value="Data Mining">Data Mining</option>
+    <option value="Text Mining">Text Mining</option>
+    <option value="Neural Networks">Neural Networks</option>
+    <option value="Machine Learning">Machine Learning</option>
+    <option value="Fuzzy Logic">Fuzzy Logic</option>
+    <option value="Digital Communication">Digital Communication</option>
+    <option value="Network Applications UE">Network Applications UE</option>
+    <option value="Introduction To VHDL">Introduction To VHDL</option>
+    <option value="Web Based Technologies">Web Based Technologies</option>
+    <option value="Others">Others</option>
+    </select>
     </div>
-    <footer class="footer-container">
-        <div class="footer-content">
-            <span>csariyildiz.github.io</span>
-        </div>
-    </footer>
-    <script src="script.js"></script>
-      
 
-</body>
-</html>
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+    <table id="example" class="table table-bordered mt-3 mb-3 display" style="width:100%; font-size:13px;">
+                          <thead>
+                            <tr>
+                              <th style="min-width: 45px;">ID</th>
+                              <th style="min-width: 150px;">Subject</th>
+                              <th style="min-width: 100px;">Category</th>
+                              <th style="min-width: 225px;">Textbook</th>
+                            </tr>
+                          </thead>
+                          <tfoot>
+                            <tr>
+                              <th>ID</th>
+                              <th>Subject</th>
+                              <th>Category</th>
+                              <th>Textbook</th>
+                            </tr>
+                          </tfoot>
+    </table>
+
+  </div></div>
