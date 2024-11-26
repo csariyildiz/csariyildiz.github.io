@@ -61,16 +61,23 @@
       <script>
          $(document).ready(function() {
            // Initialize DataTable with Ajax data source
-           var myDataTable = $('#example').DataTable({
+           var myDataTable = $('#datatb').DataTable({
              ajax: '{{ page.my_variable }}',
            });
          
+           $('#datatb tbody').on('click', 'tr', function () {
+        const rowData = table.row(this).data();
+        
+        // Navigate to a URL or perform an action
+        window.location.href = `https://csariyildiz.github.io/playground/${rowData[1].toLowerCase().replace(/ /g, '-')}`;
+    });
+
            // Change event listener for #myselect
            $('#myselect').on('change', function(){
              var selectedValue = $(this).val();
          
              // Set the value of input[type="search"] inside #example_filter
-             $('#example_filter input[type="search"]').val(selectedValue);
+             $('#datatb_filter input[type="search"]').val(selectedValue);
          
              // Search for the entered value and redraw the DataTable
              myDataTable.search(selectedValue).draw();
