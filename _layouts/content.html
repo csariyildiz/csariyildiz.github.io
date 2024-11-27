@@ -3,15 +3,13 @@
    {% include head_p.html %}
    
    <body>
-   <div class="container-fluid">
-
-    <div class="row">
-
-      <div class="col">
-
+    <div class="container-fluid">
+      <div class="col-md-3" style="border-right: 1px solid black;">
         <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
           <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-            <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            <svg class="bi me-2" width="30" height="24">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
             <span class="fs-5 fw-semibold">csariyildiz.github.io</span>
           </a>
           <ul class="list-unstyled ps-0">
@@ -19,48 +17,67 @@
               <button class="btn btn-toggle align-items-center rounded ">
                 Home
               </button>
-            
             </li>
             <li class="mb-1">
-              <button class="btn btn-toggle align-items-center rounded " >
+              <button class="btn btn-toggle align-items-center rounded ">
                 Playground
               </button>
-            
             </li>
             <li class="mb-1">
               <button class="btn btn-toggle align-items-center rounded ">
                 Posts
               </button>
-             
             </li>
             <li class="border-top my-3"></li>
             <li class="mb-1">
               <button class="btn btn-toggle align-items-center rounded ">
-              Docs
+                Docs
               </button>
-             
             </li>
           </ul>
         </div>
+      </div>
+    
+      <div>
+        <div style="">
+          <div class="">
+            <div>
+              <h1
+                style="
+          font-size: 20px;
+          "
+              >
+                Home
+              </h1>
+            </div>
+    
+            <div style="">
+              <div>
+                <a href="playground">Playground</a>
+              </div>
+              <div>Code samples.</div>
+            </div>
+            <div style="">
+              <div>
+                <a href="playground">Docs</a>
+              </div>
+              <div>Files listed in div view.</div>
+            </div>
+    
+            <div style="">
+              <div>
+                <a href="playground">Posts</a>
+              </div>
+              <div>Blog posts listed in div view. </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>;
+    
   
       
-              
-       
      
-      </div>
-<div class="col">
-
-  {{ content }}
-   
-</div>
-
-    </div>
-
-
-    
-   </div>
-        
-      
      
    </body>
 </html>
