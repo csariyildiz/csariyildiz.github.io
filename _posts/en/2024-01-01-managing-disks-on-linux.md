@@ -10,14 +10,19 @@ tags:
   - Disk Management
 ---
 
+
+
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/mainboard.png" class="img-fluid" alt="Managing Disk On Linux">
+
+
 ## Table Of Contents
 
 * Block Device Concepts
-  
-1. Add a new disk to virtual machine. (2GB)
-2. Take snapshot.
-3. Display the amount of disk space used and available on filesystems.
-4. Space of files and directories.
+* Steps 
+  1. Add a new disk to virtual machine. (2GB)
+  2. Take snapshot.
+  3. Display the amount of disk space used and available on filesystems.
+  4. Space of files and directories.
 
 ## Block Device Concepts
 
@@ -73,9 +78,19 @@ MBR (Master Boot Record) and GPT (GUID Partition Table) partition standarts for 
 
 LVM is a another layer of abstraction over traditional partitioning, allowing flexible management of disk space. It has components such as PVs, VGs and LVs.
 
-####  Further Concepts
+####  Boot Process And Grub
 
-* Boot Process In Linux
+During boot, a system typically uses firmware such as UEFI (or BIOS in older devices). This firmware provides a visual interface for managing boot processes and configuring system settings. It is embedded in the motherboard chip and generally remains unaltered except during updates.
+
+The firmware establishes the initial connection to the disk based on its configuration. Beyond this, the boot process depends on the disk's bootloader configuration. For instance, if a system is running Windows on a single disk, the firmware connects directly to Windows' bootloader. However, in a dual-boot setup with both Windows and Linux installed, GRUB (GNU GRand Unified Bootloader) often serves as the intermediary. GRUB provides a menu to select between operating systems during boot.
+
+GRUB is an open-source tool designed for managing multi-boot environments. On an installed system, GRUB loads its configuration from the /boot/grub/grub.cfg file during each boot.
+
+
+The firmware uses the EFI System Partition (/dev/sdb1) to locate the bootloader.
+GRUB is managing the dual-boot setup and pointing to the appropriate operating system:
+For Windows, it loads the bootloader from /dev/sdb1 which eventually points to /dev/sdb3.
+For Linux, it directly boots from /dev/sdb5.
 
 ## Steps
 
@@ -214,7 +229,7 @@ sdb             8:16   0   2G  0 disk
 sr0            11:0    1  51M  0 rom
 ```
 
-#### 9. List block files that are representing devices.
+#### 10. List block files representing devices.
 
 * We can list `/dev/` directory for files of block devices.
 

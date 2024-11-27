@@ -1,9 +1,13 @@
-Personal blog/js playground created using:
+## csariyildiz.github.io
+
+Personal blog/js playground created by csariyildiz using:
+
 * Jekyll
 * Github Pages
 * Jquery
 * Custom Javascript
 * Bootstrap 5
+* Datatables
 * Custom CSS
 
 Fonts:
