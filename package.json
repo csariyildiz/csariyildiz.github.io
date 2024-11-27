@@ -1,10 +1,9 @@
 {
-  "name": "hn-barebone",
-  "version": "0.0.1",
-  "description": "Heiswayi Nrird's Barebone Jekyll",
-  "main": "index.js",
-  "repository": "https://github.com/heiswayi/hn-barebone",
-  "author": "Heiswayi Nrird <heiswayi@nrird.com>",
-  "license": "MIT",
+  "name": "csariyildiz.github.io",
+  "version": "1.0.0",
+  "description": "Personal blog/js playground By csariyildiz",
+  "main": "index.html",
+  "repository": "https://github.com/csariyildiz/csariyildiz.github.io/",
+  "author": "Cagri Sariyildiz <acsariyildiz@gmail.com>",
   "devDependencies": {}
 }
