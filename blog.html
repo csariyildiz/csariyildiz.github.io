@@ -1,0 +1,32 @@
+---
+layout: default5
+page_name: blog
+---
+
+
+<h3 class="def5_4">Posts:</h3>
+
+  <table class="table table-borderless table-dark def5_5">
+    <thead class="def5_6">
+      <tr class="def5_7">
+        <th>Date</th>
+        <th>Post</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+
+  <tbody>
+
+	 {% for post in site.categories.main %}  {% if post.url %}
+	
+    <tr class="def5_8">
+      <td><a href="{{ post.url }}" class="def5_9">{{ post.date | date: "%d-%m-%Y" }}</a></td>
+      <td><a href="{{ post.url }}" class="def5_9">{{ post.title }}</a></td>
+      <td><a href="{{ post.url }}" class="def5_9">{{ post.cat }}</a></td>
+    </tr>
+
+	   {% endif %}
+          {% endfor %}
+
+  </tbody>
+</table>
