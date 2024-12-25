@@ -5,19 +5,14 @@ layout: page
 <div class="content-area" style=" background: white; ">
 <div>
 <table>
-  <thead>
-    <tr>
-      <th colspan="3">Posts</th>
-    </tr>
-  </thead>
   <tbody>
      {% for post in site.categories.main %}
       {% if post.url %}
         
     <tr>
       <a href="{{ post.url }}" style="color: black;">
-       <td>2024-01-01</td>
-      <td>{{ post.title }}</br>{{ post.excerpt | markdownify | strip_html | truncatewords: 20 }}</td>
+       <td><div>{{ post.date | date: "%Y-%m-%d" }}</div></td>
+      <td><div>{{ post.title }}</div></br><div>{{ post.excerpt | markdownify | strip_html | truncatewords: 20 }}</div></td>
       <td></td>
     </tr>
         {% endif %}
