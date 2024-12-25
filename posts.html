@@ -5,19 +5,29 @@ layout: page
 <div class="content-area" style="background: white;">
 <div style=" padding: 1rem; padding-top: 2.0rem; ">
 
-<div>
+
   {% for post in site.categories.main %}
     {% if post.url %}
-        <div><a href="{{ post.url }}"><div class=""><div class="">{{ post.title }}</div></div></a></div>
+    <a href="{{ post.url }}">   
+   <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    
+    <p class="card-text">{{ post.excerpt | markdownify | strip_html | truncatewords: 50 }}</p>
+    <div class="card-footer">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+      </div>
+  </div>
+</div>
+
+  </a>
     {% endif %}
   {% endfor %}
-</div>
 
-<div>
-  <div>NLP</div>
-</div>
+  
 
 
 </div>
-
 </div>
+
