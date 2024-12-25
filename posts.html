@@ -10,7 +10,7 @@ layout: page
       {% if post.url %}     
     <tr>
       <a href="{{ post.url }}" style="color: black;">
-       <td><div>{{ post.date | date: "%Y-%m-%d" }}</div></td>
+       <td style=" align-content: flex-start; "><div style=" min-width: 120px; ">{{ post.date | date: "%Y-%m-%d" }}</div></td>
       <td><div>{{ post.title }}</div><div>{{ post.excerpt | markdownify | strip_html | truncatewords: 20 }}</div></td>
       </a>
     </tr>
