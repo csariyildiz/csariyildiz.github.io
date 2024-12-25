@@ -17,8 +17,8 @@ layout: page
     <tr>
       <a href="{{ post.url }}" style="color: black;">
        <td>2024-01-01</td>
-      <td>{{ post.title }}</td>
-      <td>{{ post.excerpt | markdownify | strip_html | truncatewords: 20 }}</td>
+      <td>{{ post.title }}</br>{{ post.excerpt | markdownify | strip_html | truncatewords: 20 }}</td>
+      <td></td>
     </tr>
         {% endif %}
   {% endfor %}
