@@ -1,7 +1,7 @@
 ---
 layout: post3
 title: "Editing Fields On MongoDB"
-category: main
+category: nlp
 cat: Data
 tags:
   - Database
