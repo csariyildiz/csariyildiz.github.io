@@ -1,0 +1,11 @@
+---
+layout: default2
+---
+<div class="content-area" style="background: white;">
+{% for category in site.categories %}
+    <h3>{{ category | first }}</h3>
+    {% for post in page.categories.category %}
+      {{ post.title }}<br>
+    {% endfor %}            
+{% endfor %}
+</div>
