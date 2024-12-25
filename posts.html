@@ -7,19 +7,17 @@ layout: page
 <table>
   <tbody>
      {% for post in site.categories.main %}
-      {% if post.url %}
-        
+      {% if post.url %}     
     <tr>
       <a href="{{ post.url }}" style="color: black;">
        <td><div>{{ post.date | date: "%Y-%m-%d" }}</div></td>
       <td><div>{{ post.title }}</div></br><div>{{ post.excerpt | markdownify | strip_html | truncatewords: 20 }}</div></td>
-      <td></td>
     </tr>
         {% endif %}
   {% endfor %}
   </tbody>
 </table>
-   </div>
-   </div>
+  </div>
+  </div>
 
 
