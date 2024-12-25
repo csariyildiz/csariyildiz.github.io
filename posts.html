@@ -4,15 +4,14 @@ layout: page
 ---
 <div class="content-area" style=" background: white; ">
 <div>
-  
+  <div><div>Posts</div></div>
 {% for post in site.categories.main %}
 {% if post.url %}   
+<div style=" margin: 1rem; padding: 1rem; border: 1px solid white; ">
+ 
 <div>
-<div style=" min-width: 120px; "><a href="{{ post.url }}" style="color: black;">{{ post.date | date: "%Y-%m-%d" }}</a> </div>
-  
-<div>
-<div> {{ post.title }} </div>
-<div> {{ post.excerpt | markdownify | strip_html | truncatewords: 20 }} </div> 
+<div style="margin-top: 5px; margin-bottom: 5px; padding-left: 10px; "> {{ post.title }} </div>
+<div style=" padding-left: 30px; max-width: 720px; " > {{ post.excerpt | markdownify | strip_html | truncatewords: 20 }} </div> 
 </div>
   
 </div>
