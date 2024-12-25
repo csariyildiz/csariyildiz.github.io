@@ -1,9 +1,9 @@
 ---
+title: Posts
 layout: page
 ---
 <div class="content-area" style="background: white;">
-{% for category in site.categories %}
-    <h3>{{ category | first }}</h3>
+{% for category in site.categories.main %}
     {% for post in page.categories.category %}
       {{ post.title }}<br>
     {% endfor %}            
