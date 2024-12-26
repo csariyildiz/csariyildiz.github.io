@@ -10,7 +10,7 @@ tags:
 ---
 
 WinRM (Windows Remote Management) is a management protocol within the Windows Systems, allowing remote command execution and system management. As a tool for remote connectivity, WinRM serves as way automatize task with PowerShell commands to establish and govern remote connections within the Windows environment.
-<!--more-->
+
 Since it is not enabled by default on Windows systems, it is necessary to configure it to receive WinRM client requests. The process involves setting up WinRM to listen for incoming calls from WinRM clients. thereby establishing the secure remote management and execution of commands within Windows networks.
 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/winrm.jpg" class="img-fluid" alt="winrm">
