@@ -11,7 +11,7 @@ tags:
 
 A script can provide an alternative command line interface to manage PowerShell commands.
 User-friendly menu simplifies the execution of functions and makes PowerShell tasks easy to manage.
-<!--more-->
+
 As an alternative to complexities of command syntax this type of approach might be usefull to enhance PowerShell usage.
 We know from various examples that such interfaces in NodeJS apps.[^1][^2] And despite their modest appearance, they can be extremely effective and successful in some cases.
 
