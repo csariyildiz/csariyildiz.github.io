@@ -1,6 +1,5 @@
 - id: 1
   date: 2023-09-30
   title: booklist-1.pdf
-  doctype: LINK
   description: A sample booklist in pdf format.
-  link: /pdf/booklist-1.pdf
+  url: /pdf/booklist-1.pdf
