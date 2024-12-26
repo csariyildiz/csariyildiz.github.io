@@ -1,5 +1,5 @@
 - id: 1
   title: booklist-1.pdf
-  doctype: PDF
+  doctype: LINK
   description: A sample booklist in pdf format.
   link: https://disk.yandex.com.tr/i/DchWODyCROwE6g
