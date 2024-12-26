@@ -3,23 +3,29 @@ title: Posts
 layout: page
 ---
 <div class="content-area" style=" background: white; ">
-<div>
-  <div><div>Posts</div></div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+    <tbody>
 {% for post in site.categories.main %}
 {% if post.url %}   
-<div style=" margin: 1rem; padding: 1rem; border: 1px solid white; ">
- 
-<div>
-<div style="margin-top: 5px; margin-bottom: 5px; padding-left: 10px; "> {{ post.title }} </div>
-<div style=" padding-left: 30px; max-width: 720px; " > {{ post.excerpt | markdownify | strip_html | truncatewords: 20 }} </div> 
-</div>
-  
-</div>
-  
+      
+      <tr>
+        <td>2024-11-11</td>
+        <td>{{ post.title }}</td>
+        <td>john@example.com</td>
+      </tr>
+
+    
 {% endif %}
 {% endfor %}
- 
+      
+    </tbody>
+  </table>
 </div>
-</div>
-
-
