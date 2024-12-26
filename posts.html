@@ -19,7 +19,7 @@ layout: page
       <tr>
         <td>{{ post.date | date: "%Y-%m-%d" }}</td>
         <td>{{ post.title }}</td>
-        <td><span class="post-meta-item post-meta-tags"> {% if page.tags %} {% for tag in page.tags %} <a class="post-tag post-tag-web-development" href="#" style="color: #00bbff; text-decoration: none;"> {{ tag }} </a> {% endfor %} {% endif %} </span></td>
+        <td><span class="post-meta-item post-meta-tags"> {% if post.tags %} {% for tag in post.tags %} <a class="post-tag post-tag-web-development" href="#" style="color: #00bbff; text-decoration: none;"> {{ tag }} </a> {% endfor %} {% endif %} </span></td>
       </tr>
 
     
