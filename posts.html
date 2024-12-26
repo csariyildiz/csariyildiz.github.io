@@ -9,7 +9,7 @@ layout: page
   <table class="table table-striped table-bordered" style="font-size:13px;" >
     <thead>
       <tr>
-        <th>Post ID</th>
+  
         <th>Date</th>
         <th>Title</th>
         <th>Tags</th>
@@ -20,7 +20,7 @@ layout: page
 {% if post.url %}   
       
       <tr>
-         <td>{% if post.postid %}{{ post.postid }}{% endif %}</td>
+  
         <td>{{ post.date | date: "%Y-%m-%d" }}</td>
         <td><a href="{{ post.url }}" style=" color: #000000; text-decoration: underline; ">{{ post.title }}</a></td>
         <td><span class="post-meta-item post-meta-tags"> {% if post.tags %} {% for tag in post.tags %} <a class="post-tag post-tag-web-development" href="#" style="color: #181818; text-decoration: underline;"> {{ tag }}</a>,{% endfor %} {% endif %} </span></td>
