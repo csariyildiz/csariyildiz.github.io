@@ -1,5 +1,6 @@
 - id: 1
+  date: 2023-09-30
   title: booklist-1.pdf
   doctype: LINK
   description: A sample booklist in pdf format.
-  link: https://disk.yandex.com.tr/i/DchWODyCROwE6g
+  link: /pdf/booklist-1.pdf
