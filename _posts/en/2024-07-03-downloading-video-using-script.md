@@ -11,7 +11,7 @@ tags:
 `yt-dlp` is the command-line tool used to download videos from YouTube and other supported sites.
 While there are online platforms that facilitate the task, there are also specialized libraries developed by groups or individual developers.
 [yt-dlp](https://github.com/yt-dlp/yt-dlp) library offers a comprehensive tool for video downloading from YouTube. In this document we will demostrate the basic usage of it on Windows and then focus on the details of the project.
-<!--more-->
+
 <div style=" border-radius: 0px; border-top: 0px; border-bottom: 0px; margin-left: 15px; padding-top: 0px; padding-bottom: 2px; border-left-color: black; padding-left: 13px; margin-top: 0px;" class="bd-callout bd-callout-info">Please keep in mind there could be copyright issues if you monetize or use this commercially.</div> 
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/yt-dlp-post.png" class="img-fluid" alt="ytdlp post">
 
