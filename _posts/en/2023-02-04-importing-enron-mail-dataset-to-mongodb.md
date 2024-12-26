@@ -10,7 +10,7 @@ tags:
 
 Enron dataset is commonly used dataset by scientific community and researchers as a  test or training data for various NLP tasks.
 In this article, we will load this dataset into MongoDB for faster parsing.
-<!--more-->
+
 <img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/sample_mail_enron.png" class="img-fluid" alt="Sample Email Enron">
 
 ## Overview
