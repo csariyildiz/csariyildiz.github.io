@@ -9,6 +9,7 @@ layout: page
   <table class="table table-striped table-bordered" style="font-size:13px;" >
     <thead>
       <tr>
+        <th>Post ID</th>
         <th>Date</th>
         <th>Title</th>
         <th>Tags</th>
@@ -19,6 +20,7 @@ layout: page
 {% if post.url %}   
       
       <tr>
+         <td>1</td>
         <td>{{ post.date | date: "%Y-%m-%d" }}</td>
         <td><a href="{{ post.url }}" style=" color: #000000; text-decoration: underline; ">{{ post.title }}</a></td>
         <td><span class="post-meta-item post-meta-tags"> {% if post.tags %} {% for tag in post.tags %} <a class="post-tag post-tag-web-development" href="#" style="color: #181818; text-decoration: underline;"> {{ tag }}</a>,{% endfor %} {% endif %} </span></td>
@@ -31,4 +33,31 @@ layout: page
     </tbody>
   </table>
 </div>
+
+  <div style=" padding-left: 15px; padding-right: 15px; ">
+  <div><div style=" font-family: Mulish, sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -.5px; line-height: 1.3; margin: 0 0 15px; word-break: break-word; padding-bottom: 15px; border-bottom: 1px solid #d1d9e0; /* border-top: 1px solid black; */ padding-top: 10px; ">Docs</div></div>
+
+  <table class="table table-striped table-bordered" style="font-size:13px;" >
+    <thead>
+      <tr>
+        <th>Doc Id</th>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      
+    </tbody>
+  </table>
+</div>
+  
 </div>
