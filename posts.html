@@ -17,7 +17,7 @@ layout: page
 {% if post.url %}   
       
       <tr>
-        <td>2024-11-11</td>
+        <td>{{ post.date | date: "%Y-%m-%d" }}</td>
         <td>{{ post.title }}</td>
         <td>john@example.com</td>
       </tr>
