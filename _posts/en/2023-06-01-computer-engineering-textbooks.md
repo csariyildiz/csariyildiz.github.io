@@ -9,7 +9,7 @@ tags:
 ---
 
 I recently created a list of computer engineering textbooks, mostly using the books recommended by my former university's [department](https://www.ogu.edu.tr/). Its also a display of using DataTables JavaScript Plugin with Jekyll and Github Pages. I think lists like these can be helpful as references for both professionals and the people who more focused on academic work. The list contains only the name and categorization, not links to the books themselves.
-<!--more-->
+
 The [full list](https://disk.yandex.com.tr/i/DchWODyCROwE6g) comprises 58 class names, each accompanied by their respective textbooks around 140. This compilation can serve as a foundation to access well-established texts in the field. Additionally, it could be beneficial to compare book lists from various universities and curriculum to enhance the comprehensiveness of the resource.
 
 Although some books may appear dated, they still hold significant value as they provide valuable insights into the subject matter. The textbooks are categorized into base, additional, and tools sections, while the "Other" category is reserved for uncategorized resources included in the list. A student does not actually take all of the courses. Apart from the books, I also include a section showing what the student has chosen. The list was taken in 2023, so it is appropriate to consider that both the courses and the books may become outdated over time. Some books come with new versions and new versions of these books can be found.
