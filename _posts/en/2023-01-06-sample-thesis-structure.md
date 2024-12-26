@@ -8,7 +8,6 @@ tags:
 ---
 
 This was a very simple outline for my graduate thesis structure. Hope you find it useful!
-<!--more-->
 
 * General Volume And Initial Notes
 * Thesis Structure
