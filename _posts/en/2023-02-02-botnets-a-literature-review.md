@@ -8,7 +8,7 @@ tags:
 ---
 
 <div style=" border-radius: 0px; border-top: 0px; border-bottom: 0px; margin-left: 15px; padding-top: 0px; padding-bottom: 2px; border-left-color: black; padding-left: 13px; margin-top: 0px;" class="bd-callout bd-callout-info">This post is a document created as a minimal literature review. Hope you find it useful!</div>
-<!--more-->
+
 --------------------------------------
 
 # Botnets: A Literature Review
