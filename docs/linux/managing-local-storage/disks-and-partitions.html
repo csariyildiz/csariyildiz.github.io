@@ -1,0 +1,119 @@
+---
+title: Disks And Partitions
+layout: doc_page
+---
+
+<h3 id="block-device">Block Device</h3>
+<ul>
+<li>We can use the command <code>lsblk</code> to list block devices. </li>
+</ul>
+<pre><code>[$ lsblk
+NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+sda             8:0   <span class="hljs-number"> 0 </span> 20G <span class="hljs-number"> 0 </span>disk 
+├─sda1          8:1   <span class="hljs-number"> 0 </span>  1G <span class="hljs-number"> 0 </span>part /boot
+└─sda2          8:2   <span class="hljs-number"> 0 </span> 19G <span class="hljs-number"> 0 </span>part 
+  ├─rhel-root 253:0   <span class="hljs-number"> 0 </span> 17G <span class="hljs-number"> 0 </span>lvm  /
+  └─rhel-swap 253:1   <span class="hljs-number"> 0 </span>  2G <span class="hljs-number"> 0 </span>lvm  [SWAP]
+sdb             8:16  <span class="hljs-number"> 0 </span>  2G <span class="hljs-number"> 0 </span>disk 
+└─sdb1          8:17  <span class="hljs-number"> 0 </span>  1G <span class="hljs-number"> 0 </span>part 
+sr0            11:0   <span class="hljs-number"> 1 </span> 51M <span class="hljs-number"> 0 </span>rom
+</code></pre><ul>
+<li>Are items on the list are block devices.</li>
+<li><code>Block Devices</code> : Block devices are places where linux store data and retrieve data from.</li>
+<li>Not all <code>lsblk</code> output are partitions. Only the ones type column is <code>part</code> for partitions.</li>
+<li><code>sda, sdb</code> : These are sda is virtual disk. Contains two partitions sda1 and sda2. Virtual machine block devices typically begin with letter v.</li>
+<li><code>Naming s</code> : s means serial. Its similar an physical SSD disk connected to sata port (serial ata). If we use NVME devices start using nvme.</li>
+<li><code>Naming sda1</code> : If we have 3 disks we have names like SDA, SDB, SDC. Partitions will be named as sda1,sda2,sdb1,sdb2. sda first disk sda1 first partition.</li>
+<li><code>sda1, sda2, sdb1</code> : These are martitions managed bay partition table on the disk. Partitions can be mounted on folder on a filesytem similar to disks.</li>
+<li>In a operating system, disks like <code>/dev/vdb</code> refers to a virtual block device, typically used in virtualized environments such as KVM, Xen, or OpenStack. These devices are often provided by the hypervisor (the software layer that manages the virtual machines) and are usually connected to a virtual machine (VM) as additional storage.</li>
+</ul>
+<h4 id="mounting">Mounting</h4>
+<p>Mounting is the process of making a filesystem accessible at a specific directory (called a mount point) in the Linux directory tree. 
+Linux attaches storage devices (like hard drives, USBs, or network shares) to the system so users can access their data.
+Mount Point could be any directory where the filesystem will be accessible (e.g., /mnt, /home, /media/usb).</p>
+<p>Unlike some operating systems that automatically assign drive letters to new devices, Linux integrates everything into a single directory tree. 
+This approach requires devices to be manually or automatically mounted before their contents can be accessed.
+Fstab file automatically mount filesystems at boot, add entries in /etc/fstab.</p>
+<pre><code><span class="hljs-regexp">/dev/</span>sdX1  <span class="hljs-regexp">/mnt/my</span>disk  ext4  defaults  <span class="hljs-number">0</span>  <span class="hljs-number">0</span>
+</code></pre><h4 id="why-we-need-partitions-">Why we need partitions?</h4>
+<p>For example 2TB SSD can divided two different partitions. With this configuration both Windows Linux operating systems can use their NTFS and ext4 file system by logical seperation provided by the partitions. </p>
+<p>Partition informations is the first data written on the disk. This data is crucial because it defines the layout and structure of the storage space of the disk.</p>
+<h4 id="what-are-mbr-and-gpt-">What are MBR And GPT?</h4>
+<p>MBR (Master Boot Record) and GPT (GUID Partition Table) partition standarts for partitioning. MBR is the legacy option supports up to 4 primary partitions. Can use extended partitions to create more than 4 partitions. Limited to disks up to 2TB. GPT (GUID Partition Table) supports a large number of partitions (typically up to 128). Allows disks larger than 2TB. Includes redundancy with a backup table at the end of the disk.</p>
+<h4 id="what-is-lvm-">What is LVM?</h4>
+<p>LVM is a another layer of abstraction over traditional partitioning, allowing flexible management of disk space. It has components such as PVs, VGs and LVs.</p>
+<h4 id="boot-process-and-grub">Boot Process And Grub</h4>
+<p>During boot, a system typically uses firmware such as UEFI (or BIOS in older devices). This firmware provides a visual interface for managing boot processes and configuring system settings. It is embedded in the motherboard chip and generally remains unaltered except during updates.</p>
+<p>The firmware establishes the initial connection to the disk based on its configuration. Beyond this, the boot process depends on the disk&#39;s bootloader configuration. For instance, if a system is running Windows on a single disk, the firmware connects directly to Windows&#39; bootloader. However, in a dual-boot setup with both Windows and Linux installed, GRUB (GNU GRand Unified Bootloader) often serves as the intermediary. GRUB provides a menu to select between operating systems during boot.</p>
+<p>GRUB is an open-source tool designed for managing multi-boot environments. On an installed system, GRUB loads its configuration from the /boot/grub/grub.cfg file during each boot.</p>
+<p>We can check that by sudo <code>fdisk -l</code>:</p>
+<p>Omitted output:</p>
+<pre><code>Device         Start       End   Sectors   Size Type
+/dev/sdb1       <span class="hljs-number">2048</span>    <span class="hljs-number">206847</span>    <span class="hljs-number">204800</span>   <span class="hljs-number">100</span>M EFI System
+/dev/sdb2     <span class="hljs-number">206848</span>    <span class="hljs-number">239615</span>     <span class="hljs-number">32768</span>    <span class="hljs-number">16</span>M Microsoft reserved
+/dev/sdb3     <span class="hljs-number">239616</span> <span class="hljs-number">309118975</span> <span class="hljs-number">308879360</span> <span class="hljs-number">147.3</span>G Microsoft basic data
+/dev/sdb4  <span class="hljs-number">498432000</span> <span class="hljs-number">500115455</span>   <span class="hljs-number">1683456</span>   <span class="hljs-number">822</span>M Windows recovery environment
+/dev/sdb5  <span class="hljs-number">309118976</span> <span class="hljs-number">498431999</span> <span class="hljs-number">189313024</span>  <span class="hljs-number">90.3</span>G Linux filesystem
+</code></pre><p>Disk /dev/sdb:</p>
+<pre><code>This disk uses a GPT partition table and contains the following relevant <span class="hljs-string">partitions:</span>
+    <span class="hljs-regexp">/dev/</span><span class="hljs-string">sdb1:</span> EFI System Partition (ESP) (<span class="hljs-number">100</span> MiB): Contains the bootloader <span class="hljs-keyword">for</span> systems using UEFI.
+    <span class="hljs-regexp">/dev/</span><span class="hljs-string">sdb2:</span> Microsoft Reserved Partition (<span class="hljs-number">16</span> MiB): Used internally by Windows.
+    <span class="hljs-regexp">/dev/</span><span class="hljs-string">sdb3:</span> Microsoft Basic Data Partition (<span class="hljs-number">147.3</span> GiB): This is the primary partition containing our Windows operating system.
+    <span class="hljs-regexp">/dev/</span><span class="hljs-string">sdb4:</span> Windows Recovery Environment (<span class="hljs-number">822</span> MiB): Used <span class="hljs-keyword">for</span> recovery purposes.
+    <span class="hljs-regexp">/dev/</span><span class="hljs-string">sdb5:</span> Linux Filesystem Partition (<span class="hljs-number">90.3</span> GiB): Likely contains our Linux installation.
+</code></pre><p>Where is Windows?</p>
+<p>The Windows operating system is installed on /dev/sdb3 (Microsoft Basic Data partition).
+The bootloader for Windows resides in /dev/sdb1 (EFI System Partition).
+The Windows Recovery tools are located in /dev/sdb4.</p>
+<p>The firmware uses the EFI System Partition (/dev/sdb1) to locate the bootloader.
+GRUB is managing the dual-boot setup and pointing to the appropriate operating system:
+For Windows, it loads the bootloader from /dev/sdb1 which eventually points to /dev/sdb3.
+For Linux, it directly boots from /dev/sdb5.</p>
+<pre><code>$ mount | grep sdb | column -t
+/dev/sdb5  on  /              <span class="hljs-keyword">type</span>  ext4   (rw,relatime)
+/dev/sdb1  on  /boot/efi      <span class="hljs-keyword">type</span>  vfat   (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+/dev/sdb3  on  /media/acs/<span class="hljs-type">OS</span>  <span class="hljs-keyword">type</span>  ntfs3  (rw,nosuid,nodev,relatime,uid=1000,gid=1000,iocharset=utf8,uhelper=udisks2)
+</code></pre><h4 id="boot-directory-of-linux">Boot Directory Of Linux</h4>
+<p>The /boot directory typically contains GRUB configuration files (e.g., /boot/grub/grub.cfg). Kernel files (e.g., vmlinuz and initrd.img). Other boot-related files, such as device maps.</p>
+<p>In our disk setup The /boot directory resides on the Linux partition, which is /dev/sdb5. 
+It is part of the Linux filesystem, so all /boot contents are stored there unless a separate /boot partition is explicitly created during installation. 
+Since no dedicated /boot partition is listed in your partition table, it&#39;s integrated into /dev/sdb5.</p>
+<p>How /boot Interacts with GRUB and Dual-Boot?</p>
+<p>GRUB Location: GRUB is likely installed in the EFI System Partition (/dev/sdb1), as you are using a UEFI system. 
+GRUB&#39;s configuration file (grub.cfg) is located in the /boot/grub directory of your Ubuntu system on /dev/sdb5.</p>
+<p>Bootloader Workflow: When we power on the system, the firmware loads the GRUB bootloader from the EFI partition (/dev/sdb1).
+GRUB then uses its configuration file (/boot/grub/grub.cfg) to determine the boot options.
+It points to either the kernel files in /boot (for Ubuntu) or the Windows bootloader in /dev/sdb1 (for Windows).</p>
+<h4 id="defining-partitions-as-swap">Defining Partitions As Swap</h4>
+<ul>
+<li><code>Swap</code> : If we got. 4 GB RAm, 2 GB video editor, 2GB audio editor. CHrome. Mover to swap partition now memory</li>
+<li><code>sudo swapon --show</code> : To see swap space we can use swapon with show parameter. One partition as used as swap <em>/dev/dm-1</em> partition 2G. 0 bytes used. We can add more partitions if we want.</li>
+<li><code>lsblk</code> : lsblk is used for identifying the Partition. lsblk list all available block devices and their partitions. The output should show the vdb3 partition, which will be used as swap space.</li>
+<li><code>sudo mkswap /dev/vdb3</code>: Creating a Swap Space by formatting the vdb3 partition and marking it as swap space. This is an essential step as it prepares the partition to be used as swap by the system.</li>
+<li><code>swapon --show --verbose /dev/vdb3</code> : Enabling the Swap Space. Enables the swap space on vdb3 and shows detailed information about the swap space being activated due to the --verbose option.</li>
+<li><code>swapon --show</code> : Verifying Swap Space. This command checks the currently active swap spaces. It will list all the active swap spaces, including the newly added vdb3 partition.But it doesnt enabled by boot.</li>
+<li><code>/etc/fstab</code> : Persistence Across Reboots. The swap is not enabled on boot by default. To make it persistent across reboots, you would need to add an entry to /etc/fstab like so entry such as. <em>/dev/vdb3    none    swap    sw    0   0</em>. This ensures that the swap space on vdb3 is automatically enabled every time the system boots.</li>
+<li><code>sudo swapoff /dev/vdb3</code> : Disabling the Swap Space. This command disables the swap space on vdb3, effectively stopping the system from using it as swap.</li>
+<li><code>free -h or swapon --show</code> : We can monitor swap usage using free -h or swapon --show to check how much swap space is being used at any given time.</li>
+</ul>
+<h4 id="using-a-file-as-a-device">Using A File As A Device</h4>
+<ul>
+<li><code>Why we are using a file?</code> : If a partition is mounted it can Boot from a live USB to resize the partition. Resizing a root partition without booting from a live USB is more complex and carries risks, but it can be done using tools such as resize2fs by interrupting the boot sequence. It can be done under ssh since it requires console access. </li>
+<li><code>sudo dd if=/dev/zero of=/swap bs=1M count=128</code> : We can create a file and filled with zeros. <em>/dev/zero</em> parameter use it as input file. This is a special device file creates generates infinate  number of zeros when an application reads from it. It will copy input file to output file. bs iz block size. count is 1B block 128 times. So 128 mb. Very small for actual usage.  <ul>
+<li><code>dd Command</code>: This command is used to convert and copy files. </li>
+<li><code>if=/dev/zero</code>: Specifies the input file as <em>/dev/zero</em>, a special file that produces a continuous stream of null bytes (zeros). This is useful for creating a file filled with zeros. </li>
+<li><code>of=/swap</code>: Specifies the output file as /swap. This is the file that will be created and filled with zeros, and later used as swap space.
+bs=1M: Sets the block size to 1 megabyte. count=128: Specifies that 128 blocks of 1 megabyte each should be written, resulting in a 128 MB file. (Note: 128 MB is small for actual usage; typically, swap files are larger, depending on system requirements.)</li>
+</ul>
+</li>
+<li><code>sudo dd if=/dev/zero of=/swap bs=1M count=128 status=progress</code> :  Additional parameter <em>status=progress</em> displays the progress of the dd command while it&#39;s running. This is particularly useful for larger files, as creating them can take time, and this option provides feedback during the process. </li>
+<li><code>sudo chmod 600 /swap</code> : Only root user reads and writes. Regular users shouldn access this swap file it gives access to memory contents of programs. Other users might be using. This command changes the file permissions so that only the root user has read and write access to the swap file. This is crucial because swap files can contain sensitive information (like memory contents of programs), and you don&#39;t want regular users to have access to this data.</li>
+</ul>
+<h4 id="configuring-file-as-a-swap">Configuring File As A Swap</h4>
+<ul>
+<li><code>sudo mkswap /swap</code> : Same with partition but Instead of partition we can use it as a regular file like this. Marking the File as Swap: This command sets up the file <em>/swap</em> as swap space, making it ready for use by the system. Unlike creating a swap partition, this command is used to create swap space from a regular file.</li>
+<li><code>sudo swapon --verbose /swap</code> : We enable it similar to a partition. Enabling the Swap File: This command enables the newly created swap file, allowing the system to start using it as additional virtual memory. The <em>--verbose option</em> provides detailed information about the swap space being activated.</li>
+<li><code>swapon --show</code>  : Now we can see its used for swap. Verifying the Swap Space: This command lists all active swap spaces on the system, including the newly added swap file. It allows you to verify that the swap file is being used.</li>
+<li><code>Entry on /etc/fstab</code> Persistence Across Reboots: To ensure that the swap file is enabled every time the system boots, you need to add it to the /etc/fstab file: <em>/swap    none    swap    sw    0   0</em> This entry makes the swap file persistent, ensuring that it is automatically used as swap space after every reboot.</li>
+</ul>
+
