@@ -1,10 +1,10 @@
 - id: 1
   date: 2023-01-01
   title: Table View Sample
-  description: A sample booklist in table format.
+  description: A sample booklist in table format with Datatables.js.
   url: /docs/ctextbooks.html
 - id: 2
   date: 2023-01-01
   title: Enron Chart
-  description: Sample Chart
+  description: Sample Chart with Chart.js
   url: /docs/enron-chart.html
