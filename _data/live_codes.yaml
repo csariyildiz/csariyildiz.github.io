@@ -4,7 +4,7 @@
   description: A sample booklist in table format.
   url: /docs/ctextbooks.html
 - id: 2
-  date: 2023-0101
+  date: 2023-01-01
   title: Enron Chart
   description: Sample Chart
-  urd: /docs/enron-chart.html
+  url: /docs/enron-chart.html
