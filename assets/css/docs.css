@@ -1,0 +1,85 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    height: 100%;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    width: 326px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+  }
+  
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu li {
+    margin-bottom: 10px;
+  }
+  
+  .main-link, .non-clickable {
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    display: block;
+    padding: 5px 0;
+  }
+  
+  .main-link:hover {
+    color: #007BFF;
+  }
+  
+  .submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Hidden by default */
+    padding-left: 20px;
+  }
+  
+  .submenu li {
+    margin-bottom: 5px;
+  }
+  
+  .submenu a {
+    text-decoration: none;
+    color: #555;
+  }
+  
+  .submenu a:hover {
+    color: #007BFF;
+  }
+  
+  /* Non-clickable item style */
+  .non-clickable {
+    color: #888;  /* Lighter color for non-clickable items */
+    cursor: default;  /* No hover effect */
+  }
+  
+  /* Content styles */
+  .content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .content h1 {
+    font-size: 24px;
+  }
+  
+  .content p {
+    line-height: 1.6;
+  }
+  
