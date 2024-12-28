@@ -84,7 +84,6 @@
     items.forEach((item, index) => {
       let row = index + 1; // Row number (1-indexed)
       let rowOrder = (row - 1) % chunkSize + 1; // Row order (1-based indexing within the chunk)
-
       let select = 0; // Default to not selected
 
       // Check if the current row order is in the selections array
@@ -92,8 +91,10 @@
         select = 1; // Mark as selected
       }
 
-      // Add to the result string with the format: row number, select (0 or 1), item
-      result += `${row},${select},${item}\n`;
+      if (select) {
+         result += `${row},${select},${item}\n`;
+      }
+
     });
 
     outputBox.val(result.trim()); // Set the result to the output box
