@@ -14,7 +14,7 @@
       <label for="countInput">Count:</label>
       <input type="number" id="countInput" value="1" min="1" style="margin-right: 10px;">
       <label for="selectInput">Select (comma-separated):</label>
-      <input type="text" id="selectInput" value="1"  placeholder="e.g., 1,3" style="margin-right: 10px;">
+      <input type="text" id="selectInput" placeholder="e.g., 1,3" style="margin-right: 10px;">
     </div>
 
     <div style="margin: 10px 0;">
@@ -28,6 +28,40 @@
 
   <script>
     $(document).ready(function () {
+
+
+    function sSelections(selection) {
+  
+  const trimmedSelection = selection.trim();
+
+ 
+  if (!trimmedSelection) {
+    return [1];
+  }
+
+  
+  const selections = trimmedSelection.split(",").map((num) => num.trim());
+
+ 
+  const validSelections = selections.every((num) => {
+    const parsed = parseInt(num);
+    return !isNaN(parsed) && parsed > 0;
+  });
+
+  if (!validSelections) {
+    alert("Selection must be a comma-separated list of positive integers!");
+    return [1];
+  }
+
+ 
+  const sortedSelections = selections
+    .map((num) => parseInt(num))
+    .sort((a, b) => a - b);
+
+  return sortedSelections;
+}
+
+      
       function generateOutput() {
         const inputText = $("#inputBox").val().trim();
         const count = parseInt($("#countInput").val());
@@ -41,15 +75,17 @@
           return;
         }
 
-        if (isNaN(count) || count < 1) {
+
+        const items = inputText.split(/\r?\n/);
+        const selections =  sSelections(selection);
+        alert(selections);
+
+        
+         if (isNaN(count) || count < 1) {
           alert("Count must be a valid number greater than 0!");
           return;
         }
 
-        const items = inputText.split(/\r?\n/);
-        const selections =  selection.split(",");
-        alert(selections);
- 
         let result = "";
        
         items.forEach((item, index) => {
