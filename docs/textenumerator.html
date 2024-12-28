@@ -79,7 +79,7 @@
         const items = inputText.split(/\r?\n/);
         const selections =  sSelections(selection);
         alert(selections);
-
+    
         
          if (isNaN(count) || count < 1) {
           alert("Count must be a valid number greater than 0!");
@@ -89,13 +89,20 @@
         let result = "";
        
         items.forEach((item, index) => {
-            row = index+1;
+        
+        let row = index + 1;
 
-          for (s of selections) {
-             if (s == row % count) {
-              result += `${row},${item}\n`;
+       
+        for (let i = 0; i <= count; i++) {
+           
+            if (selections.includes(i)) {
+               
+                result += `${row},${item}\n`;
             }
-          }
+        }
+    });
+
+    
           
          
           });
