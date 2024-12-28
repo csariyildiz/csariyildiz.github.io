@@ -57,10 +57,13 @@
         }
 
         let result = "";
+        let id = 0; // Initialize ID counter
+
         for (let i = 0; i < count; i++) {
           items.forEach((item, index) => {
             if (selections.length === 0 || selections.includes(index)) {
-              result += `${i},${item}\n`;
+              result += `${id},${item}\n`;
+              id++; // Increment ID for each line
             }
           });
         }
