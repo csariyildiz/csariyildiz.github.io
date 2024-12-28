@@ -92,7 +92,7 @@ items.forEach((item, index) => {
     let row = index + 1;
     let roword = row % count; // Calculate row modulo count
     let s = 0;
-    if (selections.has(roword)) { 
+    if (selections.includes(roword)) { 
         s = 1; // Mark as selected if roword exists in selections
     }
 
