@@ -18,8 +18,6 @@ The lack of satisfactory publicly available Turkish wordlists prompted the explo
 
 Turkish dataset. Tur
 
-https://github.com/utkusen/turkce-wordlist
-https://github.com/kernelkel/turkish-wordlist
 
 
 Their word count is very low. 
