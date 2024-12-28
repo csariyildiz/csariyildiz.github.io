@@ -28,68 +28,77 @@
 
   <script>
     $(document).ready(function () {
-      function generateOutput() {
-        const inputText = $("#inputBox").val().trim();
-        const count = parseInt($("#countInput").val());
-        const selection = $("#selectInput").val().trim();
-        const outputBox = $("#outputBox");
+  function generateOutput() {
+    const inputText = $("#inputBox").val().trim();
+    const count = parseInt($("#countInput").val());
+    const selection = $("#selectInput").val().trim();
+    const outputBox = $("#outputBox");
 
-        outputBox.val("");
+    outputBox.val("");
 
-        if (!inputText) {
-          alert("Input text cannot be empty!");
-          return;
-        }
+    if (!inputText) {
+      alert("Input text cannot be empty!");
+      return;
+    }
 
-        if (isNaN(count) || count < 1) {
-          alert("Count must be a valid number greater than 0!");
-          return;
-        }
+    if (isNaN(count) || count < 1) {
+      alert("Count must be a valid number greater than 0!");
+      return;
+    }
 
-        const items = inputText.split(/\r?\n/);
-        const selections = selection
-          ? selection.split(",").map((num) => parseInt(num.trim()) - 1)
-          : [];
+    const items = inputText.split(/\r?\n/);
+    const selections = selection
+      ? selection.split(",").map((num) => parseInt(num.trim()) - 1) // Make it zero-indexed
+      : [];
 
-        if (selections.some((index) => isNaN(index) || index < 0)) {
-          alert("Selection must be a comma-separated list of positive integers!");
-          return;
-        }
+    // Check if selections are valid (positive integers only)
+    if (selections.some((index) => isNaN(index) || index < 0)) {
+      alert("Selection must be a comma-separated list of positive integers!");
+      return;
+    }
 
-        let result = "";
-        let id = 0; // Initialize ID counter
+    let result = "";
+    let id = 1; // Start ID from 1 (not 0)
 
-        for (let i = 0; i < count; i++) {
-          items.forEach((item, index) => {
-            if (selections.length === 0 || selections.includes(index)) {
-              result += `${id},${item}\n`;
-              id++; // Increment ID for each line
-            }
-          });
-        }
-
-        outputBox.val(result.trim());
+    // Output with no count (just the list with IDs)
+    if (!count) {
+      items.forEach((item, index) => {
+        result += `${id++},${item}\n`;
+      });
+    } else {
+      // Output with count and selection
+      for (let i = 0; i < count; i++) {
+        items.forEach((item, index) => {
+          if (selections.length === 0 || selections.includes(index)) {
+            result += `${id++},${item}\n`;
+          }
+        });
       }
+    }
 
-      function clearOutput() {
-        $("#outputBox").val("");
-      }
+    outputBox.val(result.trim());
+  }
 
-      function copyOutput() {
-        const outputBox = $("#outputBox");
-        if (!outputBox.val().trim()) {
-          alert("Nothing to copy!");
-          return;
-        }
-        outputBox.select();
-        document.execCommand("copy");
-        alert("Output copied to clipboard!");
-      }
+  function clearOutput() {
+    $("#outputBox").val("");
+  }
 
-      $("#runBtn").click(generateOutput);
-      $("#clearOutputBtn").click(clearOutput);
-      $("#copyOutputBtn").click(copyOutput);
-    });
+  function copyOutput() {
+    const outputBox = $("#outputBox");
+    if (!outputBox.val().trim()) {
+      alert("Nothing to copy!");
+      return;
+    }
+    outputBox.select();
+    document.execCommand("copy");
+    alert("Output copied to clipboard!");
+  }
+
+  $("#runBtn").click(generateOutput);
+  $("#clearOutputBtn").click(clearOutput);
+  $("#copyOutputBtn").click(copyOutput);
+});
+
   </script>
 </body>
 </html>
