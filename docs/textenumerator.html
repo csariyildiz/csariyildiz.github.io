@@ -47,18 +47,14 @@
         }
 
         const items = inputText.split(/\r?\n/);
-        const selections =  selection ? selection.split(",").map((num) => parseInt(num.trim()) - 1) : [];
+        const selections =  selection.split(",");
         alert(selections);
-        if (selections.some((index) => isNaN(index) || index < 0)) {
-          alert("Selection must be a comma-separated list of positive integers!");
-          return;
-        }
-
+ 
         let result = "";
        
         items.forEach((item, index) => {
             if (1) {
-              result += `${index},${item}\n`;
+              result += `${index+1},${item}\n`;
             }
           });
         
