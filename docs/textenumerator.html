@@ -12,9 +12,9 @@
 
     <div>
       <label for="countInput">Count:</label>
-      <input type="number" id="countInput" value="5" min="1" style="margin-right: 10px;">
+      <input type="number" id="countInput" value="1" min="1" style="margin-right: 10px;">
       <label for="selectInput">Select (comma-separated):</label>
-      <input type="text" id="selectInput" placeholder="e.g., 1,3" style="margin-right: 10px;">
+      <input type="text" id="selectInput" value="1"  placeholder="e.g., 1,3" style="margin-right: 10px;">
     </div>
 
     <div style="margin: 10px 0;">
@@ -47,23 +47,21 @@
         }
 
         const items = inputText.split(/\r?\n/);
-        const selections = selection
-          ? selection.split(",").map((num) => parseInt(num.trim()) - 1)
-          : [];
-
+        const selections =  selection ? selection.split(",").map((num) => parseInt(num.trim()) - 1) : [];
+        alert(selections);
         if (selections.some((index) => isNaN(index) || index < 0)) {
           alert("Selection must be a comma-separated list of positive integers!");
           return;
         }
 
         let result = "";
-        for (let i = 0; i < count; i++) {
-          items.forEach((item, index) => {
-            if (selections.length === 0 || selections.includes(index)) {
-              result += `${i},${item}\n`;
+       
+        items.forEach((item, index) => {
+            if (1) {
+              result += `${index},${item}\n`;
             }
           });
-        }
+        
 
         outputBox.val(result.trim());
       }
