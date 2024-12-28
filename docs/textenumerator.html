@@ -27,103 +27,101 @@
   </div>
 
   <script>
-    $(document).ready(function () {
+   $(document).ready(function () {
 
+  // Function to process the selection input
+  function processSelections(selectionInput) {
+    const trimmedSelection = selectionInput.trim();
 
-    function sSelections(selection) {
-  
-  const trimmedSelection = selection.trim();
-
- 
-  if (!trimmedSelection) {
-    return [1];
-  }
-
-  
-  const selections = trimmedSelection.split(",").map((num) => num.trim());
-
- 
-  const validSelections = selections.every((num) => {
-    const parsed = parseInt(num);
-    return !isNaN(parsed) && parsed > 0;
-  });
-
-  if (!validSelections) {
-    alert("Selection must be a comma-separated list of positive integers!");
-    return [1];
-  }
-
- 
-  const sortedSelections = selections
-    .map((num) => parseInt(num))
-    .sort((a, b) => a - b);
-
-  return sortedSelections;
-}
-
-      
-      function generateOutput() {
-        const inputText = $("#inputBox").val().trim();
-        const count = parseInt($("#countInput").val());
-        const selection = $("#selectInput").val().trim();
-        const outputBox = $("#outputBox");
-
-        outputBox.val("");
-
-        if (!inputText) {
-          alert("Input text cannot be empty!");
-          return;
-        }
-
-
-        const items = inputText.split(/\r?\n/);
-        const selections =  sSelections(selection);
-        alert(selections);
-    
-        
-         if (isNaN(count) || count < 1) {
-          alert("Count must be a valid number greater than 0!");
-          return;
-        }
-
-        let result = "";
-       
-items.forEach((item, index) => {
-    let row = index + 1;
-    let roword = row % count; // Calculate row modulo count
-    let s = 0;
-    if (selections.includes(roword)) { 
-        s = 1; // Mark as selected if roword exists in selections
+    if (!trimmedSelection) {
+      return [1]; // Default selection if nothing is entered
     }
 
-    result += `${index},${roword},${row},${count},${s},${item}\n`; // Append formatted string to result
+    const selections = trimmedSelection.split(",").map((num) => num.trim());
+
+    const validSelections = selections.every((num) => {
+      const parsed = parseInt(num);
+      return !isNaN(parsed) && parsed > 0;
+    });
+
+    if (!validSelections) {
+      alert("Selection must be a comma-separated list of positive integers!");
+      return [1];
+    }
+
+    const sortedSelections = selections
+      .map((num) => parseInt(num))
+      .sort((a, b) => a - b);
+
+    return sortedSelections;
+  }
+
+  // Function to generate output based on the input
+  function generateOutput() {
+    const inputText = $("#inputBox").val().trim();
+    const chunkSize = parseInt($("#countInput").val()); // Chunk size (count)
+    const selectionInput = $("#selectInput").val().trim();
+    const outputBox = $("#outputBox");
+
+    outputBox.val(""); // Clear the output box initially
+
+    if (!inputText) {
+      alert("Input text cannot be empty!");
+      return;
+    }
+
+    const items = inputText.split(/\r?\n/); // Split input into items based on line breaks
+    const selections = processSelections(selectionInput); // Get the valid selections
+
+    if (isNaN(chunkSize) || chunkSize < 1) {
+      alert("Chunk size must be a valid number greater than 0!");
+      return;
+    }
+
+    let result = "";
+
+    // Loop through items and generate the output
+    items.forEach((item, index) => {
+      let row = index + 1; // Row number (1-indexed)
+      let rowOrder = (row - 1) % chunkSize + 1; // Row order (1-based indexing within the chunk)
+
+      let select = 0; // Default to not selected
+
+      // Check if the current row order is in the selections array
+      if (selections.includes(rowOrder)) {
+        select = 1; // Mark as selected
+      }
+
+      // Add to the result string with the format: row number, select (0 or 1), item
+      result += `${row},${select},${item}\n`;
+    });
+
+    outputBox.val(result.trim()); // Set the result to the output box
+  }
+
+  // Function to clear the output box
+  function clearOutput() {
+    $("#outputBox").val("");
+  }
+
+  // Function to copy the output to clipboard
+  function copyOutput() {
+    const outputBox = $("#outputBox");
+    if (!outputBox.val().trim()) {
+      alert("Nothing to copy!");
+      return;
+    }
+    outputBox.select();
+    document.execCommand("copy");
+    alert("Output copied to clipboard!");
+  }
+
+  // Event listeners for buttons
+  $("#runBtn").click(generateOutput); // Run the generation
+  $("#clearOutputBtn").click(clearOutput); // Clear the output
+  $("#copyOutputBtn").click(copyOutput); // Copy the output to clipboard
 });
 
-
-        
-
-        outputBox.val(result.trim());
-      }
-
-      function clearOutput() {
-        $("#outputBox").val("");
-      }
-
-      function copyOutput() {
-        const outputBox = $("#outputBox");
-        if (!outputBox.val().trim()) {
-          alert("Nothing to copy!");
-          return;
-        }
-        outputBox.select();
-        document.execCommand("copy");
-        alert("Output copied to clipboard!");
-      }
-
-      $("#runBtn").click(generateOutput);
-      $("#clearOutputBtn").click(clearOutput);
-      $("#copyOutputBtn").click(copyOutput);
-    });
   </script>
 </body>
 </html>
