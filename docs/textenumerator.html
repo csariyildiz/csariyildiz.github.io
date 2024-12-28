@@ -88,23 +88,18 @@
 
         let result = "";
        
-        items.forEach((item, index) => {
-        
-        let row = index + 1;
-        let roword = row % count;
-        let s = 0;
-        if (selections.has(roword)) { s= 1; }
-        
-        result += `${index},${roword},${row},${count},${s},${item}\n`;
-    
-         
-        }
-    });
+items.forEach((item, index) => {
+    let row = index + 1;
+    let roword = row % count; // Calculate row modulo count
+    let s = 0;
+    if (selections.has(roword)) { 
+        s = 1; // Mark as selected if roword exists in selections
+    }
 
-    
-          
-         
-        
+    result += `${index},${roword},${row},${count},${s},${item}\n`; // Append formatted string to result
+});
+
+
         
 
         outputBox.val(result.trim());
