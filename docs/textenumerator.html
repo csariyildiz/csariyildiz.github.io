@@ -91,14 +91,13 @@
         items.forEach((item, index) => {
         
         let row = index + 1;
-
-       
-        for (let i = 0; i <= count; i++) {
-           
-            if (selections.includes(i)) {
-               
-                result += `${row},${item}\n`;
-            }
+        let roword = row % count;
+        let s = 0;
+        if (selections.has(roword)) { s= 1; }
+        
+        result += `${index},${roword},${row},${count},${s},${item}\n`;
+    
+         
         }
     });
 
