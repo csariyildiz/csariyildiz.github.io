@@ -89,9 +89,15 @@
         let result = "";
        
         items.forEach((item, index) => {
-            if (1) {
-              result += `${index+1},${item}\n`;
+            row = index+1;
+
+          for (s of selections) {
+             if (s == row % count) {
+              result += `${row},${item}\n`;
             }
+          }
+          
+         
           });
         
 
