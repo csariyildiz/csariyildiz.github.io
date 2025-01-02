@@ -62,6 +62,15 @@
    </div>
 </div>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/script.js"></script>
+       
+   <script>
+  // Initialize DataTables
+  $(document).ready(function () {
+    $('#postsTable').DataTable();
+    $('#docsTable').DataTable();
+    $('#codeTable').DataTable();
+  });
+</script>
+   
     </body>
 </html>
