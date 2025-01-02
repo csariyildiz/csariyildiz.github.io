@@ -2,36 +2,10 @@
 <html lang="en">
 {% include head3.html page_title=page.title %}
 <body>
-<div class="container def5_13">
+<div class="container">
 <div class="row">{% include nav_row.html %}</div>  
 <div class="row">{% include content3.html %}</div>  
 <div class="row">{% include footer3.html %}</div>  
-
-
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-       
-   <script>
-  // Initialize DataTables
-  // Initialize DataTables with custom options
-  $(document).ready(function () {
-    $('#postsTable').DataTable({
-      lengthChange: false, // Disable the "Show entries" dropdown
-      searching: false,    // Disable the search box
-      pageLength: 20       // Fix the number of entries per page to 20
-    });
-
-    $('#docsTable').DataTable({
-      lengthChange: false,
-      searching: false,
-      pageLength: 20
-    });
-
-    $('#codeTable').DataTable({
-      lengthChange: false,
-      searching: false,
-      pageLength: 20
-    });
-  });
-</script>
-    </body>
+<div class="row">{% include script3.html %}</div>  
+</body>
 </html>
