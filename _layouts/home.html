@@ -6,6 +6,27 @@
 <div class="row">{% include nav_row.html %}</div>  
 <div class="row">{% include content3.html %}</div>  
 <div class="row">{% include footer3.html %}</div>  
-{% include script3.html %}
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script>
+$(document).ready(function () {
+    $('#postsTable').DataTable({
+      lengthChange: false, 
+      searching: false,    
+      pageLength: 20
+    });
+
+    $('#docsTable').DataTable({
+      lengthChange: false,
+      searching: false,
+      pageLength: 20
+    });
+
+    $('#codeTable').DataTable({
+      lengthChange: false,
+      searching: false,
+      pageLength: 20
+    });
+  });
+</script>
 </body>
 </html>
