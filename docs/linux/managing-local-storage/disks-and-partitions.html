@@ -3,3 +3,649 @@ title: Disks And Partitions
 layout: doc_page
 ---
 
+<h2 id="table-of-contents">Table Of Contents</h2>
+<ul>
+<li>Concepts Of Disk Management</li>
+<li>Command Overview</li>
+<li>Steps</li>
+</ul>
+<h2 id="concepts">Concepts</h2>
+<h3 id="block-device">Block Device</h3>
+<ul>
+<li>We can use the command <code>lsblk</code> to list block devices.</li>
+</ul>
+<pre><code>[$ lsblk
+NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+sda             8:0    0  20G  0 disk 
+├─sda1          8:1    0   1G  0 part /boot
+└─sda2          8:2    0  19G  0 part 
+  ├─rhel-root 253:0    0  17G  0 lvm  /
+  └─rhel-swap 253:1    0   2G  0 lvm  [SWAP]
+sdb             8:16   0   2G  0 disk 
+└─sdb1          8:17   0   1G  0 part 
+sr0            11:0    1  51M  0 rom
+</code></pre>
+<ul>
+<li>Are items on the list are block devices.</li>
+<li><code>Block Devices</code> : Block devices are places where linux store data and retrieve data from.</li>
+<li>Not all <code>lsblk</code> output are partitions. Only the ones type column is <code>part</code> for partitions.</li>
+<li><code>sda, sdb</code> : These are sda is virtual disk. Contains two partitions sda1 and sda2. Virtual machine block devices typically begin with letter v.</li>
+<li><code>Naming s</code> : s means serial. Its similar an physical SSD disk connected to sata port (serial ata). If we use NVME devices start using nvme.</li>
+<li><code>Naming sda1</code> : If we have 3 disks we have names like SDA, SDB, SDC. Partitions will be named as sda1,sda2,sdb1,sdb2. sda first disk sda1 first partition.</li>
+<li><code>sda1, sda2, sdb1</code> : These are martitions managed bay partition table on the disk. Partitions can be mounted on folder on a filesytem similar to disks.</li>
+<li>In a operating system, disks like <code>/dev/vdb</code> refers to a virtual block device, typically used in virtualized environments such as KVM, Xen, or OpenStack. These devices are often provided by the hypervisor (the software layer that manages the virtual machines) and are usually connected to a virtual machine (VM) as additional storage.</li>
+</ul>
+<h4 id="mounting">Mounting</h4>
+<p>Mounting is the process of making a filesystem accessible at a specific directory (called a mount point) in the Linux directory tree. 
+Linux attaches storage devices (like hard drives, USBs, or network shares) to the system so users can access their data.
+Mount Point could be any directory where the filesystem will be accessible (e.g., /mnt, /home, /media/usb).</p>
+<p>Unlike some operating systems that automatically assign drive letters to new devices, Linux integrates everything into a single directory tree. 
+This approach requires devices to be manually or automatically mounted before their contents can be accessed.
+Fstab file automatically mount filesystems at boot, add entries in /etc/fstab.</p>
+<pre><code>/dev/sdX1  /mnt/mydisk  ext4  defaults  0  0
+</code></pre>
+<h4 id="why-we-need-partitions">Why we need partitions?</h4>
+<p>For example 2TB SSD can divided two different partitions. With this configuration both Windows Linux operating systems can use their NTFS and ext4 file system by logical seperation provided by the partitions. </p>
+<p>Partition informations is the first data written on the disk. This data is crucial because it defines the layout and structure of the storage space of the disk.</p>
+<h4 id="what-are-mbr-and-gpt">What are MBR And GPT?</h4>
+<p>MBR (Master Boot Record) and GPT (GUID Partition Table) partition standarts for partitioning. MBR is the legacy option supports up to 4 primary partitions. Can use extended partitions to create more than 4 partitions. Limited to disks up to 2TB. GPT (GUID Partition Table) supports a large number of partitions (typically up to 128). Allows disks larger than 2TB. Includes redundancy with a backup table at the end of the disk.</p>
+<h4 id="what-is-lvm">What is LVM?</h4>
+<p>LVM is a another layer of abstraction over traditional partitioning, allowing flexible management of disk space. It has components such as PVs, VGs and LVs.</p>
+<h4 id="boot-process-and-grub">Boot Process And Grub</h4>
+<p>During boot, a system typically uses firmware such as UEFI (or BIOS in older devices). This firmware provides a visual interface for managing boot processes and configuring system settings. It is embedded in the motherboard chip and generally remains unaltered except during updates.</p>
+<p>The firmware establishes the initial connection to the disk based on its configuration. Beyond this, the boot process depends on the disk&#39;s bootloader configuration. For instance, if a system is running Windows on a single disk, the firmware connects directly to Windows&#39; bootloader. However, in a dual-boot setup with both Windows and Linux installed, GRUB (GNU GRand Unified Bootloader) often serves as the intermediary. GRUB provides a menu to select between operating systems during boot.</p>
+<p>GRUB is an open-source tool designed for managing multi-boot environments. On an installed system, GRUB loads its configuration from the /boot/grub/grub.cfg file during each boot.</p>
+<p>We can check that by sudo <code>fdisk -l</code>:</p>
+<p>Omitted output:</p>
+<pre><code>Device         Start       End   Sectors   Size Type
+/dev/sdb1       2048    206847    204800   100M EFI System
+/dev/sdb2     206848    239615     32768    16M Microsoft reserved
+/dev/sdb3     239616 309118975 308879360 147.3G Microsoft basic data
+/dev/sdb4  498432000 500115455   1683456   822M Windows recovery environment
+/dev/sdb5  309118976 498431999 189313024  90.3G Linux filesystem
+</code></pre>
+<p>Disk /dev/sdb:</p>
+<pre><code>This disk uses a GPT partition table and contains the following relevant partitions:
+    /dev/sdb1: EFI System Partition (ESP) (100 MiB): Contains the bootloader for systems using UEFI.
+    /dev/sdb2: Microsoft Reserved Partition (16 MiB): Used internally by Windows.
+    /dev/sdb3: Microsoft Basic Data Partition (147.3 GiB): This is the primary partition containing our Windows operating system.
+    /dev/sdb4: Windows Recovery Environment (822 MiB): Used for recovery purposes.
+    /dev/sdb5: Linux Filesystem Partition (90.3 GiB): Likely contains our Linux installation.
+</code></pre>
+<p>Where is Windows?</p>
+<p>The Windows operating system is installed on /dev/sdb3 (Microsoft Basic Data partition).
+The bootloader for Windows resides in /dev/sdb1 (EFI System Partition).
+The Windows Recovery tools are located in /dev/sdb4.</p>
+<p>The firmware uses the EFI System Partition (/dev/sdb1) to locate the bootloader.
+GRUB is managing the dual-boot setup and pointing to the appropriate operating system:
+For Windows, it loads the bootloader from /dev/sdb1 which eventually points to /dev/sdb3.
+For Linux, it directly boots from /dev/sdb5.</p>
+<pre><code>$ mount | grep sdb | column -t
+/dev/sdb5  on  /              type  ext4   (rw,relatime)
+/dev/sdb1  on  /boot/efi      type  vfat   (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+/dev/sdb3  on  /media/acs/OS  type  ntfs3  (rw,nosuid,nodev,relatime,uid=1000,gid=1000,iocharset=utf8,uhelper=udisks2)
+</code></pre>
+<h4 id="boot-directory-of-linux">Boot Directory Of Linux</h4>
+<p>The /boot directory typically contains GRUB configuration files (e.g., /boot/grub/grub.cfg). Kernel files (e.g., vmlinuz and initrd.img). Other boot-related files, such as device maps.</p>
+<p>In our disk setup The /boot directory resides on the Linux partition, which is /dev/sdb5. 
+It is part of the Linux filesystem, so all /boot contents are stored there unless a separate /boot partition is explicitly created during installation. 
+Since no dedicated /boot partition is listed in your partition table, it&#39;s integrated into /dev/sdb5.</p>
+<p>How /boot Interacts with GRUB and Dual-Boot?</p>
+<p>GRUB Location: GRUB is likely installed in the EFI System Partition (/dev/sdb1), as you are using a UEFI system. 
+GRUB&#39;s configuration file (grub.cfg) is located in the /boot/grub directory of your Ubuntu system on /dev/sdb5.</p>
+<p>Bootloader Workflow: When we power on the system, the firmware loads the GRUB bootloader from the EFI partition (/dev/sdb1).
+GRUB then uses its configuration file (/boot/grub/grub.cfg) to determine the boot options.
+It points to either the kernel files in /boot (for Ubuntu) or the Windows bootloader in /dev/sdb1 (for Windows).</p>
+<h4 id="defining-partitions-as-swap">Defining Partitions As Swap</h4>
+<ul>
+<li><code>Swap</code> : If we got. 4 GB RAm, 2 GB video editor, 2GB audio editor. CHrome. Mover to swap partition now memory</li>
+<li><code>sudo swapon --show</code> : To see swap space we can use swapon with show parameter. One partition as used as swap <em>/dev/dm-1</em> partition 2G. 0 bytes used. We can add more partitions if we want.</li>
+<li><code>lsblk</code> : lsblk is used for identifying the Partition. lsblk list all available block devices and their partitions. The output should show the vdb3 partition, which will be used as swap space.</li>
+<li><code>sudo mkswap /dev/vdb3</code>: Creating a Swap Space by formatting the vdb3 partition and marking it as swap space. This is an essential step as it prepares the partition to be used as swap by the system.</li>
+<li><code>swapon --show --verbose /dev/vdb3</code> : Enabling the Swap Space. Enables the swap space on vdb3 and shows detailed information about the swap space being activated due to the --verbose option.</li>
+<li><code>swapon --show</code> : Verifying Swap Space. This command checks the currently active swap spaces. It will list all the active swap spaces, including the newly added vdb3 partition.But it doesnt enabled by boot.</li>
+<li><code>/etc/fstab</code> : Persistence Across Reboots. The swap is not enabled on boot by default. To make it persistent across reboots, you would need to add an entry to /etc/fstab like so entry such as. <em>/dev/vdb3    none    swap    sw    0   0</em>. This ensures that the swap space on vdb3 is automatically enabled every time the system boots.</li>
+<li><code>sudo swapoff /dev/vdb3</code> : Disabling the Swap Space. This command disables the swap space on vdb3, effectively stopping the system from using it as swap.</li>
+<li><code>free -h or swapon --show</code> : We can monitor swap usage using free -h or swapon --show to check how much swap space is being used at any given time.</li>
+</ul>
+<h4 id="using-a-file-as-a-device">Using A File As A Device</h4>
+<ul>
+<li><code>Why we are using a file?</code> : If a partition is mounted it can Boot from a live USB to resize the partition. Resizing a root partition without booting from a live USB is more complex and carries risks, but it can be done using tools such as resize2fs by interrupting the boot sequence. It can be done under ssh since it requires console access. </li>
+<li><code>sudo dd if=/dev/zero of=/swap bs=1M count=128</code> : We can create a file and filled with zeros. <em>/dev/zero</em> parameter use it as input file. This is a special device file creates generates infinate  number of zeros when an application reads from it. It will copy input file to output file. bs iz block size. count is 1B block 128 times. So 128 mb. Very small for actual usage.  <ul>
+<li><code>dd Command</code>: This command is used to convert and copy files. </li>
+<li><code>if=/dev/zero</code>: Specifies the input file as <em>/dev/zero</em>, a special file that produces a continuous stream of null bytes (zeros). This is useful for creating a file filled with zeros. </li>
+<li><code>of=/swap</code>: Specifies the output file as /swap. This is the file that will be created and filled with zeros, and later used as swap space.
+bs=1M: Sets the block size to 1 megabyte. count=128: Specifies that 128 blocks of 1 megabyte each should be written, resulting in a 128 MB file. (Note: 128 MB is small for actual usage; typically, swap files are larger, depending on system requirements.)</li>
+</ul>
+</li>
+<li><code>sudo dd if=/dev/zero of=/swap bs=1M count=128 status=progress</code> :  Additional parameter <em>status=progress</em> displays the progress of the dd command while it&#39;s running. This is particularly useful for larger files, as creating them can take time, and this option provides feedback during the process. </li>
+<li><code>sudo chmod 600 /swap</code> : Only root user reads and writes. Regular users shouldn access this swap file it gives access to memory contents of programs. Other users might be using. This command changes the file permissions so that only the root user has read and write access to the swap file. This is crucial because swap files can contain sensitive information (like memory contents of programs), and you don&#39;t want regular users to have access to this data.</li>
+</ul>
+<h4 id="configuring-file-as-a-swap">Configuring File As A Swap</h4>
+<ul>
+<li><code>sudo mkswap /swap</code> : Same with partition but Instead of partition we can use it as a regular file like this. Marking the File as Swap: This command sets up the file <em>/swap</em> as swap space, making it ready for use by the system. Unlike creating a swap partition, this command is used to create swap space from a regular file.</li>
+<li><code>sudo swapon --verbose /swap</code> : We enable it similar to a partition. Enabling the Swap File: This command enables the newly created swap file, allowing the system to start using it as additional virtual memory. The <em>--verbose option</em> provides detailed information about the swap space being activated.</li>
+<li><code>swapon --show</code>  : Now we can see its used for swap. Verifying the Swap Space: This command lists all active swap spaces on the system, including the newly added swap file. It allows you to verify that the swap file is being used.</li>
+<li><code>Entry on /etc/fstab</code> Persistence Across Reboots: To ensure that the swap file is enabled every time the system boots, you need to add it to the /etc/fstab file: <em>/swap    none    swap    sw    0   0</em> This entry makes the swap file persistent, ensuring that it is automatically used as swap space after every reboot.</li>
+</ul>
+<h2 id="command-overview">Command Overview</h2>
+<p><strong>Defining Partitions As Swap</strong></p>
+<ul>
+<li><code>swapon --show</code> : Verification. sudo</li>
+<li><code>lsblk</code> : identifying the Partition..</li>
+<li><code>mkswap /dev/vdb3</code>: Creating a Swap Space.sudo</li>
+<li><code>swapon --show --verbose /dev/vdb3</code>: Enabling the Swap Space.</li>
+<li><code>swapon --show</code> : Verifying Swap Space. sudo</li>
+<li><code>swapoff /dev/vdb3</code> : Disabling the Swap Space.sudo</li>
+<li><code>Entry on /etc/fstab</code> : Persist at boot. &quot;/dev/vdb3    none    swap    sw    0   0&quot;. sudo.</li>
+</ul>
+<p><strong>Using A File As Swap</strong></p>
+<ul>
+<li><code>dd if=/dev/zero of=/swap bs=1M count=128 status=progress</code> : Fill file with 0&#39;s. sudo.</li>
+<li><code>chmod 600 /swap</code> : Make file root read and write only. sudo</li>
+<li><code>mkswap /swap</code> : Creating a Swap Space. sudo.</li>
+<li><code>swapon --show</code> : Verification. sudo.</li>
+<li><code>Entry on /etc/fstab</code> : Persist at boot. &quot;/swap    none    swap    sw    0   0&quot; sudo.</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<h4 id="1-add-a-new-disk-to-virtual-machine-2gb">1. Add a new disk to virtual machine. (2GB)</h4>
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_1.png" class="img-fluid" alt="">
+
+<ul>
+<li>We are using rhel9-4 on Oracle VM VirtualBox.</li>
+<li>Settings for the disk could be Controller Sata VdI.</li>
+</ul>
+<h4 id="2-take-snapshot">2. Take snapshot.</h4>
+<img src="https://raw.githubusercontent.com/csariyildiz/csariyildiz.github.io/main/img/blog15_2.png" class="img-fluid" alt="">
+
+<ul>
+<li>Its important the take snapshot since its easy to broke partitions.</li>
+</ul>
+<h4 id="3-display-the-amount-of-disk-space-used-and-available-on-filesystem">3. Display the amount of disk space used and available on filesystem.</h4>
+<pre><code>$ sudo df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+</code></pre>
+<ul>
+<li>First three devtmpfs tmpfs tmpfs are all swap space. (2 gig carved)</li>
+<li>First filesystem is /dev/mapper/rhel_10-root filesystem.</li>
+<li>Second is /dev/sda1 1 G. Reserved files for boot. System is booted using certain files located the boot. Operating system uses this files to boot up the system.</li>
+<li>98 97 percent means file system is full which is critical.</li>
+</ul>
+<h4 id="4-display-size-of-a-spesific-directory-bin">4. Display size of a spesific directory. (/bin)</h4>
+<ul>
+<li>We may also want to list usage for certain files and directories.</li>
+<li>We can see disk usage of <code>/bin/</code> using the command <code>du -sh /bin/</code>.</li>
+</ul>
+<pre><code>$ sudo du -sh /bin/
+208M    /bin/
+</code></pre>
+<h4 id="5-display-size-of-files-in-a-directory-varlog-and-">5. Display size of files in a directory. (/var/log and /)</h4>
+<ul>
+<li>The sort -nr option sorts numerically and in reverse order, so the largest sizes appear at the top.</li>
+</ul>
+<pre><code>$ sudo du -kh /var/log | sort -nr | more
+232K    /var/log/rhsm
+28K     /var/log/tuned
+12M     /var/log
+12K     /var/log/cups
+...
+</code></pre>
+<ul>
+<li><code>du -kh / 2&gt;/dev/null | sort -nr | more</code> will search all the file system for biggest files.</li>
+<li>Errors are send to /dev/null.</li>
+</ul>
+<pre><code>$ sudo du -kh / 2&gt;/dev/null | sort -nr | more
+1012K   /usr/share/microcode_ctl/ucode_with_caveats/intel-06-8e-9e-0x-0xca
+1012K   /usr/lib/modules/5.14.0-427.31.1.el9_4.x86_64/kernel/drivers/net/wireless/realtek/rtlwifi
+1008K   /usr/lib/modules/5.14.0-427.13.1.el9_4.x86_64/kernel/drivers/net/wireless/realtek/rtlwifi
+1000K   /usr/lib64/spa-0.2/bluez5
+1000K   /usr/lib64/python3.9/multiprocessing
+996K    /usr/share/microcode_ctl/ucode_with_caveats/intel-06-8e-9e-0x-0xca/intel-ucode
+996K    /usr/lib/python3.9/site-packages/orca/scripts/apps
+...
+</code></pre>
+<h4 id="6-show-all-mounted-filesystems-and-their-mount-points">6. Show all mounted filesystems and their mount points.</h4>
+<ul>
+<li><code>df -h</code> will show filesystems mount points.</li>
+</ul>
+<pre><code>$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+</code></pre>
+<ul>
+<li><code>mount | column -t</code> will show all mount points.</li>
+</ul>
+<pre><code>$ mount | column -t
+proc        on  /proc                   type  proc         (rw,nosuid,nodev,noexec,relatime)
+sysfs       on  /sys                    type  sysfs        (rw,nosuid,nodev,noexec,relatime,seclabel)
+devtmpfs    on  /dev                    type  devtmpfs     (rw,nosuid,seclabel,size=4096k,nr_inodes=460757,mode=755,inode64)
+securityfs  on  /sys/kernel/security    type  securityfs   (rw,nosuid,nodev,noexec,relatime)
+tmpfs       on  /dev/shm                type  tmpfs        (rw,nosuid,nodev,seclabel,inode64)
+devpts      on  /dev/pts                type  devpts       (rw,nosuid,noexec,relatime,seclabel,gid=5,mode=620,ptmxmode=000)
+tmpfs       on  /run                    type  tmpfs        (rw,nosuid,nodev,seclabel,size=749508k,nr_inodes=819200,mode=755,inode64)
+cgroup2     on  /sys/fs/cgroup          type  cgroup2      (rw,nosuid,nodev,noexec,relatime,seclabel,nsdelegate,memory_recursiveprot)
+pstore      on  /sys/fs/pstore          type  pstore       (rw,nosuid,nodev,noe...
+...
+</code></pre>
+<h4 id="7-show-filesystems">7. Show filesystems.</h4>
+<ul>
+<li><code>df -T</code> will show filesystems.</li>
+</ul>
+<pre><code>$ df -T
+Filesystem            Type     1K-blocks    Used Available Use% Mounted on
+devtmpfs              devtmpfs      4096       0      4096   0% /dev
+tmpfs                 tmpfs      1873768       0   1873768   0% /dev/shm
+tmpfs                 tmpfs       749508    9068    740440   2% /run
+/dev/mapper/rhel-root xfs       17756160 4929928  12826232  28% /
+/dev/sda1             xfs         983040  421020    562020  43% /boot
+tmpfs                 tmpfs         1024       0      1024   0% /run/stratisd/ns_mounts
+tmpfs                 tmpfs       374752      40    374712   1% /run/user/1000
+</code></pre>
+<h4 id="8-list-block-devices">8. List block devices</h4>
+<ul>
+<li><code>lsblk</code> lists block devices.</li>
+</ul>
+<pre><code>$ lsblk
+NAME          MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+sda             8:0    0  20G  0 disk 
+├─sda1          8:1    0   1G  0 part /boot
+└─sda2          8:2    0  19G  0 part 
+  ├─rhel-root 253:0    0  17G  0 lvm  /
+  └─rhel-swap 253:1    0   2G  0 lvm  [SWAP]
+sdb             8:16   0   2G  0 disk 
+└─sdb1          8:17   0   1G  0 part 
+sr0            11:0    1  51M  0 rom
+</code></pre>
+<h4 id="9-list-block-files-representing-devices">9. List block files representing devices.</h4>
+<ul>
+<li>We can list <code>/dev/</code> directory for files of block devices.</li>
+</ul>
+<pre><code>$ sudo ls -ltr /dev/ | grep sda
+brw-rw----. 1 root disk      8,   0 Nov  7 23:28 sda
+brw-rw----. 1 root disk      8,   1 Nov  7 23:28 sda1
+brw-rw----. 1 root disk      8,   2 Nov  7 23:28 sda2
+</code></pre>
+<ul>
+<li>These files do not contain stored content in the traditional sense. Instead, their content is the interface they provide to the underlying hardware or kernel feature.</li>
+<li>b means they are block devices. There are also pipes sockets and speacial interfaces like <code>/dev/null</code> <code>/dev/zero</code> and <code>/dev/random</code>.</li>
+</ul>
+<pre><code>$ sudo hexdump /dev/sda | head -n 10
+0000000 63eb 1090 d08e 00bc b8b0 0000 d88e c08e
+0000010 befb 7c00 00bf b906 0200 a4f3 21ea 0006
+0000020 be00 07be 0438 0b75 c683 8110 fefe 7507
+0000030 ebf3 b416 b002 bb01 7c00 80b2 748a 8b01
+0000040 024c 13cd 00ea 007c eb00 00fe 0000 0000
+0000050 0000 0000 0000 0000 0000 8000 0001 0000
+0000060 0000 0000 faff 9090 c2f6 7480 f605 70c2
+0000070 0274 80b2 79ea 007c 3100 8ec0 8ed8 bcd0
+0000080 2000 a0fb 7c64 ff3c 0274 c288 be52 7d80
+0000090 17e8 be01 7c05 41b4 aabb cd55 5a13 7252
+</code></pre>
+<ul>
+<li>This is the raw disk data. <code>63eb, 1090, d08e</code> are bootloader instructions.</li>
+<li><code>7c00</code>: The memory address where the BIOS loads the bootloader.</li>
+<li>This is typical in MBR-based boot systems.</li>
+<li><code>13cd</code>: A BIOS interrupt call to perform disk operations.</li>
+<li><code>0000 0000</code>: Unused or reserved space in the MBR. Etc.</li>
+</ul>
+<h4 id="10-list-partition-details">10. List partition details.</h4>
+<ul>
+<li><code>sudo fdisk -l | more</code></li>
+</ul>
+<pre><code>$ sudo fdisk -l | more
+Disk /dev/sda: 20 GiB, 21474836480 bytes, 41943040 sectors
+Disk model: VBOX HARDDISK   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xd69fb96d
+
+Device     Boot   Start      End  Sectors Size Id Type
+/dev/sda1  *       2048  2099199  2097152   1G 83 Linux
+/dev/sda2       2099200 41943039 39843840  19G 8e Linux LVM
+
+Disk /dev/sdb: 2 GiB, 2147483648 bytes, 4194304 sectors
+Disk model: VBOX HARDDISK   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: E5AC1884-65BC-9149-9D23-BE472C69F870
+
+Device     Start     End Sectors Size Type
+/dev/sdb1   2048 2099199 2097152   1G Linux filesystem
+
+Disk /dev/mapper/rhel-root: 17 GiB, 18249416704 bytes, 35643392 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+Disk /dev/mapper/rhel-swap: 2 GiB, 2147483648 bytes, 4194304 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+</code></pre>
+<ul>
+<li><code>fdisk</code> : Fdisk is a preinstalled partition utility shows the partitions on disk block device. </li>
+<li><code>sectors</code> : Just like a meter devided in milimeters storage devices devided into sectors. We can see the sector size. </li>
+<li><code>start sector</code> : Also start sector 2048. 2048 x 512 exact 1 MB. So it places 1 MB not partitioned space as standart procedure. Reason is bootloader might needs to be installed in that area.</li>
+</ul>
+<h4 id="11-format-disk-without-ui-by-manipulating-disk-partition-table">11. Format disk without ui by manipulating disk partition table.</h4>
+<ul>
+<li><code>sudo fdisk /dev/sdb</code> (Note that disk is 2G total. )</li>
+</ul>
+<pre><code>- Press d to delete existing partitions (if any).
+- Press n to create a new partition.
+      - Choose default options for the new partition.
+      - Partition number (1-128, default 1):  (Press enter.)
+      - First sector (2048-4194270, default 2048): (Press enter.)
+      - Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-4194270, default 4194270):
+              - (Default will be single partition of 2G. Write +1G will be 1G first partition. Add rest as second partition. )
+              - Note that second became 1023MB not 1G.
+- Press w to write changes and exit.
+</code></pre>
+<ul>
+<li>Verify with <code>sudo fdisk -l</code> or <code>lsblk</code>.</li>
+</ul>
+<pre><code>sdb             8:16   0    2G  0 disk
+├─sdb1          8:17   0    1G  0 part
+└─sdb2          8:18   0 1023M  0 part
+</code></pre>
+<h4 id="12-create-xfs-filesystem-on-sdb1-partition">12. Create xfs filesystem on sdb1 partition.</h4>
+<pre><code>$ sudo mkfs.xfs /dev/sdb1
+meta-data=/dev/sdb1              isize=512    agcount=4, agsize=65536 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=1, sparse=1, rmapbt=0
+         =                       reflink=1    bigtime=1 inobtcount=1 nrext64=0
+data     =                       bsize=4096   blocks=262144, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
+log      =internal log           bsize=4096   blocks=16384, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+</code></pre>
+<h4 id="13-create-mount-directory-and-mount-filesystem">13. Create mount directory and mount filesystem.</h4>
+<ul>
+<li>Create a directory named data under root directory.</li>
+</ul>
+<pre><code>$ sudo mkdir /data/
+</code></pre>
+<ul>
+<li>Mount the file system to a directory.</li>
+</ul>
+<pre><code>$ sudo mount /dev/sdb1 /data2
+</code></pre>
+<h4 id="14-check-mounted-filesystems-to-verify-mount">14. Check mounted filesystems to verify mount.</h4>
+<pre><code>$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+/dev/sdb1              960M   39M  922M   5% /data
+</code></pre>
+<h4 id="15-make-mount-persistent-at-boot">15. Make mount persistent at boot.</h4>
+<ul>
+<li><p>Edit <code>/etc/fstab</code>file with vim.</p>
+</li>
+<li><p><code>sudo vim /etc/fstab</code></p>
+</li>
+</ul>
+<pre><code>- Press o to add line.
+  - Add the line.
+  - &lt;mount-dev-file&gt;   &lt;mount-point&gt;    &lt;file-system-type&gt; defaults 0 0
+  - Add the line below.
+  - /dev/sdb1   /data       xfs defaults 0 0
+    - Two tabs and rest is space.
+- Press :wq! write and quit.
+</code></pre>
+<ul>
+<li>Details can be checked using <code>man fstab</code>.</li>
+<li>Man page gives sample entry <code>LABEL=t-home2   /home      ext4    defaults,auto_da_alloc      0  2</code>.</li>
+<li><code>0</code> : This field is used by dump(8) to determine which filesystems need to be dumped.</li>
+<li><code>2</code> : This field is used by fsck(8) to determine the order in which filesystem checks are done at boot time.</li>
+</ul>
+<h4 id="16-reboot-gracefully-and-check-mounting">16. Reboot gracefully and check mounting.</h4>
+<pre><code>sudo systemctl reboot
+</code></pre>
+<ul>
+<li>Wait system to reboot.</li>
+<li><code>df -h</code> will show if mounting is made.</li>
+</ul>
+<pre><code>$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+/dev/sdb1              960M   39M  922M   5% /data
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+</code></pre>
+<h4 id="17-unmount-devsdb1">17. Unmount /dev/sdb1</h4>
+<ul>
+<li>Unmount by using mount point.</li>
+</ul>
+<pre><code>sudo umount /data
+</code></pre>
+<ul>
+<li>Verify.</li>
+</ul>
+<pre><code>$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+</code></pre>
+<h4 id="18-mount-all-using-fstab-file">18. Mount all using fstab File.</h4>
+<ul>
+<li>Mount all by using fstab file.</li>
+</ul>
+<pre><code>$ sudo mount -a
+</code></pre>
+<ul>
+<li>Verify.</li>
+</ul>
+<pre><code>$ df -h
+Filesystem             Size  Used Avail Use% Mounted on
+devtmpfs               4.0M     0  4.0M   0% /dev
+tmpfs                  1.8G     0  1.8G   0% /dev/shm
+tmpfs                  732M  8.9M  724M   2% /run
+/dev/mapper/rhel-root   17G  4.8G   13G  28% /
+/dev/sda1              960M  412M  549M  43% /boot
+tmpfs                  1.0M     0  1.0M   0% /run/stratisd/ns_mounts
+tmpfs                  366M   40K  366M   1% /run/user/1000
+/dev/sdb1              960M   39M  922M   5% /data
+</code></pre>
+<h4 id="19-format-disk-with-ui-by-manipulating-disk-partition-table">19. Format disk with ui by manipulating disk partition table.</h4>
+<pre><code>sudo cfdisk /dev/sdb
+</code></pre>
+<pre><code>1 GB Disk
+1023 MB Swap
+</code></pre>
+<ul>
+<li><p>We see select label type. </p>
+</li>
+<li><p>Disk is just 0 and 1s. Operating system needs to know where partition begins and ends. 
+This is the job of partition table. </p>
+</li>
+<li><p>We pick <code>gpt</code>. dos is actually MBR master boot record here is older format for partition tables used for decades. </p>
+</li>
+<li><p>New format is GPT guid partition tables. </p>
+</li>
+<li><p>gpt is less likely to get corrupted and many more primary partitions and much larger partition sizes.</p>
+</li>
+</ul>
+<p>Only very old hardware uses MBR. We continue with gpt.</p>
+<ul>
+<li><p><code>Free space &gt; New</code> : 2 partitions on 10 GB drive. 8 GB for operating system and 2 GB for swap. 
+Write 8G enter. Down and add 2G. sdb1 and sdb2. 
+We can resize. Sort when order is mixed up with deleting. </p>
+</li>
+<li><p><code>Type Partition Button</code> : Select swap. By default partitions created by cfdisk have linux filesystem type is good for storing generic data 
+operating systems programs personal files etc. 
+We rarely need to change partition type and one situation is the swap. 
+Other case is boot partition. 
+We select EFI. </p>
+</li>
+<li><p><code>Alter the partition Table</code> : Its just a plan in that stage.</p>
+</li>
+</ul>
+<p>It will activate when we press write button. Write yes. 
+It will gives message the partition table has been altered.</p>
+<ul>
+<li><p><code>lsblk</code> : Now we can quit and check with lsblk.</p>
+</li>
+<li><p>gdisk is similar but uses legacy MBR instead of GPT.</p>
+</li>
+</ul>
+<pre><code>$ lsblk
+NAME          MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda             8:0    0    2G  0 disk 
+├─sda1          8:1    0    1G  0 part 
+└─sda2          8:2    0 1023M  0 part 
+sdb             8:16   0   20G  0 disk 
+├─sdb1          8:17   0    1G  0 part /data2
+│                                      /boot
+└─sdb2          8:18   0   19G  0 part 
+  ├─rhel-root 253:0    0   17G  0 lvm  /
+  └─rhel-swap 253:1    0    2G  0 lvm  [SWAP]
+sr0            11:0    1 1024M  0 rom  
+</code></pre>
+<h4 id="20-show-swap-space-on-the-computer">20. Show swap space on the computer</h4>
+<pre><code>sudo swapon --show
+
+NAME      TYPE      SIZE USED PRIO
+/dev/dm-1 partition   2G   0B   -2
+</code></pre>
+<h4 id="21-format-partition-and-mark-it-as-swap-space">21. format partition and mark it as swap space</h4>
+<pre><code>sudo mkswap /dev/sda1
+
+mkswap: /dev/sda1: warning: wiping old xfs signature.
+Setting up swapspace version 1, size = 1024 MiB (1073737728 bytes)
+no label, UUID=28d4d10e-ceda-4606-accf-ab686afa2dbf
+</code></pre>
+<h4 id="22-enable-the-swap-space">22. Enable the swap space.</h4>
+<pre><code>sudo swapon /dev/sdb1
+</code></pre>
+<h4 id="23-verify-the-swap-space">23. Verify the swap space.</h4>
+<pre><code>
+swapon --show
+
+NAME      TYPE      SIZE USED PRIO
+/dev/dm-1 partition   2G   0B   -2
+/dev/sdb1 partition   2G   0B   -3
+
+free -h
+               total        used        free      shared  buff/cache   available
+Mem:           3.6Gi       473Mi       2.8Gi       8.0Mi       526Mi       3.1Gi
+Swap:          4.0Gi          0B       4.0Gi
+
+</code></pre>
+<h4 id="24-persistence-across-reboots-edit-file">24. Persistence Across Reboots. Edit file.</h4>
+<pre><code>sudo vi /etc/fstab
+/dev/sdb1 none swap sw 0 0
+</code></pre>
+<p>Verify.</p>
+<pre><code>sudo reboot
+swapon --show
+free -h
+
+
+lsblk -f
+blkid
+</code></pre>
+<h4 id="25-disabling-the-swap-space">25. Disabling the Swap Space.</h4>
+<pre><code>sudo swapoff /dev/sdb1
+</code></pre>
+<h4 id="26-monitor-swap-space">26. Monitor swap space.</h4>
+<pre><code>$ swapon --show
+NAME      TYPE      SIZE USED PRIO
+/dev/dm-1 partition   2G   0B   -2
+$ free -h 
+               total        used        free      shared  buff/cache   available
+Mem:           3.6Gi       477Mi       2.8Gi       8.0Mi       526Mi       3.1Gi
+Swap:          2.0Gi          0B       2.0Gi
+</code></pre>
+<h4 id="27-create-swap-file-filled-with-zeros">27. Create /swap file filled with zeros.</h4>
+<pre><code>$ sudo dd if=/dev/zero of=/swap bs=1M count=128
+128+0 records in
+128+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 0.0531297 s, 2.5 GB/s
+</code></pre>
+<h4 id="28-only-root-user-reads-and-writes">28. Only root user reads and writes.</h4>
+<pre><code>sudo chmod 600 /swap
+</code></pre>
+<h4 id="29-configure-file-as-a-swap">29. Configure file as a swap.</h4>
+<pre><code>$ sudo mkswap /swap
+Setting up swapspace version 1, size = 128 MiB (134213632 bytes)
+no label, UUID=62d39b37-4d9e-46b7-94c9-afa667fde03b
+</code></pre>
+<h4 id="30-enable-the-swap-space">30. Enable the swap space.</h4>
+<pre><code>$ sudo swapon --verbose /swap
+swapon: /swap: found signature [pagesize=4096, signature=swap]
+swapon: /swap: pagesize=4096, swapsize=134217728, devsize=134217728
+swapon /swap
+</code></pre>
+<h4 id="31-verify-the-swap-space">31. Verify the swap space.</h4>
+<pre><code>$ swapon --show
+NAME      TYPE      SIZE USED PRIO
+/dev/dm-1 partition   2G   0B   -2
+/swap     file      128M   0B   -3
+</code></pre>
+<h4 id="32-persistence-across-reboots-edit-file">32. Persistence Across Reboots. Edit file.</h4>
+<pre><code>sudo vi /etc/fstab
+</code></pre>
+<h4 id="33-add-line">33. Add line.</h4>
+<ul>
+<li>Key <code>o</code> will add line in vim.</li>
+</ul>
+<pre><code>/swap    none    swap    sw    0   0
+</code></pre>
+<h4 id="34-reboot">34. reboot</h4>
+<pre><code>sudo systemctl reboot
+</code></pre>
+<h4 id="35-check-the-partition-table">35. check the partition table</h4>
+<pre><code>$ swapon --show
+NAME      TYPE      SIZE USED PRIO
+/dev/dm-1 partition   2G   0B   -2
+/swap     file      128M   0B   -3
+</code></pre>
+<ul>
+<li>Revert changes by disabling the swap file.</li>
+</ul>
+<h4 id="36-disable-swap-space">36. Disable swap space</h4>
+<pre><code>sudo swapoff /swap
+</code></pre>
+<h4 id="37-remove-the-file-used-for-swap">37. Remove the file used for swap.</h4>
+<pre><code>sudo rm /swap
+</code></pre>
+<h4 id="38-remove-fstab-entry">38. Remove fstab entry.</h4>
+<ul>
+<li>Key <code>dd</code> will remove line in vim.</li>
+</ul>
+<pre><code>sudo vi /etc/fstab
+</code></pre>
+<p>End.</p>
