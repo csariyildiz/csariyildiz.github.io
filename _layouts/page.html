@@ -65,10 +65,25 @@
        
    <script>
   // Initialize DataTables
+  // Initialize DataTables with custom options
   $(document).ready(function () {
-    $('#postsTable').DataTable();
-    $('#docsTable').DataTable();
-    $('#codeTable').DataTable();
+    $('#postsTable').DataTable({
+      lengthChange: false, // Disable the "Show entries" dropdown
+      searching: false,    // Disable the search box
+      pageLength: 20       // Fix the number of entries per page to 20
+    });
+
+    $('#docsTable').DataTable({
+      lengthChange: false,
+      searching: false,
+      pageLength: 20
+    });
+
+    $('#codeTable').DataTable({
+      lengthChange: false,
+      searching: false,
+      pageLength: 20
+    });
   });
 </script>
     </body>
