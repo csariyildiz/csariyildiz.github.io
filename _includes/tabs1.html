@@ -86,12 +86,11 @@
         <tbody>
           {% for doc in site.data.live_codes %}
           {% if doc.id %}   
-          
           <tr>
             <td>{{ doc.id }}</td>
-             <td>{{ doc.id }}</td>
-             <td>{{ doc.id }}</td>
-             <td>{{ doc.id }}</td>
+             <td>{{ doc.date }}</td>
+             <td>{{ doc.title }}</td>
+             <td>{{ doc.description }}</td>
           </tr>
           
           {% endif %}
