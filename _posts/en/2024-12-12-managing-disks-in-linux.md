@@ -1,13 +1,10 @@
----
-forms: blog15
-layout: post5
-title: "5-1 Managing Disks On Linux"
-category: linux
-cat: Linux
+layout: post3
+title: "Managing Disks In Linux"
+category: main
+cat: System
 tags:
-  - Operating Systems
   - Linux
-  - Disk Management
+  - Disk
 ---
 
 In this post, we’ll explore practical steps and best practices to manage disks effectively.
