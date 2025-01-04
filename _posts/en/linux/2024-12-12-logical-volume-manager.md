@@ -11,14 +11,14 @@ tags:
 LVM (Logical Volume Manager) is a device management technology used in Linux for flexible disk storage management. It abstracts physical storage devices (like hard drives or partitions) and presents them as logical volumes, making it easier to manage and resize storage without being constrained by physical disk sizes.
 
 
-## Concepts
-
-
+Notes are organized in concepts, command overview and lab steps.
 
 ## Command Overview
 
 
-## Creating Volume Groups And Physical Volumes
+## Concepts
+
+### Creating Volume Groups And Physical Volumes
 
 * `PV, VG, LV` :Define PV, Add to VG, Create LV. Physical Volumes (PVs): Physical partitions or disks added to the LVM.
 Volume Groups (VGs): A collection of PVs that form a single storage pool. Logical Volumes (LVs): Slices of a VG that act like partitions and can be resized or moved more easily.
@@ -32,7 +32,7 @@ Volume Groups (VGs): A collection of PVs that form a single storage pool. Logica
 * `pvremove /dev/sde`: Removes the physical volume `/dev/sde` from LVM entirely. (needs to be run as sudo)
 
 
-## Creating Logical Volumes
+### Creating Logical Volumes
 
 * `lvcreate -L <size> -n <name> <VG>`
   * `lvcreate --size 2G --name partition1 my_volume`: Creates a logical volume named `partition1` with a size of 2GB in the volume group `my_volume`. (needs to be run as sudo)
@@ -45,7 +45,7 @@ Volume Groups (VGs): A collection of PVs that form a single storage pool. Logica
 
 * `lvdisplay`: Displays information about logical volumes, including the LV path (e.g., `/dev/my_volume/partition1`). (needs to be run as sudo)
 
-## Creating And Resizing With Filesystem
+### Creating And Resizing With Filesystem
 
 * `mkfs.xfs /dev/my_volume/partition1`: Creates an XFS filesystem on the logical volume `/dev/my_volume/partition1`. (needs to be run as sudo)
 * `lvresize --resizefs --size 3G my_volume/partition1`: Resizes `partition1` to 3GB and resizes the filesystem along with it. (needs to be run as sudo)
