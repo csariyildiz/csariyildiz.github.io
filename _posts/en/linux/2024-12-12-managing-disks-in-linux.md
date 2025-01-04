@@ -8,7 +8,7 @@ tags:
   - Disk
 ---
 
-In this post, we’ll explore practical steps and best practices to manage disks effectively.
+In this post, we’ll explore how to manage disks in linux effectively.
 We will focus on partitions and swap space. Managing disks is a crucial aspect of operating system administration, playing a key role in optimizing performance, storage efficiency, and system reliability. However, it's not without its challenges.  Disk management in linux is mildly complex, requires a good understanding of tools and commands.  Sometimes it could became dangerous, as a single mistake could cause data loss or system instability. 
 
 Notes are organized in concepts, command overview and lab steps.
