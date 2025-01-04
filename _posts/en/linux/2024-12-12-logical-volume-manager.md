@@ -31,16 +31,18 @@ lvm version
 rpm -qa | grep lvm2
 
 lvmdiskscan
-pvs
 
+pvs
+pvdisplay
 pvcreate /dev/sde
-vgcreate my_volume /dev/sdc /dev/sdd
-vgextend my_volume /dev/sde
+pvremove /dev/sde
 
 vgs
-vgreduce my_volume /dev/sde
-vgreduce my_volume /dev/sde
-pvremove /dev/sde
+vgdisplay
+vgcreate my_vg /dev/sdc /dev/sdd
+vgextend my_vg /dev/sde
+vgreduce my_vg /dev/sde
+vgreduce my_vg /dev/sde
 vgremove my_vg
 ```
 
@@ -50,11 +52,11 @@ vgremove my_vg
 lvs
 lvdisplay
 
-lvcreate --size 2G --name partition1 my_volume
-lvcreate --size 6G --name partition2 my_volume
+lvcreate --size 2G --name partition1 my_vg
+lvcreate --size 6G --name partition2 my_vg
 
-lvresize --extents 100%VG my_volume/partition1
-lvresize --size 2G my_volume/partition1
+lvresize --extents 100%VG my_vg/partition1
+lvresize --size 2G my_vg/partition1
 
 lvextend -L +500M /dev/my_vg/lv_one
 lvremove /dev/my_vg/lv_two
@@ -69,6 +71,7 @@ lvresize --resizefs --size 3G my_volume/partition1
 mkfs.xfs /dev/my_vg/lv_one
 mkdir /mnt/lv_one /mnt/lv_two
 mount /dev/my_vg/lv_one /mnt/lv_one
+mount
 df -h | grep /mnt
 echo "/dev/my_vg/lv_one /mnt/lv_one xfs defaults 0 0" | sudo tee -a /etc/fstab
 umount /mnt/lv_one
@@ -181,6 +184,9 @@ sudo lvs
 
 #### 1. Show disks and look for pvs.
 
+*  As we can see operating system itself is configured using LVM.
+*  Its partition /sda2 configured as a PV.
+  
 ```
 lsblk
 
@@ -195,6 +201,8 @@ sdb             8:16   0    2G  0 disk
 sr0            11:0    1 1024M  0 rom  
 ```
 
+*  It also have a volume group.
+  
 ```
 sudo pvs
 
@@ -202,9 +210,11 @@ sudo pvs
   /dev/sda2  rhel lvm2 a--  <19.00g    0 
 ```
 
+*  We will use sdb partition but we need to remove existing configuration first.
+  
 #### 2. Wipe Disk
 
-Clear filesystem signature:
+*  First we clear the filesystem signature.
 
 ```
 sudo wipefs -a /dev/sdb
@@ -214,7 +224,7 @@ sudo wipefs -a /dev/sdb
 /dev/sdb: calling ioctl to re-read partition table: Success
 ```
 
-Clear the Disk
+*  Then we clear the disk with zero bytes.
 
 ```
 sudo dd if=/dev/zero of=/dev/sdb bs=1024M count=2
@@ -225,7 +235,7 @@ sudo dd if=/dev/zero of=/dev/sdb bs=1024M count=2
 
 #### 3. Format Disk
 
-We format and also partition the disk.
+*  We format and also partition the disk as a single volume. Partition type will be Linux LVM.
 
 ```
 sudo fdisk /dev/sdb
@@ -259,7 +269,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-Verify.
+*  Verify the partition.
 
 ```
 
@@ -280,12 +290,15 @@ sr0            11:0    1 1024M  0 rom
 
 #### 4. Create Physical Volume
 
+* We cant create PV using /dev/sdb directly since we partitioned it before.
+* We can use its partition. Or wipe it out and add it as a pv.
+
 ```
 sudo pvcreate /dev/sdb
   Cannot use /dev/sdb: device is partitioned
 ```
 
-Note: We cant use /dev/sdb directly since we partitioned it before. We can use its partition. Or wipe it out and add it as a pv.
+*  Lets use its partition.
 
 ```
 sudo pvcreate /dev/sdb1
@@ -293,7 +306,8 @@ sudo pvcreate /dev/sdb1
 
 ```
 
-
+*  PV is successfully created.
+  
 ```
 sudo pvs
   PV         VG   Fmt  Attr PSize   PFree 
@@ -304,11 +318,14 @@ sudo pvs
 
 #### 5. Add PV to a Volume Group (VG)
 
+*  Now we can create the volume group using our physical volume.
+  
 ```
 sudo vgs
   VG   #PV #LV #SN Attr   VSize   VFree
   rhel   1   2   0 wz--n- <19.00g    0 
 ```
+
 
 ```
 sudo vgcreate my_vg /dev/sdb1
@@ -319,6 +336,8 @@ sudo vgcreate my_vg /dev/sdb1
 sudo vgcreate my_vg /dev/sdb1
 ```
 
+*  Now we can see our volume group.
+  
 ```
 sudo vgs
 
@@ -327,23 +346,24 @@ sudo vgs
   rhel    1   2   0 wz--n- <19.00g     0 
 ```
 
-Note: We can also extend an existing group with sudo vgextend my_vg /dev/sdb1
-Ensure the disk is not in use (check with mount or lsblk).
-Use vgremove and pvremove to free the disk if it was previously used with LVM.
+* Note: We can also extend an existing group with sudo vgextend my_vg /dev/sdb1
+* Ensure the disk is not in use (check with mount or lsblk).
+* Use vgremove and pvremove to free the disk if it was previously used with LVM.
 
 
 #### 6. Create Two Logical Volumes
 
-Create the First Logical Volume (lv_one)
+* Create the First Logical Volume (lv_one)
 
-Allocate 1GB to the first LV:
-
+* Allocate 1GB to the first LV
 
 ```
 sudo lvcreate -L 1G -n lv_one my_vg
   Logical volume "lv_one" created.
 ```
 
+* Allocate 1000MB to the second LV
+* 
 ```
  sudo lvcreate -L 1000MB -n lv_two my_vg
   Logical volume "lv_two" created.
