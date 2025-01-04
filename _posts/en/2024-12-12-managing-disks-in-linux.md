@@ -13,34 +13,61 @@ We will focus on partitions and swap space. Managing disks is a crucial aspect o
 
 Notes are organized in concepts, command overview and lab steps.
 
-## Table Of Contents
+## Command Overview
 
-* Concepts
-  * Block Devices
-  * Mounting
-  * Why we need partitions?
-  * What are MBR And GPT?
-  * What is LVM?
-  * Boot Process And Grub
-  * Boot Directory Of Linux
-  * Boot Errors
-  * Finding Large Files
-  * Creating Physical Storage Partitions
-  * Defining Partitions As Swap
-  * Using A File As A Device
-  * Configuring File As A Swap
-* Command Overview
-  * Devices Partitions
-  * Define Partitions As A Swap
-  * Use File As A Swap
-* Steps (38 steps)
+### Devices Partitions
 
+```
+lsblk
+fdisk -l
+mount /dev/sda1  /mnt/mydisk
+df -h
+du -h --max-depth=1 / 2>/dev/null | sort -hr
+find / -type f -size +100M 2>/dev/null
+df -T
+fdisk /dev/sdb
+cfdisk /dev/sdb
+mkfs.xfs /dev/sdb1
+mkfs.ext4 /dev/sdb2
+
+# Troubleshoot
+blkid
+lsblk
+nano /etc/fstab
+fsck /dev/sdb
+mount -o remount,rw /
+dracut --force
+reboot
+```
+
+### Defining Partitions As A Swap
+
+```
+swapon --show
+mkswap /dev/vdb3
+swapon --show --verbose /dev/vdb3
+swapon --show
+swapoff /dev/vdb3 
+# Entry on /etc/fstab:
+/dev/vdb3    none    swap    sw    0   0
+```
+
+### Configuring File As A Swap
+
+```
+dd if=/dev/zero of=/swap bs=1M count=128 status=progress
+chmod 600 /swap 
+mkswap /swap 
+swapon --show
+# Entry on /etc/fstab`
+/swap    none    swap    sw    0   0
+```
 
 ## Concepts
 
 ### Block Devices
 
-* We can use the command `lsblk` to list block devices. We can also use fdisk -l for same purpose.
+* We can use the command `lsblk` to list block devices. We can also use `fdisk -l` for same purpose.
 
 ```
 $ lsblk
@@ -170,12 +197,12 @@ $ mount | grep sdb | column -t
   
 ### Boot Errors
 
-When virtual machine boots into emergency mode, it usually indicates a critical issue, such as a corrupted filesystem, missing boot files, or incorrect configuration.
-Emergency mode typically happens due to:
-
-* Corrupted or unmounted filesystems.
-* Incorrect entries in /etc/fstab.
-* Missing kernel modules or bootloader configuration issues
+* When virtual machine boots into emergency mode, it usually indicates a critical issue, such as a corrupted filesystem, missing boot files, or incorrect configuration.
+* Emergency mode opens with a terminal with root account
+* This typically happens due to:
+	* Corrupted or unmounted filesystems.
+	* Incorrect entries in /etc/fstab.
+	* Missing kernel modules or bootloader configuration issues
 
 ```
 journalctl -xb
@@ -200,7 +227,7 @@ nano /etc/fstab
 * Repair Filesystems: If a filesystem is corrupted, repair it with fsck:
 
 ```
-fsck /dev/sdX
+fsck /dev/sdb
 ```
 
 * Replace /dev/sdX with the correct partition, e.g., /dev/sda1.
@@ -314,7 +341,7 @@ du -h /var/log | sort -hr
 * (File system details later.)
 * Also update /etc/fstab to persist.
 
-### Defining Partitions As Swap
+### Defining Partitions As A Swap
 
 * `Swap` : If we got. 4 GB RAm, 2 GB video editor, 2GB audio editor. Chrome. Moves to swap partition now memory is stored in the disk.
 * `sudo swapon --show` : To see swap space we can use swapon with show parameter. One partition as used as swap */dev/dm-1* partition 2G. 0 bytes used. We can add more partitions if we want.
@@ -344,38 +371,6 @@ bs=1M: Sets the block size to 1 megabyte. count=128: Specifies that 128 blocks o
 * `swapon --show`  : Now we can see its used for swap. Verifying the Swap Space: This command lists all active swap spaces on the system, including the newly added swap file. It allows you to verify that the swap file is being used.
 * `Entry on /etc/fstab` Persistence Across Reboots: To ensure that the swap file is enabled every time the system boots, you need to add it to the /etc/fstab file: */swap    none    swap    sw    0   0* This entry makes the swap file persistent, ensuring that it is automatically used as swap space after every reboot.
 
-## Command Overview
-
-### Devices Partitions
-* lsblk
-* fdisk -l
-* mount /dev/sda1  /mnt/mydisk
-* df -h
-* du -h --max-depth=1 / 2>/dev/null | sort -hr
-* find / -type f -size +100M 2>/dev/null
-* df -T
-* fdisk /dev/sdb
-* cfdisk /dev/sdb
-* mkfs.xfs /dev/sdb1
-* mkfs.ext4 /dev/sdb2
-* (Details of filesystems later)
-
-### Define Partitions As A Swap
-
-* `swapon --show`
-* `mkswap /dev/vdb3`
-* `swapon --show --verbose /dev/vdb3`
-* `swapon --show` 
-* `swapoff /dev/vdb3` 
-* `Entry on /etc/fstab` : "/dev/vdb3    none    swap    sw    0   0".
- 
-### Use File As A Swap
-
-* `dd if=/dev/zero of=/swap bs=1M count=128 status=progress`
-* `chmod 600 /swap` 
-* `mkswap /swap` 
-* `swapon --show`
-* `Entry on /etc/fstab` : Persist at boot. "/swap    none    swap    sw    0   0" sudo.
 
 ## Steps
 
