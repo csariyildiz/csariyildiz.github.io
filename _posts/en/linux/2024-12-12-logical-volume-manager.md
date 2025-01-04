@@ -1,6 +1,6 @@
 ---
 layout: post3
-title: "Managing Disks In Linux"
+title: "Logical Volume Manager"
 category: main
 cat: System
 tags:
