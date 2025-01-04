@@ -1,9 +1,14 @@
+---
+layout: post3
+title: "Managing Disks In Linux"
+category: main
+cat: System
+tags:
+  - Linux
+  - Disk
+---
 
-## Table Of Contents
-
-* Concepts
-* Command Overview
-* Steps
+LVM (Logical Volume Manager) is a device management technology used in Linux for flexible disk storage management. It abstracts physical storage devices (like hard drives or partitions) and presents them as logical volumes, making it easier to manage and resize storage without being constrained by physical disk sizes.
 
 
 ## Concepts
