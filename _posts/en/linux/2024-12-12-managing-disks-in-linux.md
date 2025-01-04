@@ -48,8 +48,7 @@ mkswap /dev/vdb3
 swapon --show --verbose /dev/vdb3
 swapon --show
 swapoff /dev/vdb3 
-# Entry on /etc/fstab:
-/dev/vdb3    none    swap    sw    0   0
+echo "/dev/vdb3    none    swap    sw    0   0" | sudo tee -a /etc/fstab
 ```
 
 ### Configuring File As A Swap
@@ -59,8 +58,7 @@ dd if=/dev/zero of=/swap bs=1M count=128 status=progress
 chmod 600 /swap 
 mkswap /swap 
 swapon --show
-# Entry on /etc/fstab`
-/swap    none    swap    sw    0   0
+echo "/swap    none    swap    sw    0   0" | sudo tee -a /etc/fstab
 ```
 
 ## Concepts
