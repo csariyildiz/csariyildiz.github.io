@@ -1,3 +1,4 @@
+---
 layout: post3
 title: "Managing Disks In Linux"
 category: main
