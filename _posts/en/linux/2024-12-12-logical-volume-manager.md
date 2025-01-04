@@ -86,18 +86,15 @@ wipefs -a /dev/sdb1
 ## Concepts
 
 
-### What is LVM (Logical Volume Manager)?
+### What is LVM?
 
-* LVM is particularly useful in enterprise environments where storage requirements often change dynamically.
+* LVM (Logical Volume Manager) is a disk virtualization tool. It is particularly useful in environments where storage requirements often change dynamically.
+* LVM makes storage management flexible by resizing logical volumes without affecting the underlying physical storage. Sizes are dynamic making adding more storage by adding new physical volumes to the volume group. Resizing volumes on the fly (grow or shrink).
+* LVM has a snapshots feature. Snapshots of a logical volume can be created for backups or testing.
+* LVM can distribute data across multiple physical volumes (striping) for better performance and mirror data (mirroring) for redundancy.
+* LVM combines multiple disks into a single volume group, enabling better disk utilization, providing efficient disk usage.
 
-* It provides:
-  * Flexible Storage Management: Easily resize logical volumes without affecting the underlying physical storage.
-  * Dynamic Resizing: Add more storage by adding new physical volumes to the volume group. Resize volumes on the fly (grow or shrink).
-  * Snapshots: Create a snapshot of a logical volume for backups or testing.
-  * Striping and Mirroring: Distribute data across multiple physical volumes (striping) for better performance. Mirror data for redundancy.
-  * Efficient Disk Usage: Combine multiple disks into a single volume group, enabling better disk utilization.
-
-
+* Main components of LVM are PVs, VGs, LVs and PEs.
 * PVs are the raw storage devices or partitions that are initialized for LVM. Examples: /dev/sda1, /dev/sdb.
 * Volume Group (VG) is a collection of one or more physical volumes pooled together to create a storage group. Acts as a container for logical volumes. Example: vg_data.
 * Logical Volumes (LV) are the "virtual partitions" created from a volume group. They act like traditional partitions but can be resized, moved, or modified easily. Example: /dev/vg_data/lv_home.
@@ -115,7 +112,7 @@ wipefs -a /dev/sdb1
   * Volume Groups (VGs): A collection of PVs that form a single storage pool.
   * Logical Volumes (LVs): Slices of a VG that act like partitions and can be resized or moved more easily.
 
-* `pvs`: This scans all disks and reports their suitability for LVM.
+* `lvmdiskscan` command scans all disks and reports their suitability for LVM.
   
 ```
 sudo lvmdiskscan
@@ -126,7 +123,7 @@ sudo lvmdiskscan
   1 LVM physical volume
 ```
 
-* `pvs`: Lists physical volumes.
+* `pvs` lists physical volumes.
 
 ```
 sudo pvs
@@ -134,7 +131,7 @@ sudo pvs
   /dev/sda2  rhel lvm2 a--  <19.00g    0
 ```
 
-* `vgs`: Checks volume groups. (needs to be run as sudo)
+* `vgs` checks volume groups.
 
 ```
 sudo vgs
@@ -142,15 +139,13 @@ sudo vgs
   rhel   1   2   0 wz--n- <19.00g    0
 ```
 
-* `lvs`: Lists logical volumes.
+* `lvs` lists logical volumes.
 
 ```
-
 sudo lvs
   LV   VG   Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
   root rhel -wi-ao---- <17.00g
   swap rhel -wi-ao----   2.00g
-
 ```
   
 * `pvcreate /dev/sde`: Creates a new physical volume on `/dev/sde`. (needs to be run as sudo)
