@@ -20,13 +20,14 @@ LUKS (Linux Unified Key Setup) is a standardized and widely-used encryption syst
 
 ## Concepts
 
-### cryptsetup - Create And Configure Encrypted Storage
+### Encrypted Disk And Cryptsetup
 
 * Encryption prevents unauthorized access to data on a physical device, ensuring security even if the storage is stolen or lost.
 * The cryptsetup tool is commonly used for encryption. It supports two modes: plain (a simple, less secure method) and LUKS (more advanced and widely used for robust encryption).
 * To explore available commands and options, we can run `cryptsetup --help` or use tab completion (`cryptsetup <space> <Tab><Tab>`).
 
-#### Using An Encrypted Disk
+### Using An Encrypted Disk
+
 
 * To use an priviously encrypted disk we need to open the encrypted device `/dev/vde` and map it to `/dev/mapper/mysecuredisk` with following command.
 
@@ -47,7 +48,7 @@ mount /dev/mapper/mysecuredisk /mnt/mysecuredisk
 * This allows us to access the decrypted data stored on the encrypted device.
 * We will unmount and close it when we want to get to the encrypted state again.
 
-#### Close Encrypted Disk
+### Close Encrypted Disk
 
 * To close it first we unmount the filesystem from `/mnt`, ensuring that the data is no longer accessible.
 
@@ -64,7 +65,7 @@ cryptsetup close mysecuredisk
 * The device `/dev/vde` is no longer accessible.
 * It has to be mounted and opened.
 
-#### Configure a Disk with Plain Encryption
+### Configure a Disk with Plain Encryption
 
 * If we want to create encrypted device `/dev/vde` we can encrypt it using plain encryption.
 * This will only enrypte device using a passphrase.
@@ -93,7 +94,7 @@ mount /dev/mapper/mysecuredisk /mnt/mysecuredisk
 * The data is now accessible.
 * We can unmount and close it if we want to lock the disk.
 
-#### Configure a Disk with LUKS Encryption
+### Configure a Disk with LUKS Encryption
 
 * To use LUKS encryption on `/dev/vde` we use cryptsetup with luksFormat parameter.
 * We do that before opening as an extra step.
@@ -115,7 +116,7 @@ cryptsetup open /dev/vde mysecuredisk
 mkfs.xfs /dev/mapper/mysecuredisk
 ```
 
-#### Changing the key
+### Changing the key
 
 * We can change the passphrase for the LUKS-encrypted device `/dev/vde` now.
 
@@ -123,7 +124,7 @@ mkfs.xfs /dev/mapper/mysecuredisk
 cryptsetup luksChangeKey /dev/vde
 ```
 
-#### Configure Partitions Instead of Disk
+### Configure Partitions Instead of Disk
 
 * Similarly we can configure paritions instead of a whole disk with both plain and luks encription.
 * Again to use LUKS encryption on `/dev/vde` we use cryptsetup with luksFormat parameter.
@@ -146,7 +147,7 @@ cryptsetup open /dev/vde2 mysecuredisk
 cryptsetup open --type plain --verify-passphrase /dev/vde2 mysecuredisk
 ```
 
-#### Encrypt Using A Key File
+### Encrypt Using A Key File
 
 A keyfile is simply a file containing random or specific data used for encryption.
 
@@ -204,3 +205,6 @@ sudo cryptsetup open /dev/sdb1 secureDiskLuks
 ```
 sudo mkfs.ext4 /dev/mapper/mysecuredisk`
 ```
+
+#### 4. Format With Filesystem EXT4
+
