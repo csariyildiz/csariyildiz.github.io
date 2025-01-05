@@ -1,6 +1,6 @@
 ---
 layout: post3
-title: "Encrypted Storage"
+title: "Disk Features In Linux"
 category: main
 cat: System
 tags:
