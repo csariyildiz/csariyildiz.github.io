@@ -26,8 +26,3 @@ Disk quotas allow administrators to limit the amount of disk space or number of 
 They help prevent a single user or process from consuming excessive storage, ensuring fair usage and system stability.
 
 
-Once opened, the mapped device (/dev/mapper/mysecuredisk) must be formatted with a filesystem, e.g., ext4:
-
-```
-sudo mkfs.ext4 /dev/mapper/mysecuredisk
-```
