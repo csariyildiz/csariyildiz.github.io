@@ -1,8 +1,16 @@
-I recently began organizing my notes on Linux system administration. Some might wonder if this is necessary in an era where chatbots are readily available, but I see it as a valuable habit. My initial resources were online courses and books, but rather than copying them directly, I refined and expanded the content over time with the help of chatbots.
+---
+layout: post3
+title: "Notes On Linux System Administration"
+category: main
+cat: System
+tags:
+  - Linux
+  - Disk
+---
 
-I prefer to create each topic into three sections: command overview, concepts, and steps. The command overview provides a summary of the relevant commands for each chapter. The concepts section offers an in-depth explanation of the topic. Finally, the steps section outlines basic lab exercises to practice the concepts.
+I recently began organizing my notes on Linux system administration. Some might wonder if this is necessary in an era where chatbots are readily available, but I see it as a valuable habit. My initial resources were online courses and books, but rather than copying them directly, I refined and expanded the content over time with the help of chatbots. Since GitHub Pages doesn't seem to be raising any issues so far, I’ll continue using it to serve my Jekyll platform.
 
-Since GitHub Pages doesn't seem to be raising any issues so far, I’ll continue using it to serve my Jekyll site.
+I prefer to create each topic into three sections: command overview, concepts, and steps. The command overview provides a summary of the relevant commands for each chapter. The concepts section offers an in-depth explanation of the topic. Finally, the steps section outlines basic lab exercises to practice the concepts. I mainly used Ubuntu and RHEL 9 with the help of VirtualBox.
 
 The series is organized into eight main subjects:
 
@@ -27,8 +35,7 @@ The series is organized into eight main subjects:
 * Managing Systems
 
 ## Remarks
-
-
+  
 ### Question Of AI Takeover
 
 While AI is making significant strides in automating tasks, including system monitoring, troubleshooting, and even some aspects of system administration, it is unlikely to completely "take over" the role of Linux system administrators in the near future.
