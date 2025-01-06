@@ -12,8 +12,8 @@ tags:
 * For storage management we will cover the following topics:
 
 * [Managing Disks In Linux](/managing-disks-in-linux)
-* [LVM – Logical Volume Manager](/logical-volume-manager-in-linux)
-* [Disk Features](/disk-features)
+* [LVM – Logical Volume Manager](/logical-volume-manager)
+* [Disk Features](/disk-features-in-linux)
   * [Encrypted Storage](/encrypted-storage-in-linux)
   * [RAID Devices](/raid-devices-in-linux)
   * [Advanced Permissions](/advanced-permissions-in-linux)
