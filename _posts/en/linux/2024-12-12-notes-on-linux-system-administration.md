@@ -28,18 +28,26 @@ The series is organized into eight main subjects:
 
 ## Remarks
 
-Linux system administration remains a crucial skill. While automation tools, cloud platforms, and container technologies have evolved, Linux continues to be the foundation of many servers, cloud environments, and enterprise systems. The demand for Linux administrators is strong, especially with the growing use of open-source technologies, DevOps practices, and infrastructure-as-code. As businesses rely more on Linux-based systems for scalability, security, and cost efficiency, system administration skills in this area are essential for operation and performance.
+
+### Question Of AI Takeover
 
 While AI is making significant strides in automating tasks, including system monitoring, troubleshooting, and even some aspects of system administration, it is unlikely to completely "take over" the role of Linux system administrators in the near future.
 
-Complex Decision Making: AI tools can assist with routine tasks like managing logs, updating systems, and even detecting potential issues. However, complex decisions that require context, understanding of specific business needs, or troubleshooting in real-world environments still require human expertise.
+One of the reasons is complex decision making. AI tools can assist with routine tasks like managing logs, updating systems, and even detecting potential issues. However, complex decisions that require context, understanding of specific business needs, or troubleshooting in real-world environments still require human expertise.
 
-Customization: Every system is unique in terms of its configuration, use cases, and performance requirements. A Linux system administrator can adapt to these nuances, while AI, even with machine learning, needs structured data and might struggle with highly customized or non-standard environments.
+Every system tends to be unique in terms of its configuration, use cases, and performance requirements. A Linux system administrator can adapt to these nuances, while AI, even with machine learning, needs structured data and might struggle with highly customized or non-standard environments.
 
-Security and Risk Management: System administrators are responsible for making judgment calls on security measures and assessing risks, often based on experience and intuition. While AI can help with automating security scans and threat detection, it is not fully capable of handling the ethical and strategic decision-making involved in securing complex systems.
+In terms of security and risk management, system administrators are responsible for making judgment calls on security measures and assessing risks, often based on experience and intuition. While AI can help with automating security scans and threat detection, it is not fully capable of handling the ethical and strategic decision-making involved in securing complex systems.
 
-Human Interaction: Many roles in IT, including system administration, also involve communication with other teams, stakeholders, or end users. These human interactions, as well as an understanding of organizational culture and context, are areas where AI still has limitations.
+Another aspect is the human interaction. Many roles in IT, including system administration, also involve communication with other teams, stakeholders, or end users. These human interactions, as well as an understanding of organizational culture and context, are areas where AI still has limitations.
+
+Today linux system administration still a crucial skill. While automation tools, cloud platforms, and container technologies have evolved, Linux continues to be the foundation of many servers, cloud environments, and enterprise systems. The demand for Linux administrators is strong, especially with the growing use of open-source technologies, DevOps practices, and infrastructure-as-code. As businesses rely more on Linux-based systems for scalability, security, and cost efficiency, system administration skills in this area are essential for operation and performance.
 
 ## Links
 
-* https://tldr.inbrowser.app/ is a very need PWA (Progressive Web App).
+### Interactive Tutorial
+
+* [tldr.inbrowser.app](https://tldr.inbrowser.app/) : Very neat PWA (Progressive Web App) written in Vue.js and typescript. Lists tldr for CLI commands.
+* [Vim Adventures](https://vim-adventures.com/) : A game that teaches VIM.
+* [learnshell.org](https://www.learnshell.org/) : Interactive shell tutorial.
+
