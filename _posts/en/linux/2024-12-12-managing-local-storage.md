@@ -14,13 +14,13 @@ This series on Linux system administration explores the essential concepts and p
 
 * [Managing Disks In Linux](/managing-disks-in-linux)
 * [LVM – Logical Volume Manager](/logical-volume-manager)
-* [Disk Features](/disk-features-in-linux)
+* Disk Features
   * [Encrypted Storage](/encrypted-storage-in-linux)
   * [RAID Devices](/raid-devices-in-linux)
   * [Advanced Permissions](/advanced-permissions-in-linux)
   * [Disk Quotas](/disk-quotas-in-linux)
 * [File Systems](/file-systems-in-linux)
-* [Optimization And Compression](/optimization-and-compression-in-linux)
+* Optimization And Compression
   * [VDO](/vdo-in-linux)
   * [LVMVDO](/lvmvdo-in-linux)
   * [Stratis](/stratis-in-linux)
@@ -48,6 +48,7 @@ Managing Swap: Swap space is used as virtual memory to supplement physical RAM. 
 ### Logical Volume Manager
 
 LVM provides flexible disk management by allowing administrators to create, resize, and manage logical volumes. It uses physical volumes (PVs) to form volume groups (VGs), from which logical volumes (LVs) are created. LVM makes it easier to expand storage without downtime.
+
 ### Disk Features
 
 Encrypted storage ensures that data is protected by converting it into a secure format, accessible only with a decryption key or passphrase. Tools like LUKS and dm-crypt are commonly used in Linux to implement disk encryption, providing security for sensitive data. We will focus on plain-encription and LUKS using cryptsetup.
