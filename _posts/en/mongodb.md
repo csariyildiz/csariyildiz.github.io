@@ -9,7 +9,6 @@ tags:
 ---
 
 
-### Rename Collection
 
 ### Sorting
 
