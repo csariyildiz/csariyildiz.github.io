@@ -17,7 +17,7 @@ db.keywords_base.updateMany({},{$unset: {wordCount:""}})
 ### Rename Field
 
 ```
-db.keywords_base.updateMany({},{ $rename: { "old": "new" } });
+db.keywords_base.updateMany({},{ $rename: { "Item": "kw" } });
 ```
 
 
@@ -54,6 +54,13 @@ db.sourceCollection.aggregate(
 );
 ```
 
+
+### Find Count
+
+db.collection.find( { kw_count} ).count()
+
+
+
 ### Find Matches
 
 * Filter field value.
@@ -61,7 +68,7 @@ db.sourceCollection.aggregate(
 ```
 db.keywords.aggregate(
 
-[ { $match : { author : "dave" } } ]
+[ { $match : { id : "91942" } } ]
 
 );
 ```
@@ -102,28 +109,28 @@ db.w2.renameCollection("w3")
 ### Join
 
 ```
-db.w2.aggregate([
+db.keywords_match.aggregate([
   {
     $lookup: {
-      from: "w3",             // The collection to join (w3)
-      localField: "keyword",  // The field in w2 to match with w3
-      foreignField: "item",   // The field in w3 to match with w2's keyword
-      as: "w3_scores"         // The name of the new array field to store matched results
+      from: "keywords_base3",             // The collection to join (w3)
+      localField: "kw_match",  // The field in w2 to match with w3
+      foreignField: "kw",   // The field in w3 to match with w2's keyword
+      as: "kw_counts"         // The name of the new array field to store matched results
     }
   },
   {
-    $unwind: "$w3_scores"     // Unwind the array to get a flat structure
+    $unwind: "$kw_counts"     // Unwind the array to get a flat structure
   },
   {
     $project: {
       _id: 0,                 // Optionally exclude the original _id field from the result
-      keyword: 1,             // Include the keyword field
-      count: 1,               // Include the count field
-      score: "$w3_scores.score"  // Include the score field from the w3 collection
+      kw_match: 1,             // Include the keyword field
+      m_count: 1,               // Include the count field
+      kw_count: "$kw_counts.kw_count"  // Include the score field from the w3 collection
     }
   },
   {
-    $out: "w4" 
+    $out: "keywords_match2" 
   }
 ]);
 ```
