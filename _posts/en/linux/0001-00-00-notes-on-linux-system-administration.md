@@ -12,18 +12,19 @@ I recently began organizing my notes on Linux system administration. Some might 
 
 I prefer to create each topic into three sections: command overview, concepts, and steps. The command overview provides a summary of the relevant commands for each chapter. The concepts section offers an in-depth explanation of the topic. Finally, the steps section outlines basic lab exercises to practice the concepts. I mainly used Ubuntu and RHEL 9 with the help of VirtualBox.
 
-The series is organized into eight main subjects:
+The series is organized into eight main chapters:
 
-* [Accessing the System](/operating-running-systems) : Logging And Switching Users, Connection Methods, SSH And Telnet, User Account Details, Managing User Accounts, Managing User Permissions.
-* [Using the File System](/operating-running-systems) : Files And Directories, Hard And Softlinks, File Permissions, Text Editing And Vim, File And Directory Searching, Filtering Files, IO Redirection.  Acessing System Documentation. File Archives And Compression. Backup And Imaging.
-* [Shell Scripting](/operating-running-systems) : Script files and running, Variables, Control Flow, Processing Script Inputs, Exit Codes, Functions, File Operations, file operations with scripts.
-* [Operating Running Systems](/operating-running-systems) :  Rebooting system, Interrupting The Boot Process,  Troubleshooting Botloaders, Grub Settings,  System Targets, Tuning Profiles, Diagnose And Manage Processes, Log Files
-* [Managing Local Storage](/managing-local-storage): Devices and partitions, configuring swap, LVM (Logical Volume Manager), encrypted storage, RAID devices, file and directory attributes, disk quotas, file systems, VDO and LVMVDO, Stratis.
-* [Managing Systems](/managing-systems): Network configuration, services and tasks, task scheduling, startup processes and services, installing and maintaining software.
-* [Security Basics](/security-basics): Basic User Accounts and managing access (authorization and authentication) in linux, SSH hardening and configuration, ACL, Kernel Runtime Parameters, PAM, Managing Access to root, kernel runtime parameters.
-* [SELinux](/selinux) : SELinux Configuration, SELinux Troubleshooting. 
-* [Containerization](/containerization) : Docker Podman Skopeo, using containers as a services, container storage.
+* [1- Accessing the System](/operating-running-systems) : Logging And Switching Users, Connection Methods, SSH And Telnet, User Account Details, Managing User Accounts, Managing User Permissions.
+* [2- Using the File System](/operating-running-systems) : Files And Directories, Hard And Softlinks, File Permissions, Text Editing And Vim, File And Directory Searching, Filtering Files, IO Redirection.  Acessing System Documentation. File Archives And Compression. Backup And Imaging.
+* [3- Shell Scripting](/operating-running-systems) : Script files and running, Variables, Control Flow, Processing Script Inputs, Exit Codes, Functions, File Operations, file operations with scripts.
+* [4- Operating Running Systems](/operating-running-systems) :  Rebooting system, Interrupting The Boot Process,  Troubleshooting Botloaders, Grub Settings,  System Targets, Tuning Profiles, Diagnose And Manage Processes, Log Files
+* [5- Managing Local Storage](/managing-local-storage): Devices and partitions, configuring swap, LVM (Logical Volume Manager), encrypted storage, RAID devices, file and directory attributes, disk quotas, file systems, VDO and LVMVDO, Stratis.
+* [6- Managing Systems](/managing-systems): Network configuration, services and tasks, task scheduling, startup processes and services, installing and maintaining software.
+* [7- Security Basics](/security-basics): Basic User Accounts and managing access (authorization and authentication) in linux, SSH hardening and configuration, ACL, Kernel Runtime Parameters, PAM, Managing Access to root, kernel runtime parameters.
+* [8- SELinux](/selinux) : SELinux Configuration, SELinux Troubleshooting. 
+* [9- Containerization](/containerization) : Docker Podman Skopeo, using containers as a services, container storage.
 
+* Only chapters 5,6,7,8,9 published for now.
 
 ## Remarks
 
