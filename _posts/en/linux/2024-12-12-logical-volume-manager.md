@@ -1,7 +1,7 @@
 ---
 layout: post3
 title: "Logical Volume Manager"
-category: main
+category: linux
 cat: System
 tags:
   - Linux
