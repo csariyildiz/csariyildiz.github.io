@@ -1,7 +1,7 @@
 ---
 layout: post3
 title: "RAID Devices In Linux"
-category: main
+category: linux
 cat: System
 tags:
   - Linux
