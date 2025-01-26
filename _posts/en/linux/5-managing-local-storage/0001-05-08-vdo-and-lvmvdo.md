@@ -1,3 +1,12 @@
+---
+layout: post3
+title: "VDO And LVMVDO"
+category: linux
+cat: System
+tags:
+  - Linux
+  - Disk
+---
 
 * VDO - Virtual Data Optimizer
 
