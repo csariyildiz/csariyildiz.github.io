@@ -21,8 +21,7 @@ This series on Linux system administration explores the essential concepts and p
   * [Disk Quotas](/disk-quotas-in-linux)
 * [File Systems](/file-systems-in-linux)
 * Optimization And Compression
-  * [VDO](/vdo-in-linux)
-  * [LVMVDO](/lvmvdo-in-linux)
+  * [VDO And LVMVDO](/vdo-and-lvmvdo-in-linux)
   * [Stratis](/stratis-in-linux)
 
 ### Managing Disks
