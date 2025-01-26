@@ -14,29 +14,18 @@ I prefer to create each topic into three sections: command overview, concepts, a
 
 The series is organized into eight main subjects:
 
-* [Accessing the System](/operating-running-systems)
-* [Using the File System](/operating-running-systems)
-* [Shell Scripting](/operating-running-systems)
-* [Operating Running Systems](/operating-running-systems)
-* [Managing Local Storage](/managing-local-storage)
-* [Security Basics](/operating-running-systems)
-* [SELinux](/operating-running-systems)
-* [Managing Systems](/operating-running-systems)
+* [Accessing the System](/operating-running-systems) : Logging And Switching Users, Connection Methods, SSH And Telnet, User Account Details, Managing User Accounts, Managing User Permissions.
+* [Using the File System](/operating-running-systems) : Files And Directories, Hard And Softlinks, File Permissions, Text Editing And Vim, File And Directory Searching, Filtering Files, IO Redirection.  Acessing System Documentation. File Archives And Compression. Backup And Imaging.
+* [Shell Scripting](/operating-running-systems) : Script files and running, Variables, Control Flow, Processing Script Inputs, Exit Codes, Functions, File Operations, file operations with scripts.
+* [Operating Running Systems](/operating-running-systems) :  Rebooting system, Interrupting The Boot Process,  Troubleshooting Botloaders, Grub Settings,  System Targets, Tuning Profiles, Diagnose And Manage Processes, Log Files
+* [Managing Local Storage](/managing-local-storage): Devices and partitions, configuring swap, LVM (Logical Volume Manager), encrypted storage, RAID devices, file and directory attributes, disk quotas, file systems, VDO and LVMVDO, Stratis.
+* [Managing Systems](/managing-systems): Network configuration, services and tasks, task scheduling, startup processes and services, installing and maintaining software.
+* [Security Basics](/security-basics): Basic User Accounts and managing access (authorization and authentication) in linux, SSH hardening and configuration, ACL, Kernel Runtime Parameters, PAM, Managing Access to root, kernel runtime parameters.
+* [SELinux](/selinux) : SELinux Configuration, SELinux Troubleshooting. 
+* [Containerization](/containerization) : Docker Podman Skopeo, using containers as a services, container storage.
 
-## Overview Of Topics
-
-* Accessing the System
-* Using the File System
-* Shell Scripting
-* Operating Running Systems
-* Managing Local Storage
-* Security Basics
-* SELinux
-* Managing Systems
 
 ## Remarks
-  
-### Question Of AI Takeover
 
 While AI is making significant strides in automating tasks, including system monitoring, troubleshooting, and even some aspects of system administration, it is unlikely to completely "take over" the role of Linux system administrators in the near future.
 
@@ -52,7 +41,7 @@ Today linux system administration still a crucial skill. While automation tools,
 
 ## Links
 
-### Interactive Tutorial
+### Interactive Tutorials
 
 * [tldr.inbrowser.app](https://tldr.inbrowser.app/) : Very neat PWA (Progressive Web App) written in Vue.js and typescript. Lists tldr for CLI commands.
 * [Vim Adventures](https://vim-adventures.com/) : A game that teaches VIM.
