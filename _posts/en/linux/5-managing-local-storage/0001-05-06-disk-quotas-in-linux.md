@@ -128,25 +128,37 @@ edquota -t
 
 ### **Enable User Quota on `/home`**
 
-1. Edit `/etc/fstab` to add the `usrquota` option:  
-   `/dev/sda1   /home   ext4   defaults,usrquota   1 2`
+1. Edit `/etc/fstab` to add the `usrquota` option:
 
-2. Remount and enable quotas:  
-   `mount -o remount /home`  
-   `quotacheck -cu /home`  
-   `quotaon -u /home`
+```
+/dev/sda1   /home   ext4   defaults,usrquota   1 2
+```
+
+3. Remount and enable quotas:
+
+```
+mount -o remount /home  
+quotacheck -cu /home  
+quotaon -u /home
+```
 
 ### **Set Quota for User `john`**
 
-1. Open `edquota` for the user:  
-   `edquota john`
+1. Open `edquota` for the user:
 
-2. Edit the limits in the file:  
-   Disk quotas for user john (uid 1001):  
-   Filesystem blocks soft hard inodes soft hard  
-   `/dev/sda1 5000 4000 6000 0 0 0`
+```
+edquota john
+```
 
----
+3. Edit the limits in the file:  
+
+Disk quotas for user john (uid 1001):  
+Filesystem blocks soft hard inodes soft hard
+
+```
+/dev/sda1 5000 4000 6000 0 0 0
+```
+
 
 ## **Key Commands**
 - **Enable Quotas**: `quotaon`  
@@ -154,12 +166,6 @@ edquota -t
 - **Check Quotas**: `quota`, `repquota`  
 - **Set Quotas**: `edquota`  
 - **Validate Filesystem**: `quotacheck`
-
----
-
-## **Benefits of Quotas**
-- Prevent excessive resource usage by individual users or groups.
-- Ensure equitable distribution of disk space in multi-u
 
 
 #### User and Group Filesystem Quotas
