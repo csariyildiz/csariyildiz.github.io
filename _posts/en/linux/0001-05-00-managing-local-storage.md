@@ -17,7 +17,7 @@ This series on Linux system administration explores the essential concepts and p
 * Disk Features
   * [Encrypted Storage](/encrypted-storage-in-linux)
   * [RAID Devices](/raid-devices-in-linux)
-  * [Advanced Permissions](/advanced-permissions-in-linux)
+  * [File And Directory Attributes](/file-and-directory-attributes)
   * [Disk Quotas](/disk-quotas-in-linux)
 * [File Systems](/file-systems-in-linux)
 * Optimization And Compression
