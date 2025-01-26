@@ -29,7 +29,6 @@ inode
 quota --edit-period
 edquota --group adm
 quota --group ad
-
 ```
 
 ## Concepts
@@ -38,7 +37,6 @@ Quotas in Linux file systems are mechanisms used to restrict and monitor the usa
 
 There are two types of quotas first is the Disk Space and Inode. 
 Disk Space Quota: Limits the amount of disk space a user or group can use. Inode Quota: Limits the number of files (inodes) a user or group can create.
-
 
 Components for quotas are hard limit, soft limin and grace period.
 Hard Limit: The absolute maximum usage. Users cannot exceed this limit.
@@ -85,35 +83,51 @@ Enable quotas on the filesystem:
 ```
 quotaon -ug /
 ```
----
 
 ### Managing Quotas
 
 ### **1. Set User Quotas**
 Use the `edquota` command to configure quotas for a specific user:  
-`edquota username`
 
+```
+edquota username
+```
 Modify the soft and hard limits for both block and inode usage.
 
 ### **2. Check Quota Usage**
-- To view quota usage for a user:  
-  `quota -u username`
-- To view quota usage for a group:  
-  `quota -g groupname`
+
+To view quota usage for a user:
+
+```
+quota -u username
+```
+
+To view quota usage for a group:
+
+```
+quota -g groupname
+```
 
 ### **3. Report Quotas**
-Generate a report for all users and groups:  
-`repquota /`
+
+Generate a report for all users and groups:
+
+```
+repquota /
+```
 
 ### **4. Modify Grace Period**
-Adjust the grace period for exceeding soft limits:  
-`edquota -t`
+Adjust the grace period for exceeding soft limits:
 
----
+```
+edquota -t
+```
+
 
 ## **Example Configuration**
 
 ### **Enable User Quota on `/home`**
+
 1. Edit `/etc/fstab` to add the `usrquota` option:  
    `/dev/sda1   /home   ext4   defaults,usrquota   1 2`
 
@@ -123,6 +137,7 @@ Adjust the grace period for exceeding soft limits:
    `quotaon -u /home`
 
 ### **Set Quota for User `john`**
+
 1. Open `edquota` for the user:  
    `edquota john`
 
