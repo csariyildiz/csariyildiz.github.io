@@ -10,7 +10,7 @@ tags:
 
 Encrypted storage ensures that data is protected by converting it into a secure format, accessible only with a decryption key or passphrase. 
 Tools like LUKS and dm-crypt are commonly used in Linux to implement disk encryption, providing security for sensitive data.
-We will focus on plain-encription and LUKS using cryptsetup.
+We will focus on plain-encription and LUKS using cryptsetup.0
 
 Plain encryption is a simpler encryption method with no metadata stored on the device.
 It is faster but it lacks key management, meaning we cannot use multiple passphrases or easily recover if the key is lost.
