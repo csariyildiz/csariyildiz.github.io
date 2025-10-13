@@ -1,0 +1,9 @@
+{
+  "name": "csariyildiz.github.io",
+  "version": "1.0.0",
+  "description": "Personal blog/js playground By csariyildiz",
+  "main": "index.html",
+  "repository": "https://github.com/csariyildiz/csariyildiz.github.io/",
+  "author": "Cagri Sariyildiz <acsariyildiz@gmail.com>",
+  "devDependencies": {}
+}
