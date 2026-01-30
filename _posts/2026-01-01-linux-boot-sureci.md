@@ -54,7 +54,7 @@ Sistemin yüklenmesine kadar olan aşamalar. dmesg ile kernel mesajları systemd
 
 ### Başlangıç Aşamaları, Kernel Parametleri ve Boot Mesajlarının Okunması
 
-Linux sisteminin başlangıç süreci üç temel başlık altında incelenebilir: başlangıç aşamaları, kernel parametreleri ve boot mesajlarının okunması. Bu başlıklar birlikte değerlendirildiğinde, sistemin açılış mantığını kavramak ve karşılaşılabilecek sorunları teşhis etmek çok daha kolay hale gelir.
+Bu başlangıç süreci üç temel başlık altında incelenebilir: başlangıç aşamaları, kernel parametreleri ve boot mesajlarının okunması. Bu başlıklar birlikte değerlendirildiğinde, sistemin açılış mantığını kavramak ve karşılaşılabilecek sorunları teşhis etmek çok daha kolay hale gelir.
 
 Başlangıç aşamalarında, bir makinenin kullanılabilir duruma gelmesi için işletim sisteminin temel bileşeni olan kernel’in devreye alınması gerekir. Bu işlem, bootloader tarafından gerçekleştirilir. Bootloader ise BIOS veya UEFI gibi sistem firmware’i tarafından yüklenir. Her iki firmware türü aynı amaca hizmet etse de çalışma yöntemleri farklıdır. 
 
@@ -75,6 +75,7 @@ Son aşamada ise boot mesajlarının incelenmesi, sistem açılışı sırasınd
 
 x86 makinelerde bootloader'ı çalıştıran prosedürler BIOS mu UEFI mı kullanıldığına göre değişir. Gerçekte modern bir laptop ele alındığında laptopun çipte yer alan UEFI bir firmware'i bulunur. Bu UEFI programı değiştirilmez yalnızca güncellenir. Bu UEFI programı diskler üzerinde tarama yapabilir. EFI programlarını çalıştırır.
 
+<div class="smallbox">
 _**x86 Bilgisayarlar:**_ Modern bilgisayarın çoğu x86 işlemci mimarisini kullanır. "x86" adı, Intel tarafından piyasaya sürülen ilk işlemcilerden biri olan 8086'dan türetilmiştir. x86 CPU'lar, karmaşık komut seti bilgisayar (CISC) tasarımını kullanır. x86 işlemci komutlarının (instruction, assembler) özelliklerini belirleyen standarttır. İşlemci yalnızca aslında kendi fiziksel özelliklerine tanımlı biricik bu dilin komutlarını anlar.
 
 ~~~
@@ -83,7 +84,8 @@ _**x86 Bilgisayarlar:**_ Modern bilgisayarın çoğu x86 işlemci mimarisini kul
 ~~~
 
 x86 mimarisinde yazılan `mov eax, 5` gibi komutlar, derleme aşamasında Intel’in x86 standartlarında tanımlanmış özel opcode formatlarına dönüştürülür ve bu binary komutlar işletim sistemi tarafından RAM’e yüklenir. CPU da bu komutları yürütürken RAM’den ziyade, çoğunlukla L1/L2 cache’lerden çekerek çok daha hızlı şekilde çalıştırır. ARM ve x86 farklı işlemci mimarileridir; ARM günümüzde özellikle mobil cihazlarda baskınken, x86 uzun yıllardır masaüstü ve dizüstü bilgisayarların temel standardı olmuştur. Tüm programlar—işletim sistemi dahil—sonuçta RAM’de bulunur ve CPU bu binary komutları yürütür. Basitleştirmek amaçlı tek çekirdekli bir işlemcide birim zamanda tek bir programın ve yalnızca bir komut akışının işlediğini kabul edebiliriz. Modern işlemcilerin pipeline ve out-of-order execution gibi teknikler sayesinde tek çekirdek bile aynı anda farklı aşamalarda birden fazla komutu paralel olarak işleyebilir.
-
+</div>
+  
 #### BIOS
 
 İlk olarak her ikisi de legacy sistem olan BIOS ve MBR ikilisini ele alalım.
@@ -132,11 +134,22 @@ GRUB (Grand Unified Bootloader) x86 mimarisindeki Linux cihazlar için en popül
 
 GRUB menüsü içerisinden hangi kernelin hangi konfigürasyonla yükleneceğine dair ayarlarının yapılması mümkündür. Çoğu kernel parametresi `option=value` olarak tanımlanır.
 
-En kullanışlı kernel parametrelerinden bazıları aşağıdaki gibidir:
+Sık karşılaşılan kullanışlı kernel parametrelerinden bazıları aşağıdaki gibidir:
 
-1.  `acpi` : ACPI desteğini aktive eder veya kaldırır. ACPI, işletim sisteminin donanımını yönetebilmesi, güç tüketimini kontrol edebilmesi, uyku/hazırda bekletme gibi modları çalıştırabilmesi için kullanılan standart bir arayüzdür. `acpi=off` ACPI desteğini kaldıracaktır. Kaldırmak genelde sadece çok eski donanımlar için kullanılır. Modern sistemlerde kullanılırsa wifi, pil, usb, tuşlar, suspend gibi birçok fonksiyon bozulur. Yine de ACPI bazen sorun çıkarır. Bu nedenle kernel parametreleri ile davranışının değiştirilmesi ve loglarda kontrolü önemlidir.
-2.  `init` : Alternatif bir sistem başlangıç uygulaması/başlatıcı (initiator) tanımlar. Örneğin, `init=/bin/bash` Bash'i başlatıcı olarak tanımlandığında shell oturumu kernel boot process sonrasında açılır.
-3.  `systemd.unit` : systemd target'i aktif eder. Örneğin, `systemd.unit=graphical.target`.
+*  `acpi` : ACPI desteğini aktive eder veya kaldırır.
+*  `init` : Alternatif bir sistem başlangıç uygulaması/başlatıcı (initiator) tanımlar. Örneğin, `init=/bin/bash` Bash'i başlatıcı olarak tanımlandığında shell oturumu kernel boot process sonrasında açılır.
+*  `systemd.unit` : systemd target'i aktif eder. Örneğin, `systemd.unit=graphical.target`.
+
+* ACPI, işletim sisteminin donanımını yönetebilmesi, güç tüketimini kontrol edebilmesi, uyku/hazırda bekletme gibi modları çalıştırabilmesi için kullanılan standart bir arayüzdür. `acpi=off` ACPI desteğini kaldıracaktır. Kaldırmak genelde sadece çok eski donanımlar için kullanılır. Modern sistemlerde kullanılırsa wifi, pil, usb, tuşlar, suspend gibi birçok fonksiyon bozulur. Yine de ACPI bazen sorun çıkarır. Bu nedenle kernel parametreleri ile davranışının değiştirilmesi ve loglarda kontrolü önemlidir.
+
+
+#### Numerik Değerler
+
+Aşağıda örnek bir grub konfigurasyonu linux satırında 1 parametresi verilmiş:
+
+~~~
+linux /boot/vmlinuz-linux root=/dev/sda1 ro 1
+~~~
 
 Systemd aynı zamanda numerik runlevel değerlerini de SysV'de tanımlandığı şekliyle aktive eder. Bu şekilde kullanım da olabilir. Örneğin runlevel 1 i aktive etmek için To activate the runlevel 1, örneğin 1 sayısı ya da S harfi (“single” ın kısaltılmışı) kernel parametresi olarak gönderilir. Örnek runlevel'lar:
 
@@ -147,45 +160,40 @@ Runlevel   Anlamı    systemd karşılığı
 5 Graphical `graphical.target`
 ~~~
 
-Eskiden (SysV init zamanında) single-user mode'a girmek için kullanılan bu sayılar hala çalışır. Örneğin systemd “numerik runlevel verildi, ben bunu kendi target sistemime çevirip açayım” der. Bu nedenle hala 1, 3, 5 gibi runlevel sayıları parametre olarak çalışır. Aşağıda örnek bir grub konfigurasyonu linux satırında 1 parametresi verilmiş:
+Eskiden (SysV init zamanında) single-user mode'a girmek için kullanılan bu numerik değerler kullanılmaya devam etmiştir. 
+systemd verilen numerik değeri target sistemine çevirerek açar. SysV init tarafından kullanılan 1, 3, 5 gibi runlevel değerleri parametre olarak kullanılır. 
 
-~~~
-    linux /boot/vmlinuz-linux root=/dev/sda1 ro 1
-~~~
-
-1.  `mem` : Sistemin RAM kullanımını sınırlar. Sanal makineler için kullanışlıdır. Çünkü RAM her bir sanal makine için RAM kullanımını sınırlandırmakta kullanılabilir. Örneğin `mem=512M` RAM kullanımını 512 megabyte olarak sınırlar.
-
-2.  `maxcpus` : Sistemde görülen işlemci ya da işlemci core sayısını symmetric multi processor makinelerde sınırlandırır. Sanal makineler için kullanışlıdır. Değer olarak 0 verildiğinde multi-processor makinelerde destek sonlandırılır. Kernel parametresi olan nosmp ile aynı etkiye sahip olur. Örneğin `maxcpus=2` verildiğinde CPU core sayısını 2 core işlemci olarak sınırlar.
+*  `mem` : Sistemin RAM kullanımını sınırlar. Sanal makineler için kullanışlıdır. Çünkü RAM her bir sanal makine için RAM kullanımını sınırlandırmakta kullanılabilir. Örneğin `mem=512M` RAM kullanımını 512 megabyte olarak sınırlar.
+* `maxcpus` : Sistemde görülen işlemci ya da işlemci core sayısını symmetric multi processor makinelerde sınırlandırır. Sanal makineler için kullanışlıdır. Değer olarak 0 verildiğinde multi-processor makinelerde destek sonlandırılır. Kernel parametresi olan nosmp ile aynı etkiye sahip olur. Örneğin `maxcpus=2` verildiğinde CPU core sayısını 2 core işlemci olarak sınırlar.
+*  `quiet` : Ekrana gelecek boot mesajlarının çoğunu gizler.
+*  `vga` : Video modunu seçmeye olanak tanır. Parametre `vga=ask` verildiğinde seçim yapılabilecek modların listesi görünür.
+*  `root` : Root partition'u belirler. Bu bootloader içerisinde önceden tanımlı olandan farklı bir tanımlamaya olanak sağlar. Örneğin `root=/dev/sda3` olarak verildiğinde sistemin `/` (root) dizini `/dev/sda3` üzerinde olduğu, buranın kök dosya sistemi olarak mount edileceği tanımlanır. Kurtarma veya debug modunda farklı bir root denemek istediğinde kullanılır.
     
-3.  `quiet` : Ekrana gelecek boot mesajlarının çoğunu gizler.
-    
-4.  `vga` : Video modunu seçmeye olanak tanır. Parametre `vga=ask` verildiğinde seçim yapılabilecek modların listesi görünür.
-    
-5.  `root` : Root partition'u belirler. Bu bootloader içerisinde önceden tanımlı olandan farklı bir tanımlamaya olanak sağlar. Örneğin `root=/dev/sda3` olarak verildiğinde sistemin `/` (root) dizini `/dev/sda3` üzerinde olduğu, buranın kök dosya sistemi olarak mount edileceği tanımlanır. Kurtarma veya debug modunda farklı bir root denemek istediğinde kullanılır.
-    
-6.  `rootflags` : Root dosya sistemi için ek tanımlanmış özellikleri tanımlamaya olanak sağlar. Özellikler dosya sisteminin (ext4,xfs,brfs) türüne göre değişir. Örneğin ext4 için aşağıdaki gibi olabilir:
+*  `rootflags` : Root dosya sistemi için ek tanımlanmış özellikleri tanımlamaya olanak sağlar. Özellikler dosya sisteminin (ext4,xfs,brfs) türüne göre değişir. Örneğin ext4 için aşağıdaki gibi olabilir:
 
 ~~~
-    root=/dev/sda1 rootfstype=ext4 rootflags=errors=remount-ro,data=ordered
+root=/dev/sda1 rootfstype=ext4 rootflags=errors=remount-ro,data=ordered
 ~~~
 
-1.  `ro` : Root dosya sisteminin başlangıçtaki yüklemesini (initial mount) read-only yapar.
-2.  `rw` : Root dosya sisteminin başlangıçtaki yüklemesini (initial mount) writable yapar.
+* `ro` : Root dosya sisteminin başlangıçtaki yüklemesini (initial mount) read-only yapar.
+* `rw` : Root dosya sisteminin başlangıçtaki yüklemesini (initial mount) writable yapar.
 
-Örnek bir grub konfigurasyonu:
+Grub konfigurasyonunun detayları başka bir yazının konusu fakat aşağıda örnek bir grub konfigurasyonunu inceleyebiliriz.
 
 ~~~
-    GRUB_TIMEOUT=5
-    GRUB_DISTRIBUTOR="Red Hat Enterprise Linux"
-    GRUB_DEFAULT=saved
-    GRUB_DISABLE_SUBMENU=true
-    GRUB_CMDLINE_LINUX_DEFAULT="quiet"
-    GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=rhel/root rd.lvm.lv=rhel/swap resume=/dev/mapper/rhel-swap"
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="Red Hat Enterprise Linux"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=rhel/root rd.lvm.lv=rhel/swap resume=/dev/mapper/rhel-swap"
 ~~~
 
-Kernel parametrelerini değiştirmek genellikle gerekli değildir, ancak işletim sistemiyle ilgili sorunları tespit etmek ve çözmek için kullanılırlar. Parametrelerinin yeniden başlatmalar arası kalıcı olması için `/etc/default/grub` dosyasındaki `GRUB_CMDLINE_LINUX` satırına eklenmesi gerekir. `/etc/default/grub` her değiştiğinde bootloader için yeni bir yapılandırma dosyası (grub.cfg) üretilmelidir; bu işlem `grub-mkconfig -o /boot/grub/grub.cfg` komutuyla gerçekleştirilir.
+* Kernel parametrelerini değiştirmek genellikle gerekli değildir, ancak işletim sistemiyle ilgili sorunları tespit etmek ve çözmek için kullanılırlar. Parametrelerinin yeniden başlatmalar arası kalıcı olması için `/etc/default/grub` dosyasındaki `GRUB_CMDLINE_LINUX` satırına eklenmesi gerekir.
 
-Çalışan bir işletim sisteminde, mevcut oturumu yüklemek için kullanılmış olan kernel parametreleri `/proc/cmdline` dosyasından okunabilir.
+* `/etc/default/grub` her değiştiğinde bootloader için yeni bir yapılandırma dosyası (grub.cfg) üretilmelidir; bu işlem `grub-mkconfig -o /boot/grub/grub.cfg` komutuyla gerçekleştirilir.
+* Yeni bir grub konfigurasyonu yazmadan değerlere GRUB ekranından tek seferlik müdahale etmemiz de mümkündür.
+* Çalışan bir işletim sisteminde, mevcut oturumu yüklemek için kullanılmış olan kernel parametreleri `/proc/cmdline` dosyasından okunabilir.
 
 ### Kernel ve İşletim Sisteminin Başlangıç Süreci
 
@@ -248,26 +256,28 @@ Linux kernel, loglarını RAM üzerinde tutulan dairesel (ring) bir buffer için
 
 Bu mesajlar, önyükleme sırasında ekranda animasyon yokken görünür. Ancak sistem kapatıldığında dmesg --clear komutu ile silinebilir.
 
-    dmesg --clear
+~~~
+dmesg --clear
+~~~
 
 dmesg --clear komutu kernel ring buffer içindeki tüm mesajlar siler.
 
 Mevcut mesajları görmek için dmesg komutu kullanılabilir.
 
 ~~~
-    dmesg
+dmesg
 ~~~
 
- Çıktı genellikle yüzlerce satır olabilir; örnek olarak yalnızca çekirdeğin systemd hizmet yöneticisini çağırdığı bölümü inceleyebiliriz:
+Çıktı genellikle yüzlerce satır olabilir; örnek olarak yalnızca çekirdeğin systemd hizmet yöneticisini çağırdığı bölümü inceleyebiliriz:
 
 ~~~
-    [5.262389] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
-    [5.460286] systemd[1]: systemd 237 running in system mode.
-    [5.480138] systemd[1]: Detected architecture x86-64.
-    [5.481767] systemd[1]: Set hostname to <torre>.
-    [5.636607] systemd[1]: Reached target User and Group Name Lookups.
-    [5.637000] systemd[1]: Listening on Journal Socket.
-    [5.641661] systemd[1]: Starting Load Kernel Modules...
+[5.262389] EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+[5.460286] systemd[1]: systemd 237 running in system mode.
+[5.480138] systemd[1]: Detected architecture x86-64.
+[5.481767] systemd[1]: Set hostname to <torre>.
+[5.636607] systemd[1]: Reached target User and Group Name Lookups.
+[5.637000] systemd[1]: Listening on Journal Socket.
+[5.641661] systemd[1]: Starting Load Kernel Modules...
 ~~~
 
 Satırların başındaki sayılar, çekirdeğin yüklenmeye başlamasından itibaren geçen saniyeyi gösterir.
@@ -279,23 +289,23 @@ Systemd tabanlı sistemlerde, önyükleme mesajları journalctl komutu ile gör�
 Systemd tabanlı sistemlerde journalctl komutu yükleme mesajlarını aşağıdaki seçenekler girildiğinde gösterir.
 
 ~~~
-    journalctl -b        # Mevcut önyüklemeyi
-    journalctl --boot     # Mevcut önyüklemeyi
-    journalctl -k         # Sadece kernel mesajları
-    journalctl --dmesg    # dmesg ile benzer mesajlar
+journalctl -b        # Mevcut önyüklemeyi
+journalctl --boot     # Mevcut önyüklemeyi
+journalctl -k         # Sadece kernel mesajları
+journalctl --dmesg    # dmesg ile benzer mesajlar
 ~~~
 
 Mevcut ve önceki önyüklemeleri listelemek için:
 
 ~~~
-    journalctl --list-boots
+journalctl --list-boots
 ~~~
 
 Bu komut, önyüklemelere ait numaraları, id hash değerlerini, zaman damgalarını ve son mesajları gösterir:
 
 ~~~
-     -1 55c0d9439bfb4e85a20a62776d0dbb4d Thu 2019-10-03 19:27:53 -03—Fri 2019-10-04 00:28:47 -03
-      0 08fbbebd9f964a74b8a02bb27b200622 Fri 2019-10-04 00:31:01 -03—Fri 2019-10-04 10:17:01 -03
+-1 55c0d9439bfb4e85a20a62776d0dbb4d Thu 2019-10-03 19:27:53 -03—Fri 2019-10-04 00:28:47 -03
+0 08fbbebd9f964a74b8a02bb27b200622 Fri 2019-10-04 00:31:01 -03—Fri 2019-10-04 10:17:01 -03
 ~~~
 
 Önceki başlatma kayıtları da systemd tabanlı sistemlerde tutulur, böylece önceki işletim sistemi oturumlarından gelen iletiler hala incelenebilir.
@@ -307,11 +317,11 @@ Bu komut, önyüklemelere ait numaraları, id hash değerlerini, zaman damgalar�
 Örnek olarak, geçerli önyükleme (`journalctl -b 0`) sırasında çekirdeğin systemd hizmetlerini çağırması:
 
 ~~~
-    oct 04 00:31:01 ubuntu-host kernel: EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
-    oct 04 00:31:01 ubuntu-host systemd[1]: systemd 237 running in system mode.
-    oct 04 00:31:01 ubuntu-host systemd[1]: Detected architecture x86-64.
-    oct 04 00:31:01 ubuntu-host systemd[1]: Starting Load Kernel Modules...
-    oct 04 00:31:01 ubuntu-host systemd-modules-load[335]: Inserted module 'lp'
+oct 04 00:31:01 ubuntu-host kernel: EXT4-fs (sda1): mounted filesystem with ordered data mode. Opts: (null)
+oct 04 00:31:01 ubuntu-host systemd[1]: systemd 237 running in system mode.
+oct 04 00:31:01 ubuntu-host systemd[1]: Detected architecture x86-64.
+oct 04 00:31:01 ubuntu-host systemd[1]: Starting Load Kernel Modules...
+oct 04 00:31:01 ubuntu-host systemd-modules-load[335]: Inserted module 'lp'
 ~~~
 
 #### Önyükleme Mesajlarının Kaydı
@@ -321,17 +331,19 @@ Bu komut, önyüklemelere ait numaraları, id hash değerlerini, zaman damgalar�
 Systemd log mesajları düz metin olarak saklanmadığından, bunları okumak için `journalctl` kullanılır:
 
 ~~~
-    journalctl -D /var/log/journal/
+journalctl -D /var/log/journal/
 ~~~
 
 Bu dizin, systemd loglarının temel deposudur. Başka dizinlerdeki loglar da aynı şekilde `-D` veya `--directory` seçeneği ile okunabilir.
 
 ~~~
-    journalctl -D /mnt/backup/journal/ -b -1
+journalctl -D /mnt/backup/journal/ -b -1
 ~~~
 
-\-k → sadece kernel (çekirdek) mesajlarını gösterir. -f → yeni gelen mesajları anlık olarak gösterir. (tail -f gibi) -p → belirtilen öncelikteki mesajları gösterir. (2 crit, 3 err, 4 warn, 5 notice, 6 info, 7 debug)
+* -k : Sadece kernel (çekirdek) mesajlarını gösterir. 
+* -f : Yeni gelen mesajları anlık olarak gösterir. (tail -f gibi) 
+* -p : Belirtilen öncelikteki mesajları gösterir. (2 crit, 3 err, 4 warn, 5 notice, 6 info, 7 debug)
 
 ~~~
-    journalctl -k -f
+journalctl -k -f
 ~~~
