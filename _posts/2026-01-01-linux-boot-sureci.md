@@ -1,3 +1,9 @@
+---
+layout: post
+title: Linux İşletim Sistemlerinde Boot Süreci
+tags: [test]
+---
+
 Linux tabanlı işletim sistemlerini tanımlamak için araba benzetmesi sıkça kullanılır. Kernel yani çekirdek arabanın motoruna benzetilir. Arabanın motoru daha az çeşitlilik barındırır. Daha temel bir işlevi yüklenir. Üstünde ise markalara göre farklılaşan hatta modele göre farklılaşan ek farklı özellikler eklenir. Tıpkı araba markaları gibi Linux da farklı dağıtımlar barındırır. Bilindiği üzere aslında Linux adlandırması aslında sadece kerneli tanımlar. GNU / Linux ise tam bir işletim sistemini yani Linux artı GNU araçlarını tanımlar. Tıpkı arabanın kontak kapalı durumdan çalışır duruma geçişinde işleyen bir süreç olduğu gibi bilgisayarlarda da benzer bir süreç yürür.
 
 Sistem başlangıç sürecini üç temel başlık altında incelemek mümkündür: başlangıç aşamaları, kernel parametreleri ve boot mesajlarının okunması. Bu üç unsur birlikte ele alındığında, bir Linux sisteminin açılış sürecini anlamak ve olası sorunları teşhis etmek çok daha kolay hale gelir.
