@@ -1,12 +1,26 @@
 .intro-header .page-heading h1 {
-    margin-top: 0;
-    font-size: 30px;
+     margin-top: 0;
+     font-size: 30px;
 }
-.intro-header .page-heading .page-subheading, .intro-header .post-heading .post-subheading {
-    font-size: 16px;
-    line-height: 1.1;
-    display: block;
-    font-family: 'PT Serif', Georgia, Times, "Times New Roman", serif;
-    font-weight: 300;
-    margin: 10px 0 0;
+ .intro-header .page-heading .page-subheading, .intro-header .post-heading .post-subheading {
+     font-size: 16px;
+     line-height: 1.1;
+     display: block;
+     font-family: 'PT Serif', Georgia, Times, "Times New Roman", serif;
+     font-weight: 300;
+     margin: 10px 0 0;
+}
+ .posts-list {
+     list-style-type: none;
+}
+ .posts-list a {
+     color: #404040;
+     font-size:16px text-decoration: none;
+}
+ .posts-list li {
+     margin-bottom: 0.5rem;
+}
+ .post-date {
+     font-size: 16px;
+     padding: 3px;
 }
