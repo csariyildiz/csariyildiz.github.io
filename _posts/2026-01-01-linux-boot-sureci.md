@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linux İşletim Sistemlerinde Boot Süreci
-tags: [test]
+tags: [Linux, Boot]
 ---
 
 Linux tabanlı işletim sistemlerini anlatırken sıkça araba benzetmesi kullanılır. Kernel (çekirdek), arabanın motoru gibidir. Motorun işlevi temeldir ve çeşitliliği sınırlıdır; asıl görevi aracı çalıştırmaktır. Ancak motorun üzerine, markaya ve hatta modele göre değişen pek çok ek özellik eklenir.
@@ -88,7 +88,7 @@ x86 mimarisinde yazılan `mov eax, 5` gibi komutlar, derleme aşamasında Intel
 
 İlk olarak her ikisi de legacy sistem olan BIOS ve MBR ikilisini ele alalım.
 
-[![image.png](http://192.168.1.164:8000/uploads/images/gallery/2025-12/scaled-1680-/image.png)](http://192.168.1.164:8000/uploads/images/gallery/2025-12/image.png)
+![Thinkpad BIOS](https://csariyildiz.github.io/images/thinkpad-bios.png)
 
 **_BIOS (Basic Input/Output System)._** BIOS (Basic Input/Output System) anakarta takılmış bir memory chip içerisinde bulunur. Bu çip bilgisayar her açıldığında devreye girer. Bu program'a firmware denir. Firmware in amacı temel bir kontrol sonrası bootloader'ı çalıştırmaktır. Tutulduğu alan cihazın diğer disk cihazlarından farklı olması tercih edilir. 
 
