@@ -2,3 +2,6 @@
     margin-top: 0;
     font-size: 30px;
 }
+.intro-header .page-heading .page-subheading, .intro-header .post-heading .post-subheading {
+    font-size: 20px;
+}
