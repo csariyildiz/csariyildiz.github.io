@@ -27,3 +27,22 @@
  .blog-post {
     font-size: 14px;
 }
+
+.intro-header .post-heading h1 {
+    font-size: 30px !important;
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+ .highlight {
+    margin-bottom: 16px !important;
+font-size: 11px;
+}
+
+.intro-header {
+    margin-bottom: 0px;
+}
+
