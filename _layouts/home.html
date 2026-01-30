@@ -7,8 +7,13 @@ layout: page
 {% assign posts = paginator.posts | default: site.posts %}
 
 <ul class="posts-list" role="list">
+  {% assign date_format = site.date_format | default: "%Y-%m-%d" %}
   {% for post in posts %}
     <li>
+      <span class="post-date">
+        {{ post.date | date: date_format }}
+      </span>
+      —
       <a href="{{ post.url | absolute_url }}">
         {{ post.title | strip_html }}
       </a>
