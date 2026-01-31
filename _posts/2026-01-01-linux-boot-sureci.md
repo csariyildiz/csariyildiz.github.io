@@ -6,13 +6,13 @@ tags: [Linux, Boot]
 
 Linux tabanlı işletim sistemlerini anlatırken sıkça araba benzetmesi kullanılır. `Kernel` (çekirdek), arabanın motoru gibidir. Motorun işlevi temeldir ve çeşitliliği sınırlıdır; asıl görevi aracı çalıştırmaktır. Ancak motorun üzerine, markaya ve hatta modele göre değişen pek çok ek özellik eklenir.
 
-Aynı şekilde Linux dünyasında da farklı dağıtımlar bulunur. Aslında “Linux” adı yalnızca çekirdeği ifade eder. Tam bir işletim sistemi ise Linux çekirdeği ile birlikte GNU araçlarının bir araya gelmesiyle oluşur ve bu yapı `GNU/Linux` olarak adlandırılır.
+Aynı şekilde Linux dünyasında da farklı dağıtımlar bulunur. Aslında `Linux` adı yalnızca çekirdeği ifade eder. Tam bir işletim sistemi ise Linux çekirdeği ile birlikte GNU araçlarının bir araya gelmesiyle oluşur ve bu yapı `GNU/Linux` olarak adlandırılır.
 
 Nasıl ki bir arabanın kontağı kapalıyken çalışır duruma geçmesi belirli bir süreci izliyorsa, bilgisayarların da açılış sırasında benzer bir başlangıç (boot) süreci yürütülür.
 
 ### Boot Sürecinin Özeti
 
-Boot süreci içerisinde tarihsel olarak gelen ve sistem çeşitliliğinden kaynaklanan farklar bulunur. (BIOS ve UEFI Farkı, GRUB Legacy ve GRUB2 Farkı, systemd ve init Farkı gibi )
+Boot süreci içerisinde tarihsel olarak gelen ve sistem çeşitliliğinden kaynaklanan farklar bulunur. (BIOS ve UEFI farkı, GRUB Legacy ve GRUB2 farkı, systemd ve init, Diskte MBR ve GPT farkı gibi )
 Bu farklara rağmen genel bir Linux için standart bir boot sürecini aşağıdaki gibi özetleyebiliriz:
 
 ~~~
@@ -50,7 +50,9 @@ Bu farklara rağmen genel bir Linux için standart bir boot sürecini aşağıda
   Sistem tam olarak kullanılabilir hale gelir
 ~~~
 
-Sistemin yüklenmesine kadar olan aşamalar. dmesg ile kernel mesajları systemd logları için journalctl ile görüntülenebilir. Oluşabilecek hataların incelenmesinde bu loglar kullanılır.
+Sistemin yüklenmesine kadar olan aşamalarda oluşan olaylar çeşitli log mekanizmalarıyla kaydedilir. Kernel mesajlarına `dmesg`, systemd tabanlı servis ve kullanıcı alanı (userspace) loglarına ise journalctl komutu ile erişilebilir. Boot sürecinde meydana gelen hataların analizinde bu loglar temel başvuru kaynaklarıdır.
+
+Ancak sistem kernel aşamasında (örneğin kernel panic, initramfs hatası veya root filesystem mount edilememesi gibi durumlarda) problem yaşıyorsa, `dmesg` ve `journalctl` gibi araçlara doğrudan erişmek mümkün olmayabilir. Bu tür durumlarda hataların incelenmesi için GRUB boot parametreleri, initramfs debug çıktıları, serial console, rescue / live ortamları veya önceki boot loglarının diskte tutulmuş kopyaları gibi alternatif yöntemler kullanılır.
 
 ### Başlangıç Aşamaları, Kernel Parametleri ve Boot Mesajlarının Okunması
 
@@ -68,39 +70,50 @@ Kernel parametreleri, bootloader tarafından kernel’e aktarılan ve sistemin n
 
 Kernel yüklendikten sonra, açılış süreci donanım bileşenlerinin tanınması ve yapılandırılmasıyla devam eder. Bu aşamanın ilk adımı, geçici bir kök dosya sistemi görevi gören initramfs’in yüklenmesidir. Ardından kernel, sistem servislerinin başlatılmasından ve yönetilmesinden sorumlu olan init programını çalıştırır. Sistemin tam anlamıyla kullanılabilir hale gelmesini sağlayan işlemler bu aşamada gerçekleştirilir. Günümüzde birçok Linux dağıtımında bu görevi systemd üstlenmektedir.
 
-Son aşamada ise boot mesajlarının incelenmesi, sistem açılışı sırasında meydana gelen olayların anlaşılması ve olası hataların tespit edilmesi açısından büyük önem taşır. Bu amaçla dmesg ve journalctl araçları kullanılır. Donanım tanıma süreci, sürücülerin yüklenmesi ve hata mesajları gibi kritik bilgiler bu araçlar aracılığıyla görüntülenebilir. Bu nedenle her iki aracın temel kullanımının ve önemli parametrelerinin bilinmesi, sistem yönetimi açısından vazgeçilmezdir.
-
+Son aşamada ise boot mesajlarının incelenmesi, sistem açılışı sırasında meydana gelen olayların anlaşılması ve olası hataların tespit edilmesi açısından büyük önem taşır. Bu amaçla dmesg ve journalctl araçları kullanılır. Donanım tanıma süreci, sürücülerin yüklenmesi ve hata mesajları gibi kritik bilgiler bu araçlar aracılığıyla görüntülenebilir.
 
 ### Firmware ve Bootloader
 
 x86 makinelerde bootloader'ı çalıştıran prosedürler BIOS mu UEFI mı kullanıldığına göre değişir. Gerçekte modern bir laptop ele alındığında laptopun çipte yer alan UEFI bir firmware'i bulunur. Bu UEFI programı değiştirilmez yalnızca güncellenir. Bu UEFI programı diskler üzerinde tarama yapabilir. EFI programlarını çalıştırır.
 
 <div class="smallbox">
-<p><b>x86 Bilgisayarlar Hakkinda Not:</b></p>
-  
+<p><b>x86 Bilgisayarlar Hakkinda Not</b></p>
 <p>Modern bilgisayarın çoğu x86 işlemci mimarisini kullanır. "x86" adı, Intel tarafından piyasaya sürülen ilk işlemcilerden biri olan 8086'dan türetilmiştir. x86 CPU'lar, karmaşık komut seti bilgisayar (CISC) tasarımını kullanır. x86 işlemci komutlarının (instruction, assembler) özelliklerini belirleyen standarttır. İşlemci yalnızca aslında kendi fiziksel özelliklerine tanımlı bu dilin komutlarını tanir.</p>
 
-<code>
-    B8 05 00 00 00  →  mov eax, 5
-    01 D8           →  add eax, ebx
-</code>
+<pre>
+B8 05 00 00 00  →  mov eax, 5
+01 D8           →  add eax, ebx
+</pre>
 
 <p>x86 mimarisinde yazılan <code>mov eax, 5</code> gibi komutlar, derleme aşamasında Intel’in x86 standartlarında tanımlanmış özel opcode formatlarına dönüştürülür ve bu binary komutlar işletim sistemi tarafından RAM’e yüklenir. CPU da bu komutları yürütürken RAM’den ziyade, çoğunlukla L1/L2 cache’lerden çekerek çok daha hızlı şekilde çalıştırır. x86 haricinde örneğin ARM gibi farkli işlemci mimarileri bulunabilir; ARM günümüzde özellikle mobil cihazlarda baskınken, x86 uzun yıllardır masaüstü ve dizüstü bilgisayarların temel standardı olmuştur. Tüm programlar—işletim sistemi dahil—sonuçta RAM’de bulunur ve CPU bu binary komutları yürütür. Basitleştirmek amaçlı tek çekirdekli bir işlemcide birim zamanda tek bir programın ve yalnızca bir komut akışının işlediğini kabul edebiliriz. Modern işlemcilerin pipeline ve out-of-order execution gibi teknikler sayesinde tek çekirdek bile aynı anda farklı aşamalarda birden fazla komutu paralel olarak işleyebilir.</p>
 </div>
   
-#### BIOS
+#### BIOS ve MBR Sistemde Boot Süreci
 
-İlk olarak her ikisi de legacy sistem olan BIOS ve MBR ikilisini ele alalım.
+İlk olarak her ikisi de legacy sistem olan BIOS ve MBR ikilisini ele alalım. Örnek bir BIOS arayüzü aşağıdaki gibi görünür:
 
 ![Thinkpad BIOS](https://csariyildiz.github.io/images/thinkpad-bios.png)
 
-**_BIOS (Basic Input/Output System)._** BIOS (Basic Input/Output System) anakarta takılmış bir memory chip içerisinde bulunur. Bu çip bilgisayar her açıldığında devreye girer. Bu program'a firmware denir. Firmware in amacı temel bir kontrol sonrası bootloader'ı çalıştırmaktır. Tutulduğu alan cihazın diğer disk cihazlarından farklı olması tercih edilir. 
+BIOS (Basic Input/Output System), anakart üzerinde bulunan kalıcı bir bellek çipi (flash memory) içinde yer alır. Bilgisayar her açıldığında ilk olarak bu yazılım devreye girer. BIOS bir firmware’dir ve temel donanım kontrollerini (POST) gerçekleştirdikten sonra önyükleme sürecini başlatmak, yani bootloader’ı çalıştırmakla görevlidir. Bu nedenle BIOS’un bulunduğu bellek alanı, işletim sisteminin yer aldığı disk aygıtlarından fiziksel ve mantıksal olarak ayrıdır.
 
-_**Bootstrap.**_ Bootstrap özellikle BIOS için önemlidir. BIOS firmware ile çalışan bir makinede, bootstrap binary dosyası, (BIOS aracında nasıl tanımlandıysa ) ilk depolama aygıtının `MBR` kısmında bulunur. Bu disk üzerinden okunan ilk kod olur ve yine MBR üzerinden partition tablosunu okur. Bootstrap ve tablo kullanılarak diskin içinde işletim sistemini yükleyen esas başlangıç yazılımı diyebileceğimiz bootloaderın ikinci kısmı yüklenir.
+Disk şeması açısından aşağıdakini söyleyebiliriz:
+* BIOS	MBR	✅	Klasik ve varsayılan kombinasyon
+* UEFI	GPT	✅	Modern ve önerilen kombinasyon
+* UEFI	MBR	⚠️	Çalışabilir ama sınırlı
+* BIOS	GPT	⚠️	Özel durumlar dışında çalışmaz
 
-BIOS işletim sistemini başlatabilmek için bir cihaz arar. BIOS konfigurasyonundaki boot sıralamasına göre başka diskler seçebilir. Ek bir konfigurasyon yoksa ilk disk cihazının ilk 440 byte ını bootloaderın ilk aşaması (bootstrap) olarak kabul eder. Birini boot edemezse diğerine atlar.
+Modern sistemlerde BIOS’un yerini büyük ölçüde UEFI firmware almıştır. UEFI de anakart üzerindeki kalıcı bellek içinde bulunur ve diskler üzerindeki EFI System Partition (ESP) bölümlerini tespit ederek buradaki önyükleme uygulamalarını çalıştırabilir. Günlük kullanımda bu firmware hâlâ alışkanlık gereği “BIOS” olarak adlandırılmaktadır. Sunucu sistemlerinde ise iDRAC, iLO gibi yönetim arabirimleri, firmware tabanlı donanım başlatma ve yönetim süreçlerinde benzer bir rol üstlenir.
 
-BIOS standart DOS partition şemasına göre diskin İlk 512 byte MBR (Master Boot Record) olmasını bekler. Bootstrap bilgisi buradan çekilir. Bu bölge partition table ı barındırır. Eğer MBR doğru veriyi içermiyorsa ve farklı bir metod kullanılmıyorsa sistem başlayamaz.
+**Bootstrap**, BIOS tabanlı sistemlerde kritik bir rol oynar. BIOS firmware ile çalışan bir makinede, bootstrap kodu BIOS yapılandırmasında belirtilen ilk önyükleme aygıtının MBR (Master Boot Record) alanında yer alır. Bu kod, disk üzerinden okunan ilk çalıştırılabilir koddur.
+
+MBR içerisindeki bootstrap kodu, yine aynı alanda bulunan partition tablosunu okuyarak aktif (bootable) bölümü tespit eder. Bu bilgiler kullanılarak, diskte yer alan ve işletim sistemini yüklemekten sorumlu olan asıl önyükleyici yazılımın (bootloader) ikinci aşaması belleğe yüklenir ve çalıştırılır.
+
+* MBR içindeki kod genelde stage 1 olarak adlandırılır.
+* Yüklenen ikinci kısım stage 1.5 / stage 2 olabilir (örneğin GRUB için).
+
+BIOS, işletim sistemini başlatabilmek için `önyüklenebilir bir cihaz` arar. BIOS konfigürasyonunda tanımlanan `boot sıralamasına` göre diskleri sırayla dener. Herhangi bir ek yapılandırma yoksa, seçilen diskin `ilk 440 baytlık alanını` önyükleyicinin ilk aşaması olan `bootstrap kodu` olarak kabul eder. Bu kod çalıştırılamazsa veya geçerli değilse, BIOS listedeki bir sonraki cihaza geçer.
+
+BIOS, klasik `DOS (MBR) bölümleme şemasına` göre diskin `ilk 512 baytının` MBR (Master Boot Record) olmasını bekler. Bu alan, `bootstrap kodunu` ve `partition table` bilgisini içerir. Bootstrap süreci buradan başlatılır. Eğer MBR geçerli bir önyükleme kodu içermiyorsa ve alternatif bir önyükleme yöntemi kullanılmıyorsa, sistem başlatılamaz.
 
 Genel olarak BIOS ile beraber sistemi başlatmak için kullanılan ön operasyon adımları aşağıdaki gibi sıralanabilir:
 
@@ -113,17 +126,17 @@ Bootloaderın ikinci kısmına kadar olan süreçte hem BIOS'da hem de MBR kısm
 
 #### UEFI
 
-**_UEFI (Unified Extensible Firmware Interface)._** UEFI (Unified Extensible Firmware Interface) BIOS dan bazı alanlarda farklılaşır. UEFI da BIOS gibi firmware'dir fakat ek özellikler taşır. UEFI partition ları tanımlayabilir, onlar üzerindeki birden farklı dosya sistemini okuyabilir. UEFI BIOS gibi MBR a dayanmaz. Bunun yerine anakartın içerisinde bulunan kendi NVRAM'ı (non-volatile memory) üzerindeki ayarları kullanılır. Bu tanımlar UEFI ile uyumlu programların yerini gösterir. Bu programlara EFI denir. Bunlar otomatik olarak çağrılır ya da menüden düzenlenebilir. EFI uygulamaları bootloader olabilir. İşletim sistemi seçmeye yarayan araçlar olabilir ya da sistem bilgi ve kurtarma yazılımları olabilirler.
+UEFI (Unified Extensible Firmware Interface) BIOS dan bazı alanlarda farklılaşır. UEFI da BIOS gibi firmware'dir fakat ek özellikler taşır. UEFI partition ları tanımlayabilir, onlar üzerindeki birden farklı dosya sistemini okuyabilir. UEFI BIOS gibi MBR a dayanmaz. Bunun yerine anakartın içerisinde bulunan kendi NVRAM'ı (non-volatile memory) üzerindeki ayarları kullanılır. Bu tanımlar UEFI ile uyumlu programların yerini gösterir. Bu programlara EFI denir. Bunlar otomatik olarak çağrılır ya da menüden düzenlenebilir. EFI uygulamaları bootloader olabilir. İşletim sistemi seçmeye yarayan araçlar olabilir ya da sistem bilgi ve kurtarma yazılımları olabilirler.
 
-EFI barındıran bir partitionunun bilinen bir cihaz partition yapısı içerisinde ve bilinen bir dosya sistemine sahip olması yeterlidir. Bu standart dosya sistemleri disk cihazlar (block devices) için FAT12, FAT32 ve optik medya için ISO-9660'dır. Sonuç olarak BIOS'a göre çok daha elverişli yaklaşım sayesinde daha esnek sofistike araçlar çalıştırılabilir.
+EFI barındıran bir partitionunun bilinen bir cihaz partition yapısı içerisinde ve bilinen bir dosya sistemine sahip olması yeterlidir. Bu standart dosya sistemleri disk cihazlar (block devices) için FAT12, FAT32 ve optik medya için ISO-9660'dır. Sonuç olarak BIOS'a göre çok daha elverişli yaklaşım sayesinde daha esnek sofistike araçlar henüz işletim sistemi yüklenmeden çalıştırılabilir.
 
-EFI uygulamalarını barındıran partition'a ESP (EFI System Partition) adı verilir. Bu partition root dosya sistemi ya da user data dosya sistemi gibi başka dosya sistemleriyle paylaşılmamalıdır. ESP partitionu içerisinde EFI dizini bulunur. Bu dizin içerisindeki uygulamalar NVRAM içerisindeki girdiler tarafından çağrılır.
+EFI uygulamalarını barındıran partition'a ESP (EFI System Partition) adı verilir. Bu partition root dosya sistemi ya da user data dosya sistemi gibi başka dosya sistemleriyle paylaşılmamalıdır. ESP partitionu içerisinde EFI dizini bulunur. Bu dizin içerisindeki uygulamalar NVRAM içerisindeki girdiler tarafından çağrılır. Burada ESP (disk üzerindedir) EFI uygulamalarını (.efi) barındırır. NVRAM (anakart üzerindedir) bu uygulamaların hangi sırayla ve hangi yoldan çağrılacağını tanımlar. UEFI firmware açılışta, NVRAM’deki BootOrder’a bakar. İlgili BootXXXX girdisini okur. Son olarak ESP içindeki belirtilen .efi dosyasını çalıştırır
 
-Genel olarak UEFI ile beraber sistemi başlatmak için kullanılan ön operasyon adımları:
+Genel olarak UEFI ile beraber sistemi başlatmak için kullanılan ön operasyon adımlarını aşağıdaki gibi sıralayabiliriz:
 
 1.  POST (power on self-test) temel bir donanım taraması yapar.
 2.  Video çıktısı klavye ve diskler gibi sistemi yüklemek için gerekli temel bileşenler aktive edilir.
-3.  UEFI'ın firmware'i NVRAM'da tutulan bilgiyi kullanarak ESP içerisinde tanımlı EFI uygulamasını çağırır. Genellikle bu EFI uygulaması bootloader'dır.
+3.  UEFI firmware, NVRAM’de tutulan önyükleme girdilerini kullanarak disk üzerindeki EFI System Partition (ESP) içinde tanımlı EFI uygulamasını (.efi) çağırır. Bu EFI uygulaması çoğu sistemde GRUB2 gibi bir bootloader’dır ve işletim sisteminin yüklenme sürecini başlatır.
 4.  Eğer bu uygulama bir bootloader ise kernel i yükleyecek ve işletim sistemini başlatacaktır.
 
 UEFI standardı Secure Boot adı verilen bir özelliği de barındırır. Bu özellik ile sadece imzalanmış EFI uygulamaları çağrılabilir. Bu imzalanmış EFI uygulamaları donanım sağlayıcısı tarafından yetkilendirilmiştir. Bu özellik sayesinde zararlı yazılım içerebilecek işletim sistemlerini yüklemeyi zorlaştırarak güvenlik sağlar. Kimi zararlı yazılımlar sistemlerde kalıcılık sağlamak (persistance) için yüklenme adımlarını etkilemeyi hedefler. Böyle bir durumda işletim sistemi tekrar yüklense bile zararlı yazılım etkisini sürdürebilir.
@@ -196,6 +209,13 @@ GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=rhel/root rd.lvm.lv=rhel/swap res
 * `/etc/default/grub` her değiştiğinde bootloader için yeni bir yapılandırma dosyası (grub.cfg) üretilmelidir; bu işlem `grub-mkconfig -o /boot/grub/grub.cfg` komutuyla gerçekleştirilir.
 * Yeni bir grub konfigurasyonu yazmadan değerlere GRUB ekranından tek seferlik müdahale etmemiz de mümkündür.
 * Çalışan bir işletim sisteminde, mevcut oturumu yüklemek için kullanılmış olan kernel parametreleri `/proc/cmdline` dosyasından okunabilir.
+
+Örnek:
+~~~
+[acs@archlinux ~]$ sudo cat /proc/cmdline
+initrd=\initramfs-linux.img root=/dev/sdb4 rw
+~~~
+
 
 ### Kernel ve İşletim Sisteminin Başlangıç Süreci
 
