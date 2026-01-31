@@ -6,45 +6,45 @@ tags: [Linux, Boot]
 
 Linux tabanlı işletim sistemlerini anlatırken sıkça araba benzetmesi kullanılır. `Kernel` (çekirdek), arabanın motoru gibidir. Motorun işlevi temeldir ve çeşitliliği sınırlıdır; asıl görevi aracı çalıştırmaktır. Ancak motorun üzerine, markaya ve hatta modele göre değişen pek çok ek özellik eklenir.
 
-Aynı şekilde Linux dünyasında da farklı dağıtımlar bulunur. Aslında “Linux” adı yalnızca çekirdeği ifade eder. Tam teşekküllü bir işletim sistemi ise Linux çekirdeği ile birlikte GNU araçlarının bir araya gelmesiyle oluşur ve bu yapı `GNU/Linux` olarak adlandırılır.
+Aynı şekilde Linux dünyasında da farklı dağıtımlar bulunur. Aslında “Linux” adı yalnızca çekirdeği ifade eder. Tam bir işletim sistemi ise Linux çekirdeği ile birlikte GNU araçlarının bir araya gelmesiyle oluşur ve bu yapı `GNU/Linux` olarak adlandırılır.
 
 Nasıl ki bir arabanın kontağı kapalıyken çalışır duruma geçmesi belirli bir süreci izliyorsa, bilgisayarların da açılış sırasında benzer bir başlangıç (boot) süreci yürütülür.
 
 ### Boot Sürecinin Özeti
 
-Boot süreci içerisinde tarihsel olarak gelen ve sistem çeşitliliğinden kaynaklanan farklar bulunur. 
-Bu farklara rağmen genel bir Linux için boot sürecini aşağıdaki gibi özetleyebiliriz:
+Boot süreci içerisinde tarihsel olarak gelen ve sistem çeşitliliğinden kaynaklanan farklar bulunur. (BIOS ve UEFI Farkı, GRUB Legacy ve GRUB2 Farkı, systemd ve init Farkı gibi )
+Bu farklara rağmen genel bir Linux için standart bir boot sürecini aşağıdaki gibi özetleyebiliriz:
 
 ~~~
 1. Firmware (BIOS / UEFI)
   Donanımı başlatır ve temel kontrolleri (POST) yapar
   Boot edilebilir aygıtı bulur
   Bootloader’ı belleğe yükler
-
+↓
 2. Bootloader (örn. GRUB)
   Kernel’i ve initramfs’i yükler
   Kernel parametrelerini belirler ve kernel’e iletir
   Hangi işletim sisteminin başlatılacağını seçer
-
+↓
 3. Kernel’in Yüklenmesi
   Belleğe yerleşir ve çalışmaya başlar
   CPU, bellek ve temel donanım yönetimini devralır
   Kernel parametrelerini işler
-
+↓
 4. initramfs
   Geçici kök dosya sistemi olarak kullanılır
   Gerekli sürücüleri (disk, dosya sistemi vb.) yükler
   Asıl root dosya sistemine geçişi sağlar
-
+↓
 5. Root Dosya Sisteminin Bağlanması
   Kalıcı root filesystem mount edilir
   initramfs devreden çıkarılır
-
+↓
 6. Init Sistemi (örn. systemd)
   PID 1 olarak çalışır
   Servisleri, hedefleri (targets) ve bağımlılıkları başlatır
   Sistemi çok kullanıcılı ortama hazırlar
-
+↓
 7. Kullanıcı Ortamı
   Giriş ekranı (CLI veya GUI) başlatılır
   Sistem tam olarak kullanılabilir hale gelir
