@@ -4,9 +4,9 @@ title: Linux İşletim Sistemlerinde Boot Süreci
 tags: [Linux, Boot]
 ---
 
-Linux tabanlı işletim sistemlerini anlatırken sıkça araba benzetmesi kullanılır. Kernel (çekirdek), arabanın motoru gibidir. Motorun işlevi temeldir ve çeşitliliği sınırlıdır; asıl görevi aracı çalıştırmaktır. Ancak motorun üzerine, markaya ve hatta modele göre değişen pek çok ek özellik eklenir.
+Linux tabanlı işletim sistemlerini anlatırken sıkça araba benzetmesi kullanılır. `Kernel` (çekirdek), arabanın motoru gibidir. Motorun işlevi temeldir ve çeşitliliği sınırlıdır; asıl görevi aracı çalıştırmaktır. Ancak motorun üzerine, markaya ve hatta modele göre değişen pek çok ek özellik eklenir.
 
-Aynı şekilde Linux dünyasında da farklı dağıtımlar bulunur. Aslında “Linux” adı yalnızca çekirdeği ifade eder. Tam teşekküllü bir işletim sistemi ise Linux çekirdeği ile birlikte GNU araçlarının bir araya gelmesiyle oluşur ve bu yapı “GNU/Linux” olarak adlandırılır.
+Aynı şekilde Linux dünyasında da farklı dağıtımlar bulunur. Aslında “Linux” adı yalnızca çekirdeği ifade eder. Tam teşekküllü bir işletim sistemi ise Linux çekirdeği ile birlikte GNU araçlarının bir araya gelmesiyle oluşur ve bu yapı `GNU/Linux` olarak adlandırılır.
 
 Nasıl ki bir arabanın kontağı kapalıyken çalışır duruma geçmesi belirli bir süreci izliyorsa, bilgisayarların da açılış sırasında benzer bir başlangıç (boot) süreci yürütülür.
 
@@ -76,14 +76,16 @@ Son aşamada ise boot mesajlarının incelenmesi, sistem açılışı sırasınd
 x86 makinelerde bootloader'ı çalıştıran prosedürler BIOS mu UEFI mı kullanıldığına göre değişir. Gerçekte modern bir laptop ele alındığında laptopun çipte yer alan UEFI bir firmware'i bulunur. Bu UEFI programı değiştirilmez yalnızca güncellenir. Bu UEFI programı diskler üzerinde tarama yapabilir. EFI programlarını çalıştırır.
 
 <div class="smallbox">
-_**x86 Bilgisayarlar:**_ Modern bilgisayarın çoğu x86 işlemci mimarisini kullanır. "x86" adı, Intel tarafından piyasaya sürülen ilk işlemcilerden biri olan 8086'dan türetilmiştir. x86 CPU'lar, karmaşık komut seti bilgisayar (CISC) tasarımını kullanır. x86 işlemci komutlarının (instruction, assembler) özelliklerini belirleyen standarttır. İşlemci yalnızca aslında kendi fiziksel özelliklerine tanımlı biricik bu dilin komutlarını anlar.
+<p><b>x86 Bilgisayarlar Hakkinda Not:</b></p>
+  
+<p>Modern bilgisayarın çoğu x86 işlemci mimarisini kullanır. "x86" adı, Intel tarafından piyasaya sürülen ilk işlemcilerden biri olan 8086'dan türetilmiştir. x86 CPU'lar, karmaşık komut seti bilgisayar (CISC) tasarımını kullanır. x86 işlemci komutlarının (instruction, assembler) özelliklerini belirleyen standarttır. İşlemci yalnızca aslında kendi fiziksel özelliklerine tanımlı bu dilin komutlarını tanir.</p>
 
-~~~
+<code>
     B8 05 00 00 00  →  mov eax, 5
     01 D8           →  add eax, ebx
-~~~
+</code>
 
-x86 mimarisinde yazılan `mov eax, 5` gibi komutlar, derleme aşamasında Intel’in x86 standartlarında tanımlanmış özel opcode formatlarına dönüştürülür ve bu binary komutlar işletim sistemi tarafından RAM’e yüklenir. CPU da bu komutları yürütürken RAM’den ziyade, çoğunlukla L1/L2 cache’lerden çekerek çok daha hızlı şekilde çalıştırır. ARM ve x86 farklı işlemci mimarileridir; ARM günümüzde özellikle mobil cihazlarda baskınken, x86 uzun yıllardır masaüstü ve dizüstü bilgisayarların temel standardı olmuştur. Tüm programlar—işletim sistemi dahil—sonuçta RAM’de bulunur ve CPU bu binary komutları yürütür. Basitleştirmek amaçlı tek çekirdekli bir işlemcide birim zamanda tek bir programın ve yalnızca bir komut akışının işlediğini kabul edebiliriz. Modern işlemcilerin pipeline ve out-of-order execution gibi teknikler sayesinde tek çekirdek bile aynı anda farklı aşamalarda birden fazla komutu paralel olarak işleyebilir.
+<p>x86 mimarisinde yazılan <code>mov eax, 5</code> gibi komutlar, derleme aşamasında Intel’in x86 standartlarında tanımlanmış özel opcode formatlarına dönüştürülür ve bu binary komutlar işletim sistemi tarafından RAM’e yüklenir. CPU da bu komutları yürütürken RAM’den ziyade, çoğunlukla L1/L2 cache’lerden çekerek çok daha hızlı şekilde çalıştırır. x86 haricinde örneğin ARM gibi farkli işlemci mimarileri bulunabilir; ARM günümüzde özellikle mobil cihazlarda baskınken, x86 uzun yıllardır masaüstü ve dizüstü bilgisayarların temel standardı olmuştur. Tüm programlar—işletim sistemi dahil—sonuçta RAM’de bulunur ve CPU bu binary komutları yürütür. Basitleştirmek amaçlı tek çekirdekli bir işlemcide birim zamanda tek bir programın ve yalnızca bir komut akışının işlediğini kabul edebiliriz. Modern işlemcilerin pipeline ve out-of-order execution gibi teknikler sayesinde tek çekirdek bile aynı anda farklı aşamalarda birden fazla komutu paralel olarak işleyebilir.</p>
 </div>
   
 #### BIOS
