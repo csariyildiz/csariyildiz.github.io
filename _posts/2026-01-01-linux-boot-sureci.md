@@ -209,7 +209,7 @@ Sistem servislerinin yönetimi sistemin kendisi ve nihayetinde onu yöneten kiş
 
 Sistem yönetici aynı zamanda hangi servislerin çalışacağını seçebilmesi gerekir. Yöneticinin hangi hizmetlerin çalıştırılacağını seçebilmesi ve esnek bir biçimde çalıştırabilmesi de hayati önem taşır. Örneğin, bakım yapılması veya bir sorunun giderilmesi gerektiğinde yalnızca minimum düzeyde servisleri çalıştırmak gerekebilir.
 
-Strictly Speaking, the Operating System (OS) is only the kernel and the parts that control the hardware and manage processes. However the common use has a looser definition. People usually use the term "Operating System" more broadly to mean the entire collection of programs (the kernel, scripts, daemons, and user interface) that allows a person to use the computer for basic tasks.
+Kesin olarak söylemek gerekirse, işletim sistemi (OS) yalnızca çekirdek ve donanımı kontrol eden ve süreçleri yöneten parçalardan oluşur. Ancak yaygın kullanımda daha gevşek bir tanımı vardır. İnsanlar genellikle "işletim sistemi" terimini, bir kişinin bilgisayarı temel görevler için kullanmasına olanak tanıyan tüm programlar (çekirdek, komut dosyaları, arka plan programları ve kullanıcı arayüzü) koleksiyonu anlamında daha geniş bir şekilde kullanırlar.
 
 #### Kernel'in RAM'e Yüklenmesi ve Initfram'lar
 
