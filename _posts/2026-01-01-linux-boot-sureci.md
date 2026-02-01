@@ -211,6 +211,8 @@ GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=rhel/root rd.lvm.lv=rhel/swap res
 
 * Kernel parametrelerini değiştirmek genellikle gerekli değildir, ancak işletim sistemiyle ilgili sorunları tespit etmek ve çözmek için kullanılırlar. Parametrelerinin yeniden başlatmalar arası kalıcı olması için `/etc/default/grub` dosyasındaki `GRUB_CMDLINE_LINUX` satırına eklenmesi gerekir.
 
+![GRUB Settings](https://csariyildiz.github.io/images/img022.png)
+
 * `/etc/default/grub` her değiştiğinde bootloader için yeni bir yapılandırma dosyası (grub.cfg) üretilmelidir; bu işlem `grub-mkconfig -o /boot/grub/grub.cfg` komutuyla gerçekleştirilir.
 * Yeni bir grub konfigurasyonu yazmadan değerlere GRUB ekranından tek seferlik müdahale etmemiz de mümkündür.
 * Çalışan bir işletim sisteminde, mevcut oturumu yüklemek için kullanılmış olan kernel parametreleri `/proc/cmdline` dosyasından okunabilir.
@@ -220,7 +222,6 @@ GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=rhel/root rd.lvm.lv=rhel/swap res
 [acs@archlinux ~]$ sudo cat /proc/cmdline
 initrd=\initramfs-linux.img root=/dev/sdb4 rw
 ~~~
-
 
 ### Kernel ve İşletim Sisteminin Başlangıç Süreci
 
