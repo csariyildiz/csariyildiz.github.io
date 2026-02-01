@@ -4,6 +4,11 @@ title: Linux İşletim Sistemlerinde Boot Süreci
 tags: [Linux, Boot]
 ---
 
+{: .box-success}
+Linux ile ilgili bu not serisinde, konuların ilerleyişi açısından ChatGPT ve LPIC kitabından faydalandım.
+Notların bu bölümü linux boot süreçlerindeki detayları konu alıyor.
+
+
 Linux tabanlı işletim sistemlerini anlatırken sıkça araba benzetmesi kullanılır. `Kernel` (çekirdek), arabanın motoru gibidir. Motorun işlevi temeldir ve çeşitliliği sınırlıdır; asıl görevi aracı çalıştırmaktır. Ancak motorun üzerine, markaya ve hatta modele göre değişen pek çok ek özellik eklenir.
 
 Aynı şekilde Linux dünyasında da farklı dağıtımlar bulunur. Aslında `Linux` adı yalnızca çekirdeği ifade eder. Tam bir işletim sistemi ise Linux çekirdeği ile birlikte GNU araçlarının bir araya gelmesiyle oluşur ve bu yapı `GNU/Linux` olarak adlandırılır.
