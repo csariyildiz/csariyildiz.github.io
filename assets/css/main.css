@@ -12,10 +12,12 @@
 }
  .posts-list {
      list-style-type: none;
+     margin-top: 20px;
+     font-size: 14px;
+     font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 }
  .posts-list a {
      color: #404040;
-     font-size:16px text-decoration: none;
 }
  .posts-list li {
      margin-bottom: 0.5rem;
@@ -23,6 +25,7 @@
  .post-date {
      font-size: 16px;
      padding: 3px;
+     SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",font-family: monospace;
 }
  .blog-post {
     font-size: 14px;
