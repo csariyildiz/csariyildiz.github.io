@@ -4,7 +4,9 @@ title: Linux İşletim Sistemlerinde Boot Süreci
 tags: [Linux, Boot]
 ---
 
-{: .box-success} 😎 Linux ile ilgili bu not serisinde, konuların ilerleyişi açısından ChatGPT ve LPIC kitabından faydalandım. Notların bu bölümü linux boot süreçlerindeki detaylardan bahsediyor.
+{: .box-success} 
+😎 Linux ile ilgili bu not serisinde, konuların ilerleyişi açısından ChatGPT ve LPIC kitabından faydalandım. 
+Notların bu bölümü linux boot süreçlerindeki detaylardan bahsediyor.
 
 ![dmesg](https://csariyildiz.github.io/images/img024.png)
 
