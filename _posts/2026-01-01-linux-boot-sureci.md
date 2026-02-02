@@ -4,9 +4,7 @@ title: Linux İşletim Sistemlerinde Boot Süreci
 tags: [Linux, Boot]
 ---
 
-{: .box-success}
-😎 Linux ile ilgili bu not serisinde, konuların ilerleyişi açısından ChatGPT ve LPIC kitabından faydalandım.
-Notların bu bölümü linux boot süreçlerindeki detaylardan bahsediyor.
+{: .box-success} 😎 Linux ile ilgili bu not serisinde, konuların ilerleyişi açısından ChatGPT ve LPIC kitabından faydalandım. Notların bu bölümü linux boot süreçlerindeki detaylardan bahsediyor.
 
 ![dmesg](https://csariyildiz.github.io/images/img024.png)
 
@@ -135,88 +133,93 @@ Bootloaderın ikinci kısmına kadar olan süreçte hem BIOS'da hem de MBR kısm
 UEFI (Unified Extensible Firmware Interface) BIOS dan bazı alanlarda farklılaşır. UEFI da BIOS gibi firmware'dir fakat ek özellikler taşır. UEFI partition ları tanımlayabilir, onlar üzerindeki birden farklı dosya sistemini okuyabilir. UEFI BIOS gibi MBR a dayanmaz. Bunun yerine anakartın içerisinde bulunan kendi NVRAM'ı (non-volatile memory) üzerindeki ayarları kullanılır. Bu tanımlar UEFI ile uyumlu programların yerini gösterir. Bu programlara EFI denir. Bunlar otomatik olarak çağrılır ya da menüden düzenlenebilir. EFI uygulamaları bootloader olabilir. İşletim sistemi seçmeye yarayan araçlar olabilir ya da sistem bilgi ve kurtarma yazılımları olabilirler.
 
 <div class="smallbox">
-<img src="https://csariyildiz.github.io/images/img023.png" alt="">
+   <img src="https://csariyildiz.github.io/images/img023.png" alt="">
+   <ul>
+<li><p><code>/boot dizini (Linux tarafı)</code> </p>
+<ul>
+<li><code>vmlinuz-linux</code> : Linux çekirdeği (kernel). Sistem bununla başlar.</li>
+<li><code>initramfs-linux.img</code> : Kernel’den önce yüklenen geçici kök dosya sistemi.Disk sürücüleri,  LVM, şifreli disk gibi şeyleri başlatır.</li>
+<li><code>intel-ucodeimg</code> : Intel CPU microcode güncellemesi.Kernel’den önce yüklenir, CPU bug fixleri içerir.</li>
+</ul>
+</li>
+<li><p><code>System Volume Information</code> : Genelde Windows kaynaklı, Linux için önemsiz.</p>
+</li>
+<li><p><code>/boot/EFI</code> (ESP – EFI System Partition)</p>
+<ul>
+<li>Bu dizin UEFI firmware’in doğrudan okuduğu yer.</li>
+<li>Her işletim sistemi / bootloader kendi klasörünü açar.</li>
+</ul>
+</li>
+<li><p><code>/boot/EFI/arch_grub/</code></p>
+<ul>
+<li><code>grubx64.efi</code> <ul>
+<li>Arch Linux için GRUB EFI binary’si.</li>
+<li>UEFI bunu çağırır ve GRUB menüsü açılır.</li>
+<li>Arch’a özel GRUB kurulumu burada tutulur.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>/boot/EFI/BOOT/</code></p>
+<ul>
+<li><code>BOOTX64.EFI</code></li>
+<li>Fallback / varsayılan EFI loader.</li>
+<li>UEFI, NVRAM kaydı yoksa buraya bakar.</li>
+<li>USB boot, bozuk NVRAM durumları için kritik.</li>
+</ul>
+</li>
+<li><p><code>/boot/EFI/EFI/GRUB/</code></p>
+<ul>
+<li><code>grubx64.efi</code></li>
+<li>Daha “genel” bir GRUB yolu. Bazı sistemler veya manuel kurulumlar bunu kullanır.</li>
+<li>Birden fazla GRUB kopyası olması normaldir.</li>
+</ul>
+</li>
+<li><p><code>/boot/EFI/Linux/</code></p>
+<ul>
+<li>(Boş ya da özel)</li>
+<li>UKI (Unified Kernel Image) kullanan sistemler için.</li>
+<li>Kernel + initramfs + cmdline tek .efi dosyası olur.</li>
+<li>systemd-boot + modern setup’larda kullanılır.</li>
+</ul>
+</li>
+<li><p><code>/boot/EFI/Mic/</code></p>
+<ul>
+<li><code>Boot/</code> And <code>Recovery/</code></li>
+<li>Microsoft dışı ama genelde OEM / vendor kalıntıları.</li>
+<li>Laptop üreticilerinin recovery EFI’leri olabilir.</li>
+</ul>
+</li>
+<li><p><code>/boot/EFI/Microsoft/</code></p>
+<ul>
+<li><code>Boot/</code><ul>
+<li>Windows Boot Manager (<code>bootmgfw.efi</code>)</li>
+</ul>
+</li>
+<li><code>Recovery/</code><ul>
+<li>Windows kurtarma ortamı</li>
+<li>Windows varsa asla silinmemeli.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>/boot/EFI/systemd/</code></p>
+<ul>
+<li><code>systemd-bootx64.efi</code> </li>
+<li><code>systemd-boot bootloader</code>’ı.</li>
+<li>GRUB alternatifi, daha sade.</li>
+<li>Şu an GRUB kullanıyorsun ama systemd-boot da kurulu görünüyor.</li>
+</ul>
+</li>
+</ul>
 
 
-<h2 id="-boot-dizini-linux-taraf-"><code>/boot</code> dizini (Linux tarafı)</h2>
-<ul>
-<li><p><strong><code>vmlinuz-linux</code></strong><br>Linux çekirdeği (kernel). Sistem bununla başlar.</p>
-</li>
-<li><p><strong><code>initramfs-linux.img</code></strong><br>Kernel’den önce yüklenen geçici kök dosya sistemi.<br>Disk sürücüleri, LVM, şifreli disk gibi şeyleri başlatır.</p>
-</li>
-<li><p><strong><code>intel-ucode.img</code></strong><br>Intel CPU microcode güncellemesi.<br>Kernel’den <strong>önce</strong> yüklenir, CPU bug fixleri içerir.</p>
-</li>
-<li><p><strong><code>System Volume Information</code></strong><br>Genelde Windows kaynaklı, Linux için önemsiz.</p>
-</li>
-</ul>
-<hr>
-<h2 id="-boot-efi-esp-efi-system-partition-"><code>/boot/EFI</code> (ESP – EFI System Partition)</h2>
-<p>Bu dizin <strong>UEFI firmware’in doğrudan okuduğu</strong> yer.<br>Her işletim sistemi / bootloader kendi klasörünü açar.</p>
-<hr>
-<h3 id="-boot-efi-arch_grub-"><code>/boot/EFI/arch_grub/</code></h3>
-<ul>
-<li><strong><code>grubx64.efi</code></strong><br>Arch Linux için GRUB EFI binary’si.<br>UEFI → bunu çağırır → GRUB menüsü açılır.</li>
-</ul>
-<blockquote>
-<p>Arch’a özel GRUB kurulumu burada tutulur.</p>
-</blockquote>
-<hr>
-<h3 id="-boot-efi-boot-"><code>/boot/EFI/BOOT/</code></h3>
-<ul>
-<li><strong><code>BOOTX64.EFI</code></strong><br><strong>Fallback / varsayılan EFI loader</strong>.<br>UEFI, NVRAM kaydı yoksa buraya bakar.</li>
-</ul>
-<blockquote>
-<p>USB boot, bozuk NVRAM durumları için kritik.</p>
-</blockquote>
-<hr>
-<h3 id="-boot-efi-efi-grub-"><code>/boot/EFI/EFI/GRUB/</code></h3>
-<ul>
-<li><strong><code>grubx64.efi</code></strong><br>Daha “genel” bir GRUB yolu.<br>Bazı sistemler veya manuel kurulumlar bunu kullanır.</li>
-</ul>
-<blockquote>
-<p>Birden fazla GRUB kopyası olması normaldir.</p>
-</blockquote>
-<hr>
-<h3 id="-boot-efi-linux-"><code>/boot/EFI/Linux/</code></h3>
-<ul>
-<li>(Boş ya da özel)<br><strong>UKI (Unified Kernel Image)</strong> kullanan sistemler için.<br>Kernel + initramfs + cmdline tek <code>.efi</code> dosyası olur.</li>
-</ul>
-<blockquote>
-<p>systemd-boot + modern setup’larda kullanılır.</p>
-</blockquote>
-<hr>
-<h3 id="-boot-efi-mic-"><code>/boot/EFI/Mic/</code></h3>
-<ul>
-<li><strong><code>Boot/</code> &amp; <code>Recovery/</code></strong><br>Microsoft dışı ama genelde OEM / vendor kalıntıları.<br>Laptop üreticilerinin recovery EFI’leri olabilir.</li>
-</ul>
-<hr>
-<h3 id="-boot-efi-microsoft-"><code>/boot/EFI/Microsoft/</code></h3>
-<ul>
-<li><p><strong><code>Boot/</code></strong><br>Windows Boot Manager (<code>bootmgfw.efi</code>)</p>
-</li>
-<li><p><strong><code>Recovery/</code></strong><br>Windows kurtarma ortamı</p>
-</li>
-</ul>
-<blockquote>
-<p>Windows varsa <strong>asla silinmemeli</strong>.</p>
-</blockquote>
-<hr>
-<h3 id="-boot-efi-systemd-"><code>/boot/EFI/systemd/</code></h3>
-<ul>
-<li><strong><code>systemd-bootx64.efi</code></strong><br>systemd-boot bootloader’ı.<br>GRUB alternatifi, daha sade.</li>
-</ul>
-<blockquote>
-<p>Şu an GRUB kullanıyorsun ama systemd-boot da kurulu görünüyor.</p>
-</blockquote>
-
-
-
-<ul>
-<li></li>
-<li></li>
-<li>UEFI firmware, NVRAM’da kayıtlı EFI uygulamasını (ör. grubx64.efi) çağırır. Bu dosyalar /boot/EFI altındadır. GRUB veya systemd-boot, buradan Linux kernel (vmlinuz-linux) ve initramfs’i yükleyerek sistemi başlatır. BOOT/BOOTX64.EFI ise fallback mekanizmasıdır.</li>
-</ul>
 </div>
+
+
+* UEFI firmware, NVRAM’da kayıtlı EFI uygulamasını (ör. grubx64.efi) çağırır. Bu dosyalar /boot/EFI altındadır. GRUB veya systemd-boot, buradan Linux kernel (vmlinuz-linux) ve initramfs’i yükleyerek sistemi başlatır. BOOT/BOOTX64.EFI ise fallback mekanizmasıdır.
+
+
 
 EFI barındıran bir partitionunun bilinen bir cihaz partition yapısı içerisinde ve bilinen bir dosya sistemine sahip olması yeterlidir. Bu standart dosya sistemleri disk cihazlar (block devices) için FAT12, FAT32 ve optik medya için ISO-9660'dır. Sonuç olarak BIOS'a göre çok daha elverişli yaklaşım sayesinde daha esnek sofistike araçlar henüz işletim sistemi yüklenmeden çalıştırılabilir.
 
