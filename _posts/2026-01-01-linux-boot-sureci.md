@@ -189,37 +189,7 @@ Aşağıdaki bir boot dizini örnek olarak verilebilir:
 ├── intel-ucode.img
 ├── loader
 ├── 'System Volume Information'
-└── vmlinuz-linux/boot
-├── EFI
-│   ├── arch_grub
-│   │   └── grubx64.efi
-│   │
-│   ├── BOOT
-│   │   └── BOOTX64.EFI
-│   │
-│   ├── EFI
-│   │   └── GRUB
-│   │       └── grubx64.efi
-│   │
-│   ├── Linux
-│   │
-│   ├── Mic
-│   │   ├── Boot
-│   │   └── Recovery
-│   │
-│   ├── Microsoft
-│   │   ├── Boot
-│   │   └── Recovery
-│   │
-│   └── systemd
-│       └── systemd-bootx64.efi
-│
-├── grub
-├── initramfs-linux.img
-├── intel-ucode.img
-├── loader
-├── 'System Volume Information'
-└── vmlinuz-linux                
+└── vmlinuz-linux            
 ~~~
 
 * `/boot dizini` altında,
