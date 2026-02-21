@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux Notları: Boot Süreci
+title: Linux Notları Boot Süreci
 tags: [Linux, Boot]
 ---
 
@@ -154,11 +154,73 @@ Genel olarak UEFI ile beraber sistemi başlatmak için kullanılan ön operasyon
 UEFI standardı Secure Boot adı verilen bir özelliği de barındırır. Bu özellik ile sadece imzalanmış EFI uygulamaları çağrılabilir. Bu imzalanmış EFI uygulamaları donanım sağlayıcısı tarafından yetkilendirilmiştir. Bu özellik sayesinde zararlı yazılım içerebilecek işletim sistemlerini yüklemeyi zorlaştırarak güvenlik sağlar. Kimi zararlı yazılımlar sistemlerde kalıcılık sağlamak (persistance) için yüklenme adımlarını etkilemeyi hedefler. Böyle bir durumda işletim sistemi tekrar yüklense bile zararlı yazılım etkisini sürdürebilir.
 
 
-#### UEFI Örnek Dizin
+#### UEFI Örnek Boot Dizini
 
-Örnek bir dizin aşağıdaki örnek verilebilir:
+Aşağıdaki bir boot dizini örnek olarak verilebilir:
 
-![Örnek Dizin](https://csariyildiz.github.io/images/img023.png)
+~~~
+/boot
+├── EFI
+│   ├── arch_grub
+│   │   └── grubx64.efi
+│   │
+│   ├── BOOT
+│   │   └── BOOTX64.EFI
+│   │
+│   ├── EFI
+│   │   └── GRUB
+│   │       └── grubx64.efi
+│   │
+│   ├── Linux
+│   │
+│   ├── Mic
+│   │   ├── Boot
+│   │   └── Recovery
+│   │
+│   ├── Microsoft
+│   │   ├── Boot
+│   │   └── Recovery
+│   │
+│   └── systemd
+│       └── systemd-bootx64.efi
+│
+├── grub
+├── initramfs-linux.img
+├── intel-ucode.img
+├── loader
+├── 'System Volume Information'
+└── vmlinuz-linux/boot
+├── EFI
+│   ├── arch_grub
+│   │   └── grubx64.efi
+│   │
+│   ├── BOOT
+│   │   └── BOOTX64.EFI
+│   │
+│   ├── EFI
+│   │   └── GRUB
+│   │       └── grubx64.efi
+│   │
+│   ├── Linux
+│   │
+│   ├── Mic
+│   │   ├── Boot
+│   │   └── Recovery
+│   │
+│   ├── Microsoft
+│   │   ├── Boot
+│   │   └── Recovery
+│   │
+│   └── systemd
+│       └── systemd-bootx64.efi
+│
+├── grub
+├── initramfs-linux.img
+├── intel-ucode.img
+├── loader
+├── 'System Volume Information'
+└── vmlinuz-linux                
+~~~
 
 * `/boot dizini` altında,
   * `vmlinuz-linux` : Linux çekirdeği (kernel). Sistem bununla başlar.
@@ -173,9 +235,8 @@ UEFI standardı Secure Boot adı verilen bir özelliği de barındırır. Bu öz
   * `/boot/EFI/BOOT/` altında,
     * `BOOTX64.EFI` : Fallback / varsayılan EFI loader. UEFI, NVRAM kaydı yoksa buraya bakar. USB boot, bozuk NVRAM durumları için kritik.
   * `/boot/EFI/EFI/GRUB/` altında,
-    * `grubx64.efi` : Daha “genel” bir GRUB yolu. Bazı sistemler veya manuel kurulumlar bunu kullanır.
+    * `grubx64.efi` : Daha “genel” bir GRUB yolu. Bazı sistemler veya manuel kurulumlar bunu kullanır. Birden fazla GRUB kopyası olması normaldir.
 
-Birden fazla GRUB kopyası olması normaldir.
 * `/boot/EFI/Linux/` : (Boş ya da özel). UKI (Unified Kernel Image) kullanan sistemler için.
 Kernel + initramfs + cmdline tek .efi dosyası olur. systemd-boot + modern setup’larda kullanılır.
 * `/boot/EFI/Mic/`
