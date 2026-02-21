@@ -59,7 +59,7 @@ Bu komutlar, kernel’in tanıdığı aygıtları ilgili bus (veriyolu) üzerind
 
 ---
 
-### lspci – PCI Aygıtlarını Listeleme
+#### lspci – PCI Aygıtlarını Listeleme
 
 `lspci` komutu, sistemdeki PCI ve PCIe cihazlarını gösterir.
 
@@ -87,7 +87,7 @@ lspci
 
 ---
 
-### Daha Detaylı Bilgi
+#### Daha Detaylı Bilgi
 
 Detaylı bilgi için:
 
@@ -111,7 +111,7 @@ Bu özellikle driver sorunlarını teşhis etmek için kritiktir.
 
 ---
 
-### Belirli Bir Cihazı İncelemek
+#### Belirli Bir Cihazı İncelemek
 
 `-s` opsiyonu ile belirli bir PCI adresine sahip cihazı görüntüleyebiliriz:
 
@@ -136,7 +136,7 @@ Bu, cihazın şu anda aktif olarak hangi driver tarafından yönetildiğini gös
 
 ---
 
-### Birden Fazla Modül Durumu
+#### Birden Fazla Modül Durumu
 
 Aşağıdaki örnekte bir NVIDIA GPU için driver bilgisi görülmektedir:
 
@@ -159,7 +159,7 @@ Bu durum özellikle açık kaynak (`nouveau`) ve kapalı kaynak (`nvidia`) drive
 
 ---
 
-### lsusb – USB Aygıtlarını Listeleme
+#### lsusb – USB Aygıtlarını Listeleme
 
 `lsusb` komutu, sistemdeki USB bus üzerinde bulunan aygıtları listeler.
 
@@ -196,7 +196,7 @@ Vendor ve Product ID bilgileri, hangi driver’ın kullanılacağını belirleme
 
 ---
 
-### Detaylı Bilgi
+#### Detaylı Bilgi
 
 Daha ayrıntılı bilgi için:
 
@@ -208,7 +208,7 @@ Bu komut cihaz sınıfını (Device Class), güç tüketimini, desteklenen proto
 
 ---
 
-### Belirli Bir Cihazı İncelemek
+#### Belirli Bir Cihazı İncelemek
 
 Belirli bir bus ve device numarasına sahip cihazı incelemek için:
 
@@ -234,7 +234,7 @@ Device Descriptor:
   
 ---
 
-### USB Cihazların Farklılığı
+#### USB Cihazların Farklılığı
 
 USB cihazları dinamik olarak (hotplug) bağlanıp çıkarılabilir. Bir USB aygıt takıldığında süreç şu şekilde işler:
 * USB cihaz takılır
@@ -246,7 +246,7 @@ USB cihazları dinamik olarak (hotplug) bağlanıp çıkarılabilir. Bir USB ayg
 
 ---
 
-### Driver Kontrolü
+#### Driver Kontrolü
 
 USB cihazı için hangi driver’ın kullanıldığını görmek için:
 
@@ -267,7 +267,7 @@ komutları kullanılabilir.
 
 ---
 
-### `lsusb -t` Çıktısı
+#### lsusb -t Çıktısı
 
 ```
 $ lsusb -t
@@ -302,7 +302,7 @@ Buradaki `Driver=` alanı, cihazın hangi kernel modülü tarafından yönetildi
 
 ---
 
-### Device Class Nedir?
+#### Device Class Nedir?
 
 `Class` alanı cihazın genel kategorisini belirtir. Örneğin:
 
@@ -315,7 +315,7 @@ Bu bilgi, hangi tür driver’ın gerekli olabileceğini anlamaya yardımcı olu
 
 ---
 
-### Belirli Bir Cihazı Kontrol Etme
+#### Belirli Bir Cihazı Kontrol Etme
 
 Örneğin önceki listede `btusb` modülünü kullanan bir cihaz olduğunu varsayalım.
 
@@ -339,7 +339,7 @@ Burada:
 Bu bilgiler `lsusb` çıktısından alınır.
 
 
-### USB Aygıtları ve Modül İlişkisi
+#### USB Aygıtları ve Modül İlişkisi
 
 Her aygıt için mutlaka ayrı bir kernel modülü bulunması gerekmez.  
 Bazı cihazlarla iletişim, özel bir kernel modülü olmadan da gerçekleştirilebilir. Bu durum genellikle:
@@ -352,7 +352,7 @@ için geçerlidir. Buna rağmen `lsusb -t` komutu önemli bilgiler sağlar.
 
 ---
 
-### Yüklü Kernel Modüllerini Görüntüleme
+#### Yüklü Kernel Modüllerini Görüntüleme
 
 Standart bir Linux sisteminde genellikle çok sayıda kernel modülü yüklü durumdadır.
 
@@ -449,12 +449,12 @@ gösterir.
 
 ---
 
-## Kalıcı Ayarlar (Persistent Configuration)
+#### Kalıcı Ayarlar (Persistent Configuration)
 
 Geçici olarak yapılan modül ayarları sistem yeniden başlatıldığında kaybolur.  
 Kalıcı yapılandırma için `modprobe` konfigürasyon dosyaları kullanılır.
 
-### Konfigürasyon Dizini
+#### Konfigürasyon Dizini
 
 ```
 /etc/modprobe.d/
@@ -470,7 +470,7 @@ Bu dizin altına `.conf` uzantılı dosyalar eklenir.
 
 ---
 
-### Modül Parametresi Ekleme
+#### Modül Parametresi Ekleme
 
 Örneğin `nouveau` modülünde modeset özelliğini kapatmak için:
 
@@ -485,7 +485,7 @@ Bu ayar:
 
 ---
 
-## Modül Kara Listeye Alma (Blacklist)
+#### Modül Kara Listeye Alma (Blacklist)
 
 Bir modülün otomatik yüklenmesini engellemek için blacklist kullanılabilir.
 
