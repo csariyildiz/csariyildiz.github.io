@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Linux İşletim Sistemlerinde Boot Süreci
+title: Linux Notları: Boot Süreci
 tags: [Linux, Boot]
 ---
 
 {: .box-success} 
-Bu not serisi hazırlanırken, konuların bütünlüklü ve sistematik bir çerçevede sunulabilmesi amacıyla LPIC-1 kaynak kitabından yararlanılmıştır. Bu bölümde, Linux işletim sisteminin boot (önyükleme) süreci mimari ve teknik yönleriyle incelenmektedir.
+Bu not serisi hazırlanırken, konuların bütünlüklü ve sistematik bir çerçevede sunulabilmesi amacıyla LPIC kaynak kitabından yararlanılmıştır. Bu bölümde, Linux işletim sisteminin boot (önyükleme) süreci mimari ve teknik yönleriyle incelenmektedir.
 
 ![dmesg](https://csariyildiz.github.io/images/img024.png)
 
@@ -25,31 +25,31 @@ Bu farklara rağmen genel bir Linux için standart bir boot sürecini aşağıda
   Donanımı başlatır ve temel kontrolleri (POST) yapar
   Boot edilebilir aygıtı bulur
   Bootloader’ı belleğe yükler
-↓
+
 2. Bootloader (örn. GRUB)
   Kernel’i ve initramfs’i yükler
   Kernel parametrelerini belirler ve kernel’e iletir
   Hangi işletim sisteminin başlatılacağını seçer
-↓
+
 3. Kernel’in Yüklenmesi
   Belleğe yerleşir ve çalışmaya başlar
   CPU, bellek ve temel donanım yönetimini devralır
   Kernel parametrelerini işler
-↓
+
 4. initramfs
   Geçici kök dosya sistemi olarak kullanılır
   Gerekli sürücüleri (disk, dosya sistemi vb.) yükler
   Asıl root dosya sistemine geçişi sağlar
-↓
+
 5. Root Dosya Sisteminin Bağlanması
   Kalıcı root filesystem mount edilir
   initramfs devreden çıkarılır
-↓
+
 6. Init Sistemi (örn. systemd)
   PID 1 olarak çalışır
   Servisleri, hedefleri (targets) ve bağımlılıkları başlatır
   Sistemi çok kullanıcılı ortama hazırlar
-↓
+
 7. Kullanıcı Ortamı
   Giriş ekranı (CLI veya GUI) başlatılır
   Sistem tam olarak kullanılabilir hale gelir
@@ -136,95 +136,8 @@ Bootloaderın ikinci kısmına kadar olan süreçte hem BIOS'da hem de MBR kısm
 
 UEFI (Unified Extensible Firmware Interface) BIOS dan bazı alanlarda farklılaşır. UEFI da BIOS gibi firmware'dir fakat ek özellikler taşır. UEFI partition ları tanımlayabilir, onlar üzerindeki birden farklı dosya sistemini okuyabilir. UEFI BIOS gibi MBR a dayanmaz. Bunun yerine anakartın içerisinde bulunan kendi NVRAM'ı (non-volatile memory) üzerindeki ayarları kullanılır. Bu tanımlar UEFI ile uyumlu programların yerini gösterir. Bu programlara EFI denir. Bunlar otomatik olarak çağrılır ya da menüden düzenlenebilir. EFI uygulamaları bootloader olabilir. İşletim sistemi seçmeye yarayan araçlar olabilir ya da sistem bilgi ve kurtarma yazılımları olabilirler.
 
-#### UEFI Örnek Dizin
-
-<div class="smallbox">
-   <img src="https://csariyildiz.github.io/images/img023.png" alt="">
-   <ul>
-<li><p><code>/boot dizini (Linux tarafı)</code> </p>
-<ul>
-<li><code>vmlinuz-linux</code> : Linux çekirdeği (kernel). Sistem bununla başlar.</li>
-<li><code>initramfs-linux.img</code> : Kernel’den önce yüklenen geçici kök dosya sistemi.Disk sürücüleri,  LVM, şifreli disk gibi bileşenleri başlatır.</li>
-<li><code>intel-ucodeimg</code> : Intel CPU microcode güncellemesi.Kernel’den önce yüklenir, CPU bug fixleri içerir.</li>
-</ul>
-</li>
-<li><p><code>System Volume Information</code> : Genelde Windows kaynaklı, Linux için önemsiz.</p>
-</li>
-<li><p><code>/boot/EFI</code> (ESP – EFI System Partition)</p>
-<ul>
-<li>Bu dizin UEFI firmware’in doğrudan okuduğu yer.</li>
-<li>Her işletim sistemi / bootloader kendi klasörünü açar.</li>
-</ul>
-</li>
-<li><p><code>/boot/EFI/arch_grub/</code></p>
-<ul>
-<li><code>grubx64.efi</code> <ul>
-<li>Arch Linux için GRUB EFI binary’si.</li>
-<li>UEFI bunu çağırır ve GRUB menüsü açılır.</li>
-<li>Arch’a özel GRUB kurulumu burada tutulur.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>/boot/EFI/BOOT/</code></p>
-<ul>
-<li><code>BOOTX64.EFI</code></li>
-<li>Fallback / varsayılan EFI loader.</li>
-<li>UEFI, NVRAM kaydı yoksa buraya bakar.</li>
-<li>USB boot, bozuk NVRAM durumları için kritik.</li>
-</ul>
-</li>
-<li><p><code>/boot/EFI/EFI/GRUB/</code></p>
-<ul>
-<li><code>grubx64.efi</code></li>
-<li>Daha “genel” bir GRUB yolu. Bazı sistemler veya manuel kurulumlar bunu kullanır.</li>
-<li>Birden fazla GRUB kopyası olması normaldir.</li>
-</ul>
-</li>
-<li><p><code>/boot/EFI/Linux/</code></p>
-<ul>
-<li>(Boş ya da özel)</li>
-<li>UKI (Unified Kernel Image) kullanan sistemler için.</li>
-<li>Kernel + initramfs + cmdline tek .efi dosyası olur.</li>
-<li>systemd-boot + modern setup’larda kullanılır.</li>
-</ul>
-</li>
-<li><p><code>/boot/EFI/Mic/</code></p>
-<ul>
-<li><code>Boot/</code> And <code>Recovery/</code></li>
-<li>Microsoft dışı ama genelde OEM / vendor kalıntıları.</li>
-<li>Laptop üreticilerinin recovery EFI’leri olabilir.</li>
-</ul>
-</li>
-<li><p><code>/boot/EFI/Microsoft/</code></p>
-<ul>
-<li><code>Boot/</code><ul>
-<li>Windows Boot Manager (<code>bootmgfw.efi</code>)</li>
-</ul>
-</li>
-<li><code>Recovery/</code><ul>
-<li>Windows kurtarma ortamı</li>
-<li>Windows varsa asla silinmemeli.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>/boot/EFI/systemd/</code></p>
-<ul>
-<li><code>systemd-bootx64.efi</code> </li>
-<li><code>systemd-boot bootloader</code>’ı.</li>
-<li>GRUB alternatifi, daha sade.</li>
-<li>Şu an GRUB kullanıyorsun ama systemd-boot da kurulu görünüyor.</li>
-</ul>
-</li>
-</ul>
-
-
-</div>
-
 
 * UEFI firmware, NVRAM’da kayıtlı EFI uygulamasını (ör. grubx64.efi) çağırır. Bu dosyalar /boot/EFI altındadır. GRUB veya systemd-boot, buradan Linux kernel (vmlinuz-linux) ve initramfs’i yükleyerek sistemi başlatır. BOOT/BOOTX64.EFI ise fallback mekanizmasıdır.
-
 
 
 EFI barındıran bir partitionunun bilinen bir cihaz partition yapısı içerisinde ve bilinen bir dosya sistemine sahip olması yeterlidir. Bu standart dosya sistemleri disk cihazlar (block devices) için FAT12, FAT32 ve optik medya için ISO-9660'dır. Sonuç olarak BIOS'a göre çok daha elverişli yaklaşım sayesinde daha esnek sofistike araçlar henüz işletim sistemi yüklenmeden çalıştırılabilir.
@@ -239,6 +152,39 @@ Genel olarak UEFI ile beraber sistemi başlatmak için kullanılan ön operasyon
 4.  Eğer bu uygulama bir bootloader ise kernel i yükleyecek ve işletim sistemini başlatacaktır.
 
 UEFI standardı Secure Boot adı verilen bir özelliği de barındırır. Bu özellik ile sadece imzalanmış EFI uygulamaları çağrılabilir. Bu imzalanmış EFI uygulamaları donanım sağlayıcısı tarafından yetkilendirilmiştir. Bu özellik sayesinde zararlı yazılım içerebilecek işletim sistemlerini yüklemeyi zorlaştırarak güvenlik sağlar. Kimi zararlı yazılımlar sistemlerde kalıcılık sağlamak (persistance) için yüklenme adımlarını etkilemeyi hedefler. Böyle bir durumda işletim sistemi tekrar yüklense bile zararlı yazılım etkisini sürdürebilir.
+
+
+#### UEFI Örnek Dizin
+
+Örnek bir dizin aşağıdaki örnek verilebilir:
+
+![Örnek Dizin](https://csariyildiz.github.io/images/img023.png)
+
+* `/boot dizini` altında,
+  * `vmlinuz-linux` : Linux çekirdeği (kernel). Sistem bununla başlar.
+  * `initramfs-linux.img` : Kernel’den önce yüklenen geçici kök dosya sistemi.Disk sürücüleri,  LVM, şifreli disk gibi bileşenleri başlatır.
+  * `intel-ucodeimg` : Intel CPU microcode güncellemesi.Kernel’den önce yüklenir, CPU bug fixleri içerir.
+  * `System Volume Information` : Genelde Windows kaynaklı, Linux için önemsiz.
+
+* `/boot/EFI` (ESP – EFI System Partition)
+  * Bu dizin UEFI firmware’in doğrudan okuduğu yer. Her işletim sistemi / bootloader kendi klasörünü açar.
+  * `/boot/EFI/arch_grub/` 
+    * `grubx64.efi` : Arch Linux için GRUB EFI binary’si. UEFI bunu çağırır ve GRUB menüsü açılır. Arch’a özel GRUB kurulumu burada tutulur.
+  * `/boot/EFI/BOOT/` altında,
+    * `BOOTX64.EFI` : Fallback / varsayılan EFI loader. UEFI, NVRAM kaydı yoksa buraya bakar. USB boot, bozuk NVRAM durumları için kritik.
+  * `/boot/EFI/EFI/GRUB/` altında,
+    * `grubx64.efi` : Daha “genel” bir GRUB yolu. Bazı sistemler veya manuel kurulumlar bunu kullanır.
+
+Birden fazla GRUB kopyası olması normaldir.
+* `/boot/EFI/Linux/` : (Boş ya da özel). UKI (Unified Kernel Image) kullanan sistemler için.
+Kernel + initramfs + cmdline tek .efi dosyası olur. systemd-boot + modern setup’larda kullanılır.
+* `/boot/EFI/Mic/`
+* `Boot/` And `Recovery/` : Microsoft dışı ama genelde OEM / vendor kalıntıları. Laptop üreticilerinin recovery EFI’leri olabilir.
+* `/boot/EFI/Microsoft/` 
+* `Boot/` : Windows Boot Manager (`bootmgfw.efi`)
+* `Recovery/` :Windows kurtarma ortamı. Windows varsa asla silinmemeli.
+* `/boot/EFI/systemd/`
+* `systemd-bootx64.efi` : `systemd-boot bootloader`’ı. GRUB alternatifi, daha sade. Şu an GRUB kullaniliyor ama ayni zamanda systemd-boot da kurulu.
 
 #### Bootloader
 
