@@ -156,6 +156,33 @@ p {
   color: #2980b9; /* blue for active language */
 }
 
+/* ===== LANGUAGE SWITCHER ===== */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+}
+
+.lang-switcher a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.lang-switcher a:hover {
+  color: #c0392b;
+  text-decoration: none;
+}
+
+.lang-divider {
+  color: #ccc;
+}
+
 .navbar-custom > a:hover {
   color: #c0392b;
   text-decoration: none;
