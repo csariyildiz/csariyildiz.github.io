@@ -5,21 +5,20 @@ tags: [Linux, Boot]
 ---
 
 {: .box-success} 
-😎 Linux ile ilgili bu not serisinde, konuların ilerleyişi açısından ChatGPT ve LPIC kitabından faydalandım. 
-Notların bu bölümü linux boot süreçlerindeki detaylardan bahsediyor.
+Bu not serisi hazırlanırken, konuların bütünlüklü ve sistematik bir çerçevede sunulabilmesi amacıyla LPIC-1 kaynak kitabından yararlanılmıştır. Bu bölümde, Linux işletim sisteminin boot (önyükleme) süreci mimari ve teknik yönleriyle incelenmektedir.
 
 ![dmesg](https://csariyildiz.github.io/images/img024.png)
 
-Linux tabanlı işletim sistemlerini anlatırken sıkça araba benzetmesi kullanılır. `Kernel` (çekirdek), arabanın motoru gibidir. Motorun işlevi temeldir ve çeşitliliği sınırlıdır; asıl görevi aracı çalıştırmaktır. Ancak motorun üzerine, markaya ve hatta modele göre değişen pek çok ek özellik eklenir.
+Linux tabanlı işletim sistemlerini anlatırken araba benzetmesi kullanmak mümkündür. `Kernel` (çekirdek), arabanın motoruna karşılık gelir. Arabada motorun işlevi temeldir ve çeşitliliği sınırlıdır; asıl görevi aracı çalıştırmaktır. Ancak motorun üzerine, markaya ve hatta modele göre değişen pek çok ek özellik eklenir.
 
-Aynı şekilde Linux dünyasında da farklı dağıtımlar bulunur. Aslında `Linux` adı yalnızca çekirdeği ifade eder. Tam bir işletim sistemi ise Linux çekirdeği ile birlikte GNU araçlarının bir araya gelmesiyle oluşur ve bu yapı `GNU/Linux` olarak adlandırılır.
+Benzer şekilde Linux dünyasında da farklı dağıtımlar bulunur. Aslında `Linux` adı yalnızca çekirdeği ifade eder. Tam bir işletim sistemi ise Linux çekirdeği ile birlikte GNU araçlarının bir araya gelmesiyle oluşur ve bu yapı `GNU/Linux` olarak adlandırılır.
 
 Nasıl ki bir arabanın kontağı kapalıyken çalışır duruma geçmesi belirli bir süreci izliyorsa, bilgisayarların da açılış sırasında benzer bir başlangıç (boot) süreci yürütülür.
 
 ### Boot Sürecinin Özeti
 
 Boot süreci içerisinde tarihsel olarak gelen ve sistem çeşitliliğinden kaynaklanan farklar bulunur. (BIOS ve UEFI farkı, GRUB Legacy ve GRUB2 farkı, systemd ve init, Diskte MBR ve GPT farkı gibi )
-Bu farklara rağmen genel bir Linux için standart bir boot sürecini aşağıdaki gibi özetleyebiliriz:
+Bu farklara rağmen genel bir Linux için standart bir boot sürecini aşağıdaki gibi özetlenebilir:
 
 ~~~
 1. Firmware (BIOS / UEFI)
@@ -58,7 +57,7 @@ Bu farklara rağmen genel bir Linux için standart bir boot sürecini aşağıda
 
 Sistemin yüklenmesine kadar olan aşamalarda oluşan olaylar çeşitli log mekanizmalarıyla kaydedilir. Kernel mesajlarına `dmesg`, systemd tabanlı servis ve kullanıcı alanı (userspace) loglarına ise journalctl komutu ile erişilebilir. Boot sürecinde meydana gelen hataların analizinde bu loglar temel başvuru kaynaklarıdır.
 
-Ancak sistem kernel aşamasında (örneğin kernel panic, initramfs hatası veya root filesystem mount edilememesi gibi durumlarda) problem yaşıyorsa, `dmesg` ve `journalctl` gibi araçlara doğrudan erişmek mümkün olmayabilir. Bu tür durumlarda hataların incelenmesi için GRUB boot parametreleri, initramfs debug çıktıları, serial console, rescue / live ortamları veya önceki boot loglarının diskte tutulmuş kopyaları gibi alternatif yöntemler kullanılır.
+**Not:** Eğer sistem kernel aşamasında (örneğin kernel panic, initramfs hatası veya root filesystem mount edilememesi gibi durumlarda) problem yaşıyorsa, `dmesg` ve `journalctl` gibi araçlara doğrudan erişmek mümkün olmayabilir. Bu tür durumlarda hataların incelenmesi için GRUB boot parametreleri, initramfs debug çıktıları, serial console, rescue / live ortamları veya önceki boot loglarının diskte tutulmuş kopyaları gibi alternatif yöntemler kullanılır.
 
 ### Başlangıç Aşamaları, Kernel Parametleri ve Boot Mesajlarının Okunması
 
@@ -96,21 +95,24 @@ B8 05 00 00 00  →  mov eax, 5
   
 #### BIOS ve MBR Sistemde Boot Süreci
 
-İlk olarak her ikisi de legacy sistem olan BIOS ve MBR ikilisini ele alalım. Örnek bir BIOS arayüzü aşağıdaki gibi görünür:
+İlk olarak her ikisi de legacy sistem olan BIOS ve MBR ikilisini ele alındığında. Eski bir BIOS arayüzü aşağıdaki gibi görünür:
 
 ![Thinkpad BIOS](https://csariyildiz.github.io/images/thinkpad-bios.png)
 
 BIOS (Basic Input/Output System), anakart üzerinde bulunan kalıcı bir bellek çipi (flash memory) içinde yer alır. Bilgisayar her açıldığında ilk olarak bu yazılım devreye girer. BIOS bir firmware’dir ve temel donanım kontrollerini (POST) gerçekleştirdikten sonra önyükleme sürecini başlatmak, yani bootloader’ı çalıştırmakla görevlidir. Bu nedenle BIOS’un bulunduğu bellek alanı, işletim sisteminin yer aldığı disk aygıtlarından fiziksel ve mantıksal olarak ayrıdır.
 
-Disk şeması açısından aşağıdakini söyleyebiliriz:
+Modern sistemlerde BIOS’un yerini büyük ölçüde UEFI firmware almıştır. UEFI de anakart üzerindeki kalıcı bellek içinde bulunur ve diskler üzerindeki EFI System Partition (ESP) bölümlerini tespit ederek buradaki önyükleme uygulamalarını çalıştırabilir. Günlük kullanımda bu firmware hâlâ alışkanlık gereği “BIOS” olarak adlandırılmaktadır. Sunucu sistemlerinde ise iDRAC, iLO gibi yönetim arabirimleri, firmware tabanlı donanım başlatma ve yönetim süreçlerinde benzer bir rol üstlenir.
+
+BIOS ve UEFI sistemin bir sonraki yükleme aşamalarını disk ile iletişim kurarak sağlarlar. Burada diskin şeması (MBR ve GPT) önem kazanır. MBR ve GPT şemaları diskler içerisindeki verinin düzenini tanımlar.
+Aşağıdaki tabloda BIOS/UEFI'ın MBR/GPT ile nasıl eşleştiğini görebiliriz.
+
+BIOS/UEFI ve MBR/GPT Eşleşmesi:
 * BIOS	MBR	✅	Klasik ve varsayılan kombinasyon
 * UEFI	GPT	✅	Modern ve önerilen kombinasyon
 * UEFI	MBR	⚠️	Çalışabilir ama sınırlı
 * BIOS	GPT	⚠️	Özel durumlar dışında çalışmaz
 
-Modern sistemlerde BIOS’un yerini büyük ölçüde UEFI firmware almıştır. UEFI de anakart üzerindeki kalıcı bellek içinde bulunur ve diskler üzerindeki EFI System Partition (ESP) bölümlerini tespit ederek buradaki önyükleme uygulamalarını çalıştırabilir. Günlük kullanımda bu firmware hâlâ alışkanlık gereği “BIOS” olarak adlandırılmaktadır. Sunucu sistemlerinde ise iDRAC, iLO gibi yönetim arabirimleri, firmware tabanlı donanım başlatma ve yönetim süreçlerinde benzer bir rol üstlenir.
-
-**Bootstrap**, BIOS tabanlı sistemlerde kritik bir rol oynar. BIOS firmware ile çalışan bir makinede, bootstrap kodu BIOS yapılandırmasında belirtilen ilk önyükleme aygıtının MBR (Master Boot Record) alanında yer alır. Bu kod, disk üzerinden okunan ilk çalıştırılabilir koddur.
+**Bootstrap Kodu**: BIOS tabanlı sistemlerde sitemi başlatmak için kullanılır. BIOS firmware ile çalışan bir makinede, bootstrap kodu BIOS yapılandırmasında belirtilen ilk önyükleme aygıtının MBR (Master Boot Record) alanında yer alır. Bu kod, disk üzerinden okunan ilk çalıştırılabilir ilk programdır.
 
 MBR içerisindeki bootstrap kodu, yine aynı alanda bulunan partition tablosunu okuyarak aktif (bootable) bölümü tespit eder. Bu bilgiler kullanılarak, diskte yer alan ve işletim sistemini yüklemekten sorumlu olan asıl önyükleyici yazılımın (bootloader) ikinci aşaması belleğe yüklenir ve çalıştırılır.
 
@@ -134,13 +136,15 @@ Bootloaderın ikinci kısmına kadar olan süreçte hem BIOS'da hem de MBR kısm
 
 UEFI (Unified Extensible Firmware Interface) BIOS dan bazı alanlarda farklılaşır. UEFI da BIOS gibi firmware'dir fakat ek özellikler taşır. UEFI partition ları tanımlayabilir, onlar üzerindeki birden farklı dosya sistemini okuyabilir. UEFI BIOS gibi MBR a dayanmaz. Bunun yerine anakartın içerisinde bulunan kendi NVRAM'ı (non-volatile memory) üzerindeki ayarları kullanılır. Bu tanımlar UEFI ile uyumlu programların yerini gösterir. Bu programlara EFI denir. Bunlar otomatik olarak çağrılır ya da menüden düzenlenebilir. EFI uygulamaları bootloader olabilir. İşletim sistemi seçmeye yarayan araçlar olabilir ya da sistem bilgi ve kurtarma yazılımları olabilirler.
 
+#### UEFI Örnek Dizin
+
 <div class="smallbox">
    <img src="https://csariyildiz.github.io/images/img023.png" alt="">
    <ul>
 <li><p><code>/boot dizini (Linux tarafı)</code> </p>
 <ul>
 <li><code>vmlinuz-linux</code> : Linux çekirdeği (kernel). Sistem bununla başlar.</li>
-<li><code>initramfs-linux.img</code> : Kernel’den önce yüklenen geçici kök dosya sistemi.Disk sürücüleri,  LVM, şifreli disk gibi şeyleri başlatır.</li>
+<li><code>initramfs-linux.img</code> : Kernel’den önce yüklenen geçici kök dosya sistemi.Disk sürücüleri,  LVM, şifreli disk gibi bileşenleri başlatır.</li>
 <li><code>intel-ucodeimg</code> : Intel CPU microcode güncellemesi.Kernel’den önce yüklenir, CPU bug fixleri içerir.</li>
 </ul>
 </li>
