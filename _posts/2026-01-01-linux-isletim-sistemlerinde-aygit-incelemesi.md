@@ -48,7 +48,7 @@ Sistem açıldığında veya cihaz takıldığında süreç şu şekilde ilerler
 
 ---
 
-### Aygıt İnceleme Komutları: `lspci` ve `lsusb`
+### Aygıt İnceleme Komutları: lspci` ve lsusb
 
 Linux’ta sistemde bulunan donanımları incelemek için kullanılan temel komutlardan ikisi:
 
@@ -401,7 +401,7 @@ Bu çıktı genellikle şu bilgileri içerir:
 
 ---
 
-### Belirli Bir Modülü Arama
+#### Belirli Bir Modülü Arama
 
 ```
 lsmod | fgrep -i snd_hda_intel
@@ -411,7 +411,7 @@ Belirtilen modülün yüklü olup olmadığını kontrol eder.
 
 ---
 
-### Modülleri Boyutuna Göre Sıralama
+#### Modülleri Boyutuna Göre Sıralama
 
 ```
 lsmod | sort -k2,2nr | head
@@ -421,7 +421,7 @@ Modülleri boyutlarına göre büyükten küçüğe sıralar ve en büyükleri g
 
 ---
 
-### Modül Kaldırma (Canlı Sistemden)
+#### Modül Kaldırma (Canlı Sistemden)
 
 ```
 sudo modprobe -r snd_hda_intel
@@ -432,7 +432,7 @@ Bu işlem canlı sistem üzerinde yapılır (live unload).
 
 ---
 
-### Modül Hakkında Bilgi Alma
+#### Modül Hakkında Bilgi Alma
 
 ```
 modinfo -p nouveau
