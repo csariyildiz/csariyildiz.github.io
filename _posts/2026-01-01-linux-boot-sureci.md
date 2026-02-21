@@ -159,7 +159,7 @@ UEFI standardı Secure Boot adı verilen bir özelliği de barındırır. Bu öz
 Aşağıdaki bir boot dizini örnek olarak verilebilir:
 
 ~~~
-/boot
+/boot 
 ├── EFI
 │   ├── arch_grub
 │   │   └── grubx64.efi
@@ -193,7 +193,7 @@ Aşağıdaki bir boot dizini örnek olarak verilebilir:
 ~~~
 
 * `/boot dizini` altında,
-  * `vmlinuz-linux` : Linux çekirdeği (kernel). Sistem bununla başlar.
+  * `vmlinuz-linux` : Linux çekirdeği (kernel). Sistemi başlatan derlenmiş çekirdek.
   * `initramfs-linux.img` : Kernel’den önce yüklenen geçici kök dosya sistemi.Disk sürücüleri,  LVM, şifreli disk gibi bileşenleri başlatır.
   * `intel-ucodeimg` : Intel CPU microcode güncellemesi.Kernel’den önce yüklenir, CPU bug fixleri içerir.
   * `System Volume Information` : Genelde Windows kaynaklı, Linux için önemsiz.
@@ -208,14 +208,17 @@ Aşağıdaki bir boot dizini örnek olarak verilebilir:
     * `grubx64.efi` : Daha “genel” bir GRUB yolu. Bazı sistemler veya manuel kurulumlar bunu kullanır. Birden fazla GRUB kopyası olması normaldir.
 
 * `/boot/EFI/Linux/` : (Boş ya da özel). UKI (Unified Kernel Image) kullanan sistemler için.
-Kernel + initramfs + cmdline tek .efi dosyası olur. systemd-boot + modern setup’larda kullanılır.
+* Kernel + initramfs + cmdline tek .efi dosyası olur. systemd-boot + modern setup’larda kullanılır.
+  
 * `/boot/EFI/Mic/`
-* `Boot/` And `Recovery/` : Microsoft dışı ama genelde OEM / vendor kalıntıları. Laptop üreticilerinin recovery EFI’leri olabilir.
+  * `Boot/` And `Recovery/` : Microsoft dışı ama genelde OEM / vendor kalıntıları. Laptop üreticilerinin recovery EFI’leri olabilir.
+
 * `/boot/EFI/Microsoft/` 
-* `Boot/` : Windows Boot Manager (`bootmgfw.efi`)
-* `Recovery/` :Windows kurtarma ortamı. Windows varsa asla silinmemeli.
+  * `Boot/` : Windows Boot Manager (`bootmgfw.efi`)
+  * `Recovery/` :Windows kurtarma ortamı. Windows varsa asla silinmemeli.
+
 * `/boot/EFI/systemd/`
-* `systemd-bootx64.efi` : `systemd-boot bootloader`’ı. GRUB alternatifi, daha sade. Şu an GRUB kullaniliyor ama ayni zamanda systemd-boot da kurulu.
+  * `systemd-bootx64.efi` : `systemd-boot bootloader`’ı. GRUB alternatifi, daha sade. Şu an GRUB kullaniliyor ama ayni zamanda systemd-boot da kurulu.
 
 #### Bootloader
 
