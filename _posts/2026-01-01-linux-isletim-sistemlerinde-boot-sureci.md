@@ -1,11 +1,9 @@
 ---
 layout: post
-title: Linux Notları Boot Süreci
+title: Linux İşletim Sistemlerinde Boot Süreci
 tags: [Linux, Boot]
+resources: [LPIC Books]
 ---
-
-{: .box-success} 
-Bu not serisi hazırlanırken, konuların bütünlüklü ve sistematik bir çerçevede sunulabilmesi amacıyla LPIC kaynak kitabından yararlanılmıştır. Bu bölümde, Linux işletim sisteminin boot (önyükleme) süreci mimari ve teknik yönleriyle incelenmektedir.
 
 ![dmesg](https://csariyildiz.github.io/images/img024.png)
 
@@ -449,3 +447,4 @@ journalctl -D /mnt/backup/journal/ -b -1
 ~~~
 journalctl -k -f
 ~~~
+
