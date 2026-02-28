@@ -99,18 +99,29 @@ B8 05 00 00 00  →  mov eax, 5
 
 BIOS (Basic Input/Output System), anakart üzerinde bulunan kalıcı bir bellek çipi (flash memory) içinde yer alır. Bilgisayar her açıldığında ilk olarak bu yazılım devreye girer. BIOS bir firmware’dir ve temel donanım kontrollerini (POST) gerçekleştirdikten sonra önyükleme sürecini başlatmak, yani bootloader’ı çalıştırmakla görevlidir. Bu nedenle BIOS’un bulunduğu bellek alanı, işletim sisteminin yer aldığı disk aygıtlarından fiziksel ve mantıksal olarak ayrıdır.
 
-Modern sistemlerde BIOS’un yerini büyük ölçüde UEFI firmware almıştır. UEFI de anakart üzerindeki kalıcı bellek içinde bulunur ve diskler üzerindeki EFI System Partition (ESP) bölümlerini tespit ederek buradaki önyükleme uygulamalarını çalıştırabilir. Günlük kullanımda bu firmware hâlâ alışkanlık gereği “BIOS” olarak adlandırılmaktadır. Sunucu sistemlerinde ise iDRAC, iLO gibi yönetim arabirimleri, firmware tabanlı donanım başlatma ve yönetim süreçlerinde benzer bir rol üstlenir.
+Modern sistemlerde BIOS’un yerini büyük ölçüde UEFI firmware almıştır. UEFI de anakart üzerindeki kalıcı bellek içinde bulunur ve diskler üzerindeki EFI System Partition (ESP) bölümlerini tespit ederek buradaki önyükleme uygulamalarını çalıştırabilir. Günlük kullanımda bu firmware hâlâ alışkanlık gereği “BIOS” olarak adlandırılmaktadır. Sunucu sistemlerinde iLO (HPE sunucularda) veya iDRAC (Dell sunucularda, BIOS/UEFI gibi firmware yapılarıyla birlikte çalışarak; donanım başlatma ve işletim sistemi öncesi süreçlerin uzaktan izlenmesini ve kontrol edilmesini sağlar.
 
-BIOS ve UEFI sistemin bir sonraki yükleme aşamalarını disk ile iletişim kurarak sağlarlar. Burada diskin şeması (MBR ve GPT) önem kazanır. MBR ve GPT şemaları diskler içerisindeki verinin düzenini tanımlar.
-Aşağıdaki tabloda BIOS/UEFI'ın MBR/GPT ile nasıl eşleştiğini görebiliriz.
+BIOS ve UEFI, sistemin önyükleme (boot) aşamasında disk ile iletişim kurarak işletim sistemini çağırır. Bu aşamada diskin bölümleme tablosu (partition table) olan MBR veya GPT yapısı kritik rol oynar. Bu şemalar, disk üzerindeki verinin nasıl organize edildiğini ve önyükleyicinin (bootloader) nerede bulunduğunu tanımlar."
 
 BIOS/UEFI ve MBR/GPT Eşleşmesi:
-* BIOS	MBR	✅	Klasik ve varsayılan kombinasyon
-* UEFI	GPT	✅	Modern ve önerilen kombinasyon
-* UEFI	MBR	⚠️	Çalışabilir ama sınırlı
-* BIOS	GPT	⚠️	Özel durumlar dışında çalışmaz
+* BIOS	MBR	✅	Geleneksel (Legacy) sistemlerin standart çalışma biçimi.
+* UEFI	GPT	✅	Modern sistemlerin standardı; 2TB+ disk desteği ve hız avantajı sağlar.
+* UEFI	MBR	⚠️	CSM (Compatibility Support Module) modu aktifse çalışır, ancak güvenli önyükleme (Secure Boot) yapılamaz.
+* BIOS	GPT	⚠️	Standart bir BIOS, GPT bölüntüsündeki işletim sistemini doğrudan başlatamaz.
 
-**Bootstrap Kodu**: BIOS tabanlı sistemlerde sitemi başlatmak için kullanılır. BIOS firmware ile çalışan bir makinede, bootstrap kodu BIOS yapılandırmasında belirtilen ilk önyükleme aygıtının MBR (Master Boot Record) alanında yer alır. Bu kod, disk üzerinden okunan ilk çalıştırılabilir ilk programdır.
+Modern sistemlerde firmware tarafında UEFI ve disk tarafında GPT ikilisi kullanılır.
+
+### Geleneksel BIOS ve Modern UEFI Farkı
+Geleneksel BIOS Sistemlerinde (Eski Usul) sistemlerde Bootstrap kodu fiziksel bir zorunluluktur. MBR İçinde diskin ilk 512 baytlık sektöründe (Master Boot Record) çok küçük bir "Bootstrap" kodu bulunur.
+Bootstrap kodu BIOS, işlemciyi uyandırdıktan sonra bu 512 baytlık kodu RAM'e yükler ve kontrolü ona devreder. Bu kodun tek işi, asıl işletim sistemi yükleyicisini (bootloader) bulup getirmektir.
+
+Modern UEFI sistemlerde, diskteki o kısıtlı 512 baytlık sektöre hapsolmuş bir "Bootstrap" kodu yoktur. Yerine UEFI, diskteki dosyaları (dosya sistemini) doğrudan okuyabilir. MBR içindeki o minik koda ihtiyaç duymak yerine, diskteki özel bir bölüme ( EFI System Partition - ESP ) gider ve oradaki .efi uzantılı dosyaları (örneğin: grubx64.efi veya bootmgfw.efi) doğrudan çalıştırır.
+
+Modern "Bootstrap" Artık Bir Dosyadır: Eskiden disk sektörlerine "kazınmış" olan o ilkel kod, günümüzde bildiğimiz anlamda bir dosya (Firmware Application) haline gelmiştir.
+
+### Legacy BIOS Sistemlerde Boot Süreci
+
+**Bootstrap Kodu**: BIOS tabanlı sistemlerde sitemi başlatmak için kullanılır. BIOS firmware ile çalışan bir makinede, bootstrap kodu BIOS yapılandırmasında belirtilen ilk önyükleme aygıtının MBR (Master Boot Record) alanında yer alır. Bu kod, disk üzerinden okunan ilk çalıştırılabilir ilk program olur.
 
 MBR içerisindeki bootstrap kodu, yine aynı alanda bulunan partition tablosunu okuyarak aktif (bootable) bölümü tespit eder. Bu bilgiler kullanılarak, diskte yer alan ve işletim sistemini yüklemekten sorumlu olan asıl önyükleyici yazılımın (bootloader) ikinci aşaması belleğe yüklenir ve çalıştırılır.
 
@@ -130,13 +141,11 @@ Genel olarak BIOS ile beraber sistemi başlatmak için kullanılan ön operasyon
 
 Bootloaderın ikinci kısmına kadar olan süreçte hem BIOS'da hem de MBR kısmında yapılandırma bulunur ve burada değişiklikler yapılabilir.
 
-#### UEFI
+#### Modern UEFI Sistemlerde Boot Süreci
 
 UEFI (Unified Extensible Firmware Interface) BIOS dan bazı alanlarda farklılaşır. UEFI da BIOS gibi firmware'dir fakat ek özellikler taşır. UEFI partition ları tanımlayabilir, onlar üzerindeki birden farklı dosya sistemini okuyabilir. UEFI BIOS gibi MBR a dayanmaz. Bunun yerine anakartın içerisinde bulunan kendi NVRAM'ı (non-volatile memory) üzerindeki ayarları kullanılır. Bu tanımlar UEFI ile uyumlu programların yerini gösterir. Bu programlara EFI denir. Bunlar otomatik olarak çağrılır ya da menüden düzenlenebilir. EFI uygulamaları bootloader olabilir. İşletim sistemi seçmeye yarayan araçlar olabilir ya da sistem bilgi ve kurtarma yazılımları olabilirler.
 
-
 * UEFI firmware, NVRAM’da kayıtlı EFI uygulamasını (ör. grubx64.efi) çağırır. Bu dosyalar /boot/EFI altındadır. GRUB veya systemd-boot, buradan Linux kernel (vmlinuz-linux) ve initramfs’i yükleyerek sistemi başlatır. BOOT/BOOTX64.EFI ise fallback mekanizmasıdır.
-
 
 EFI barındıran bir partitionunun bilinen bir cihaz partition yapısı içerisinde ve bilinen bir dosya sistemine sahip olması yeterlidir. Bu standart dosya sistemleri disk cihazlar (block devices) için FAT12, FAT32 ve optik medya için ISO-9660'dır. Sonuç olarak BIOS'a göre çok daha elverişli yaklaşım sayesinde daha esnek sofistike araçlar henüz işletim sistemi yüklenmeden çalıştırılabilir.
 
@@ -152,71 +161,52 @@ Genel olarak UEFI ile beraber sistemi başlatmak için kullanılan ön operasyon
 UEFI standardı Secure Boot adı verilen bir özelliği de barındırır. Bu özellik ile sadece imzalanmış EFI uygulamaları çağrılabilir. Bu imzalanmış EFI uygulamaları donanım sağlayıcısı tarafından yetkilendirilmiştir. Bu özellik sayesinde zararlı yazılım içerebilecek işletim sistemlerini yüklemeyi zorlaştırarak güvenlik sağlar. Kimi zararlı yazılımlar sistemlerde kalıcılık sağlamak (persistance) için yüklenme adımlarını etkilemeyi hedefler. Böyle bir durumda işletim sistemi tekrar yüklense bile zararlı yazılım etkisini sürdürebilir.
 
 
-#### UEFI Örnek Boot Dizini
+#### UEFI Sistemlerde Örnek Önyükleme (Boot) Dizini Yapısı
 
-Aşağıdaki bir boot dizini örnek olarak verilebilir:
+Modern bir Linux sisteminde (örneğin Arch Linux), /boot dizini hem çekirdek dosyalarını hem de donanım seviyesinde çalışan EFI dosyalarını barındırır. Aşağıda bu yapının tipik bir örneği ve bileşenlerin detaylı açıklamaları yer almaktadır.
 
-~~~
+```
 /boot 
-├── EFI
-│   ├── arch_grub
-│   │   └── grubx64.efi
-│   │
-│   ├── BOOT
-│   │   └── BOOTX64.EFI
-│   │
-│   ├── EFI
-│   │   └── GRUB
-│   │       └── grubx64.efi
-│   │
-│   ├── Linux
-│   │
-│   ├── Mic
-│   │   ├── Boot
-│   │   └── Recovery
-│   │
-│   ├── Microsoft
-│   │   ├── Boot
-│   │   └── Recovery
-│   │
-│   └── systemd
-│       └── systemd-bootx64.efi
-│
-├── grub
-├── initramfs-linux.img
-├── intel-ucode.img
-├── loader
-├── 'System Volume Information'
-└── vmlinuz-linux            
-~~~
+├── vmlinuz-linux              # Linux Çekirdeği (Kernel)
+├── initramfs-linux.img        # Geçici Kök Dosya Sistemi
+├── intel-ucode.img            # CPU Mikro-kod Güncellemeleri
+├── grub/                      # GRUB yapılandırma dosyaları (grub.cfg vb.)
+├── EFI/                       # --- EFI Sistem Bölümü (ESP) Başlangıcı ---
+│   ├── arch_grub/             
+│   │   └── grubx64.efi        # Arch Linux'a özel GRUB binary dosyası
+│   ├── BOOT/                  
+│   │   └── BOOTX64.EFI        # Varsayılan/Geri Dönüş (Fallback) Önyükleyici
+│   ├── Microsoft/             
+│   │   └── Boot/              # Windows Önyükleme Yöneticisi
+│   ├── systemd/               
+│   │   └── systemd-bootx64.efi # systemd-boot Önyükleyicisi
+│   └── Linux/                 # UKI (Unified Kernel Images) alanı
+└── loader/                    # systemd-boot yapılandırma dosyaları          
+```
 
-* `/boot dizini` altında,
-  * `vmlinuz-linux` : Linux çekirdeği (kernel). Sistemi başlatan derlenmiş çekirdek.
-  * `initramfs-linux.img` : Kernel’den önce yüklenen geçici kök dosya sistemi.Disk sürücüleri,  LVM, şifreli disk gibi bileşenleri başlatır.
-  * `intel-ucodeimg` : Intel CPU microcode güncellemesi.Kernel’den önce yüklenir, CPU bug fixleri içerir.
-  * `System Volume Information` : Genelde Windows kaynaklı, Linux için önemsiz.
+##### Ana Boot Bileşenleri (/boot Altındakiler)
+Bu dosyalar, önyükleyici (GRUB/systemd-boot) tarafından okunur ve işletim sistemini ayağa kaldırır:
 
-* `/boot/EFI` (ESP – EFI System Partition)
-  * Bu dizin UEFI firmware’in doğrudan okuduğu yer. Her işletim sistemi / bootloader kendi klasörünü açar.
-  * `/boot/EFI/arch_grub/` 
-    * `grubx64.efi` : Arch Linux için GRUB EFI binary’si. UEFI bunu çağırır ve GRUB menüsü açılır. Arch’a özel GRUB kurulumu burada tutulur.
-  * `/boot/EFI/BOOT/` altında,
-    * `BOOTX64.EFI` : Fallback / varsayılan EFI loader. UEFI, NVRAM kaydı yoksa buraya bakar. USB boot, bozuk NVRAM durumları için kritik.
-  * `/boot/EFI/EFI/GRUB/` altında,
-    * `grubx64.efi` : Daha “genel” bir GRUB yolu. Bazı sistemler veya manuel kurulumlar bunu kullanır. Birden fazla GRUB kopyası olması normaldir.
+* vmlinuz-linux: İşletim sisteminin kalbi olan Linux Çekirdeği (Kernel). Sıkıştırılmış ve çalıştırılabilir bir dosyadır.
+* initramfs-linux.img: Çekirdek tam olarak yüklenmeden önce RAM'e açılan geçici dosya sistemi. Diski bağlamak (mount) için gerekli olan sürücüleri (LVM, RAID, şifreli disk anahtarları vb.) barındırır.
+* intel-ucode.img: Intel işlemcilerdeki donanımsal hataları (bug fix) kapatmak için çekirdekten önce yüklenen güvenlik ve kararlılık yamalarıdır.
 
-* `/boot/EFI/Linux/` : (Boş ya da özel). UKI (Unified Kernel Image) kullanan sistemler için.
-* Kernel + initramfs + cmdline tek .efi dosyası olur. systemd-boot + modern setup’larda kullanılır.
-  
-* `/boot/EFI/Mic/`
-  * `Boot/` And `Recovery/` : Microsoft dışı ama genelde OEM / vendor kalıntıları. Laptop üreticilerinin recovery EFI’leri olabilir.
+##### EFI Sistem Bölümü (/boot/EFI - ESP)
+Bu dizin, UEFI Firmware'in (anakart yazılımının) doğrudan erişebildiği FAT32 formatındaki özel alandır. Her işletim sistemi burada kendi "klasörünü" oluşturur.
 
-* `/boot/EFI/Microsoft/` 
-  * `Boot/` : Windows Boot Manager (`bootmgfw.efi`)
-  * `Recovery/` :Windows kurtarma ortamı. Windows varsa asla silinmemeli.
+###### Önemli EFI Klasörleri:
 
-* `/boot/EFI/systemd/`
-  * `systemd-bootx64.efi` : `systemd-boot bootloader`’ı. GRUB alternatifi, daha sade. Şu an GRUB kullaniliyor ama ayni zamanda systemd-boot da kurulu.
+* `arch_grub/`: Arch Linux kurulumu sırasında oluşturulan özel yoldur. `grub-install` komutuyla NVRAM'e kaydedilen bu dosya, anakart tarafından doğrudan tanınır.
+
+* `BOOT/BOOTX64.EFI`: Bu, sistemin "Can Simidi" (Fallback) dosyasıdır. Eğer anakartın belleğindeki (NVRAM) kayıtlar silinirse, UEFI doğrudan bu klasöre bakar ve buradaki dosyayı çalıştırır. Taşınabilir disklerdeki önyükleme buradan sağlanır.
+
+* `Microsoft/`: Windows'un önyükleme dosyalarını içerir. Linux ile Dual-Boot (Çift Önyükleme) yaparken bu klasöre dokunulmamalıdır; aksi takdirde Windows açılmaz.
+
+* `systemd/: Eğer GRUB yerine daha hafif bir çözüm olan `systemd-boot` kullanıyorsanız, ana önyükleyici dosyası burada bulunur.
+
+* `Linux/`: Modern sistemlerde UKI (Unified Kernel Image) yapısı için kullanılır. Çekirdek, initramfs ve komut satırı parametrelerinin tek bir `.efi` dosyası içinde birleştirilmiş halidir.
+
+Not: Modern sistemlerde hem GRUB hem de systemd-boot dosyalarının aynı anda bulunması normaldir. Ancak sistem bunlardan sadece NVRAM'de (BIOS ayarlarında) en üst sırada olanı kullanarak açılır.
 
 #### Bootloader
 
