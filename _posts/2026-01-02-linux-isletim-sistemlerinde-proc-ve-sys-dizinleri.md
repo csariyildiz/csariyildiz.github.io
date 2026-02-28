@@ -4,9 +4,9 @@ title: Linux İşletim Sistemlerinde Proc ve Sys Dizinleri
 tags: [Linux, Dosya Sistemleri]
 ---
 
-Linux işlerim sistemlerinde /proc ve /sys adında özel dizinler bulunur.
-Dizinler dosya sistemi gibi görünseler de aslında sistem hakkında bilgi barındıran özel dizinlerdir.
-Bu nedenle sözde dosya sistemleri (Pseudo-filesystems) olarak adlandırılırlar.
+Linux işlerim sistemlerinde `/proc`, `/sys` ve `/dev` gibi özel dizinler bulunur.
+Bu dizinler dosya sistemi gibi görünseler de aslında sistem hakkında bilgi barındıran özel dizinlerdir.
+Normal dizinlerden farklı olduklarından `sözde dosya sistemleri` (`pseudo-filesystems`) olarak adlandırılırlar.
 
 Sistem üzerinde inceleme yapmakta kullanılan `lspci`, `lsusb` ve `lsmod` komutları aslında `/proc` ve `/sys` gibi sözde dosya sistemlerine bir arayüz olarak işlev görürler.
 
@@ -25,11 +25,9 @@ Sözde dosya sistemleri:
 - Kernel Veri Yapıları
 - Donanım Kaynakları
 
-
 * Aşağıdaki örnekte sayılar process idlerdir. Her PID klasörü içinde, o sürecin: Açık dosyaları (fd/) Bellek bilgileri (maps, mem) Komut satırı (cmdline) Çalışma durumu (status) gibi bilgiler bulunur.
 
 * Sayılar dışında kalan dosya ve klasörler (cpuinfo, meminfo, ioports, interrupts) sistem bilgisi ve kaynakları dır.
-
 
 ```
 [acs@archlinux ~]$ ls /proc
@@ -70,9 +68,6 @@ Sözde dosya sistemleri:
 4: cascade
 ```
 
-
----
-
 ### /sys (SysFS)
 
 ```bash
@@ -92,7 +87,7 @@ block  bus  class  dev  devices  firmware  fs  hypervisor  kernel  module  power
 
 * Örneğin bağlı bulunan bus'ları incelemek için:
 
-```bash
+```
 [acs@archlinux ~]$ ls /sys/bus/
 ac97         clocksource  event_source  i2c           memory          pci          serial       spi         workqueue
 acpi         container    faux          isa           memory_tiering  pci_express  serial-base  usb         xen
@@ -100,8 +95,6 @@ auxiliary    cpu          gpio          machinecheck  mipi-dsi        platform  
 cec          dax          hdaudio       media         node            pnp          snd_seq      virtio
 clockevents  edac         hid           mei           nvmem           scsi         soc          wmi
 ```
-
----
 
 ### udev Sistemi
 
@@ -123,8 +116,6 @@ Burada iki tip tespit vardır:
 - Kurallar `/etc/udev/rules.d/` dosyalarında tutulur.
 - Default kurallar distribution tarafından sağlanır.
 - Özelleştirilmiş Kurallar Eklenebilir
-
----
 
 ### Diskler
 
@@ -163,9 +154,6 @@ Mount için farklı opsiyonlar vardır:
 - Özelleştirilmiş bir `udev` kuralı ve script kullanılabilir.
 - Block-mount sistemler (örn OpenWrt) kullanılabilir.
 
-
----
-
 ## BIOS ve Boot Sırasında Karşılaşılan Sorunlu Durumlar
 
 #### İkinci Bir SATA disk Eklendiğinde Sistemin Başlatılamaması
@@ -174,13 +162,11 @@ Mount için farklı opsiyonlar vardır:
 * Bunun için akla gelen ilk sebep BIOS içerisindeki sıralamanın hatalı olmasıdır.
 * Böyle bir durumda BIOS ayarlarından ilgili sıralamanın düzeltilmesi gerekir.
 
-
 #### Sistemin Başlamak İçin Klavyeye İhtiyaç Duyması (Eski x86 Sunucularda)
 
 * Bazı daha eski BIOS firmware eğer klavye bulamazsa başlamayabilir.
 * Bu klavye bulunamadı gibi bir hata ile karşılaşılır.
 * Bu durumda bios seçeneklerinden "Halt on keyboard error" disable edilerek sorun çözülebilir.
-
 
 #### ARM Sistemler ve SoC
 
@@ -194,8 +180,6 @@ Mount için farklı opsiyonlar vardır:
 acs@acs-raspi1:~ $ ls /sys
 block  bus  class  dev  devices  firmware  fs  kernel  module  power
 ```
-
----
 
 ### CPU Zafiyetlerini Görüntülenmesi (Meltdown & Spectre)
 
@@ -232,8 +216,6 @@ Benzer bir bilgiye `/proc` aracılığıyla da ulaşılabilir:
 ```bash
 cat /proc/cpuinfo
 ```
-
----
 
 ### PCI Cihazlarını İnceleme
 
@@ -447,4 +429,5 @@ sudo modprobe iwlwifi 11n_disable=1
 * Çakışma veya sürücü problemleri buradan görülebilir.
 * Normal bir modern sistemde portlar çoğunlukla PCI cihazları ve ACPI ile sınırlıdır. 
 * Çıktıda hem klasik aygıtlar (keyboard, timer) hem de modern PCI aygıtları (ahci, 0000:00:17.0) var.
+
 
