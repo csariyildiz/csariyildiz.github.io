@@ -18,7 +18,7 @@ Sözde dosya sistemleri:
 - Çalışan processler ve donanım hakkında runtime konfigurasyonunu tutarlar 
 - Yalnızca sistem çalışır durumdayken var olurlar.
 
-## /proc
+### /proc
 
 `/proc` dizini çalışan aşağıdakiler üzerinde bilgi tutar:
 - Çalışan process'ler
@@ -73,7 +73,7 @@ Sözde dosya sistemleri:
 
 ---
 
-## /sys (SysFS)
+### /sys (SysFS)
 
 ```bash
 [acs@archlinux ~]$ ls /sys
@@ -103,7 +103,7 @@ clockevents  edac         hid           mei           nvmem           scsi      
 
 ---
 
-## udev Sistemi
+### udev Sistemi
 
 * `udev` sistemi cihaz dosyalarını `/dev` altında listeleyen yapıya verilen isimdir.
 * Linux kullanıcısı disk alanı ve diğer cihazlara bu şekilde erişim sağladığından önemlidir.
@@ -126,7 +126,7 @@ Burada iki tip tespit vardır:
 
 ---
 
-## Diskler
+### Diskler
 
 Örnek bir disk çıktısı aşağıdaki gibidir:
 
@@ -143,7 +143,7 @@ mmcblk0p1   vfat      BOOT    5B6C-7D8E                                  /media/
 
 Çıktıda dosya sistemlerinin yanında ilgili UID'ler görülebilir.
 
-## Cihazların İsimlendirilmesi
+### Cihazların İsimlendirilmesi
 
 | Cihaz Tipi         | Örnek Cihaz      | Örnek Partitionlar              | Notla                                   |
 |--------------------|------------------|---------------------------------|-----------------------------------------|
@@ -166,23 +166,23 @@ Mount için farklı opsiyonlar vardır:
 
 ---
 
-# BIOS ve Boot Sırasında Karşılaşılan Sorunlu Durumlar
+## BIOS ve Boot Sırasında Karşılaşılan Sorunlu Durumlar
 
-## İkinci Bir SATA disk Eklendiğinde Sistemin Başlatılamaması
+#### İkinci Bir SATA disk Eklendiğinde Sistemin Başlatılamaması
 
 * Bir boot öncesinde ikinci bir disk eklendiğindikten sonra sisteme hiç erişilemiyor olsun. 
 * Bunun için akla gelen ilk sebep BIOS içerisindeki sıralamanın hatalı olmasıdır.
 * Böyle bir durumda BIOS ayarlarından ilgili sıralamanın düzeltilmesi gerekir.
 
 
-## Sistemin Başlamak İçin Klavyeye İhtiyaç Duyması (Eski x86 Sunucularda)
+#### Sistemin Başlamak İçin Klavyeye İhtiyaç Duyması (Eski x86 Sunucularda)
 
 * Bazı daha eski BIOS firmware eğer klavye bulamazsa başlamayabilir.
 * Bu klavye bulunamadı gibi bir hata ile karşılaşılır.
 * Bu durumda bios seçeneklerinden "Halt on keyboard error" disable edilerek sorun çözülebilir.
 
 
-## ARM Sistemler ve SoC
+#### ARM Sistemler ve SoC
 
 * Örneğin ARM sistemlerde (örn Raspberry Pi) `lspci` komutunu bulamayabiliriz.
 * Bunun sebebi geleneksel anlamda bir PCI bus'unun olmayışıdır.
@@ -197,7 +197,7 @@ block  bus  class  dev  devices  firmware  fs  kernel  module  power
 
 ---
 
-## CPU Zafiyetlerini Görüntülenmesi (Meltdown & Spectre)
+### CPU Zafiyetlerini Görüntülenmesi (Meltdown & Spectre)
 
 Modern linux kernellerinin bir özelliği de kimi zaafiyetlere yönelik bilgiyi göstermesidir.
 
@@ -235,7 +235,7 @@ cat /proc/cpuinfo
 
 ---
 
-## PCI Cihazlarını İnceleme
+### PCI Cihazlarını İnceleme
 
 Örneğin bir harici PCI video kartını inceliyor olalım:
 
@@ -257,7 +257,7 @@ Bu çıktılar bize:
 
 ---
 
-## Kernel Modullerini Kaldırırken Hata Vermesi Durumu
+### Kernel Modullerini Kaldırırken Hata Vermesi Durumu
 
 Bir modül eğer kullanımdaysa sistem kaldırırken hata verebilir.
 
@@ -280,7 +280,7 @@ Böyle bir durumda ilgili servisin durdurulması ya da önce bağlı bulunan mod
 
 ---
 
-## Örnek Bir Sistem Üzerinden İnceleme
+### Örnek Bir Sistem Üzerinden İnceleme
 
 * CPU Bilgileri:
 
@@ -443,7 +443,8 @@ sudo modprobe iwlwifi 11n_disable=1
       0000-0000 : pnp 00:00
 ```
 
-* ioports CPU port erişimlerini hangi cihazın kullandığını gösterir.
+* `ioports`: CPU port erişimlerini hangi cihazın kullandığını gösterir.
 * Çakışma veya sürücü problemleri buradan görülebilir.
 * Normal bir modern sistemde portlar çoğunlukla PCI cihazları ve ACPI ile sınırlıdır. 
 * Çıktıda hem klasik aygıtlar (keyboard, timer) hem de modern PCI aygıtları (ahci, 0000:00:17.0) var.
+
