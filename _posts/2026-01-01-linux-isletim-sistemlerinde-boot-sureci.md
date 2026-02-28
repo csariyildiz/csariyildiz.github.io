@@ -95,7 +95,7 @@ B8 05 00 00 00  →  mov eax, 5
 
 İlk olarak her ikisi de legacy sistem olan BIOS ve MBR ikilisini ele alındığında. Eski bir BIOS arayüzü aşağıdaki gibi görünür:
 
-![Thinkpad BIOS](https://csariyildiz.github.io/images/thinkpad-bios.png)
+![Thinkpad BIOS](https://csariyildiz.github.io/images/bios.png)
 
 BIOS (Basic Input/Output System), anakart üzerinde bulunan kalıcı bir bellek çipi (flash memory) içinde yer alır. Bilgisayar her açıldığında ilk olarak bu yazılım devreye girer. BIOS bir firmware’dir ve temel donanım kontrollerini (POST) gerçekleştirdikten sonra önyükleme sürecini başlatmak, yani bootloader’ı çalıştırmakla görevlidir. Bu nedenle BIOS’un bulunduğu bellek alanı, işletim sisteminin yer aldığı disk aygıtlarından fiziksel ve mantıksal olarak ayrıdır.
 
