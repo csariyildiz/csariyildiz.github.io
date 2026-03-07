@@ -23,6 +23,10 @@ keywords: [systemd,sysvinit,upstart]
   * Kernel Parametrelerinde Runlevel Değerleri
   * SysVinit'in Özellikleri
 
+
+* Systemd
+ *  systemctl ile servislerin kontrolü
+
 ## Init Programları ve Genel Systemd Kavramları
 
 Bilgisayar açıldığında çekirdek (kernel) yüklendikten sonra çalışan ilk kullanıcı alanı programı init’tir. Bu programın temel sorumlulukları şunlardır:
@@ -151,7 +155,7 @@ systemd unit dosyaları genellikle şu dizinlerde bulunur:
 
 ### Örnek Unit Dosyası: default.target
 
-Aşağıda `/etc/systemd/system` dizini altında bulunan `default.target` isimli bir unit dosyasından örnek görebiliriz:
+Aşağıda `/etc/systemd/system` dizini altında bulunan `default.target` isimli bir unit dosyasından örnek görebiliriz. Boot target'ler SysVinit için göreceğimiz runlevel'ların systemd karşılıklarıdır.
 
 ```
 [Unit]
@@ -191,7 +195,7 @@ Runlevel	Açıklama
 6	        Yeniden başlatma
 ```
 
-## Runlevel Detayları
+### Runlevel Detayları
 
 * Örneğin sistem runlevel 3 ile açılırsa network servisleri başlar fakat grafik arayüz açılmaz.
 * Runlevel görmek için `runlevel` veya `who -r` komutları kullanılabilir. Archlinux, Raspbian gibi Debian tabanlı olmadığından bu komutlara sahip değil.
@@ -215,7 +219,7 @@ acs@acs-raspi1:~ $ who -r
 * Runlevel 6: Sistem yeniden başlatma modudur. Bu runlevel seçildiğinde sistem kapanır ve otomatik olarak yeniden açılır.
 
 
-## Runlevel'ları Değiştirmek
+### Runlevel'ları Değiştirmek
 
 * `telinit 1` komutu, SysVinit sisteminin mevcut çalışma seviyesini bakım moduna değiştirmek için kullanılır.
 * Benzer şekilde `telinit 1` komutu basitçe sistemi reboot edecektir.
@@ -232,7 +236,6 @@ apache-htcacheclean  cups              fio                mariadb               
 apparmor             cups-browsed      hwclock.sh         netfilter-persistent  procps                       screen-cleanup  x11-common
 bluetooth            dbus              keyboard-setup.sh  nfs-common            pulseaudio-enable-autospawn  ssh
 ```
-
 
 Örnekğin sshd network ve apache2 gibi her bir servis için bir script tanımlanmıştır:
 
@@ -316,8 +319,6 @@ S20ssh
 * Örneğin önce network başlar, sonra ssh servisi başlatılır.
 
 * Örneğin sistem runlevel 1 e girdiğinde /etc/rc1.d/K90network ile ilgili servislere ne olur? Dosya adının başında K harfi bulunduğu için ilgili servisler durdurulacaktır.
-
-
 
 ### /etc/inittab Dosyası
 
@@ -434,7 +435,7 @@ Yaygın action türleri:
 | once        | sadece bir kere çalıştır        |
 | ctrlaltdel  | Ctrl+Alt+Del basılınca çalıştır |
 ```
-## Kernel Parametrelerinde Runlevel Değerleri
+### Kernel Parametrelerinde Runlevel Değerleri
  
 Eğer SysVinit sisteminde /etc/inittab’da default runlevel 3 olarak tanımlı olmasına rağmen sistem hep runlevel 1 ile açılıyorsa, muhtemel neden kernel’in boot parametreleridir. Kernel parametrelerinde 1 veya S varsa init, bu parametreyi öncelikli olarak kullanır ve sistem tek kullanıcı modunda başlar.
 
@@ -458,3 +459,4 @@ linux /vmlinuz-linux root=/dev/sda1 ro 1
 
 SysVinit'in avantajları basit ve anlaşılır yapıya sahip olmasıdır. Tamamen shell scriptlerini kullanır. Unix felsefesine daha yakındır. Dezavantajları ise servisler sıralı başlamasıdır. Bu paralel başlatmanın olmadığı anlamına gelir. Bağımlılık yönetimi zayıftır. Sonuç olarak boot süresi de daha yavaştır.
 
+## Systemd
