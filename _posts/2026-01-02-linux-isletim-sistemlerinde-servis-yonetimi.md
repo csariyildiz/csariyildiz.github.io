@@ -5,7 +5,7 @@ tags: [Linux, Servis Yönetimi]
 keywords: [systemd,sysvinit,upstart]
 ---
 
-## İçindekiler
+### İçindekiler
 
 {:toc}
 
@@ -558,5 +558,6 @@ Upstart servisleri genellikle initctl komutu ile yönetilir.
 Özet olarak,
 * Upstart, SysVinit’e göre daha modern bir init sistemi olup olay tabanlı servis yönetimi ve paralel başlatma gibi özellikler sunar. 
 * Ancak zamanla daha gelişmiş özellikler sunan systemd tarafından büyük ölçüde yerini kaybetmiştir.
+
 
 
