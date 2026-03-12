@@ -105,6 +105,33 @@ toggle.addEventListener('click', () => {
   icon.textContent = next === 'dark' ? '☀︎' : '☾';
   localStorage.setItem('theme', next);
 });
+
+/* ── AUTO TOC GENERATOR ── */
+
+const toc = document.getElementById("toc-list");
+const headings = document.querySelectorAll(".prose h2, .prose h3");
+
+headings.forEach(h => {
+  if (!h.id) {
+    h.id = h.textContent
+      .toLowerCase()
+      .replace(/[^\w]+/g, "-");
+  }
+
+  const li = document.createElement("li");
+
+  if (h.tagName === "H3") {
+    li.classList.add("toc-h3");
+  }
+
+  const a = document.createElement("a");
+  a.href = "#" + h.id;
+  a.textContent = h.textContent;
+
+  li.appendChild(a);
+  toc.appendChild(li);
+});
+  
 </script>
 
 </body>
