@@ -10,9 +10,12 @@ keywords: [systemd,sysvinit,upstart]
 * Init Programları ve Genel Systemd Kavramları
   * Init Programlarının Çeşitleri
   * Init Programını Görüntülemek
-  * Systemd Unit Kavramı
-  * Örnek Unit Dosyası: default.target  
 
+* Systemd
+ * Unit Kavramı
+ * Örnek Unit Dosyası: default.target
+ * systemctl ile servislerin kontrolü
+   
 * SysVinit
   * Runlevel Detayları
   * Runlevel'ları Değiştirmek
@@ -24,8 +27,7 @@ keywords: [systemd,sysvinit,upstart]
   * SysVinit'in Özellikleri
 
 
-* Systemd
- *  systemctl ile servislerin kontrolü
+
 
 ## Init Programları ve Genel Systemd Kavramları
 
@@ -113,7 +115,9 @@ systemd─┬─NetworkManager───3*[{NetworkManager}]
 ```
 
 
-### Systemd Unit Kavramı
+## Systemd Init Programı
+
+### Unit Kavramı
 
 systemd'de servisler ve sistem bileşenleri **unit** adı verilen yapılandırma dosyaları ile yönetilir.
 
@@ -169,18 +173,74 @@ AllowIsolate=yes
 
 Bu tür unit dosyaları systemd'nin servisleri nasıl başlatacağını, hangi servislerin birbirine bağımlı olduğunu ve hangi sırayla çalıştırılacağını tanımlar.
 
+
+### systemctl 
+
+* systemctl, Linux’ta systemd tarafından yönetilen servisleri ve sistem durumunu kontrol etmek için kullanılan komut satırı aracıdır.
+* systemd sistemi ve servisleri yöneten altyapı iken, systemctl bu altyapıyı kontrol etmek için kullanılan komut satırı arayüzüdür.
+
+`systemctl` ile aşağıdaki işlemler karşılarındaki komutlarla yapılabılir:
+
+* Servisleri başlatmak: `systemctl start nginx`
+* Servisleri durdurmak: `systemctl stop nginx`
+* Servisleri yeniden başlatmak: `systemctl restart nginx`
+* Servislerin çalışıp çalışmadığını görmek: `systemctl status nginx`
+* Servislerin boot sırasında otomatik başlamasını sağlamak : `systemctl enable nginx`
+* Sistem runlevel / target değiştirmek : `systemctl isolate multi-user.target`, `systemctl get-default`, `systemctl set-default multi-user.target`
+* Daemon reload yapmak : systemd’ye “servis dosyalarını tekrar okumasını sağlamak: `systectl daemon-reload`
+* Çalışan servisleri listelemek: `systemctl list-units --type=service`
+* Aktiflik (çalışır olma), enable (sistem başlangıcında başlatma) durumunu sorgulama: `systemctl is-active unit.service`, `systemctl is-enabled unit.service`
+* Sistemi RAM'deki veriyi tutatak uyku moduna geçirmek (suspend): `systemctl suspend`
+* Sistemi RAM'deki veriyi diske kopyalayarak kapatmak. (Açıldığında tekrar yüklenecek şekilde) (hibernate): `systemctl hibernate`
+
+* Örneğin `PasswordAuthentication no` satırı `/etc/ssh/sshd_config` konfigurasyonuna eklendiğindei `systemctl reload sshd` komutu kullanılarak SSH sessionlarının bağlantısı kesilmeden yeni bağlantılar kabul edilir.
+* `systemctl daemon-reload` komutu, systemd'nin dizinlerde bulunan tüm service, socket, timer, mount ve target dosyalarını servisleri yeniden başlatmadan tekrar okumasını sağlar.
+
+
+### Sistem Runlevel ve Target Değiştirmek
+
+* Sistem üzerinde aşağıdaki targetler bulunur.
+* `systemctl isolate multi-user.target`, `systemctl get-default`, `systemctl set-default multi-user.target` gibi komutlarla kullanılır.
+* Isolate sistemi belirli bir target durumuna geçirir. `systemctl isolate multi-user.target` komutu `init 3` veya `telinit 3` komutuna karşılık gelir.
+
+| Target              | Anlamı                                | Eski Runlevel |
+| ------------------- | ------------------------------------- | ------------- |
+| `poweroff.target`   | sistemi kapatma                       | **0**         |
+| `rescue.target`     | tek kullanıcılı kurtarma modu         | **1**         |
+| `multi-user.target` | çok kullanıcılı konsol modu (GUI yok) | **3**         |
+| `graphical.target`  | grafik arayüzlü sistem                | **5**         |
+| `reboot.target`     | sistemi yeniden başlatma              | **6**         |
+
+
+### Kendi Servisini Oluşturmak
+
+* Kendi sistemd servisini yazmak için bir unit dosyası (.service) oluşturulur. Daha sonra systemctl ile yönetilir.
+* Örnek bir dosya `nano /etc/systemd/system/myapp.service` altında aşağıdaki gibi oluşturulabilir.
+
+```
+[Unit]
+Description=My Custom App
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/user/app.py
+Restart=always
+User=user
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
 ## SysVinit
+ 
+* `SysVinit` daha açık ismiyle `System V init`, adını System V Unix işletim sisteminden alır. Linux ve Unix benzeri sistemlerde kullanılan en eski ve klasik init ve servis yönetim sistemlerinden biridir.
+* Sistemin başlangıç davranışı `/etc/inittab` dosyası tarafından belirlenir. Bu dosya, init programına varsayılan runlevel, hangi servislerin başlatılacağı, hangi terminallerin açılacağı, sistem olaylarında hangi komutların çalıştırılacağı gibi bilgileri sağlar.
+* Init programı `/sbin/init` sistem açıldığında dosyayı okuyarak sistemi yapılandırır.
+* Init program sistemi başlatıp gerekli servisleri çalıştırırken aynı zamanda sistem durumunu (runlevel) yönetir.
+* SysVinit'te init programı başka bir deyişle /sbin/init dosyası bir process olarak PID 1 ile çalışır.
 
-`SysVinit` daha açık ismiyle `System V init`, Linux ve Unix benzeri sistemlerde kullanılan en eski ve klasik init ve servis yönetim sistemlerinden biridir. 
-Adını System V Unix işletim sisteminden alır. 
-
-Sistemin başlangıç davranışı `/etc/inittab` dosyası tarafından belirlenir. Bu dosya, init programına varsayılan runlevel, hangi servislerin başlatılacağı, hangi terminallerin açılacağı, sistem olaylarında hangi komutların çalıştırılacağı gibi bilgileri sağlar. Init programı `/sbin/init` sistem açıldığında dosyayı okuyarak sistemi yapılandırır.
-
-Inıt program sistemi başlatıp gerekli servisleri çalıştırırken aynı zamanda sistem durumunu (runlevel) yönetir.
-
-SysVinit'te init programı başka bir deyişle /sbin/init dosyası bir process olarak PID 1 ile çalışır.
-
-Runlevellar SysVinit'in en önemli özelliklerinden biridir. Runlevellar ile sistem için çalışma modları tanımlanmış olur. Runlevel, sistemin hangi çalışma modunda olduğunu belirler.
+* Runlevellar SysVinit'in en önemli özelliklerinden biridir. Runlevellar ile sistem için çalışma modları tanımlanmış olur. Runlevel, sistemin hangi çalışma modunda olduğunu belirler.
 
 Tanımlı runlevel'lar:
 
@@ -455,8 +515,8 @@ linux /vmlinuz-linux root=/dev/sda1 ro 1
 * Bu genellikle bakım veya kurtarma moduna hızlı geçmek için yapılır.
 * Normal boot için kernel parametreleri boş bırakılmalı veya runlevel belirtilmemelidir.
 
-### SysVinit'in Özellikleri
-
 SysVinit'in avantajları basit ve anlaşılır yapıya sahip olmasıdır. Tamamen shell scriptlerini kullanır. Unix felsefesine daha yakındır. Dezavantajları ise servisler sıralı başlamasıdır. Bu paralel başlatmanın olmadığı anlamına gelir. Bağımlılık yönetimi zayıftır. Sonuç olarak boot süresi de daha yavaştır.
 
-## Systemd
+## Upstart
+
+
