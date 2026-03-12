@@ -91,47 +91,52 @@
 </div>
 
 <script>
-const root   = document.documentElement;
-const toggle = document.getElementById('theme-toggle');
-const icon   = document.getElementById('theme-icon');
+document.addEventListener("DOMContentLoaded", function () {
 
-const saved = localStorage.getItem('theme') || 'dark';
-root.setAttribute('data-theme', saved);
-icon.textContent = saved === 'dark' ? '☀︎' : '☾';
+  // ── THEME TOGGLE
+  const root   = document.documentElement;
+  const toggle = document.getElementById('theme-toggle');
+  const icon   = document.getElementById('theme-icon');
 
-toggle.addEventListener('click', () => {
-  const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  root.setAttribute('data-theme', next);
-  icon.textContent = next === 'dark' ? '☀︎' : '☾';
-  localStorage.setItem('theme', next);
-});
+  if (toggle && icon) {
+    const saved = localStorage.getItem('theme') || 'dark';
+    root.setAttribute('data-theme', saved);
+    icon.textContent = saved === 'dark' ? '☀︎' : '☾';
 
-/* ── AUTO TOC GENERATOR ── */
-
-const toc = document.getElementById("toc-list");
-const headings = document.querySelectorAll(".prose h2, .prose h3");
-
-headings.forEach(h => {
-  if (!h.id) {
-    h.id = h.textContent
-      .toLowerCase()
-      .replace(/[^\w]+/g, "-");
+    toggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      icon.textContent = next === 'dark' ? '☀︎' : '☾';
+      localStorage.setItem('theme', next);
+    });
   }
 
-  const li = document.createElement("li");
+  // ── AUTO TOC
+  const toc = document.getElementById("toc-list");
+  if (!toc) return;
 
-  if (h.tagName === "H3") {
-    li.classList.add("toc-h3");
-  }
+  const headings = document.querySelectorAll(".prose h2, .prose h3");
+  headings.forEach(h => {
+    if (!h.id) {
+      h.id = h.textContent
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-");
+    }
 
-  const a = document.createElement("a");
-  a.href = "#" + h.id;
-  a.textContent = h.textContent;
+    const li = document.createElement("li");
+    if (h.tagName === "H3") li.classList.add("toc-h3");
 
-  li.appendChild(a);
-  toc.appendChild(li);
+    const a = document.createElement("a");
+    a.href = "#" + h.id;
+    a.textContent = h.textContent;
+
+    li.appendChild(a);
+    toc.appendChild(li);
+  });
+
 });
-  
 </script>
 
 </body>
