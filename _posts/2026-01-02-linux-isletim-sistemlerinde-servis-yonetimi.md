@@ -138,12 +138,12 @@ wants
 requires
 ```
 
-* service : Belirli bir servis veya daemon’u temsil eder. Örneğin sshd.service sistemde SSH servisini başlatmak, durdurmak veya yeniden başlatmak için kullanılır.
-* target : Bir grup unit’i bir araya getirir ve sistemin belli bir durumunu temsil eder. Örneğin multi-user.target, çok kullanıcılı ağ modunu ve gerekli servisleri başlatır. target runlevel’lara benzer bir mantıkla çalışır.
-* socket : Sistem servisleri için network veya IPC socket’i tanımlar. socket unit’leri sayesinde bir servis ihtiyaç duyulana kadar başlatılmaz; bağlantı gelince otomatik olarak servis çalıştırılır (socket activation).
-* timer : Cron benzeri zamanlamaları yönetir. Belirli bir zamanda veya belli aralıklarla servisleri çalıştırmak için kullanılır. Örneğin backup.timer her gece yedekleme servisini tetikleyebilir.
-* wants : Bir unit’in isteğe bağlı bağımlılığını belirtir. Belirtilen unit varsa başlatılır, yoksa hata vermez. Örneğin multi-user.target bir servisi wants= ile isteğe bağlı olarak başlatabilir.
-* requires : Bir unit’in zorunlu bağımlılığını belirtir. Bu unit çalışmazsa bağımlı unit de başlatılmaz ve sistem hata verir. Örneğin bir web sunucusu servisi için gerekli olan network servisi requires=network.target ile belirtilir.
+* `service` : Belirli bir servis veya daemon’u temsil eder. Örneğin sshd.service sistemde SSH servisini başlatmak, durdurmak veya yeniden başlatmak için kullanılır.
+* `target` : Bir grup unit’i bir araya getirir ve sistemin belli bir durumunu temsil eder. Örneğin multi-user.target, çok kullanıcılı ağ modunu ve gerekli servisleri başlatır. target runlevel’lara benzer bir mantıkla çalışır.
+* `socket` : Sistem servisleri için network veya IPC socket’i tanımlar. socket unit’leri sayesinde bir servis ihtiyaç duyulana kadar başlatılmaz; bağlantı gelince otomatik olarak servis çalıştırılır (socket activation).
+* `timer` : Cron benzeri zamanlamaları yönetir. Belirli bir zamanda veya belli aralıklarla servisleri çalıştırmak için kullanılır. Örneğin backup.timer her gece yedekleme servisini tetikleyebilir.
+* `wants` : Bir unit’in isteğe bağlı bağımlılığını belirtir. Belirtilen unit varsa başlatılır, yoksa hata vermez. Örneğin multi-user.target bir servisi wants= ile isteğe bağlı olarak başlatabilir.
+* `requires` : Bir unit’in zorunlu bağımlılığını belirtir. Bu unit çalışmazsa bağımlı unit de başlatılmaz ve sistem hata verir. Örneğin bir web sunucusu servisi için gerekli olan network servisi requires=network.target ile belirtilir.
 
 
 ### Unit Dosyalarının Konumu
@@ -245,7 +245,8 @@ WantedBy=multi-user.target
 Tanımlı runlevel'lar:
 
 ```
-Runlevel	Açıklama
+Runlevel	| Açıklama
+------------------------------------------
 0	        Sistemi kapatma
 1	        Single user mode (bakım modu)
 2	        Çok kullanıcılı mod
@@ -297,7 +298,7 @@ apparmor             cups-browsed      hwclock.sh         netfilter-persistent  
 bluetooth            dbus              keyboard-setup.sh  nfs-common            pulseaudio-enable-autospawn  ssh
 ```
 
-Örnekğin sshd network ve apache2 gibi her bir servis için bir script tanımlanmıştır:
+Örneğin `sshd`, `network` ve `apache2` gibi her bir servis için bir script tanımlanmıştır:
 
 ```
 /etc/init.d/sshd
@@ -329,7 +330,7 @@ Hangi servisin hangi runlevel'da çalışacağını belirleyen sembolik linkler 
 /etc/rc6.d/
 ```
 
-Bu dizinlerdeki dosyalar aslında yukarıda belirttiğimiz /etc/init.d içindeki scriptlere linktir.
+Bu dizinlerdeki dosyalar aslında yukarıda belirttiğimiz `/etc/init.d` içindeki scriptlere linktir.
 
 ```
 acs@acs-raspi1:/etc/rc0.d $ ls -ltr /etc/rc0.d
@@ -376,7 +377,7 @@ S10network
 S20ssh
 ```
 
-* Örneğin önce network başlar, sonra ssh servisi başlatılır.
+* Yukarıdaki gibi bir isimlendirme ile önce network başlar, sonra ssh servisi başlatılır.
 
 * Örneğin sistem `runlevel 1`e girdiğinde `/etc/rc1.d/K90network` ile ilgili servislere ne olur? Dosya adının başında K harfi bulunduğu için ilgili servisler durdurulacaktır.
 
@@ -453,7 +454,7 @@ ca:12345:ctrlaltdel:/sbin/shutdown -t1 -h -r now
 * Yani sıralama, servislerin başlama önceliğini ve bağımlılıklarını yönetmek için kritik önemdedir.
 
 * SysVinit, bir script veya servis çalışırken hata alırsa alternatif runlevel’e geçme mekanizmasına sahiptir.
-* Örneğin /etc/init.d/rc 3 sırasında kritik bir servis çalışmazsa, sistem genellikle rescue veya single-user runlevel’e geçer.
+* Örneğin `/etc/init.d/rc 3` sırasında kritik bir servis çalışmazsa, sistem genellikle rescue veya single-user runlevel’e geçer.
 * Bu, sistemin tamamen çökmesini önler ve bakım/mod kurtarma moduna geçiş sağlar.
 
 
@@ -515,9 +516,65 @@ linux /vmlinuz-linux root=/dev/sda1 ro 1
 * Bu genellikle bakım veya kurtarma moduna hızlı geçmek için yapılır.
 * Normal boot için kernel parametreleri boş bırakılmalı veya runlevel belirtilmemelidir.
 
-SysVinit'in avantajları basit ve anlaşılır yapıya sahip olmasıdır. Tamamen shell scriptlerini kullanır. Unix felsefesine daha yakındır. Dezavantajları ise servisler sıralı başlamasıdır. Bu paralel başlatmanın olmadığı anlamına gelir. Bağımlılık yönetimi zayıftır. Sonuç olarak boot süresi de daha yavaştır.
+SysVinit'in avantajları basit ve anlaşılır yapıya sahip olmasıdır. Tamamen shell scriptlerini kullanır. Unix felsefesine daha yakındır. 
+Dezavantajları ise servisler sıralı başlamasıdır. Bu paralel başlatmanın olmadığı anlamına gelir. Bağımlılık yönetimi zayıftır. Sonuç olarak boot süresi de daha yavaştır.
 
 ## Upstart
 
+**Upstart**, Linux sistemleri için geliştirilmiş **event-driven (olay tabanlı) bir init sistemi**dir. 
+Özellikle Ubuntu tarafından geliştirilmiş ve bir dönem Ubuntu başta olmak üzere bazı Linux dağıtımlarında kullanılmıştır. 
+Daha sonra birçok dağıtım **systemd** sistemine geçmiştir.
 
+Upstart’ın amacı, klasik **SysVinit** sistemindeki yavaş ve sıralı servis başlatma problemini çözmek ve sistemi **daha hızlı ve esnek bir şekilde başlatmaktır**.
+
+- **Olay tabanlı (event-driven) çalışma**
+  - Servisler belirli olaylara göre başlatılır veya durdurulur.
+  - Örneğin: sistem açılması, dosya sistemi mount edilmesi, ağın hazır olması gibi olaylar servisleri tetikleyebilir.
+
+- **Paralel servis başlatma**
+  - SysVinit’te servisler sırayla başlatılırken Upstart’ta uygun servisler aynı anda başlatılabilir.
+  - Bu da sistem açılış süresini kısaltır.
+
+- **Runlevel uyumluluğu**
+  - Eski SysVinit runlevel yapısını destekler.
+  - Böylece eski sistemlerle uyumluluk sağlanır.
+
+- **Servislerin otomatik yeniden başlatılması**
+  - Bir servis çökerse `respawn` özelliği ile otomatik yeniden başlatılabilir.
+
+- **Basit servis yapılandırması**
+  - Servis konfigürasyonları basit metin dosyaları ile tanımlanır.
+
+### Upstart Konfigürasyon Dosyaları
+
+Upstart servis tanımları genellikle şu dizinde bulunur:
+
+```
+/etc/init/
+```
+
+Dosya uzantıları genellikle `.conf`'dur. Örnek bir servis dosyasının içeriği aşağıdaki gibidir:
+
+```
+description "Example Service"
+
+start on filesystem
+stop on runlevel [!2345]
+
+respawn
+exec /usr/bin/example
+```
+
+### Upstart Servis Kontrolü
+
+Upstart servisleri genellikle initctl komutu ile yönetilir.
+
+* Servis başlatma: `initctl start servis_adi`
+* Servis durdurma: `initctl stop servis_adi`
+* Servis durumunu kontrol etme: `initctl status servis_adi`
+* Sistem servislerini ve mevcut durumlarını listeleme: `initctl list`
+
+Özet olarak,
+* Upstart, SysVinit’e göre daha modern bir init sistemi olup olay tabanlı servis yönetimi ve paralel başlatma gibi özellikler sunar. 
+* Ancak zamanla daha gelişmiş özellikler sunan systemd tarafından büyük ölçüde yerini kaybetmiştir.
 
