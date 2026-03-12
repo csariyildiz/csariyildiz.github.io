@@ -269,4 +269,6 @@ exclude:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-
+  
+kramdown:
+  toc_levels: "2,3,4"
