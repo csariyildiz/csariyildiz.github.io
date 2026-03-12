@@ -27,15 +27,6 @@
 
 <div class="page">
 
-  <aside class="toc-sidebar">
-    <div class="toc-label">On this page</div>
-
-    {% if page.toc %}
-    <ul class="toc-list">
-      {{ page.toc }}
-    </ul>
-    {% endif %}
-  </aside>
 
   <article>
 
@@ -87,6 +78,15 @@
     </nav>
 
   </article>
+  <aside class="toc-sidebar">
+    <div class="toc-label">On this page</div>
+
+    {% if page.toc %}
+    <ul class="toc-list">
+      {{ page.toc }}
+    </ul>
+    {% endif %}
+  </aside>
 
 </div>
 
