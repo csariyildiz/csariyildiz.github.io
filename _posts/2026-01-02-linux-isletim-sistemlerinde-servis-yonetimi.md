@@ -5,11 +5,6 @@ tags: [Linux, Servis Yönetimi]
 keywords: [systemd,sysvinit,upstart]
 ---
 
-### İçindekiler
-
-{:toc}
-
-
 ## Init Programları ve Genel Systemd Kavramları
 
 Bilgisayar açıldığında çekirdek (kernel) yüklendikten sonra çalışan ilk kullanıcı alanı programı init’tir. Bu programın temel sorumlulukları şunlardır:
@@ -560,4 +555,45 @@ Upstart servisleri genellikle initctl komutu ile yönetilir.
 * Ancak zamanla daha gelişmiş özellikler sunan systemd tarafından büyük ölçüde yerini kaybetmiştir.
 
 
+## Sistemi Kapatmak ve Yeniden Başlatmak
+
+* What is the primary function of the `shutdown` command besides powering off or rebooting? It notifies all logged-in users with a warning message and prevents new logins.
+* If the `shutdown` command is run without the `-h` or `-r` options, what is the default action? The system will change to runlevel 1 (single-user mode)
+* What is the syntax for scheduling a shutdown in 15 minutes with a custom message?  shutdown +15 message
+* How can a system reboot scheduled with the `shutdown` command be canceled? By using the command `shutdown -c`
+
+* In a `systemd`-based system, what is the command to reboot the machine? systemctl reboot
+* In a `systemd`-based system, what is the command to power off the machine? systemctl poweroff
+
+* How could the `telinit` command be used to reboot a SysVinit system? The command `telinit 6` will change to runlevel 6, which reboots the system.
+
+### Reboot
+
+* Reboot system safely. (use systemctl) sudo systemctl reboot
+* Shutdown system safely. sudo systemctl poweroff
+* Reboot system by force. sudo systemctl reboot --force
+* Poweroff system by force. sudo systemctl poweroff --force
+* Reboot system immediately. (button effect) sudo systemctl reboot --force --force
+* Poweroff system immediately. (button effect) sudo systemctl shutdown --force --force
+* Reboot system in spesific time. 02:00 (dont use systemctl) sudo shutdown -r 02:00
+* Reboot system after 15 minutes. (dont use systemctl) sudo shutdown -r +15
+* Shutdown system after 15 minutes. (dont use systemctl) sudo shutdown +15
+* Reboot after 15 minutes with wall message. sudo shutdown -r +15 'Scheduled restart to do offline'
+
+### Wall Komutu
+
+* What command sends a message to the terminal sessions of all logged-in users? wall
+* Edit file for message of the day. /etc/motd
+
+### Journalctl İle Logları Görüntülemek
+
+* How to see logs with systemd including kernel messages system boot messages systemd service logs user session logs and application logs if it uses it. journalctl
+* With the journals, Follow logs live journalctl -f
+* With the journals, View newest entries first: journalctl -r
+* With the journals, Show logs of nginx service journalctl -u nginx
+* With the journals, Last few logs journalctl -xe
+* With the journals, Last 10 minutes journalctl --since "10min ago"
+* With the journals, Onlt 10 lines journalctl -n 10
+* With the journals, Last 1 day journalctl -S -1d
+* With the journals, With process id journalctl _PID=16883
 
