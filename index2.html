@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>csariyildiz.github.io</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #1c2330;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent-green: #3fb950;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --tag-fill: rgba(88,166,255,0.12);
+      --tag-border: rgba(88,166,255,0.25);
+      --row-hover: #1a2233;
+      --header-height: 64px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      min-height: 100vh;
+    }
+
+    /* ── TOP NAV ── */
+    header {
+      height: var(--header-height);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 48px;
+      gap: 24px;
+    }
+
+    .site-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      flex: 1;
+    }
+
+    .site-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+
+    .nav-btn:hover, .nav-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--tag-fill);
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── SEARCH + FILTERS ── */
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+      width: 14px;
+      height: 14px;
+    }
+
+    input[type="search"] {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 10px 14px 10px 38px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="search"]:focus { border-color: var(--accent); }
+    input[type="search"]::placeholder { color: var(--text-muted); }
+
+    .filter-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .filter-btn {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover { border-color: var(--border); color: var(--text); }
+    .filter-btn.active {
+      background: var(--tag-fill);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── COUNT LINE ── */
+    .count-line {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .count-line strong { color: var(--accent); font-weight: 600; }
+
+    /* ── ARTICLE TABLE ── */
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead tr {
+      background: var(--surface2);
+    }
+
+    th {
+      text-align: left;
+      padding: 12px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    th:first-child { width: 48px; text-align: center; }
+    th:last-child  { width: 260px; }
+
+    td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    tbody tr {
+      background: var(--surface);
+      transition: background 0.12s;
+      cursor: pointer;
+    }
+
+    tbody tr:nth-child(even) { background: var(--bg); }
+    tbody tr:hover { background: var(--row-hover); }
+    tbody tr.hidden { display: none; }
+
+    .num-cell {
+      text-align: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .title-cell a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.15s;
+    }
+
+    .title-cell a:hover { color: var(--accent); }
+
+    .tags-cell {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .tag-blue   { color: #58a6ff; background: rgba(88,166,255,0.1);  border: 1px solid rgba(88,166,255,0.25); }
+    .tag-green  { color: #3fb950; background: rgba(63,185,80,0.1);   border: 1px solid rgba(63,185,80,0.25); }
+    .tag-orange { color: #f0883e; background: rgba(240,136,62,0.1);  border: 1px solid rgba(240,136,62,0.25); }
+    .tag-purple { color: #d2a8ff; background: rgba(210,168,255,0.1); border: 1px solid rgba(210,168,255,0.25); }
+    .tag-red    { color: #f78166; background: rgba(247,129,102,0.1); border: 1px solid rgba(247,129,102,0.25); }
+    .tag-teal   { color: #56d364; background: rgba(86,211,100,0.1);  border: 1px solid rgba(86,211,100,0.25); }
+
+    /* ── EMPTY STATE ── */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--text-muted);
+      font-size: 14px;
+      background: var(--surface);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    @media (max-width: 680px) {
+      header { padding: 0 16px; flex-wrap: wrap; height: auto; padding-top: 12px; padding-bottom: 12px; gap: 12px; }
+      main { padding: 24px 12px 60px; }
+      th:last-child { display: none; }
+      td:last-child { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <div style="flex:1;">
+    <a class="site-title" href="#">csariyildiz.github.io</a>
+    <div class="site-subtitle" style="margin-top:2px;">Notes on programming and system administration</div>
+  </div>
+  <nav>
+    <a href="#" class="nav-btn">About</a>
+    <a href="#" class="nav-btn">LinkedIn</a>
+    <button class="nav-btn active" onclick="setLang('tr',this)">TR</button>
+    <button class="nav-btn" onclick="setLang('en',this)">EN</button>
+    <button class="nav-btn active" onclick="setLang('all',this)">ALL</button>
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.868-3.834zm-5.442 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+      </svg>
+      <input type="search" id="search" placeholder="Search titles, tags and descriptions…" autocomplete="off">
+    </div>
+    <div class="filter-group">
+      <button class="filter-btn active" data-cat="All" onclick="setCat(this)">All</button>
+      <button class="filter-btn" data-cat="Linux" onclick="setCat(this)">Linux</button>
+      <button class="filter-btn" data-cat="System Administration" onclick="setCat(this)">System Administration</button>
+    </div>
+  </div>
+
+  <div class="count-line">Showing <strong id="count">8</strong> of 8 articles</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Article</th>
+          <th>Tags</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+
+        <tr data-cat="Linux System Administration" data-lang="tr" data-text="linux işletim sistemlerinde servis yönetimi sysvınit systemd upstart">
+          <td class="num-cell">1</td>
+          <td class="title-cell"><a href="#">Linux İşletim Sistemlerinde Servis Yönetimi</a></td>
+          <td class="tags-cell">
+            <span class="tag tag-green">SysVinit (System V)</span>
+            <span class="tag tag-blue">systemd</span>
+            <span class="tag tag-purple">Upstart</span>
+          </td>
+        </tr>
+
+        <tr data-cat="Linux System Administration" data-lang="tr" data-text="linux işletim sistemlerinde proc ve sys dizinleri sysvınit systemd upstart">
+          <td class="num-cell">2</td>
+          <td class="title-cell"><a href="#">Linux İşletim Sistemlerinde Proc ve Sys Dizinleri</a></td>
+          <td class="tags-cell">
+            <span class="tag tag-green">SysVinit (System V)</span>
+            <span class="tag tag-blue">systemd</span>
+            <span class="tag tag-purple">Upstart</span>
+          </td>
+        </tr>
+
+        <tr data-cat="Linux System Administration" data-lang="tr" data-text="linux işletim sistemlerinde kernel modülleri ve sürücüler kernel modules">
+          <td class="num-cell">3</td>
+          <td class="title-cell"><a href="#">Linux İşletim Sistemlerinde Kernel Modülleri ve Sürücüler</a></td>
+          <td class="tags-cell">
+            <span class="tag tag-orange"># which init</span>
+          </td>
+        </tr>
+
+        <tr data-cat="Linux System Administration" data-lang="tr" data-text="linux işletim sistemlerinde boot süreci boot process">
+          <td class="num-cell">4</td>
+          <td class="title-cell"><a href="#">Linux İşletim Sistemlerinde Boot Süreci</a></td>
+          <td class="tags-cell">
+            <span class="tag tag-orange">ps -p 1</span>
+          </td>
+        </tr>
+
+        <tr data-cat="Linux System Administration" data-lang="en" data-text="linux service management systemd sysvinit upstart">
+          <td class="num-cell">5</td>
+          <td class="title-cell"><a href="#">Linux Service Management</a></td>
+          <td class="tags-cell">
+            <span class="tag tag-green">SysVinit (System V)</span>
+            <span class="tag tag-blue">systemd</span>
+            <span class="tag tag-purple">Upstart</span>
+          </td>
+        </tr>
+
+        <tr data-cat="Linux System Administration" data-lang="en" data-text="proc sys directories filesystem linux">
+          <td class="num-cell">6</td>
+          <td class="title-cell"><a href="#">Proc and Sys Directories in Linux</a></td>
+          <td class="tags-cell">
+            <span class="tag tag-teal">proc</span>
+            <span class="tag tag-teal">sysfs</span>
+          </td>
+        </tr>
+
+        <tr data-cat="Linux" data-lang="en" data-text="kernel modules drivers linux lsmod modprobe">
+          <td class="num-cell">7</td>
+          <td class="title-cell"><a href="#">Kernel Modules and Drivers</a></td>
+          <td class="tags-cell">
+            <span class="tag tag-orange">lsmod</span>
+            <span class="tag tag-orange">modprobe</span>
+          </td>
+        </tr>
+
+        <tr data-cat="Linux" data-lang="en" data-text="linux boot process grub bios uefi">
+          <td class="num-cell">8</td>
+          <td class="title-cell"><a href="#">The Linux Boot Process</a></td>
+          <td class="tags-cell">
+            <span class="tag tag-red">GRUB</span>
+            <span class="tag tag-red">BIOS/UEFI</span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    <div class="no-results" id="no-results">No articles found.</div>
+  </div>
+
+</main>
+
+<footer>csariyildiz.github.io &mdash; built with care</footer>
+
+<script>
+  const rows = Array.from(document.querySelectorAll('#tbody tr'));
+  const searchEl = document.getElementById('search');
+  const countEl  = document.getElementById('count');
+  const noRes    = document.getElementById('no-results');
+  let activeCat  = 'All';
+  let activeLang = 'all';
+
+  function update() {
+    const q = searchEl.value.toLowerCase().trim();
+    let n = 0;
+    rows.forEach((row, i) => {
+      const cat  = row.dataset.cat || '';
+      const lang = row.dataset.lang || '';
+      const text = row.dataset.text || '';
+      const title = row.querySelector('a')?.textContent.toLowerCase() || '';
+      const tags  = Array.from(row.querySelectorAll('.tag')).map(t => t.textContent.toLowerCase()).join(' ');
+
+      const catOk  = activeCat === 'All' || cat.includes(activeCat);
+      const langOk = activeLang === 'all' || lang === activeLang;
+      const qOk    = !q || text.includes(q) || title.includes(q) || tags.includes(q);
+
+      const show = catOk && langOk && qOk;
+      row.classList.toggle('hidden', !show);
+      if (show) n++;
+    });
+    countEl.textContent = n;
+    noRes.style.display = n === 0 ? 'block' : 'none';
+
+    // re-number visible rows
+    let idx = 1;
+    rows.forEach(row => {
+      if (!row.classList.contains('hidden')) {
+        row.querySelector('.num-cell').textContent = idx++;
+      }
+    });
+  }
+
+  function setCat(btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    update();
+  }
+
+  function setLang(lang, btn) {
+    // keep TR/EN/ALL mutually exclusive
+    document.querySelectorAll('.nav-btn').forEach(b => {
+      if (['tr','en','all'].some(l => b.getAttribute('onclick')?.includes(`'${l}'`))) {
+        b.classList.remove('active');
+      }
+    });
+    btn.classList.add('active');
+    activeLang = lang;
+    update();
+  }
+
+  searchEl.addEventListener('input', update);
+</script>
+
+</body>
+</html>
