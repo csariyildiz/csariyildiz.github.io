@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux Service Management — csariyildiz.github.io</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── THEME TOKENS ── */
+    [data-theme="dark"] {
+      --bg:           #0d1117;
+      --surface:      #161b22;
+      --surface2:     #1c2330;
+      --border:       #30363d;
+      --accent:       #58a6ff;
+      --accent-green: #3fb950;
+      --accent-orange:#f0883e;
+      --text:         #e6edf3;
+      --text-muted:   #8b949e;
+      --text-faint:   #484f58;
+      --code-bg:      #161b22;
+      --code-border:  #30363d;
+      --toc-active:   #58a6ff;
+      --tag-fill:     rgba(88,166,255,0.12);
+      --tag-border:   rgba(88,166,255,0.25);
+      --blockquote-border: #3fb950;
+      --blockquote-bg:rgba(63,185,80,0.06);
+      --toggle-bg:    #21262d;
+      --toggle-knob:  #58a6ff;
+      --shadow:       rgba(0,0,0,0.4);
+    }
+
+    [data-theme="light"] {
+      --bg:           #ffffff;
+      --surface:      #f6f8fa;
+      --surface2:     #eaeef2;
+      --border:       #d0d7de;
+      --accent:       #0969da;
+      --accent-green: #1a7f37;
+      --accent-orange:#bc4c00;
+      --text:         #1f2328;
+      --text-muted:   #656d76;
+      --text-faint:   #afb8c1;
+      --code-bg:      #f6f8fa;
+      --code-border:  #d0d7de;
+      --toc-active:   #0969da;
+      --tag-fill:     rgba(9,105,218,0.08);
+      --tag-border:   rgba(9,105,218,0.2);
+      --blockquote-border: #1a7f37;
+      --blockquote-bg:rgba(26,127,55,0.05);
+      --toggle-bg:    #eaeef2;
+      --toggle-knob:  #0969da;
+      --shadow:       rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    /* ── HEADER ── */
+    header {
+      height: 60px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .site-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      flex: 1;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-link {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+    }
+
+    .nav-link:hover {
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    /* ── THEME TOGGLE ── */
+    .theme-toggle {
+      width: 44px;
+      height: 24px;
+      background: var(--toggle-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--toggle-knob);
+      top: 3px;
+      left: 3px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(20px);
+    }
+
+    .toggle-icon {
+      font-size: 11px;
+      color: var(--text-muted);
+      user-select: none;
+    }
+
+    /* ── PAGE LAYOUT: sidebar + content ── */
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── TOC SIDEBAR ── */
+    .toc-sidebar {
+      position: sticky;
+      top: 80px;
+    }
+
+    .toc-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-faint);
+      margin-bottom: 14px;
+    }
+
+    .toc-list {
+      list-style: none;
+      border-left: 1px solid var(--border);
+    }
+
+    .toc-list li a {
+      display: block;
+      padding: 5px 14px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      margin-left: -1px;
+      transition: color 0.15s, border-color 0.15s;
+      line-height: 1.5;
+    }
+
+    .toc-list li a:hover {
+      color: var(--text);
+    }
+
+    .toc-list li a.active {
+      color: var(--toc-active);
+      border-left-color: var(--toc-active);
+    }
+
+    .toc-list .toc-h3 a {
+      padding-left: 28px;
+      font-size: 12px;
+    }
+
+    /* ── ARTICLE ── */
+    article {
+      min-width: 0;
+    }
+
+    /* post meta header */
+    .post-meta {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .post-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .post-breadcrumb a { color: var(--accent); text-decoration: none; }
+    .post-breadcrumb a:hover { text-decoration: underline; }
+    .post-breadcrumb span { color: var(--text-faint); }
+
+    .post-title {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.4px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .post-info {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .post-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .post-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 4px;
+      border: 1px solid var(--tag-border);
+      background: var(--tag-fill);
+      color: var(--accent);
+    }
+
+    .tag-green { color: var(--accent-green); border-color: rgba(63,185,80,0.3); background: rgba(63,185,80,0.08); }
+    .tag-orange { color: var(--accent-orange); border-color: rgba(240,136,62,0.3); background: rgba(240,136,62,0.08); }
+
+    /* reading time */
+    .read-time {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    /* ── PROSE CONTENT ── */
+    .prose h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 48px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 80px;
+    }
+
+    .prose h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 32px 0 12px;
+      scroll-margin-top: 80px;
+    }
+
+    .prose p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .prose a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .prose a:hover { text-decoration: underline; }
+
+    .prose ul, .prose ol {
+      margin: 12px 0 20px 20px;
+      color: var(--text);
+    }
+
+    .prose li { margin-bottom: 6px; }
+
+    /* inline code */
+    .prose code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: var(--accent-green);
+    }
+
+    /* code block */
+    .prose pre {
+      background: var(--code-bg);
+      border: 1px solid var(--code-border);
+      border-radius: 8px;
+      padding: 20px;
+      overflow-x: auto;
+      margin: 20px 0 28px;
+      position: relative;
+    }
+
+    .prose pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .pre-label {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      color: var(--text-faint);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* blockquote */
+    .prose blockquote {
+      border-left: 3px solid var(--blockquote-border);
+      background: var(--blockquote-bg);
+      padding: 14px 20px;
+      border-radius: 0 6px 6px 0;
+      margin: 20px 0 28px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* info callout */
+    .callout {
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      background: var(--surface);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 20px 0 28px;
+      font-size: 13.5px;
+    }
+
+    .callout-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    /* table */
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 28px;
+      font-size: 13.5px;
+    }
+
+    .prose th {
+      background: var(--surface2);
+      text-align: left;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .prose td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    .prose td code { font-size: 12px; }
+
+    .prose tr:last-child td { border-bottom: none; }
+
+    /* separator */
+    .prose hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    /* ── POST NAV ── */
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .post-nav a {
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .post-nav a:hover { text-decoration: underline; }
+    .post-nav .nav-label {
+      font-size: 11px;
+      color: var(--text-faint);
+      font-family: 'IBM Plex Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
+      .page { grid-template-columns: 1fr; gap: 32px; }
+      .toc-sidebar { position: static; }
+      header { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="site-title" href="index.html">csariyildiz.github.io</a>
+  <div class="header-right">
+    <a href="index.html" class="nav-link">← Index</a>
+    <a href="#" class="nav-link">About</a>
+    <a href="#" class="nav-link">LinkedIn</a>
+    <span class="toggle-icon" id="theme-icon">☀︎</span>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle theme"></button>
+  </div>
+</header>
+
+<!-- PAGE GRID -->
+<div class="page">
+
+  <!-- TOC -->
+  <aside class="toc-sidebar">
+    <div class="toc-label">On this page</div>
+    <ul class="toc-list" id="toc-list">
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#what-is-a-service-manager">What is a service manager?</a></li>
+      <li><a href="#sysvinit">SysVinit</a></li>
+      <li class="toc-h3"><a href="#runlevels">Runlevels</a></li>
+      <li class="toc-h3"><a href="#inittab">/etc/inittab</a></li>
+      <li><a href="#systemd">systemd</a></li>
+      <li class="toc-h3"><a href="#units">Units and unit files</a></li>
+      <li class="toc-h3"><a href="#systemctl">systemctl commands</a></li>
+      <li class="toc-h3"><a href="#targets">Boot targets</a></li>
+      <li><a href="#upstart">Upstart</a></li>
+      <li><a href="#comparison">Comparison table</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+  </aside>
+
+  <!-- ARTICLE -->
+  <article>
+
+    <div class="post-meta">
+      <div class="post-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="#">Linux</a>
+        <span>/</span>
+        Linux Service Management
+      </div>
+
+      <h1 class="post-title">Linux İşletim Sistemlerinde Servis Yönetimi</h1>
+
+      <div class="post-info">
+        <span class="post-date">2024-01-15</span>
+        <div class="post-tags">
+          <span class="tag tag-green">SysVinit</span>
+          <span class="tag">systemd</span>
+          <span class="tag tag-orange">Upstart</span>
+        </div>
+        <span class="read-time">~8 min read</span>
+      </div>
+    </div>
+
+    <div class="prose">
+
+      <h2 id="introduction">Introduction</h2>
+
+      <p>
+        Service management is one of the most fundamental responsibilities of a Linux system administrator.
+        Every running daemon — from your SSH server to your web server — is a <em>service</em> that must be
+        started, stopped, enabled at boot, and monitored. This post covers the three main service management
+        systems found across Linux distributions: <strong>SysVinit</strong>, <strong>systemd</strong>, and
+        <strong>Upstart</strong>.
+      </p>
+
+      <div class="callout">
+        <div class="callout-title">Note</div>
+        The vast majority of modern Linux distributions (Ubuntu 16.04+, Debian 8+, RHEL/CentOS 7+, Arch)
+        use <code>systemd</code>. SysVinit knowledge remains useful for legacy systems and understanding
+        the history of Linux init systems.
+      </div>
+
+      <h2 id="what-is-a-service-manager">What is a service manager?</h2>
+
+      <p>
+        When the Linux kernel finishes loading, it hands off control to a single process with PID 1 — the
+        <strong>init</strong> system. This process is responsible for starting all other services and
+        keeping them running. You can verify which init system is in use:
+      </p>
+
+      <pre><span class="pre-label">bash</span><code># Check which binary /sbin/init points to
+readlink -f /sbin/init
+/usr/lib/systemd/systemd
+
+# View it as a running process
+ps -p 1
+  PID TTY          TIME CMD
+    1 ?        00:00:03 systemd</code></pre>
+
+      <p>
+        You can also visualise the entire process tree, tracing every process back to PID 1:
+      </p>
+
+      <pre><span class="pre-label">bash</span><code>pstree</code></pre>
+
+      <hr>
+
+      <h2 id="sysvinit">SysVinit</h2>
+
+      <p>
+        SysVinit (System V init) is the traditional init system inherited from Unix System V.
+        It is still found on older distributions and in embedded Linux systems.
+        The main binary is <code>/sbin/init</code>, and its primary configuration file is
+        <code>/etc/inittab</code>.
+      </p>
+
+      <h3 id="runlevels">Runlevels</h3>
+
+      <p>
+        SysVinit organises system states into <strong>runlevels</strong> — numbered 0 through 6,
+        each representing a predefined system state:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Runlevel</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>0</code></td><td>System shutdown</td></tr>
+          <tr><td><code>1</code> / <code>s</code> / <code>single</code></td><td>Single-user maintenance mode, no networking</td></tr>
+          <tr><td><code>2</code>, <code>3</code>, <code>4</code></td><td>Multi-user mode (console or network); runlevel 3 most common</td></tr>
+          <tr><td><code>5</code></td><td>Multi-user graphical mode (runlevel 3 + GUI login)</td></tr>
+          <tr><td><code>6</code></td><td>System restart (reboot)</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        To change the current runlevel, use <code>telinit</code>:
+      </p>
+
+      <pre><span class="pre-label">bash</span><code># Switch to maintenance mode
+telinit 1
+
+# Reboot the system
+telinit 6
+
+# Display previous and current runlevel
+runlevel
+N 3</code></pre>
+
+      <h3 id="inittab">/etc/inittab</h3>
+
+      <p>
+        The <code>/etc/inittab</code> file defines the default runlevel and the scripts to execute.
+        Each entry follows the format:
+      </p>
+
+      <pre><span class="pre-label">format</span><code>id:runlevels:action:process</code></pre>
+
+      <blockquote>
+        The default runlevel must never be set to <code>0</code> or <code>6</code> — doing so
+        will cause the system to shut down or reboot immediately after every boot.
+      </blockquote>
+
+      <p>
+        After modifying <code>/etc/inittab</code>, reload the configuration without rebooting:
+      </p>
+
+      <pre><span class="pre-label">bash</span><code>telinit q</code></pre>
+
+      <p>
+        Service scripts live in <code>/etc/init.d/</code>. Symbolic links in
+        <code>/etc/rcN.d/</code> control which services start or stop for each runlevel.
+        A link prefixed <code>S</code> starts the service; <code>K</code> kills it.
+        The number after the prefix sets the execution order.
+      </p>
+
+      <pre><span class="pre-label">example</span><code># Inside /etc/rc3.d/
+S23ntp -> /etc/init.d/ntp    # Start ntp at order 23
+K90network -> /etc/init.d/network  # Stop network at order 90</code></pre>
+
+      <hr>
+
+      <h2 id="systemd">systemd</h2>
+
+      <p>
+        <code>systemd</code> is the dominant init system in modern Linux. It replaces the sequential
+        shell-script approach of SysVinit with parallel, dependency-driven service startup, and provides
+        a unified interface for logging, device management, and power events.
+      </p>
+
+      <h3 id="units">Units and unit files</h3>
+
+      <p>
+        In systemd, every managed resource is a <strong>unit</strong>. Units have a name, a type, and a
+        configuration file. The main unit types are:
+      </p>
+
+      <ul>
+        <li><code>service</code> — a daemon or process</li>
+        <li><code>target</code> — a grouping of units (like a runlevel)</li>
+        <li><code>socket</code> — socket-activated service</li>
+        <li><code>timer</code> — scheduled task (cron replacement)</li>
+        <li><code>automount</code> — filesystem mount triggered on access</li>
+      </ul>
+
+      <p>Unit files are searched in order:</p>
+
+      <pre><span class="pre-label">paths</span><code>/etc/systemd/system/        # Admin overrides (highest priority)
+/run/systemd/system/        # Runtime units
+/usr/lib/systemd/system/    # Vendor-provided units</code></pre>
+
+      <h3 id="systemctl">systemctl commands</h3>
+
+      <pre><span class="pre-label">bash</span><code># Start / stop / restart / reload
+systemctl start   apparmor.service
+systemctl stop    apparmor.service
+systemctl restart apparmor.service
+systemctl reload  sshd.service        # graceful reload, no disconnect
+
+# Status checks
+systemctl status     apparmor.service
+systemctl is-active  sshd.service     # prints: active / inactive
+systemctl is-enabled apparmor.service # prints: enabled / disabled
+
+# Enable / disable at boot
+systemctl enable  apparmor.service
+systemctl disable apparmor.service
+
+# List all units / unit files
+systemctl list-units
+systemctl list-units --type=service
+systemctl list-unit-files
+
+# Inspect a unit file
+systemctl cat sshd.service
+
+# After editing unit files
+systemctl daemon-reload</code></pre>
+
+      <h3 id="targets">Boot targets</h3>
+
+      <p>
+        systemd targets are the equivalent of SysV runlevels. The most important ones:
+      </p>
+
+      <table>
+        <thead>
+          <tr><th>Target</th><th>SysV equivalent</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>poweroff.target</code></td><td>0</td><td>Shut down the system</td></tr>
+          <tr><td><code>rescue.target</code></td><td>1</td><td>Single-user rescue shell</td></tr>
+          <tr><td><code>multi-user.target</code></td><td>3</td><td>Multi-user, no GUI</td></tr>
+          <tr><td><code>graphical.target</code></td><td>5</td><td>Multi-user with GUI</td></tr>
+          <tr><td><code>reboot.target</code></td><td>6</td><td>Reboot the system</td></tr>
+          <tr><td><code>emergency.target</code></td><td>—</td><td>Minimal emergency shell</td></tr>
+        </tbody>
+      </table>
+
+      <pre><span class="pre-label">bash</span><code># View and set the default boot target
+systemctl get-default
+systemctl set-default multi-user.target
+
+# Switch targets without rebooting
+systemctl isolate multi-user.target
+systemctl isolate emergency
+
+# Power management
+systemctl reboot
+systemctl poweroff
+systemctl suspend
+systemctl hibernate
+
+# Forced reboot (skips shutdown hooks)
+systemctl reboot --force
+# Immediate hardware reset (double --force)
+systemctl reboot --force --force</code></pre>
+
+      <p>
+        Scheduled shutdowns with wall messages use the traditional <code>shutdown</code> command:
+      </p>
+
+      <pre><span class="pre-label">bash</span><code>sudo shutdown -r 02:00              # reboot at 02:00
+sudo shutdown -r +15                # reboot in 15 minutes
+sudo shutdown +15 'Going offline'   # shutdown with message
+sudo shutdown -c                    # cancel a pending shutdown</code></pre>
+
+      <hr>
+
+      <h2 id="upstart">Upstart</h2>
+
+      <p>
+        Upstart was developed by Canonical as an event-driven replacement for SysVinit, used in
+        Ubuntu from 6.10 to 14.10 before Ubuntu switched to systemd. Job configuration files
+        live in <code>/etc/init/</code>.
+      </p>
+
+      <pre><span class="pre-label">bash</span><code># List jobs and their states
+initctl list
+
+# Start / stop a job
+start nginx
+stop nginx</code></pre>
+
+      <hr>
+
+      <h2 id="comparison">Comparison table</h2>
+
+      <table>
+        <thead>
+          <tr><th>Feature</th><th>SysVinit</th><th>systemd</th><th>Upstart</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Config location</td><td><code>/etc/inittab</code></td><td>Unit files</td><td><code>/etc/init/</code></td></tr>
+          <tr><td>Service scripts</td><td><code>/etc/init.d/</code></td><td>Built-in</td><td>Job files</td></tr>
+          <tr><td>Startup model</td><td>Sequential</td><td>Parallel</td><td>Event-driven</td></tr>
+          <tr><td>Logging</td><td>syslog</td><td>journald</td><td>syslog</td></tr>
+          <tr><td>Main command</td><td><code>telinit</code></td><td><code>systemctl</code></td><td><code>initctl</code></td></tr>
+          <tr><td>State concept</td><td>Runlevels</td><td>Targets</td><td>Events</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="conclusion">Conclusion</h2>
+
+      <p>
+        Understanding all three init systems gives you the full picture of how Linux service management
+        evolved. In practice, <code>systemctl</code> is what you'll use day-to-day on any modern system —
+        but knowing the SysVinit model helps you reason about what systemd is doing under the hood.
+        The <code>/etc/rc*.d/</code> symlink convention, runlevels, and <code>/etc/inittab</code> are
+        part of the LPIC and Linux+ certification exams, so they're worth keeping in memory.
+      </p>
+
+    </div><!-- /prose -->
+
+    <!-- POST NAV -->
+    <nav class="post-nav">
+      <div>
+        <span class="nav-label">← Previous</span>
+        <a href="#">Linux Boot Process</a>
+      </div>
+      <div style="text-align:right;">
+        <span class="nav-label">Next →</span>
+        <a href="#">Proc and Sys Directories</a>
+      </div>
+    </nav>
+
+  </article>
+</div><!-- /page -->
+
+<script>
+  /* ── THEME TOGGLE ── */
+  const root   = document.documentElement;
+  const toggle = document.getElementById('theme-toggle');
+  const icon   = document.getElementById('theme-icon');
+
+  const saved = localStorage.getItem('theme') || 'dark';
+  root.setAttribute('data-theme', saved);
+  icon.textContent = saved === 'dark' ? '☀︎' : '☾';
+
+  toggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    icon.textContent = next === 'dark' ? '☀︎' : '☾';
+    localStorage.setItem('theme', next);
+  });
+
+  /* ── TOC ACTIVE HIGHLIGHT ── */
+  const headings = Array.from(document.querySelectorAll('.prose h2, .prose h3'));
+  const tocLinks = Array.from(document.querySelectorAll('#toc-list a'));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const id = entry.target.getAttribute('id');
+        const active = tocLinks.find(l => l.getAttribute('href') === '#' + id);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-60px 0px -70% 0px', threshold: 0 });
+
+  headings.forEach(h => observer.observe(h));
+</script>
+
+</body>
+</html>
