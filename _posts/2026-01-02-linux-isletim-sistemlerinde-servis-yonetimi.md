@@ -7,26 +7,7 @@ keywords: [systemd,sysvinit,upstart]
 
 ## İçindekiler
 
-* Init Programları ve Genel Systemd Kavramları
-  * Init Programlarının Çeşitleri
-  * Init Programını Görüntülemek
-
-* Systemd
- * Unit Kavramı
- * Örnek Unit Dosyası: default.target
- * systemctl ile servislerin kontrolü
-   
-* SysVinit
-  * Runlevel Detayları
-  * Runlevel'ları Değiştirmek
-  * SysVinit Servis Scriptleri
-  * SysVinit Runlevel Dizini
-  * /etc/inittab Dosyası
-  * /etc/inittab Dosyası Satır Formatı
-  * Kernel Parametrelerinde Runlevel Değerleri
-  * SysVinit'in Özellikleri
-
-
+{:toc}
 
 
 ## Init Programları ve Genel Systemd Kavramları
@@ -577,4 +558,5 @@ Upstart servisleri genellikle initctl komutu ile yönetilir.
 Özet olarak,
 * Upstart, SysVinit’e göre daha modern bir init sistemi olup olay tabanlı servis yönetimi ve paralel başlatma gibi özellikler sunar. 
 * Ancak zamanla daha gelişmiş özellikler sunan systemd tarafından büyük ölçüde yerini kaybetmiştir.
+
 
