@@ -257,26 +257,26 @@ Runlevel	Açıklama
 
 ### Runlevel Detayları
 
-* Örneğin sistem runlevel 3 ile açılırsa network servisleri başlar fakat grafik arayüz açılmaz.
-* Runlevel görmek için `runlevel` veya `who -r` komutları kullanılabilir. Archlinux, Raspbian gibi Debian tabanlı olmadığından bu komutlara sahip değil.
+* Örneğin sistem `runlevel 3` ile açılırsa network servisleri başlar fakat grafik arayüz açılmaz.
+* Runlevel görmek için `runlevel` veya `who -r` komutları kullanılabilir. Archlinux, Raspbian gibi Debian tabanlı olmadığından bu komutlara sahip değildir.
 
-Örneğin:
+Örneğin Rasbbian üzerinden aşağıdaki gibi görüntüleyebiliriz:
 
 ```
 acs@acs-raspi1:~ $ runlevel
 N 3
 
 acs@acs-raspi1:~ $ who -r
-         run-level 3  1970-01-02 02:10
+run-level 3  1970-01-02 02:10
 ```
 
-* Burada sistem runlevel 3 de N harfi unlevel'ın last boottan itibaren değiştirilmediğini ifade eder.
+* Burada sistem `runlevel 3` de iken N harfi runlevel'ın last boottan itibaren değiştirilmediğini ifade ediyor.
 
-* Runlevel 0: Sistemin tamamen kapalı olduğu durumdur. Bu runlevel seçildiğinde sistem kapanır ve tekrar açılmaz.
-* Runlevel 1: Tek kullanıcı modudur (single-user mode). Ağ (network) özellikleri kapalıdır ve genellikle bakım veya kurtarma işlemleri için kullanılır.
-* Runlevel 2, 3, 4: Çok kullanıcı modlarıdır (multi-user). Kullanıcılar konsol veya ağ üzerinden sisteme giriş yapabilir. Debian ve Raspbian tabanlı sistemlerde runlevel 3, çok kullanıcılı network moduna denk gelir ve genellikle varsayılan mod olarak kullanılır.
-* Runlevel 5: Grafiksel oturum açma özellikli çok kullanıcı modudur. Temel olarak runlevel 3 ile aynı işlevi görür ancak ek olarak bir grafik arayüz sunar.
-* Runlevel 6: Sistem yeniden başlatma modudur. Bu runlevel seçildiğinde sistem kapanır ve otomatik olarak yeniden açılır.
+* `Runlevel 0`: Sistemin tamamen kapalı olduğu durumdur. Bu runlevel seçildiğinde sistem kapanır ve tekrar açılmaz.
+* `Runlevel 1`: Tek kullanıcı modudur (single-user mode). Ağ (network) özellikleri kapalıdır ve genellikle bakım veya kurtarma işlemleri için kullanılır.
+* `Runlevel 2, 3, 4`: Çok kullanıcı modlarıdır (multi-user). Kullanıcılar konsol veya ağ üzerinden sisteme giriş yapabilir. Debian ve Raspbian tabanlı sistemlerde runlevel 3, çok kullanıcılı network moduna denk gelir ve genellikle varsayılan mod olarak kullanılır.
+* `Runlevel 5`: Grafiksel oturum açma özellikli çok kullanıcı modudur. Temel olarak runlevel 3 ile aynı işlevi görür ancak ek olarak bir grafik arayüz sunar.
+* `Runlevel 6`: Sistem yeniden başlatma modudur. Bu runlevel seçildiğinde sistem kapanır ve otomatik olarak yeniden açılır.
 
 
 ### Runlevel'ları Değiştirmek
@@ -286,7 +286,7 @@ acs@acs-raspi1:~ $ who -r
 
 ### SysVinit Servis Scriptleri
 
-SysVinit'te servisler shell scriptleri ile yönetilir. Scriptler genellikle /etc/init.d/ dizininde bulunur. Bu dosyalar bash shell scriptleridir. Daha sonra açıklayacağımız gibi örneğin `/etc/rc3.d/` dizinindeki `S20ssh` gibi isimleri olan sembolik linklerle çalıştırılır. 
+`SysVinit`'te servisler shell scriptleri ile yönetilir. Scriptler genellikle /etc/init.d/ dizininde bulunur. Bu dosyalar bash shell scriptleridir. Daha sonra açıklayacağımız gibi örneğin `/etc/rc3.d/` dizinindeki `S20ssh` gibi isimleri olan sembolik linklerle çalıştırılır. 
 
 ```
 acs@acs-raspi1:/etc/init.d $ ls
@@ -364,8 +364,8 @@ K10network
 
 Buradaki harflerin anlamı:
 
-* S → Start (servisi başlat)
-* K → Kill (servisi durdur)
+* `S → Start` (servisi başlat)
+* `K → Kill` (servisi durdur)
 
 Sayılar ise başlatma sırasını belirlemek mümkün olur.
 
@@ -378,7 +378,7 @@ S20ssh
 
 * Örneğin önce network başlar, sonra ssh servisi başlatılır.
 
-* Örneğin sistem runlevel 1 e girdiğinde /etc/rc1.d/K90network ile ilgili servislere ne olur? Dosya adının başında K harfi bulunduğu için ilgili servisler durdurulacaktır.
+* Örneğin sistem `runlevel 1`e girdiğinde `/etc/rc1.d/K90network` ile ilgili servislere ne olur? Dosya adının başında K harfi bulunduğu için ilgili servisler durdurulacaktır.
 
 ### /etc/inittab Dosyası
 
@@ -445,8 +445,8 @@ ca:12345:ctrlaltdel:/sbin/shutdown -t1 -h -r now
 
 ```
 
-* /etc/inittab ve runlevel scriptlerinde her şey belirli bir sıra ile çalışır.
-* wait action’ı scriptin tamamlanmasını bekler.
+* `/etc/inittab` ve `runlevel` scriptlerinde adımlar belirli bir sıra ile çalışır.
+* `wait` action’ı scriptin tamamlanmasını bekler.
 * Runlevel scriptleri genellikle numara veya ad sırasına göre çalıştırılır (örneğin /etc/rc3.d/S10network önce, S20sshd sonra).
 * Eğer sıralama doğru yapılmazsa, bağımlılıkları olan servisler düzgün çalışmayabilir.
 * Örnek: ssh servisi network servisi başlamadan başlarsa hata alır.
@@ -459,9 +459,9 @@ ca:12345:ctrlaltdel:/sbin/shutdown -t1 -h -r now
 
 ### /etc/inittab Dosyası Satır Formatı
 
-/etc/inittab dosyasındaki her satır  init programı `/sbin/init` tarafından okunan özel bir satır formatında yazılır. 
+`/etc/inittab` dosyasındaki her satır  init programı `/sbin/init` tarafından okunan özel bir satır formatında yazılır. 
 
-Satır formatı aşağıdaki gibidir.
+Satır formatı aşağıdaki gibidir:
 
 ```
 id:runlevels:action:process
@@ -497,7 +497,7 @@ Yaygın action türleri:
 ```
 ### Kernel Parametrelerinde Runlevel Değerleri
  
-Eğer SysVinit sisteminde /etc/inittab’da default runlevel 3 olarak tanımlı olmasına rağmen sistem hep runlevel 1 ile açılıyorsa, muhtemel neden kernel’in boot parametreleridir. Kernel parametrelerinde 1 veya S varsa init, bu parametreyi öncelikli olarak kullanır ve sistem tek kullanıcı modunda başlar.
+Eğer `SysVinit` sisteminde `/etc/inittab`’da default `runlevel 3` olarak tanımlı olmasına rağmen sistem hep runlevel 1 ile açılıyorsa, muhtemel neden kernel’in boot parametreleridir. Kernel parametrelerinde 1 veya S varsa init, bu parametreyi öncelikli olarak kullanır ve sistem tek kullanıcı modunda başlar.
 
 * Linux çekirdeği (kernel), açılış sırasında parametreler alabilir.
 * Örneğin GRUB veya LILO bootloader üzerinden kernel’e özel runlevel belirten parametreler geçilebilir.
@@ -518,5 +518,6 @@ linux /vmlinuz-linux root=/dev/sda1 ro 1
 SysVinit'in avantajları basit ve anlaşılır yapıya sahip olmasıdır. Tamamen shell scriptlerini kullanır. Unix felsefesine daha yakındır. Dezavantajları ise servisler sıralı başlamasıdır. Bu paralel başlatmanın olmadığı anlamına gelir. Bağımlılık yönetimi zayıftır. Sonuç olarak boot süresi de daha yavaştır.
 
 ## Upstart
+
 
 
