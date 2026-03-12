@@ -144,7 +144,7 @@
       margin: 0 auto;
       padding: 48px 24px 80px;
       display: grid;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 1fr 220px; 
       gap: 48px;
       align-items: start;
     }
@@ -420,6 +420,9 @@
       margin: 40px 0;
     }
 
+    .img{
+    max-width: 840px;
+ }
     /* ── POST NAV ── */
     .post-nav {
       display: flex;
