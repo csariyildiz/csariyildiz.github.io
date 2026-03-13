@@ -6,12 +6,7 @@ toc: true
 ---
 
 
-İçindekiler:
-* Donanım ve Kernel İlişkisi
-* Aygıt İnceleme Komutları: lspci ve lsusb
-* Kernel Modüllerinin İncelenmesi
-
-### Donanım ve Kernel İlişkisi
+## Donanım ve Kernel İlişkisi
 
 Bir bilgisayar donanımı temel olarak aşağıdaki bileşenlerden oluşur:
 * İşlemci (CPU) – Komutları çalıştırır.
@@ -28,7 +23,7 @@ Bir bilgisayar donanımı temel olarak aşağıdaki bileşenlerden oluşur:
 * Kernel modülleri çalışan bir sistemde yüklenip kaldırılabileceği gibi kalıcı olarak da yüklenip kaldırılması sağlanabilir. 
 
 
-#### Kernel Uygun Driver’ı Nasıl Belirler?
+### Kernel Uygun Driver’ı Nasıl Belirler?
 
 Bir donanım sistemi üzerinde bulunduğunda (örneğin PCI aygıtı, USB cihazı veya disk), kernel bu donanımı algılar ve kimliğini belirler. Bu kimlik, aygıtın bağlı olduğu veri yoluna göre farklı şekilde tanımlanır:
 
@@ -56,7 +51,7 @@ Uygun sürücü bulunduğunda:
 
 ---
 
-### Aygıt İnceleme Komutları: lspci ve lsusb
+## Aygıt İnceleme Komutları: lspci ve lsusb
 
 Linux’ta sistemde bulunan donanımları incelemek için kullanılan temel komutlardan ikisi:
 
@@ -68,7 +63,7 @@ Linux’ta sistemde bulunan donanımları incelemek için kullanılan temel komu
 
 ---
 
-#### lspci – PCI Aygıtlarını Listeleme
+## lspci – PCI Aygıtlarını Listeleme
 
 `lspci` komutu, sistemdeki PCI ve PCIe cihazlarını gösterir.
 
@@ -140,7 +135,7 @@ Bu, cihazın şu anda aktif olarak hangi driver tarafından yönetildiğini gös
 
 ---
 
-#### Birden Fazla Modül Durumu
+## Birden Fazla Modül Durumu
 
 Aşağıdaki örnekte bir NVIDIA GPU için driver bilgisi görülmektedir:
 
@@ -174,7 +169,7 @@ Bu durum özellikle açık kaynak (`nouveau`) ve kapalı kaynak (`nvidia`) drive
 
 ---
 
-#### lsusb – USB Aygıtlarını Listeleme
+## lsusb – USB Aygıtlarını Listeleme
 
 `lsusb` komutu, sistemdeki USB bus üzerinde bulunan aygıtları listeler.
 
@@ -296,7 +291,7 @@ Sonuç olarak İlgili modülü görüntülemenin en kolay yolunun `lsusb -t` kom
 
 ---
 
-#### USB Cihazların Farklılığı
+## USB Cihazların Farklılığı
 
 Doğal olarak USB cihazları ve PCI cihazları arasında farklılıklar bulunur. USB cihazları dinamik olarak (hotplug) bağlanıp çıkarılabilir. 
 
@@ -310,7 +305,7 @@ Bir USB aygıt takıldığında süreç şu şekilde işler:
 
 ---
 
-#### Device Class Nedir?
+## Device Class Nedir?
 
 
 `lsusb` komutlarında gördüğümüz `Class` alanı cihazın genel kategorisini belirtir. 
@@ -346,7 +341,7 @@ Her modül bir driver (sürücü) değildir. Sürücüler haricinde sistemde aş
 
 Bir modülün sistemde yüklü olması kullanıldığı anlamına gelmez. Bir sistemde yüklü (RAM'de yer kaplayan) ama o an hiçbir donanım veya yazılım tarafından aktif olarak çağrılmayan modüller bulunabilir.
 
-#### Modüller Üzerinde Temel Komutlar
+### Modüller Üzerinde Temel Komutlar
 
 Sistem üzerinde modülleri yönetmek için temel komutlar aşağıdaki gibidir:
 
@@ -358,7 +353,7 @@ Sistem üzerinde modülleri yönetmek için temel komutlar aşağıdaki gibidir:
 * `modinfo`: Bir modülün kim tarafından yazıldığını, hangi lisansa sahip olduğunu ve hangi parametrelerle çalıştığını gösterir.
     * Örnek: `modinfo iwlwifi`
 
-#### Modülü Parametre İle Geri Yükleme
+### Modülü Parametre İle Geri Yükleme
 
 ```
 sudo modprobe -r btusb              # Önce yüklü modülü kaldır
@@ -366,7 +361,7 @@ sudo modprobe btusb enable_autosuspend=N  # Parametreyle geri yükle
 ```
 
 
-### lsmod ve kmod Araçları
+## lsmod ve kmod Araçları
 
 
 Standart bir Linux sisteminde genellikle çok sayıda kernel modülü yüklü durumdadır.
@@ -418,7 +413,7 @@ Bu çıktı genellikle şu bilgileri içerir:
 
 ---
 
-#### Belirli Bir Modülü Arama
+### Belirli Bir Modülü Arama
 
 Belirtilen modülün yüklü olup olmadığını kontrol etmek için `fgrep` aracını kullanabiliriz.
 
@@ -428,7 +423,7 @@ lsmod | fgrep -i snd_hda_intel
 
 
 
-#### Modülleri Boyutuna Göre Sıralama
+### Modülleri Boyutuna Göre Sıralama
 
 Modülleri boyutlarına göre büyükten küçüğe sıramak için `sort` aracını kullanabiliriz.
 Örneğin aşağıdaki komut modülleri büyükten küçüğe sıralar ve en büyükleri gösterir.
@@ -439,7 +434,7 @@ lsmod | sort -k2,2nr | head
 
 ---
 
-#### Modül Kaldırma (Canlı Sistemden)
+### Modül Kaldırma (Canlı Sistemden)
 
 ```
 sudo modprobe -r snd_hda_intel
@@ -450,7 +445,7 @@ Bu işlem canlı sistem üzerinde yapılır (live unload).
 
 ---
 
-#### Modül Hakkında Bilgi Alma
+### Modül Hakkında Bilgi Alma
 
 
 ```
@@ -502,13 +497,13 @@ gösterir.
 
 ---
 
-#### Kalıcı Ayarlar (Persistent Configuration)
+### Kalıcı Ayarlar (Persistent Configuration)
 
 Geçici olarak yapılan modül ayarları sistem yeniden başlatıldığında kaybolur.  
 
 Kalıcı yapılandırma için `modprobe` konfigürasyon dosyaları kullanılır.
 
-#### Konfigürasyon Dizini
+### Konfigürasyon Dizini
 
 ```
 /etc/modprobe.d/
@@ -524,7 +519,7 @@ Bu dizin altına `.conf` uzantılı dosyalar eklenir.
 
 ---
 
-#### Modül Parametresi Ekleme
+### Modül Parametresi Ekleme
 
 Örneğin `nouveau` modülünde modeset özelliğini kapatmak için:
 
@@ -539,7 +534,7 @@ Bu ayar:
 
 ---
 
-#### Modül Kara Listeye Alma (Blacklist)
+### Modül Kara Listeye Alma (Blacklist)
 
 Bir modül kaldırıldıktan sonra onun otomatik olarak yüklenmesini engellemek isteyebiliriz.
 
@@ -567,7 +562,7 @@ Bu yöntem daha düzenli ve yönetilebilir olduğu için önerilir.
 
 ---
 
-#### Kernel Modullerini Kaldırırken Hata Vermesi Durumu
+### Kernel Modullerini Kaldırırken Hata Vermesi Durumu
 
 Bir modül eğer kullanımdaysa sistem kaldırırken hata verebilir.
 
