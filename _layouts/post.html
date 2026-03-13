@@ -111,20 +111,24 @@
         }
 
         /* ── 2. TOC SCROLLSPY ── */
-        // Seçicileri genişletelim ki hata payı kalmasın
+        // Seçiciyi güncelledik: Hem #toc-list altındakileri hem de .toc-sidebar içindeki tüm linkleri ara
         const headings = Array.from(document.querySelectorAll('h2[id], h3[id]'));
-        const tocLinks = Array.from(document.querySelectorAll('#toc-list a'));
+        const tocLinks = Array.from(document.querySelectorAll('.toc-list a, .toc-sidebar a, #toc-list a'));
 
         console.log("Bulunan başlık sayısı:", headings.length);
         console.log("Bulunan TOC link sayısı:", tocLinks.length);
 
-        if (headings.length === 0 || tocLinks.length === 0) return;
+        if (headings.length === 0 || tocLinks.length === 0) {
+            console.warn("TOC Linkleri hala bulunamadı. Lütfen HTML yapısında <a> etiketlerinin olduğunu kontrol edin.");
+            return;
+        }
 
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.id;
                     tocLinks.forEach(link => {
+                        // href="#id" eşleşmesini kontrol et
                         if (link.getAttribute('href') === '#' + id) {
                             link.classList.add('active');
                         } else {
