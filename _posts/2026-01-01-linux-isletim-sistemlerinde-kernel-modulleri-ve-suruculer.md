@@ -63,7 +63,7 @@ Linux’ta sistemde bulunan donanımları incelemek için kullanılan temel komu
 
 ---
 
-## lspci – PCI Aygıtlarını Listeleme
+### lspci – PCI Aygıtlarını Listeleme
 
 `lspci` komutu, sistemdeki PCI ve PCIe cihazlarını gösterir.
 
@@ -135,7 +135,7 @@ Bu, cihazın şu anda aktif olarak hangi driver tarafından yönetildiğini gös
 
 ---
 
-## Birden Fazla Modül Durumu
+### Birden Fazla Modül Durumu
 
 Aşağıdaki örnekte bir NVIDIA GPU için driver bilgisi görülmektedir:
 
@@ -169,7 +169,7 @@ Bu durum özellikle açık kaynak (`nouveau`) ve kapalı kaynak (`nvidia`) drive
 
 ---
 
-## lsusb – USB Aygıtlarını Listeleme
+### lsusb – USB Aygıtlarını Listeleme
 
 `lsusb` komutu, sistemdeki USB bus üzerinde bulunan aygıtları listeler.
 
@@ -291,7 +291,7 @@ Sonuç olarak İlgili modülü görüntülemenin en kolay yolunun `lsusb -t` kom
 
 ---
 
-## USB Cihazların Farklılığı
+### USB Cihazların Farklılığı
 
 Doğal olarak USB cihazları ve PCI cihazları arasında farklılıklar bulunur. USB cihazları dinamik olarak (hotplug) bağlanıp çıkarılabilir. 
 
@@ -305,7 +305,7 @@ Bir USB aygıt takıldığında süreç şu şekilde işler:
 
 ---
 
-## Device Class Nedir?
+### Device Class Nedir?
 
 
 `lsusb` komutlarında gördüğümüz `Class` alanı cihazın genel kategorisini belirtir. 
