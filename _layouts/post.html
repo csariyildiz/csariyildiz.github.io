@@ -79,11 +79,10 @@
   <aside class="toc-sidebar">
     <div class="toc-label">On this page</div>
 
-    {% if page.toc %}
     <ul class="toc-list">
-      {{ page.toc }}
+      {{ content | toc }}
     </ul>
-    {% endif %}
+
   </aside>
 
 </div>
