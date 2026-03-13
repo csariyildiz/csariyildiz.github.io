@@ -4,6 +4,8 @@ title: Linux İşletim Sistemlerinde Proc ve Sys Dizinleri
 tags: [Linux, Dosya Sistemleri]
 ---
 
+## Proc ve Sys Dizinleri
+
 Linux işlerim sistemlerinde `/proc`, `/sys` ve `/dev` gibi özel dizinler bulunur.
 Bu dizinler dosya sistemi gibi görünseler de aslında sistem hakkında bilgi barındıran özel dizinlerdir.
 Normal dizinlerden farklı olduklarından `sözde dosya sistemleri` (`pseudo-filesystems`) olarak adlandırılırlar.
@@ -117,7 +119,7 @@ Burada iki tip tespit vardır:
 - Default kurallar distribution tarafından sağlanır.
 - Özelleştirilmiş Kurallar Eklenebilir
 
-### Diskler
+## Disklerin Görünümü
 
 Örnek bir disk çıktısı aşağıdaki gibidir:
 
@@ -429,5 +431,6 @@ sudo modprobe iwlwifi 11n_disable=1
 * Çakışma veya sürücü problemleri buradan görülebilir.
 * Normal bir modern sistemde portlar çoğunlukla PCI cihazları ve ACPI ile sınırlıdır. 
 * Çıktıda hem klasik aygıtlar (keyboard, timer) hem de modern PCI aygıtları (ahci, 0000:00:17.0) var.
+
 
 
