@@ -35,8 +35,6 @@
       <div class="post-breadcrumb">
         <a href="{{ '/' | relative_url }}">Home</a>
         <span>/</span>
-        <a href="#">{{ page.category }}</a>
-        <span>/</span>
         {{ page.title }}
       </div>
 
@@ -51,9 +49,9 @@
           {% endfor %}
         </div>
 
-        {% if page.read_time %}
-        <span class="read-time">~{{ page.read_time }} min read</span>
-        {% endif %}
+     
+        <span class="read-time">{% include reading-time.html %}</span>
+       
       </div>
     </div>
 
@@ -111,30 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── AUTO TOC
-  const toc = document.getElementById("toc-list");
-  if (!toc) return;
 
-  const headings = document.querySelectorAll(".prose h2, .prose h3");
-  headings.forEach(h => {
-    if (!h.id) {
-      h.id = h.textContent
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-");
-    }
-
-    const li = document.createElement("li");
-    if (h.tagName === "H3") li.classList.add("toc-h3");
-
-    const a = document.createElement("a");
-    a.href = "#" + h.id;
-    a.textContent = h.textContent;
-
-    li.appendChild(a);
-    toc.appendChild(li);
-  });
 
 });
 </script>
