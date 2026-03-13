@@ -30,6 +30,11 @@ defaults:
     values:
       layout: "page"
 
+collections:
+  pages:
+    output: true
+    permalink: /:collection/:name/
+    
 # Plugins
 plugins:
   - jekyll-paginate
