@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Management Questions</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface2: #1c2330;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --accent3: #f78166;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --header-bg: #1f2937;
+      --row-alt: #161b22;
+      --row-hover: #1f2d3d;
+      --tag-fill: rgba(88,166,255,0.12);
+      --tag-border: rgba(88,166,255,0.3);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 40px 24px;
+    }
+
+    .page-header {
+      max-width: 1100px;
+      margin: 0 auto 36px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .title-block h1 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .title-block p {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--tag-border);
+      background: var(--tag-fill);
+      color: var(--accent);
+    }
+
+    /* Search & Filter */
+    .controls {
+      max-width: 1100px;
+      margin: 0 auto 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    input[type="search"] {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 9px 12px 9px 38px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="search"]:focus {
+      border-color: var(--accent);
+    }
+
+    input[type="search"]::placeholder { color: var(--text-muted); }
+
+    .filter-btns {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--tag-fill);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      max-width: 1100px;
+      margin: 0 auto 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    #visible-count { color: var(--accent); font-weight: 600; }
+
+    /* Table */
+    .table-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead tr {
+      background: var(--header-bg);
+    }
+
+    th {
+      text-align: left;
+      padding: 13px 16px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    th:first-child { width: 52px; text-align: center; }
+    th:nth-child(3) { width: 38%; }
+
+    td {
+      padding: 13px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    tbody tr:nth-child(even) { background: var(--row-alt); }
+    tbody tr:nth-child(odd) { background: var(--surface); }
+    tbody tr:hover { background: var(--row-hover); transition: background 0.15s; }
+    tbody tr.hidden { display: none; }
+
+    .id-cell {
+      text-align: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .question-cell {
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .answer-cell {
+      color: var(--accent2);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12.5px;
+    }
+
+    code, .answer-cell {
+      word-break: break-all;
+    }
+
+    .answer-cell code {
+      background: rgba(63,185,80,0.08);
+      border: 1px solid rgba(63,185,80,0.2);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--accent2);
+    }
+
+    .question-cell code {
+      background: rgba(88,166,255,0.1);
+      border: 1px solid rgba(88,166,255,0.25);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .blank {
+      display: inline-block;
+      min-width: 60px;
+      border-bottom: 2px solid var(--accent);
+      color: transparent;
+      user-select: none;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      padding: 1px 7px;
+      border-radius: 20px;
+      margin-left: 8px;
+      vertical-align: middle;
+      border: 1px solid;
+    }
+
+    .tag-systemd  { color: #58a6ff; border-color: rgba(88,166,255,0.4); background: rgba(88,166,255,0.08); }
+    .tag-sysv     { color: #f78166; border-color: rgba(247,129,102,0.4); background: rgba(247,129,102,0.08); }
+    .tag-upstart  { color: #d2a8ff; border-color: rgba(210,168,255,0.4); background: rgba(210,168,255,0.08); }
+    .tag-shutdown { color: #ffa657; border-color: rgba(255,166,87,0.4); background: rgba(255,166,87,0.08); }
+    .tag-journal  { color: #3fb950; border-color: rgba(63,185,80,0.4); background: rgba(63,185,80,0.08); }
+
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 20px 12px; }
+      th:nth-child(3) { width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="title-block">
+    <h1>Service Management Questions</h1>
+    <p>Linux init systems &amp; service management reference — 154 Q&amp;A</p>
+  </div>
+  <div class="badge-row">
+    <span class="badge">systemd</span>
+    <span class="badge">SysVinit</span>
+    <span class="badge">Upstart</span>
+    <span class="badge">journalctl</span>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="search-wrap">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.868-3.834zm-5.442 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+    </svg>
+    <input type="search" id="search" placeholder="Search questions or answers…" autocomplete="off">
+  </div>
+  <div class="filter-btns">
+    <button class="filter-btn active" data-tag="all">All</button>
+    <button class="filter-btn" data-tag="systemd">systemd</button>
+    <button class="filter-btn" data-tag="sysv">SysV</button>
+    <button class="filter-btn" data-tag="upstart">Upstart</button>
+    <button class="filter-btn" data-tag="shutdown">Shutdown</button>
+    <button class="filter-btn" data-tag="journal">Journal</button>
+  </div>
+</div>
+
+<div class="stats-bar">
+  Showing <span id="visible-count">154</span> of 154 questions
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Question</th>
+        <th>Answer</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+
+      <tr data-tags="systemd sysv">
+        <td class="id-cell">1</td>
+        <td class="question-cell">What are the three main service management methods discussed for Linux distributions?</td>
+        <td class="answer-cell">SysVinit (System V), systemd, and Upstart</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">2</td>
+        <td class="question-cell"><span class="blank">_____</span> is the most commonly found service manager in modern Linux distributions.</td>
+        <td class="answer-cell">systemd</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">3</td>
+        <td class="question-cell">How can you confirm the kernel uses <code>systemd</code> as its init program?</td>
+        <td class="answer-cell">
+          <code># which init</code><br>
+          <code>/sbin/init</code><br>
+          <code># readlink -f /sbin/init</code><br>
+          <code>/usr/lib/systemd/systemd</code>
+        </td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">4</td>
+        <td class="question-cell">How can you confirm the kernel uses <code>systemd</code> as its init program by viewing it as a process?</td>
+        <td class="answer-cell"><code>ps -p 1</code></td>
+      </tr>
+
+      <tr data-tags="systemd sysv">
+        <td class="id-cell">5</td>
+        <td class="question-cell">How do you display processes as a tree, connecting them to the init program?</td>
+        <td class="answer-cell"><code>pstree</code></td>
+      </tr>
+
+      <tr data-tags="systemd sysv">
+        <td class="id-cell">6</td>
+        <td class="question-cell">The Process Identification Number (PID) of the service manager — the first program launched by the kernel — is <span class="blank">_____</span>.</td>
+        <td class="answer-cell">1</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">7</td>
+        <td class="question-cell">systemd has a concept of <span class="blank">___</span>, which has a name, type, and configuration file.</td>
+        <td class="answer-cell">unit</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">8</td>
+        <td class="question-cell">How do you list all systemd units on a system?</td>
+        <td class="answer-cell"><code>systemctl list-units</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">9</td>
+        <td class="question-cell">What are the basic types of a systemd unit?</td>
+        <td class="answer-cell">wants, requires, service, target, socket, timer</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">10</td>
+        <td class="question-cell">Where are unit files located? (3 locations)</td>
+        <td class="answer-cell">
+          <code>/etc/systemd/system/</code><br>
+          <code>/run/systemd/system/</code><br>
+          <code>/usr/lib/systemd/system/</code>
+        </td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">11</td>
+        <td class="question-cell">How would you describe a file with the following content?<br><br>
+          <code>[Unit]</code><br>
+          <code>Description=Multi-User System</code><br>
+          <code>Documentation=man:systemd.special(7)</code><br>
+          <code>Requires=basic.target</code><br>
+          <code>Conflicts=rescue.service rescue.target</code><br>
+          <code>After=basic.target rescue.service rescue.target</code><br>
+          <code>AllowIsolate=yes</code>
+        </td>
+        <td class="answer-cell">This is a unit file named <code>default.target</code> located under <code>/etc/systemd/system/</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">12</td>
+        <td class="question-cell">In the SysVinit standard, predefined sets of system states are called <span class="blank">_____</span>.</td>
+        <td class="answer-cell">runlevels</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">13</td>
+        <td class="question-cell">What is the purpose of SysVinit runlevel 0?</td>
+        <td class="answer-cell">System shutdown</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">14</td>
+        <td class="question-cell">What is the purpose of SysVinit runlevel 1 (also <code>s</code> or <code>single</code>)?</td>
+        <td class="answer-cell">Single-user mode for maintenance, without networking</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">15</td>
+        <td class="question-cell">What is the purpose of SysVinit runlevels 2, 3, or 4?</td>
+        <td class="answer-cell">Multi-user mode, where users can log in via console or network</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">16</td>
+        <td class="question-cell">What is the purpose of SysVinit runlevel 5?</td>
+        <td class="answer-cell">Multi-user mode with a graphical login, equivalent to runlevel 3 plus graphics</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">17</td>
+        <td class="question-cell">What is the purpose of SysVinit runlevel 6?</td>
+        <td class="answer-cell">System restart (reboot)</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">18</td>
+        <td class="question-cell">In SysVinit systems, the full path to the program responsible for managing runlevels and daemons is <span class="blank">_____</span>.</td>
+        <td class="answer-cell"><code>/sbin/init</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">19</td>
+        <td class="question-cell">In SysVinit, the <span class="blank">_____</span> file contains the definition of runlevels and the scripts to be executed.</td>
+        <td class="answer-cell"><code>/etc/inittab</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">20</td>
+        <td class="question-cell"><span class="blank">_____</span> is the format of an entry in the <code>/etc/inittab</code> file.</td>
+        <td class="answer-cell"><code>id:runlevels:action:process</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">21</td>
+        <td class="question-cell">In <code>/etc/inittab</code>, what does the <code>ctrlaltdel</code> action specify?</td>
+        <td class="answer-cell">The process to execute when the init process receives a SIGINT signal from a Ctrl+Alt+Del keypress</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">22</td>
+        <td class="question-cell">How is the default runlevel defined in the <code>/etc/inittab</code> file?</td>
+        <td class="answer-cell">With an entry in the format <code>id:x:initdefault:</code> where <code>x</code> is the runlevel number</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">23</td>
+        <td class="question-cell">Why should the default runlevel in <code>/etc/inittab</code> never be set to 0 or 6?</td>
+        <td class="answer-cell">It would cause the system to shut down or restart immediately after booting</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">24</td>
+        <td class="question-cell">The command <span class="blank">_____</span> must be run after modifying <code>/etc/inittab</code> to make the <code>init</code> process reload its configuration.</td>
+        <td class="answer-cell"><code>telinit q</code> (or <code>telinit Q</code>)</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">25</td>
+        <td class="question-cell">In a SysVinit system, the actual service script files are typically stored under the <span class="blank">_____</span> directory.</td>
+        <td class="answer-cell"><code>/etc/init.d/</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">26</td>
+        <td class="question-cell">In SysVinit, what does the first letter <code>K</code> in a symbolic link filename within an <code>/etc/rcN.d/</code> directory indicate?</td>
+        <td class="answer-cell">The service should be killed (stopped) when entering that runlevel</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">27</td>
+        <td class="question-cell">In SysVinit, what does the first letter <code>S</code> in a symbolic link filename within an <code>/etc/rcN.d/</code> directory indicate?</td>
+        <td class="answer-cell">The service should be started when entering that runlevel</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">28</td>
+        <td class="question-cell">Use the command <span class="blank">_____</span> to display the previous and current runlevel on a SysVinit system.</td>
+        <td class="answer-cell"><code>runlevel</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">29</td>
+        <td class="question-cell">In the output of the <code>runlevel</code> command (e.g. <code>N 3</code>), what does the letter <code>N</code> signify?</td>
+        <td class="answer-cell">The runlevel has not changed since the last boot</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">30</td>
+        <td class="question-cell">Which command can be used to change the current runlevel to maintenance mode on a SysVinit system?</td>
+        <td class="answer-cell"><code>telinit 1</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">31</td>
+        <td class="question-cell">In <code>systemd</code>, system resources and services are referred to as <span class="blank">_____</span>.</td>
+        <td class="answer-cell">units</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">32</td>
+        <td class="question-cell">A systemd <span class="blank">___</span> unit is a grouping of other units managed as a single unit, similar to a SysV runlevel.</td>
+        <td class="answer-cell">target</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">33</td>
+        <td class="question-cell">What is the main command used for controlling <code>systemd</code> units?</td>
+        <td class="answer-cell"><code>systemctl</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">34</td>
+        <td class="question-cell">What is the command to start a service named <code>apparmor</code>?</td>
+        <td class="answer-cell"><code>systemctl start apparmor.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">35</td>
+        <td class="question-cell">What is the command to stop a service named <code>apparmor</code>?</td>
+        <td class="answer-cell"><code>systemctl stop apparmor.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">36</td>
+        <td class="question-cell">What command shows the detailed state of the <code>apparmor</code> service?</td>
+        <td class="answer-cell"><code>systemctl status apparmor.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">37</td>
+        <td class="question-cell">What <code>systemctl</code> command simply shows <code>active</code> if a unit is running, or <code>inactive</code> otherwise?</td>
+        <td class="answer-cell"><code>systemctl is-active unit.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">38</td>
+        <td class="question-cell">What is the command to configure a unit to start automatically at boot?</td>
+        <td class="answer-cell"><code>systemctl enable unit.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">39</td>
+        <td class="question-cell">What is the command to prevent a unit from starting automatically at boot?</td>
+        <td class="answer-cell"><code>systemctl disable unit.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">40</td>
+        <td class="question-cell">What command verifies if a unit is configured to start with the system?</td>
+        <td class="answer-cell"><code>systemctl is-enabled unit.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd sysv">
+        <td class="id-cell">41</td>
+        <td class="question-cell">In systemd, which unit target is equivalent to SysV runlevel 3 (multi-user mode)?</td>
+        <td class="answer-cell"><code>multi-user.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">42</td>
+        <td class="question-cell">Which command is used to manually switch to a specific target?</td>
+        <td class="answer-cell"><code>systemctl isolate target.name</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">43</td>
+        <td class="question-cell">Instead of <code>/etc/inittab</code>, how can the default boot target be changed persistently in <code>systemd</code>?</td>
+        <td class="answer-cell">By modifying the symbolic link <code>/etc/systemd/system/default.target</code> or using <code>systemctl set-default</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">44</td>
+        <td class="question-cell">What command allows you to view the current default boot target in <code>systemd</code>?</td>
+        <td class="answer-cell"><code>systemctl get-default</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">45</td>
+        <td class="question-cell">What <code>systemctl</code> command sets <code>multi-user.target</code> as the default for system boot?</td>
+        <td class="answer-cell"><code>systemctl set-default multi-user.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">46</td>
+        <td class="question-cell">In a <code>systemd</code>-based system, where can the configuration files for units typically be found?</td>
+        <td class="answer-cell"><code>/lib/systemd/system/</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">47</td>
+        <td class="question-cell">What command lists all available <code>systemd</code> units and shows if they are enabled for boot?</td>
+        <td class="answer-cell"><code>systemctl list-unit-files</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">48</td>
+        <td class="question-cell">What <code>systemd</code> command puts the system into a low-power mode, keeping data in memory?</td>
+        <td class="answer-cell"><code>systemctl suspend</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">49</td>
+        <td class="question-cell">What <code>systemd</code> command copies all memory data to disk before powering off, allowing the state to be restored later?</td>
+        <td class="answer-cell"><code>systemctl hibernate</code></td>
+      </tr>
+
+      <tr data-tags="upstart">
+        <td class="id-cell">50</td>
+        <td class="question-cell">On an Upstart system, in which directory are the initialization scripts located?</td>
+        <td class="answer-cell"><code>/etc/init/</code></td>
+      </tr>
+
+      <tr data-tags="upstart">
+        <td class="id-cell">51</td>
+        <td class="question-cell">What Upstart command lists system services and their current state?</td>
+        <td class="answer-cell"><code>initctl list</code></td>
+      </tr>
+
+      <tr data-tags="upstart">
+        <td class="id-cell">52</td>
+        <td class="question-cell">What command is used to start a service on an Upstart system?</td>
+        <td class="answer-cell"><code>start</code></td>
+      </tr>
+
+      <tr data-tags="upstart">
+        <td class="id-cell">53</td>
+        <td class="question-cell">What command is used to stop a service on an Upstart system?</td>
+        <td class="answer-cell"><code>stop</code></td>
+      </tr>
+
+      <tr data-tags="shutdown">
+        <td class="id-cell">54</td>
+        <td class="question-cell">What is the primary function of the <code>shutdown</code> command besides powering off or rebooting?</td>
+        <td class="answer-cell">It notifies all logged-in users with a warning message and prevents new logins</td>
+      </tr>
+
+      <tr data-tags="shutdown">
+        <td class="id-cell">55</td>
+        <td class="question-cell">If the <code>shutdown</code> command is run without the <code>-h</code> or <code>-r</code> options, what is the default action?</td>
+        <td class="answer-cell">The system will change to runlevel 1 (single-user mode)</td>
+      </tr>
+
+      <tr data-tags="shutdown">
+        <td class="id-cell">56</td>
+        <td class="question-cell">What is the syntax for scheduling a shutdown in 15 minutes with a custom message?</td>
+        <td class="answer-cell"><code>shutdown +15 "message"</code></td>
+      </tr>
+
+      <tr data-tags="shutdown">
+        <td class="id-cell">57</td>
+        <td class="question-cell">How can a system reboot scheduled with the <code>shutdown</code> command be canceled?</td>
+        <td class="answer-cell"><code>shutdown -c</code></td>
+      </tr>
+
+      <tr data-tags="systemd shutdown">
+        <td class="id-cell">58</td>
+        <td class="question-cell">In a <code>systemd</code>-based system, what is the command to reboot the machine?</td>
+        <td class="answer-cell"><code>systemctl reboot</code></td>
+      </tr>
+
+      <tr data-tags="systemd shutdown">
+        <td class="id-cell">59</td>
+        <td class="question-cell">In a <code>systemd</code>-based system, what is the command to power off the machine?</td>
+        <td class="answer-cell"><code>systemctl poweroff</code></td>
+      </tr>
+
+      <tr data-tags="shutdown">
+        <td class="id-cell">60</td>
+        <td class="question-cell">What command sends a message to the terminal sessions of all logged-in users?</td>
+        <td class="answer-cell"><code>wall</code></td>
+      </tr>
+
+      <tr data-tags="sysv shutdown">
+        <td class="id-cell">61</td>
+        <td class="question-cell">How can the <code>telinit</code> command be used to reboot a SysVinit system?</td>
+        <td class="answer-cell"><code>telinit 6</code> — changes to runlevel 6, which reboots the system</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">62</td>
+        <td class="question-cell">If a SysV system's default runlevel in <code>/etc/inittab</code> is 3, but it always boots into runlevel 1, what is a probable cause?</td>
+        <td class="answer-cell">The kernel's parameter list may contain the parameter <code>1</code> or <code>S</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">63</td>
+        <td class="question-cell">On <code>systemd</code>-based systems, <code>/sbin/init</code> is a symbolic link. What executable file does it point to?</td>
+        <td class="answer-cell"><code>/lib/systemd/systemd</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">64</td>
+        <td class="question-cell">The <span class="blank">_____</span> action in <code>/etc/inittab</code> will cause <code>init</code> to restart a process if it is terminated.</td>
+        <td class="answer-cell">respawn</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">65</td>
+        <td class="question-cell">A <code>systemd</code> <span class="blank">_____</span> unit is a mount point definition in the filesystem that is mounted automatically upon access.</td>
+        <td class="answer-cell">automount</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">66</td>
+        <td class="question-cell">In a SysV system, what are the folders <code>/etc/rc0.d/</code> through <code>/etc/rc6.d/</code> used for?</td>
+        <td class="answer-cell">They hold symbolic links for each runlevel, pointing to scripts in <code>/etc/init.d/</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">67</td>
+        <td class="question-cell">In SysV, inside <code>/etc/rc3.d/</code> there is a symlink called <code>S23ntp</code>. Where does it point?</td>
+        <td class="answer-cell"><code>/etc/init.d/ntp</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">68</td>
+        <td class="question-cell">In SysV, inside <code>/etc/rc3.d/</code> there is a symlink called <code>S23ntp</code>. What does <code>S23</code> mean?</td>
+        <td class="answer-cell"><code>S</code> = Start when entering this runlevel; <code>23</code> = execution order (lower numbers start earlier)</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">69</td>
+        <td class="question-cell">How can the <code>telinit</code> command be used to reboot the system?</td>
+        <td class="answer-cell"><code>telinit 6</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">70</td>
+        <td class="question-cell">What will happen to the service referenced by <code>/etc/rc1.d/K90network</code> when the system enters runlevel 1?</td>
+        <td class="answer-cell">The service will be stopped — the leading <code>K</code> means kill (stop)</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">71</td>
+        <td class="question-cell">Using <code>systemctl</code>, how could a user verify if the unit <code>sshd.service</code> is running?</td>
+        <td class="answer-cell"><code>systemctl status sshd.service</code> or <code>systemctl is-active sshd.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">72</td>
+        <td class="question-cell">In a <code>systemd</code>-based system, what command enables <code>sshd.service</code> to activate during system initialization?</td>
+        <td class="answer-cell"><code>systemctl enable sshd.service</code> (executed as root)</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">73</td>
+        <td class="question-cell">In a SysV-based system, the default runlevel in <code>/etc/inittab</code> is 3, but the system always starts in runlevel 1. What is the probable cause?</td>
+        <td class="answer-cell">The parameters <code>1</code> or <code>S</code> may be present in the kernel's parameter list</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">74</td>
+        <td class="question-cell">Although <code>/sbin/init</code> exists on systemd-based systems, it is only a symbolic link. What file does it point to?</td>
+        <td class="answer-cell"><code>/lib/systemd/systemd</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">75</td>
+        <td class="question-cell">How can the default system target be verified in a <code>systemd</code>-based system?</td>
+        <td class="answer-cell">Check <code>/etc/systemd/system/default.target</code> (symbolic link) or run <code>systemctl get-default</code></td>
+      </tr>
+
+      <tr data-tags="shutdown">
+        <td class="id-cell">76</td>
+        <td class="question-cell">How can a system reboot scheduled with the <code>shutdown</code> command be canceled?</td>
+        <td class="answer-cell"><code>shutdown -c</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">77</td>
+        <td class="question-cell">How do you list only units of type <code>service</code>?</td>
+        <td class="answer-cell"><code>systemctl list-units --type=service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">78</td>
+        <td class="question-cell">How do you list only units of type <code>target</code>?</td>
+        <td class="answer-cell"><code>systemctl list-units --type=target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">79</td>
+        <td class="question-cell">How do you use <code>systemctl</code> to display the content of the <code>sshd.service</code> unit file?</td>
+        <td class="answer-cell"><code>systemctl cat sshd.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">80</td>
+        <td class="question-cell">How do you use <code>systemctl</code> to display the content of the <code>graphical.target</code> unit file?</td>
+        <td class="answer-cell"><code>systemctl cat graphical.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">81</td>
+        <td class="question-cell">A <span class="blank">___</span> unit is a grouping of other units managed as a single unit — a combination of services and configurations.</td>
+        <td class="answer-cell">target</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">82</td>
+        <td class="question-cell">A <span class="blank">___</span> unit is a common unit type for active system resources that can be initiated, interrupted, and reloaded.</td>
+        <td class="answer-cell">service</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">83</td>
+        <td class="question-cell">How do you verify that <code>apparmor.service</code> is configured to start with the system?</td>
+        <td class="answer-cell"><code>systemctl is-enabled apparmor.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">84</td>
+        <td class="question-cell">How do you manually switch to the <code>multi-user</code> target?</td>
+        <td class="answer-cell"><code>systemctl isolate multi-user.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">85</td>
+        <td class="question-cell">How do you start <code>apparmor.service</code>?</td>
+        <td class="answer-cell"><code>systemctl start apparmor.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">86</td>
+        <td class="question-cell">How do you check whether <code>apparmor.service</code> is running?</td>
+        <td class="answer-cell"><code>systemctl status apparmor.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">87</td>
+        <td class="question-cell">How do you stop <code>apparmor.service</code>?</td>
+        <td class="answer-cell"><code>systemctl stop apparmor.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">88</td>
+        <td class="question-cell">How do you enable <code>apparmor.service</code>?</td>
+        <td class="answer-cell"><code>systemctl enable apparmor.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">89</td>
+        <td class="question-cell">How do you disable <code>apparmor.service</code>?</td>
+        <td class="answer-cell"><code>systemctl disable apparmor.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">90</td>
+        <td class="question-cell">How do you restart <code>apparmor.service</code>?</td>
+        <td class="answer-cell"><code>systemctl restart apparmor.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">91</td>
+        <td class="question-cell">Using <code>systemctl</code>, how could a user verify if the unit <code>sshd.service</code> is running?</td>
+        <td class="answer-cell"><code>systemctl is-active sshd.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">92</td>
+        <td class="question-cell">In a <code>systemd</code>-based system, what command must be executed to enable <code>sshd.service</code> activation during system initialization?</td>
+        <td class="answer-cell"><code>systemctl enable sshd.service</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">93</td>
+        <td class="question-cell">You added <code>PasswordAuthentication no</code> to <code>/etc/ssh/sshd_config</code>. Which command applies the new configuration to new connections without disconnecting existing SSH sessions?</td>
+        <td class="answer-cell"><code>systemctl reload sshd</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">94</td>
+        <td class="question-cell">Which command causes <code>systemd</code> to re-read every service, socket, timer, mount, and target file without restarting services?</td>
+        <td class="answer-cell"><code>systemctl daemon-reload</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">95</td>
+        <td class="question-cell">How do you display kernel parameters, which may include a system target override?</td>
+        <td class="answer-cell"><code>cat /proc/cmdline</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">96</td>
+        <td class="question-cell">What does the following output represent?<br><code>BOOT_IMAGE=/vmlinuz-linux root=/dev/sda2 rw quiet splash amd_iommu=on</code></td>
+        <td class="answer-cell">These are kernel parameters — the output of <code>cat /proc/cmdline</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">97</td>
+        <td class="question-cell">How do you boot the system to a different target, such as <code>rescue.target</code>, via a kernel parameter?</td>
+        <td class="answer-cell">In kernel parameters, add or change <code>systemd.unit=rescue.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">98</td>
+        <td class="question-cell">systemd is also responsible for triggering and responding to power-related events. How do you put the system into low-power (suspend) mode?</td>
+        <td class="answer-cell"><code>systemctl suspend</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">99</td>
+        <td class="question-cell">Hibernation mode copies all memory data to disk so the current system state can be recovered after powering off. How do you put the system into hibernation mode?</td>
+        <td class="answer-cell"><code>systemctl hibernate</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">100</td>
+        <td class="question-cell">The <span class="blank">_____</span> daemon is the main power manager for Linux. It allows finer adjustments to actions following power-related events, such as closing the laptop lid or low battery.</td>
+        <td class="answer-cell"><code>acpid</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">101</td>
+        <td class="question-cell">What is the purpose of <code>/etc/systemd/logind.conf</code> and <code>/etc/systemd/logind.conf.d/</code>?</td>
+        <td class="answer-cell">They define power management actions handled by <code>systemd-logind</code> when a daemon like <code>acpid</code> is not managing those events</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">102</td>
+        <td class="question-cell">In systemd, similar to SysV, the default target should never point to <span class="blank">_____</span>, as it corresponds to runlevel 0.</td>
+        <td class="answer-cell"><code>shutdown.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">103</td>
+        <td class="question-cell">How do you display the current default boot target?</td>
+        <td class="answer-cell"><code>systemctl get-default</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">104</td>
+        <td class="question-cell">How do you set the default boot target to <code>multi-user</code> instead of <code>graphical</code>?</td>
+        <td class="answer-cell"><code>systemctl set-default multi-user.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">105</td>
+        <td class="question-cell">How do you confirm that the default target is a symbolic link?</td>
+        <td class="answer-cell"><code>ls -ltra /etc/systemd/system/default.target</code></td>
+      </tr>
+
+      <tr data-tags="journal">
+        <td class="id-cell">106</td>
+        <td class="question-cell">How do you view logs with systemd, including kernel messages, boot messages, service logs, and application logs?</td>
+        <td class="answer-cell"><code>journalctl</code></td>
+      </tr>
+
+      <tr data-tags="journal">
+        <td class="id-cell">107</td>
+        <td class="question-cell">With <code>journalctl</code>, how do you follow logs live (real-time)?</td>
+        <td class="answer-cell"><code>journalctl -f</code></td>
+      </tr>
+
+      <tr data-tags="journal">
+        <td class="id-cell">108</td>
+        <td class="question-cell">With <code>journalctl</code>, how do you view the newest entries first?</td>
+        <td class="answer-cell"><code>journalctl -r</code></td>
+      </tr>
+
+      <tr data-tags="journal">
+        <td class="id-cell">109</td>
+        <td class="question-cell">With <code>journalctl</code>, how do you show logs only for the <code>nginx</code> service?</td>
+        <td class="answer-cell"><code>journalctl -u nginx</code></td>
+      </tr>
+
+      <tr data-tags="journal">
+        <td class="id-cell">110</td>
+        <td class="question-cell">With <code>journalctl</code>, how do you show the last few log entries with extra detail?</td>
+        <td class="answer-cell"><code>journalctl -xe</code></td>
+      </tr>
+
+      <tr data-tags="journal">
+        <td class="id-cell">111</td>
+        <td class="question-cell">With <code>journalctl</code>, how do you show logs from only the last 10 minutes?</td>
+        <td class="answer-cell"><code>journalctl --since "10min ago"</code></td>
+      </tr>
+
+      <tr data-tags="journal">
+        <td class="id-cell">112</td>
+        <td class="question-cell">With <code>journalctl</code>, how do you show only the last 10 lines?</td>
+        <td class="answer-cell"><code>journalctl -n 10</code></td>
+      </tr>
+
+      <tr data-tags="journal">
+        <td class="id-cell">113</td>
+        <td class="question-cell">With <code>journalctl</code>, how do you show logs from the last 1 day?</td>
+        <td class="answer-cell"><code>journalctl --since -1d</code></td>
+      </tr>
+
+      <tr data-tags="journal">
+        <td class="id-cell">114</td>
+        <td class="question-cell">With <code>journalctl</code>, how do you filter logs by process ID?</td>
+        <td class="answer-cell"><code>journalctl _PID=16883</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">115</td>
+        <td class="question-cell">Which older init system can still be found on many Linux systems?</td>
+        <td class="answer-cell">SysV</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">116</td>
+        <td class="question-cell">In SysV, where are the service control program scripts stored?</td>
+        <td class="answer-cell"><code>/etc/init.d/</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">117</td>
+        <td class="question-cell">In SysV, how do you show the status of the <code>httpd</code> service?</td>
+        <td class="answer-cell"><code>/etc/init.d/httpd status</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">118</td>
+        <td class="question-cell">In SysV, options for controlling services are passed after the script name (e.g. <code>/etc/init.d/httpd status</code>). What are the other common options?</td>
+        <td class="answer-cell"><code>stop</code>, <code>start</code>, <code>restart</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">119</td>
+        <td class="question-cell"><span class="blank">_____</span> is the most commonly used boot target with no graphical interface.</td>
+        <td class="answer-cell"><code>multi-user.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">120</td>
+        <td class="question-cell">The unit file for the graphical target is typically located at <span class="blank">_____</span>.</td>
+        <td class="answer-cell"><code>/usr/lib/systemd/system/graphical.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd sysv">
+        <td class="id-cell">121</td>
+        <td class="question-cell">systemd <span class="blank">_____</span> are the equivalent of SysV runlevels in modern systems.</td>
+        <td class="answer-cell">boot targets</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">122</td>
+        <td class="question-cell">In SysV, how many runlevels are there?</td>
+        <td class="answer-cell">7 levels — 0 through 6</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">123</td>
+        <td class="question-cell">Which SysV runlevel corresponds to system shutdown?</td>
+        <td class="answer-cell">Runlevel 0</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">124</td>
+        <td class="question-cell">Which SysV runlevel puts the system in single-user mode (maintenance), without networking?</td>
+        <td class="answer-cell">Runlevel 1 (also <code>s</code> or <code>single</code>)</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">125</td>
+        <td class="question-cell">Which SysV runlevels correspond to multi-user mode where users can log in via console or network?</td>
+        <td class="answer-cell">Runlevels 2, 3, or 4 (runlevel 3 is most commonly used)</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">126</td>
+        <td class="question-cell">Which SysV runlevel corresponds to multi-user graphical mode?</td>
+        <td class="answer-cell">Runlevel 5 (equivalent to runlevel 3 plus graphical login)</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">127</td>
+        <td class="question-cell">Which SysV runlevel corresponds to system restart?</td>
+        <td class="answer-cell">Runlevel 6</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">128</td>
+        <td class="question-cell">In the SysVinit standard, predefined sets of system states are called <span class="blank">_____</span>.</td>
+        <td class="answer-cell">runlevels</td>
+      </tr>
+
+      <tr data-tags="systemd sysv">
+        <td class="id-cell">129</td>
+        <td class="question-cell">In SysV we have runlevels. What is the systemd equivalent of runlevels?</td>
+        <td class="answer-cell">boot targets</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">130</td>
+        <td class="question-cell">How do you check whether the system has reached the graphical target?</td>
+        <td class="answer-cell"><code>systemctl status graphical.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">131</td>
+        <td class="question-cell">Which systemd target corresponds to single-user rescue mode?</td>
+        <td class="answer-cell"><code>rescue.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">132</td>
+        <td class="question-cell">What is one requirement for <code>graphical.target</code>?</td>
+        <td class="answer-cell"><code>multi-user.target</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">133</td>
+        <td class="question-cell"><code>systemctl</code> has specific built-in targets. What are they?</td>
+        <td class="answer-cell"><code>rescue</code>, <code>emergency</code>, <code>reboot</code>, <code>halt</code> (stops processes and halts CPU), <code>poweroff</code></td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">134</td>
+        <td class="question-cell">How do you switch the system to emergency mode?</td>
+        <td class="answer-cell"><code>systemctl isolate emergency</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">135</td>
+        <td class="question-cell">What command checks the current runlevel on a SysV system?</td>
+        <td class="answer-cell"><code>runlevel</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">136</td>
+        <td class="question-cell"><span class="blank">_____</span> is the format of an entry in the <code>/etc/inittab</code> file.</td>
+        <td class="answer-cell"><code>id:runlevels:action:process</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">137</td>
+        <td class="question-cell">In SysVinit, which file contains the definition of runlevels and the scripts to be executed?</td>
+        <td class="answer-cell"><code>/etc/inittab</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">138</td>
+        <td class="question-cell">What command shows the default runlevel defined in <code>/etc/inittab</code>?</td>
+        <td class="answer-cell"><code>grep "^id:" /etc/inittab</code> — e.g. output: <code>id:5:initdefault:</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">139</td>
+        <td class="question-cell">What does running <code>init 3</code> do on a SysV system?</td>
+        <td class="answer-cell">Switches the system to multi-user mode (runlevel 3)</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">140</td>
+        <td class="question-cell"><code>init 5</code> will switch a SysV system to <span class="blank">_____</span> mode.</td>
+        <td class="answer-cell">Graphical (multi-user with GUI login)</td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">141</td>
+        <td class="question-cell">What is the alternative command to <code>init 5</code> for switching to multi-user graphical mode on a SysV system?</td>
+        <td class="answer-cell"><code>telinit 5</code></td>
+      </tr>
+
+      <tr data-tags="sysv">
+        <td class="id-cell">142</td>
+        <td class="question-cell">What is inside the folder <code>/etc/rc5.d/</code>?</td>
+        <td class="answer-cell">Symbolic links with special filenames (prefixed <code>S</code> or <code>K</code>) pointing to scripts in <code>/etc/init.d/</code> for multi-user graphical mode</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">143</td>
+        <td class="question-cell"><span class="blank">_____</span> is an open standard for computer hardware components, especially for power management.</td>
+        <td class="answer-cell">ACPI (Advanced Configuration and Power Interface)</td>
+      </tr>
+
+      <tr data-tags="systemd">
+        <td class="id-cell">144</td>
+        <td class="question-cell">Which file do you edit to set the message of the day (shown at login)?</td>
+        <td class="answer-cell"><code>/etc/motd</code></td>
+      </tr>
+
+      <tr data-tags="systemd shutdown">
+        <td class="id-cell">145</td>
+        <td class="question-cell">How do you reboot the system safely using <code>systemctl</code>?</td>
+        <td class="answer-cell"><code>sudo systemctl reboot</code></td>
+      </tr>
+
+      <tr data-tags="systemd shutdown">
+        <td class="id-cell">146</td>
+        <td class="question-cell">How do you shut down the system safely using <code>systemctl</code>?</td>
+        <td class="answer-cell"><code>sudo systemctl poweroff</code></td>
+      </tr>
+
+      <tr data-tags="systemd shutdown">
+        <td class="id-cell">147</td>
+        <td class="question-cell">How do you force a system reboot using <code>systemctl</code>?</td>
+        <td class="answer-cell"><code>sudo systemctl reboot --force</code></td>
+      </tr>
+
+      <tr data-tags="systemd shutdown">
+        <td class="id-cell">148</td>
+        <td class="question-cell">How do you force a system power-off using <code>systemctl</code>?</td>
+        <td class="answer-cell"><code>sudo systemctl poweroff --force</code></td>
+      </tr>
+
+      <tr data-tags="systemd shutdown">
+        <td class="id-cell">149</td>
+        <td class="question-cell">How do you immediately reboot the system (simulating a power button press) using <code>systemctl</code>?</td>
+        <td class="answer-cell"><code>sudo systemctl reboot --force --force</code></td>
+      </tr>
+
+      <tr data-tags="systemd shutdown">
+        <td class="id-cell">150</td>
+        <td class="question-cell">How do you immediately power off the system (simulating a power button press) using <code>systemctl</code>?</td>
+        <td class="answer-cell"><code>sudo systemctl poweroff --force --force</code></td>
+      </tr>
+
+      <tr data-tags="shutdown">
+        <td class="id-cell">151</td>
+        <td class="question-cell">How do you schedule a system reboot at 02:00 using the <code>shutdown</code> command (not <code>systemctl</code>)?</td>
+        <td class="answer-cell"><code>sudo shutdown -r 02:00</code></td>
+      </tr>
+
+      <tr data-tags="shutdown">
+        <td class="id-cell">152</td>
+        <td class="question-cell">How do you reboot the system after 15 minutes using the <code>shutdown</code> command (not <code>systemctl</code>)?</td>
+        <td class="answer-cell"><code>sudo shutdown -r +15</code></td>
+      </tr>
+
+      <tr data-tags="shutdown">
+        <td class="id-cell">153</td>
+        <td class="question-cell">How do you shut down the system after 15 minutes using the <code>shutdown</code> command (not <code>systemctl</code>)?</td>
+        <td class="answer-cell"><code>sudo shutdown +15</code></td>
+      </tr>
+
+      <tr data-tags="shutdown">
+        <td class="id-cell">154</td>
+        <td class="question-cell">How do you reboot after 15 minutes with a broadcast wall message to all users?</td>
+        <td class="answer-cell"><code>sudo shutdown -r +15 'Scheduled restart to do offline maintenance'</code></td>
+      </tr>
+
+    </tbody>
+  </table>
+  <div class="no-results" id="no-results" style="display:none;">No questions match your search.</div>
+</div>
+
+<script>
+  const rows = Array.from(document.querySelectorAll('#tbody tr'));
+  const searchInput = document.getElementById('search');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const visibleCount = document.getElementById('visible-count');
+  const noResults = document.getElementById('no-results');
+  let activeTag = 'all';
+
+  function normalize(str) {
+    return str.toLowerCase().replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  }
+
+  function applyFilters() {
+    const query = normalize(searchInput.value);
+    let count = 0;
+
+    rows.forEach(row => {
+      const text = normalize(row.textContent);
+      const tags = row.dataset.tags || '';
+      const tagMatch = activeTag === 'all' || tags.includes(activeTag);
+      const searchMatch = !query || text.includes(query);
+
+      if (tagMatch && searchMatch) {
+        row.classList.remove('hidden');
+        count++;
+      } else {
+        row.classList.add('hidden');
+      }
+    });
+
+    visibleCount.textContent = count;
+    noResults.style.display = count === 0 ? 'block' : 'none';
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTag = btn.dataset.tag;
+      applyFilters();
+    });
+  });
+</script>
+
+</body>
+</html>
