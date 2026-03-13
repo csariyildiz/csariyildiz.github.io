@@ -2,6 +2,7 @@
 layout: post
 title: Linux İşletim Sistemlerinde Kernel Modülleri ve Sürücüler
 tags: [Linux, Driver, Kernel]
+toc: true
 ---
 
 
