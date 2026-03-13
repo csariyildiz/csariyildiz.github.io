@@ -3,6 +3,7 @@ layout: post
 title: Linux İşletim Sistemlerinde Servis Yönetimi
 tags: [Linux, Servis Yönetimi]
 keywords: [systemd,sysvinit,upstart]
+toc: true
 ---
 
 ## Init Programları ve Genel Systemd Kavramları
@@ -596,4 +597,5 @@ Upstart servisleri genellikle initctl komutu ile yönetilir.
 * With the journals, Onlt 10 lines journalctl -n 10
 * With the journals, Last 1 day journalctl -S -1d
 * With the journals, With process id journalctl _PID=16883
+
 
