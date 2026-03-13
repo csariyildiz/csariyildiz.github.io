@@ -88,66 +88,62 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  /* ── 1. TEMA DEĞİŞTİRİCİ (THEME TOGGLE) ── */
-  const root = document.documentElement;
-  const toggle = document.getElementById('theme-toggle');
-  const icon = document.getElementById('theme-icon');
+(function() {
+    "use strict";
 
-  if (toggle && icon) {
-    const saved = localStorage.getItem('theme') || 'dark';
-    root.setAttribute('data-theme', saved);
-    icon.textContent = saved === 'dark' ? '☀︎' : '☾';
+    const initApp = () => {
+        /* ── 1. TEMA DEĞİŞTİRİCİ ── */
+        const root = document.documentElement;
+        const toggle = document.getElementById('theme-toggle');
+        const icon = document.getElementById('theme-icon');
 
-    toggle.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      icon.textContent = next === 'dark' ? '☀︎' : '☾';
-      localStorage.setItem('theme', next);
-    });
-  }
+        if (toggle && icon) {
+            const saved = localStorage.getItem('theme') || 'dark';
+            root.setAttribute('data-theme', saved);
+            icon.textContent = saved === 'dark' ? '☀︎' : '☾';
 
-  /* ── 2. TOC AKTİF BAŞLIK VURGULAMA (SCROLLSPY) ── */
-  // İçeriği tutan ana alanı belirle
-  const contentArea = document.querySelector('article') || document.querySelector('.post-content') || document.body;
-  
-  // Başlıkları ve TOC linklerini seç
-  const headings = Array.from(contentArea.querySelectorAll('h2, h3'));
-  const tocLinks = Array.from(document.querySelectorAll('#toc-list a'));
+            toggle.onclick = () => {
+                const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                icon.textContent = next === 'dark' ? '☀︎' : '☾';
+                localStorage.setItem('theme', next);
+            };
+        }
 
-  // Eğer sayfa çok kısaysa veya başlık yoksa dur
-  if (headings.length === 0 || tocLinks.length === 0) return;
+        /* ── 2. TOC SCROLLSPY ── */
+        // Seçicileri genişletelim ki hata payı kalmasın
+        const headings = Array.from(document.querySelectorAll('h2[id], h3[id]'));
+        const tocLinks = Array.from(document.querySelectorAll('#toc-list a'));
 
-  const observerOptions = {
-    // rootMargin: Başlık ekranın neresindeyken tetiklenecek?
-    // '-100px 0px -60% 0px' -> Üstten 100px geçince ve ekranın alt %60'ındayken
-    rootMargin: '-100px 0px -60% 0px',
-    threshold: 0
-  };
+        console.log("Bulunan başlık sayısı:", headings.length);
+        console.log("Bulunan TOC link sayısı:", tocLinks.length);
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        
-        tocLinks.forEach(link => {
-          if (link.getAttribute('href') === '#' + id) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-      }
-    });
-  }, observerOptions);
+        if (headings.length === 0 || tocLinks.length === 0) return;
 
-  // Sadece ID'si olan başlıkları gözlemle
-  headings.forEach(h => {
-    if (h.id) {
-      observer.observe(h);
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    tocLinks.forEach(link => {
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-10% 0px -70% 0px', threshold: 0 });
+
+        headings.forEach(h => observer.observe(h));
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+        initApp();
     }
-  });
-});
+})();
 </script>
 
 </body>
