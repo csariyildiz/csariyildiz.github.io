@@ -264,7 +264,7 @@ Böyle bir durumda ilgili servisin durdurulması ya da önce bağlı bulunan mod
 
 ---
 
-### Örnek Bir Sistem Üzerinden İnceleme
+## Örnek Bir Sistem Üzerinden İnceleme
 
 * CPU Bilgileri:
 
@@ -431,6 +431,7 @@ sudo modprobe iwlwifi 11n_disable=1
 * Çakışma veya sürücü problemleri buradan görülebilir.
 * Normal bir modern sistemde portlar çoğunlukla PCI cihazları ve ACPI ile sınırlıdır. 
 * Çıktıda hem klasik aygıtlar (keyboard, timer) hem de modern PCI aygıtları (ahci, 0000:00:17.0) var.
+
 
 
 
