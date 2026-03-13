@@ -89,11 +89,10 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-
-  // ── THEME TOGGLE
-  const root   = document.documentElement;
+  // ── THEME TOGGLE (Mevcut kodun)
+  const root = document.documentElement;
   const toggle = document.getElementById('theme-toggle');
-  const icon   = document.getElementById('theme-icon');
+  const icon = document.getElementById('theme-icon');
 
   if (toggle && icon) {
     const saved = localStorage.getItem('theme') || 'dark';
@@ -108,8 +107,29 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // ── TOC ACTIVE HIGHLIGHT (Yeni eklenen kısım)
+  // NOT: Eğer yazıların .prose içinde değilse aşağıdaki '.prose h2, .prose h3' kısmını kendine göre güncelle.
+  const headings = Array.from(document.querySelectorAll('.prose h2, .prose h3'));
+  const tocLinks = Array.from(document.querySelectorAll('#toc-list a'));
 
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      // Başlık ekranın üst kısmına girdiğinde aktif yap
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const id = entry.target.getAttribute('id');
+        const active = tocLinks.find(l => l.getAttribute('href') === '#' + id);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { 
+    // rootMargin ayarı: Başlığın ekranın neresindeyken tetikleneceğini belirler.
+    // '-60px 0px -70% 0px' başlık sayfanın üst çeyreğine geldiğinde tetiklenmesini sağlar.
+    rootMargin: '-60px 0px -70% 0px', 
+    threshold: 0 
+  });
 
+  headings.forEach(h => observer.observe(h));
 });
 </script>
 
