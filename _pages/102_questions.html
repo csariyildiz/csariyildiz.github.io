@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 102 Questions — csariyildiz.github.io</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    [data-theme="dark"] {
+      --bg: #0d1117; --surface: #161b22; --surface2: #1c2330; --border: #30363d;
+      --accent: #58a6ff; --accent-green: #3fb950; --accent-orange: #f0883e;
+      --text: #e6edf3; --text-muted: #8b949e; --text-faint: #484f58;
+      --tag-fill: rgba(88,166,255,0.12); --tag-border: rgba(88,166,255,0.25);
+      --row-hover: #1a2233; --header-bg: #1f2937;
+      --toggle-bg: #21262d; --toggle-knob: #58a6ff;
+    }
+    [data-theme="light"] {
+      --bg: #ffffff; --surface: #f6f8fa; --surface2: #eaeef2; --border: #d0d7de;
+      --accent: #0969da; --accent-green: #1a7f37; --accent-orange: #bc4c00;
+      --text: #1f2328; --text-muted: #656d76; --text-faint: #afb8c1;
+      --tag-fill: rgba(9,105,218,0.08); --tag-border: rgba(9,105,218,0.2);
+      --row-hover: #f0f6ff; --header-bg: #f0f2f4;
+      --toggle-bg: #eaeef2; --toggle-knob: #0969da;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; line-height: 1.6;
+      min-height: 100vh; transition: background 0.2s, color 0.2s;
+    }
+
+    /* HEADER */
+    header {
+      height: 60px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; padding: 0 40px; gap: 16px;
+      background: var(--bg); position: sticky; top: 0; z-index: 100;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .site-title {
+      font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600;
+      color: var(--text); text-decoration: none; flex: 1;
+    }
+    .header-right { display: flex; align-items: center; gap: 10px; }
+    .nav-link {
+      font-size: 12px; color: var(--text-muted); text-decoration: none;
+      padding: 4px 10px; border-radius: 20px; border: 1px solid transparent; transition: all 0.15s;
+    }
+    .nav-link:hover { border-color: var(--border); color: var(--text); }
+    .theme-toggle {
+      width: 44px; height: 24px; background: var(--toggle-bg);
+      border: 1px solid var(--border); border-radius: 12px; cursor: pointer;
+      position: relative; transition: background 0.2s; flex-shrink: 0;
+    }
+    .theme-toggle::after {
+      content: ''; position: absolute; width: 16px; height: 16px;
+      border-radius: 50%; background: var(--toggle-knob); top: 3px; left: 3px; transition: transform 0.2s;
+    }
+    [data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+    .toggle-icon { font-size: 11px; color: var(--text-muted); user-select: none; }
+
+    /* MAIN */
+    main { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    .page-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      border-bottom: 1px solid var(--border); padding-bottom: 20px; margin-bottom: 32px;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .title-block h1 { font-size: 22px; font-weight: 600; letter-spacing: -0.4px; }
+    .title-block p { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .badge-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .badge {
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px; padding: 3px 10px;
+      border-radius: 20px; border: 1px solid var(--tag-border);
+      background: var(--tag-fill); color: var(--accent);
+    }
+
+    /* CONTROLS */
+    .controls { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .search-wrap { position: relative; flex: 1; min-width: 200px; }
+    .search-wrap svg {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      color: var(--text-muted); pointer-events: none;
+    }
+    input[type="search"] {
+      width: 100%; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--text); padding: 9px 14px 9px 36px;
+      font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; outline: none; transition: border-color 0.2s;
+    }
+    input[type="search"]:focus { border-color: var(--accent); }
+    input[type="search"]::placeholder { color: var(--text-muted); }
+    .filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
+    .filter-btn {
+      font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; padding: 8px 16px;
+      border-radius: 8px; border: 1px solid var(--border); background: var(--surface);
+      color: var(--text-muted); cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    }
+    .filter-btn:hover { color: var(--text); }
+    .filter-btn.active { background: var(--tag-fill); border-color: var(--accent); color: var(--accent); }
+
+    /* STATS */
+    .stats-bar { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+    .stats-bar strong { color: var(--accent); font-weight: 600; }
+
+    /* TABLE */
+    .table-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { background: var(--header-bg); }
+    th {
+      text-align: left; padding: 12px 16px; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    th:first-child { width: 52px; text-align: center; }
+    th:last-child  { width: 38%; }
+    td { padding: 13px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:nth-child(even) { background: var(--surface); }
+    tbody tr:nth-child(odd)  { background: var(--bg); }
+    tbody tr:hover { background: var(--row-hover); transition: background 0.12s; }
+    tbody tr.hidden { display: none; }
+
+    .id-cell { text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--text-muted); }
+    .q-cell { color: var(--text); }
+    .q-cell code {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+      background: var(--tag-fill); border: 1px solid var(--tag-border);
+      border-radius: 4px; padding: 1px 5px; color: var(--accent);
+    }
+    .a-cell { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--accent-green); }
+    .a-cell code {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+      background: rgba(63,185,80,0.08); border: 1px solid rgba(63,185,80,0.2);
+      border-radius: 4px; padding: 1px 5px; color: var(--accent-green);
+    }
+
+    .blank {
+      display: inline-block; min-width: 60px;
+      border-bottom: 2px solid var(--accent); color: transparent;
+    }
+
+    .no-results {
+      text-align: center; padding: 40px; color: var(--text-muted);
+      font-size: 14px; background: var(--surface); display: none;
+    }
+
+    @media (max-width: 700px) {
+      header { padding: 0 12px; }
+      main { padding: 20px 12px 60px; }
+      th:last-child, td:last-child { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="site-title" href="index.html">csariyildiz.github.io</a>
+  <div class="header-right">
+    <a href="index.html" class="nav-link">← Index</a>
+    <span class="toggle-icon" id="theme-icon">☀︎</span>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme"></button>
+  </div>
+</header>
+
+<main>
+
+  <div class="page-header">
+    <div class="title-block">
+      <h1>Chapter 102 — Linux System Architecture</h1>
+      <p>Disk layout · Boot manager · Shared libraries · Package management · Virtualization</p>
+    </div>
+    <div class="badge-row">
+      <span class="badge">102.1 Disk</span>
+      <span class="badge">102.2 GRUB</span>
+      <span class="badge">102.3 Libraries</span>
+      <span class="badge">102.4 dpkg/apt</span>
+      <span class="badge">102.5 RPM/YUM</span>
+      <span class="badge">102.6 VMs</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.868-3.834zm-5.442 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+      </svg>
+      <input type="search" id="search" placeholder="Search questions or answers…" autocomplete="off">
+    </div>
+    <div class="filter-group">
+      <button class="filter-btn active" data-tag="all">All</button>
+      <button class="filter-btn" data-tag="disk">102.1 Disk</button>
+      <button class="filter-btn" data-tag="grub">102.2 GRUB</button>
+      <button class="filter-btn" data-tag="libs">102.3 Libraries</button>
+      <button class="filter-btn" data-tag="dpkg">102.4 dpkg/apt</button>
+      <button class="filter-btn" data-tag="rpm">102.5 RPM/YUM</button>
+      <button class="filter-btn" data-tag="vm">102.6 VMs</button>
+    </div>
+  </div>
+
+  <div class="stats-bar">Showing <strong id="count">150</strong> of 150 questions</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Question</th><th>Answer</th></tr>
+      </thead>
+      <tbody id="tbody">
+
+        <!-- ── 102.1 DISK LAYOUT ─────────────────────────────────────── -->
+
+        <tr data-tags="disk"><td class="id-cell">1</td>
+          <td class="q-cell">What is a <strong>disk</strong> in the context of Linux storage?</td>
+          <td class="a-cell">A physical container for data</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">2</td>
+          <td class="q-cell">What is a <strong>partition</strong>?</td>
+          <td class="a-cell">A logical subset of a disk, created by MBR or GPT partitioning schemes. Every disk must have at least one partition.</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">3</td>
+          <td class="q-cell">What are the two main partitioning schemes used to create partitions?</td>
+          <td class="a-cell">MBR (Master Boot Record) and GPT (GUID Partition Table)</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">4</td>
+          <td class="q-cell">What does a <strong>filesystem</strong> describe?</td>
+          <td class="a-cell">The way information is stored on disk — how directories are organized, relationships between them, and where data for each file is located</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">5</td>
+          <td class="q-cell">What is the limitation of standard partitions that LVM solves?</td>
+          <td class="a-cell">Partitions cannot span multiple disks. LVM allows multiple partitions to be combined, even across disks, into a single logical volume.</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">6</td>
+          <td class="q-cell">What does <strong>mounting</strong> a filesystem mean?</td>
+          <td class="a-cell">Attaching a filesystem to a specific point in the system's directory tree, called a mount point. Example: <code>mount /dev/sda1 /mnt/mymount</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">7</td>
+          <td class="q-cell">Why keep <code>/boot</code> on a separate partition?</td>
+          <td class="a-cell">To ensure the system can still boot even if the root filesystem crashes</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">8</td>
+          <td class="q-cell">Why keep <code>/home</code> on a separate partition?</td>
+          <td class="a-cell">To make it easier to reinstall the OS without the risk of accidentally deleting user data</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">9</td>
+          <td class="q-cell">Why keep <code>/var</code> on a separate partition?</td>
+          <td class="a-cell">To prevent misbehaved processes that fill up <code>/var</code> from causing a kernel panic or corrupting the root filesystem</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">10</td>
+          <td class="q-cell">What files does the <code>/boot</code> partition contain?</td>
+          <td class="a-cell">Files used by the bootloader to load the operating system (kernel images, initrd, GRUB files)</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">11</td>
+          <td class="q-cell">Where are GRUB 2 bootloader files stored?</td>
+          <td class="a-cell"><code>/boot/grub</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">12</td>
+          <td class="q-cell">Why is the boot partition usually located at the start of the disk?</td>
+          <td class="a-cell">Legacy IBM PC BIOS used CHS addressing with a maximum of 1024 cylinders, resulting in a 528 MB limit. Placing <code>/boot</code> before cylinder 1024 ensures the kernel can always be loaded.</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">13</td>
+          <td class="q-cell">The boot partition should end before <span class="blank">_____</span> to ensure legacy BIOS systems can always load the kernel.</td>
+          <td class="a-cell">Cylinder 1024 (528 MB)</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">14</td>
+          <td class="q-cell">What is a good recommended size for the <code>/boot</code> partition today?</td>
+          <td class="a-cell">Around 300 MB</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">15</td>
+          <td class="q-cell">What is the <strong>EFI System Partition (ESP)</strong> used for?</td>
+          <td class="a-cell">Used by UEFI-based machines to store boot loaders and kernel images for installed operating systems</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">16</td>
+          <td class="q-cell">What filesystem format does the ESP use?</td>
+          <td class="a-cell">A FAT-based filesystem</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">17</td>
+          <td class="q-cell">What is the partition ID for the ESP on a GPT-partitioned disk?</td>
+          <td class="a-cell"><code>C12A7328-F81F-11D2-BA4B-00A0C93EC93B</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">18</td>
+          <td class="q-cell">What is the partition ID for the ESP on an MBR-partitioned disk?</td>
+          <td class="a-cell"><code>0xEF</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">19</td>
+          <td class="q-cell">Where is the ESP mounted on a Linux system?</td>
+          <td class="a-cell"><code>/boot/efi</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">20</td>
+          <td class="q-cell">What does <code>/var</code> contain?</td>
+          <td class="a-cell">"Variable data" — files the system must be able to write to during operation, including system logs (<code>/var/log</code>), temp files (<code>/var/tmp</code>), and cached application data (<code>/var/cache</code>)</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">21</td>
+          <td class="q-cell">What is the default data directory for the Apache web server?</td>
+          <td class="a-cell"><code>/var/www/html</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">22</td>
+          <td class="q-cell">What is the default database directory for MySQL?</td>
+          <td class="a-cell"><code>/var/lib/mysql</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">23</td>
+          <td class="q-cell">What is the <strong>swap partition</strong> used for?</td>
+          <td class="a-cell">To swap memory pages from RAM to disk as needed when RAM is full</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">24</td>
+          <td class="q-cell">What utility must be run to set up a swap partition before it can be used?</td>
+          <td class="a-cell"><code>mkswap</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">25</td>
+          <td class="q-cell">What is a <strong>swap file</strong> and why is it useful?</td>
+          <td class="a-cell">A file (instead of a dedicated partition) used as swap space. Useful for quickly increasing swap space when needed without repartitioning.</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">26</td>
+          <td class="q-cell">According to Red Hat's recommendation, what is the suggested swap size for a system with less than 2 GB of RAM?</td>
+          <td class="a-cell">2× RAM (or 3× RAM if hibernation is needed)</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">27</td>
+          <td class="q-cell">According to Red Hat's recommendation, what is the suggested swap size for a system with 2–8 GB of RAM?</td>
+          <td class="a-cell">Equal to RAM (or 2× RAM with hibernation)</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">28</td>
+          <td class="q-cell">According to Red Hat's recommendation, what is the minimum swap size for a system with 8–64 GB of RAM?</td>
+          <td class="a-cell">Minimum 4 GB (or 1.5× RAM with hibernation)</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">29</td>
+          <td class="q-cell">What is the partition ID for Linux swap space under MBR?</td>
+          <td class="a-cell"><code>0x82</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">30</td>
+          <td class="q-cell">What is the partition ID for Linux filesystems under MBR?</td>
+          <td class="a-cell"><code>0x83</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">31</td>
+          <td class="q-cell">What is the partition ID for Linux LVM under MBR?</td>
+          <td class="a-cell"><code>0x8E</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">32</td>
+          <td class="q-cell">What is the basic unit in LVM?</td>
+          <td class="a-cell">The Physical Volume (PV) — a block device such as a disk partition or RAID array</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">33</td>
+          <td class="q-cell">What is a <strong>Volume Group (VG)</strong> in LVM?</td>
+          <td class="a-cell">A grouping of Physical Volumes that abstracts the underlying devices and appears as a single logical device with combined storage capacity</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">34</td>
+          <td class="q-cell">What are <strong>extents</strong> in LVM?</td>
+          <td class="a-cell">Fixed-sized pieces that Volume Groups are subdivided into. Extents on a PV are Physical Extents (PE); those on a Logical Volume are Logical Extents (LE).</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">35</td>
+          <td class="q-cell">What is a <strong>Logical Volume (LV)</strong> in LVM?</td>
+          <td class="a-cell">A subdivision of a Volume Group that functions like a partition but with more flexibility (can be resized by adding or removing extents)</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">36</td>
+          <td class="q-cell">How is the size of a Logical Volume calculated?</td>
+          <td class="a-cell">Physical extent size (4 MB by default) × number of extents on the volume</td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">37</td>
+          <td class="q-cell">Where does a Logical Volume appear as a device file?</td>
+          <td class="a-cell"><code>/dev/VGNAME/LVNAME</code></td></tr>
+
+        <tr data-tags="disk"><td class="id-cell">38</td>
+          <td class="q-cell">What command is used to format a Logical Volume with ext4?</td>
+          <td class="a-cell"><code>mkfs.ext4</code></td></tr>
+
+        <!-- ── 102.2 BOOT MANAGER ─────────────────────────────────────── -->
+
+        <tr data-tags="grub"><td class="id-cell">39</td>
+          <td class="q-cell">What does GRUB stand for?</td>
+          <td class="a-cell">Grand Unified Bootloader</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">40</td>
+          <td class="q-cell">What was the last release version of GRUB Legacy and when was it released?</td>
+          <td class="a-cell">Version 0.97, released in 2005</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">41</td>
+          <td class="q-cell">On an MBR-partitioned disk, what are the two things stored in the Master Boot Record?</td>
+          <td class="a-cell">A partition table (lists up to 4 partitions) and bootstrap code (tiny bootloader)</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">42</td>
+          <td class="q-cell">How large is the MBR?</td>
+          <td class="a-cell">512 bytes</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">43</td>
+          <td class="q-cell">What is the MBR boot flow on a BIOS system?</td>
+          <td class="a-cell">BIOS → MBR (tiny code) → 32 KB gap ("core image") → GRUB configuration → OS</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">44</td>
+          <td class="q-cell">What are the three limitations of MBR?</td>
+          <td class="a-cell">Only 4 primary partitions; maximum 2 TB disk size; very limited bootloader code size</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">45</td>
+          <td class="q-cell">What is the UEFI boot flow?</td>
+          <td class="a-cell">UEFI Firmware → ESP (FAT32) → <code>grubx64.efi</code> → GRUB → OS</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">46</td>
+          <td class="q-cell">What is the GRUB 2 EFI binary filename for 64-bit systems?</td>
+          <td class="a-cell"><code>grubx64.efi</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">47</td>
+          <td class="q-cell">What file is the kernel configuration stored in (example version: 4.15.0-65-generic)?</td>
+          <td class="a-cell"><code>config-4.15.0-65-generic</code> — stores kernel configuration parameters. Generated automatically; should not be manually modified.</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">48</td>
+          <td class="q-cell">What is <code>System.map-VERSION</code> in <code>/boot</code>?</td>
+          <td class="a-cell">A lookup table matching symbol names (variables/functions) to their corresponding memory positions</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">49</td>
+          <td class="q-cell">What is <code>vmlinuz-VERSION</code>?</td>
+          <td class="a-cell">The compressed Linux kernel image (<code>vmlinuz</code> = compressed; <code>vmlinux</code> = uncompressed)</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">50</td>
+          <td class="q-cell">What is <code>initrd.img-VERSION</code>?</td>
+          <td class="a-cell">The initial RAM disk — a minimal root filesystem loaded into RAM at boot. Modern systems use initramfs (initial RAM filesystem).</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">51</td>
+          <td class="q-cell">What is the default GRUB 2 configuration file and should it be edited directly?</td>
+          <td class="a-cell"><code>/boot/grub/grub.cfg</code> — it is auto-generated and should <strong>not</strong> be edited manually</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">52</td>
+          <td class="q-cell">What file should be edited to change GRUB 2 settings?</td>
+          <td class="a-cell"><code>/etc/default/grub</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">53</td>
+          <td class="q-cell">After editing <code>/etc/default/grub</code>, what command regenerates the GRUB 2 configuration?</td>
+          <td class="a-cell"><code>update-grub</code> (equivalent to <code>grub-mkconfig -o /boot/grub/grub.cfg</code>)</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">54</td>
+          <td class="q-cell">What does <code>GRUB_DEFAULT=</code> control?</td>
+          <td class="a-cell">The default menu entry to boot. Can be a number (0 = first entry), a menu entry name, or <code>saved</code>.</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">55</td>
+          <td class="q-cell">What does <code>GRUB_TIMEOUT=0</code> do?</td>
+          <td class="a-cell">Boots the default entry immediately without showing the menu</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">56</td>
+          <td class="q-cell">What does <code>GRUB_TIMEOUT=-1</code> do?</td>
+          <td class="a-cell">Makes the system wait indefinitely for the user to select an option</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">57</td>
+          <td class="q-cell">What does <code>GRUB_ENABLE_CRYPTODISK=y</code> do?</td>
+          <td class="a-cell">Makes grub-mkconfig, update-grub and grub-install look for encrypted disks and add the necessary commands to access them during boot. This disables automatic booting.</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">58</td>
+          <td class="q-cell">Where are custom GRUB 2 menu entries added?</td>
+          <td class="a-cell"><code>/etc/grub.d/40_custom</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">59</td>
+          <td class="q-cell">In a GRUB 2 menu entry, what does <code>set root=(hd0,1)</code> mean?</td>
+          <td class="a-cell">Sets the root to the first disk (<code>hd0</code>), first partition (<code>1</code>). In GRUB 2, disks are numbered from 0, partitions from 1.</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">60</td>
+          <td class="q-cell">What does the <code>linux</code> line in a GRUB 2 menu entry specify?</td>
+          <td class="a-cell">The path to the kernel image, followed by kernel command-line parameters (e.g. <code>root=</code>, <code>ro</code>, <code>quiet</code>)</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">61</td>
+          <td class="q-cell">What does the <code>initrd</code> line in a GRUB 2 menu entry specify?</td>
+          <td class="a-cell">The path to the initial RAM disk image</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">62</td>
+          <td class="q-cell">How do you find the UUID of a filesystem partition?</td>
+          <td class="a-cell"><code>ls -l /dev/disk/by-uuid/</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">63</td>
+          <td class="q-cell">How do you tell GRUB 2 to find the root by UUID instead of device name?</td>
+          <td class="a-cell"><code>search --set=root --fs-uuid &lt;UUID&gt;</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">64</td>
+          <td class="q-cell">How do you bring up the GRUB 2 menu if only a countdown is visible?</td>
+          <td class="a-cell">Press <code>Shift</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">65</td>
+          <td class="q-cell">How do you enter the GRUB 2 shell from the menu screen?</td>
+          <td class="a-cell">Press <code>C</code> (or <code>Ctrl+C</code> from the edit window)</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">66</td>
+          <td class="q-cell">What GRUB 2 shell command lists all detected disks and partitions?</td>
+          <td class="a-cell"><code>ls</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">67</td>
+          <td class="q-cell">What is the sequence of GRUB 2 shell commands to manually boot a Linux system?</td>
+          <td class="a-cell"><code>set root=(hd0,msdos1)</code> → <code>linux /vmlinuz root=/dev/sda1</code> → <code>initrd /initrd.img</code> → <code>boot</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">68</td>
+          <td class="q-cell">What command prompt indicates the GRUB 2 rescue shell?</td>
+          <td class="a-cell"><code>grub rescue&gt;</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">69</td>
+          <td class="q-cell">What two GRUB 2 modules must be loaded in the rescue shell before booting?</td>
+          <td class="a-cell"><code>insmod normal</code> and <code>insmod linux</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">70</td>
+          <td class="q-cell">In the rescue shell, what command sets the path to the GRUB 2 files?</td>
+          <td class="a-cell"><code>set prefix=(hd0,msdos1)/boot/grub</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">71</td>
+          <td class="q-cell">What is the command to install GRUB 2 to a disk that has a dedicated boot partition mounted at <code>/mnt/tmp</code>?</td>
+          <td class="a-cell"><code>grub-install --boot-directory=/mnt/tmp /dev/sda</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">72</td>
+          <td class="q-cell">What is the command to install GRUB 2 when there is no dedicated boot partition (just <code>/boot</code> on root)?</td>
+          <td class="a-cell"><code>grub-install --boot-directory=/boot /dev/sda</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">73</td>
+          <td class="q-cell">In GRUB Legacy, where are menu entries and settings stored?</td>
+          <td class="a-cell"><code>/boot/grub/menu.lst</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">74</td>
+          <td class="q-cell">In GRUB Legacy, how are disks and partitions numbered? How does this differ from GRUB 2?</td>
+          <td class="a-cell">In GRUB Legacy, <strong>both</strong> disks and partitions are numbered from 0. In GRUB 2, disks start at 0 but partitions start at 1.</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">75</td>
+          <td class="q-cell">In GRUB Legacy, what does <code>root (hd0,0)</code> refer to?</td>
+          <td class="a-cell">The first partition (0) of the first disk (hd0) — equivalent to <code>/dev/sda1</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">76</td>
+          <td class="q-cell">What are the three required commands in a GRUB Legacy menu entry?</td>
+          <td class="a-cell"><code>title</code> (OS name on menu), <code>root</code> (device/partition to boot from), <code>kernel</code> (path to kernel image)</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">77</td>
+          <td class="q-cell">From the GRUB Legacy shell, what are the commands to install GRUB Legacy to the first disk?</td>
+          <td class="a-cell"><code>grub&gt; root (hd0,0)</code> then <code>grub&gt; setup (hd0)</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">78</td>
+          <td class="q-cell">What is <strong>chainloading</strong> in GRUB Legacy?</td>
+          <td class="a-cell">Loading an unsupported OS (like Windows) by first loading GRUB, then handing off to that OS's own bootloader</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">79</td>
+          <td class="q-cell">What command in a GRUB Legacy chainload entry sets the active partition flag?</td>
+          <td class="a-cell"><code>makeactive</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">80</td>
+          <td class="q-cell">What does <code>chainload +1</code> do in a GRUB Legacy entry?</td>
+          <td class="a-cell">Loads the first sector of the boot partition, where bootloaders are typically located</td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">81</td>
+          <td class="q-cell">What command finds the partition containing <code>/boot/grub/stage1</code> from the GRUB Legacy shell?</td>
+          <td class="a-cell"><code>find /boot/grub/stage1</code></td></tr>
+
+        <tr data-tags="grub"><td class="id-cell">82</td>
+          <td class="q-cell">What command identifies the boot partition on <code>/dev/sda</code> using a standard Linux tool?</td>
+          <td class="a-cell"><code>fdisk -l /dev/sda</code> — the boot partition is marked with an asterisk (*) in the output</td></tr>
+
+        <!-- ── 102.3 SHARED LIBRARIES ─────────────────────────────────── -->
+
+        <tr data-tags="libs"><td class="id-cell">83</td>
+          <td class="q-cell">What is the file extension for a static library? For a shared library?</td>
+          <td class="a-cell">Static: <code>.a</code> — Shared: <code>.so</code> (shared object)</td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">84</td>
+          <td class="q-cell">What are the key differences between static and shared libraries?</td>
+          <td class="a-cell">Static libraries are linked at compile time into the executable (larger binary, no runtime dependency). Shared libraries are loaded at runtime by the dynamic linker (can be shared by multiple programs, smaller binaries).</td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">85</td>
+          <td class="q-cell">What is the shared library naming convention (soname)?</td>
+          <td class="a-cell"><code>lib&lt;NAME&gt;.so.&lt;VERSION&gt;</code> — example: <code>libmysqlclient.so.18.0.0</code></td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">86</td>
+          <td class="q-cell">What are the common shared library directories on a Linux system?</td>
+          <td class="a-cell"><code>/lib</code>, <code>/lib32</code>, <code>/lib64</code>, <code>/usr/lib</code>, <code>/usr/lib64</code>, <code>/usr/local/lib</code></td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">87</td>
+          <td class="q-cell">What is the difference between <code>/lib</code> and <code>/usr/lib</code>?</td>
+          <td class="a-cell"><code>/lib</code>: libraries required by essential system binaries (<code>/bin</code>, <code>/sbin</code>), must be available at boot. <code>/usr/lib</code>: libraries for non-essential or additional software.</td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">88</td>
+          <td class="q-cell">What is the dynamic linker search order for shared libraries?</td>
+          <td class="a-cell">1. <code>LD_LIBRARY_PATH</code> environment variable → 2. Paths in <code>/etc/ld.so.conf.d/</code> and <code>/etc/ld.so.conf</code> → 3. Default system directories (<code>/lib*</code>, <code>/usr/lib*</code>)</td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">89</td>
+          <td class="q-cell">What does <code>/etc/ld.so.conf</code> typically contain?</td>
+          <td class="a-cell">A single include line: <code>include /etc/ld.so.conf.d/*.conf</code></td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">90</td>
+          <td class="q-cell">What is <code>ldconfig</code> used for?</td>
+          <td class="a-cell">Creating and updating the shared library cache (<code>/etc/ld.so.cache</code>). Must be run after adding or updating library configuration files.</td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">91</td>
+          <td class="q-cell">What does <code>ldconfig -v</code> do?</td>
+          <td class="a-cell">Displays library version numbers, each directory name, and the symbolic links created</td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">92</td>
+          <td class="q-cell">What does <code>ldconfig -p</code> do?</td>
+          <td class="a-cell">Prints the list of directories and libraries stored in the current cache (<code>/etc/ld.so.cache</code>)</td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">93</td>
+          <td class="q-cell">What is <code>LD_LIBRARY_PATH</code> and how is it set?</td>
+          <td class="a-cell">An environment variable containing a colon-separated list of directories where shared libraries are searched. Set with: <code>export LD_LIBRARY_PATH=/usr/local/mylib</code></td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">94</td>
+          <td class="q-cell">What command removes the <code>LD_LIBRARY_PATH</code> variable?</td>
+          <td class="a-cell"><code>unset LD_LIBRARY_PATH</code></td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">95</td>
+          <td class="q-cell">What command shows the shared library dependencies of an executable?</td>
+          <td class="a-cell"><code>ldd /path/to/executable</code></td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">96</td>
+          <td class="q-cell">What does the <code>ldd -u</code> option show?</td>
+          <td class="a-cell">Unused direct dependencies — libraries that are linked but not actually needed by the program</td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">97</td>
+          <td class="q-cell">If you add a new shared library at <code>/opt/lib/mylib</code>, what two steps are needed to register it system-wide?</td>
+          <td class="a-cell">1. Create a <code>.conf</code> file in <code>/etc/ld.so.conf.d/</code> containing the path <code>/opt/lib/mylib</code>. 2. Run <code>ldconfig</code> to update the cache.</td></tr>
+
+        <tr data-tags="libs"><td class="id-cell">98</td>
+          <td class="q-cell">How is <code>LD_LIBRARY_PATH</code> analogous to <code>PATH</code>?</td>
+          <td class="a-cell"><code>LD_LIBRARY_PATH</code> is to shared libraries what <code>PATH</code> is to executables</td></tr>
+
+        <!-- ── 102.4 DPKG / APT ────────────────────────────────────────── -->
+
+        <tr data-tags="dpkg"><td class="id-cell">99</td>
+          <td class="q-cell">What is the file extension for Debian packages?</td>
+          <td class="a-cell"><code>.deb</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">100</td>
+          <td class="q-cell">What command installs a <code>.deb</code> package file?</td>
+          <td class="a-cell"><code>dpkg -i PACKAGENAME.deb</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">101</td>
+          <td class="q-cell">What command removes a package (keeping configuration files)?</td>
+          <td class="a-cell"><code>dpkg -r PACKAGENAME</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">102</td>
+          <td class="q-cell">What command removes a package AND its configuration files?</td>
+          <td class="a-cell"><code>dpkg -P PACKAGENAME</code> (purge)</td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">103</td>
+          <td class="q-cell">Can <code>dpkg</code> resolve dependencies automatically?</td>
+          <td class="a-cell">No. dpkg checks for missing dependencies and will fail with a list of what's missing, but cannot install them automatically. The user must resolve them manually.</td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">104</td>
+          <td class="q-cell">What command shows detailed information about a <code>.deb</code> package file (not installed)?</td>
+          <td class="a-cell"><code>dpkg -I PACKAGENAME.deb</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">105</td>
+          <td class="q-cell">What command lists all installed packages on the system?</td>
+          <td class="a-cell"><code>dpkg --get-selections</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">106</td>
+          <td class="q-cell">What command lists all files installed by a specific package?</td>
+          <td class="a-cell"><code>dpkg -L PACKAGENAME</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">107</td>
+          <td class="q-cell">What command finds which installed package owns a specific file?</td>
+          <td class="a-cell"><code>dpkg-query -S /path/to/file</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">108</td>
+          <td class="q-cell">What does <code>dpkg-reconfigure PACKAGENAME</code> do?</td>
+          <td class="a-cell">Re-runs the package's post-install script, restoring settings to their default state or allowing configuration changes</td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">109</td>
+          <td class="q-cell">What is APT and how does it relate to <code>dpkg</code>?</td>
+          <td class="a-cell">Advanced Package Tool — a front-end for dpkg that adds automatic dependency resolution, online repository access, and search capabilities. It does not replace dpkg.</td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">110</td>
+          <td class="q-cell">What command updates the local APT package index?</td>
+          <td class="a-cell"><code>apt-get update</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">111</td>
+          <td class="q-cell">What command installs a package using APT?</td>
+          <td class="a-cell"><code>apt-get install PACKAGENAME</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">112</td>
+          <td class="q-cell">What command removes a package with APT but leaves configuration files?</td>
+          <td class="a-cell"><code>apt-get remove PACKAGENAME</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">113</td>
+          <td class="q-cell">What command removes a package and its configuration files with APT?</td>
+          <td class="a-cell"><code>apt-get purge PACKAGENAME</code> or <code>apt-get remove --purge PACKAGENAME</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">114</td>
+          <td class="q-cell">What command fixes broken package dependencies in APT?</td>
+          <td class="a-cell"><code>apt-get install -f</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">115</td>
+          <td class="q-cell">What command upgrades all installed packages to the latest versions?</td>
+          <td class="a-cell"><code>apt-get upgrade</code> (after running <code>apt-get update</code>)</td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">116</td>
+          <td class="q-cell">Where does APT cache downloaded <code>.deb</code> files?</td>
+          <td class="a-cell"><code>/var/cache/apt/archives/</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">117</td>
+          <td class="q-cell">What command clears the APT package cache?</td>
+          <td class="a-cell"><code>apt-get clean</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">118</td>
+          <td class="q-cell">What command searches the APT package index?</td>
+          <td class="a-cell"><code>apt-cache search PATTERN</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">119</td>
+          <td class="q-cell">What command shows detailed information about a package using APT?</td>
+          <td class="a-cell"><code>apt-cache show PACKAGENAME</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">120</td>
+          <td class="q-cell">What file defines APT's software repositories?</td>
+          <td class="a-cell"><code>/etc/apt/sources.list</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">121</td>
+          <td class="q-cell">What is the syntax of a line in <code>/etc/apt/sources.list</code>?</td>
+          <td class="a-cell"><code>archive-type URL distribution component(s)</code> — example: <code>deb http://us.archive.ubuntu.com/ubuntu/ disco main restricted</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">122</td>
+          <td class="q-cell">What does <code>deb-src</code> mean in a <code>sources.list</code> entry?</td>
+          <td class="a-cell">The repository provides source packages (not binary packages)</td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">123</td>
+          <td class="q-cell">Where can additional APT repository files be placed without modifying <code>sources.list</code>?</td>
+          <td class="a-cell"><code>/etc/apt/sources.list.d/</code> — files must use the <code>.list</code> extension</td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">124</td>
+          <td class="q-cell">What command updates the <code>apt-file</code> package cache?</td>
+          <td class="a-cell"><code>apt-file update</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">125</td>
+          <td class="q-cell">What command searches which package provides a specific file (including uninstalled packages)?</td>
+          <td class="a-cell"><code>apt-file search FILENAME</code></td></tr>
+
+        <tr data-tags="dpkg"><td class="id-cell">126</td>
+          <td class="q-cell">What is the key difference between <code>apt-file search</code> and <code>dpkg-query -S</code>?</td>
+          <td class="a-cell"><code>apt-file search</code> searches all packages including uninstalled ones. <code>dpkg-query -S</code> can only find files from installed packages.</td></tr>
+
+        <!-- ── 102.5 RPM / YUM / DNF / ZYPPER ────────────────────────── -->
+
+        <tr data-tags="rpm"><td class="id-cell">127</td>
+          <td class="q-cell">What does RPM stand for?</td>
+          <td class="a-cell">RPM Package Manager</td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">128</td>
+          <td class="q-cell">What command installs an RPM package?</td>
+          <td class="a-cell"><code>rpm -i PACKAGENAME.rpm</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">129</td>
+          <td class="q-cell">What command installs an RPM with verbose output and a progress bar?</td>
+          <td class="a-cell"><code>rpm -ivh PACKAGENAME.rpm</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">130</td>
+          <td class="q-cell">What command upgrades an RPM package (or installs it if not present)?</td>
+          <td class="a-cell"><code>rpm -U PACKAGENAME.rpm</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">131</td>
+          <td class="q-cell">What RPM option upgrades a package ONLY if a previous version is already installed?</td>
+          <td class="a-cell"><code>-F</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">132</td>
+          <td class="q-cell">What command removes an installed RPM package?</td>
+          <td class="a-cell"><code>rpm -e PACKAGENAME</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">133</td>
+          <td class="q-cell">What command lists all installed RPM packages?</td>
+          <td class="a-cell"><code>rpm -qa</code> ("query all")</td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">134</td>
+          <td class="q-cell">What command shows information about an installed RPM package?</td>
+          <td class="a-cell"><code>rpm -qi PACKAGENAME</code> ("query info")</td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">135</td>
+          <td class="q-cell">What command lists all files inside an installed RPM package?</td>
+          <td class="a-cell"><code>rpm -ql PACKAGENAME</code> ("query list")</td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">136</td>
+          <td class="q-cell">What flag is added to <code>rpm -qi</code> and <code>rpm -ql</code> to query a package file that is NOT yet installed?</td>
+          <td class="a-cell"><code>-p</code> — e.g. <code>rpm -qip PACKAGEFILE.rpm</code> or <code>rpm -qlp PACKAGEFILE.rpm</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">137</td>
+          <td class="q-cell">What command finds which installed RPM package owns a specific file?</td>
+          <td class="a-cell"><code>rpm -qf /path/to/file</code> ("query file")</td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">138</td>
+          <td class="q-cell">What does YUM stand for?</td>
+          <td class="a-cell">YellowDog Updater Modified</td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">139</td>
+          <td class="q-cell">What command installs a package using YUM?</td>
+          <td class="a-cell"><code>yum install PACKAGENAME</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">140</td>
+          <td class="q-cell">What command checks if updates are available for all packages with YUM?</td>
+          <td class="a-cell"><code>yum check-update</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">141</td>
+          <td class="q-cell">What command finds which package provides a specific file using YUM?</td>
+          <td class="a-cell"><code>yum whatprovides FILENAME</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">142</td>
+          <td class="q-cell">Where are YUM repository files stored?</td>
+          <td class="a-cell"><code>/etc/yum.repos.d/</code> (each repo is a <code>.repo</code> file)</td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">143</td>
+          <td class="q-cell">What command adds a new repository to YUM?</td>
+          <td class="a-cell"><code>yum-config-manager --add-repo URL</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">144</td>
+          <td class="q-cell">What commands enable and disable a YUM repository?</td>
+          <td class="a-cell"><code>yum-config-manager --enable REPO_ID</code> / <code>yum-config-manager --disable REPO_ID</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">145</td>
+          <td class="q-cell">What command adds a repository using DNF?</td>
+          <td class="a-cell"><code>dnf config-manager --add_repo URL</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">146</td>
+          <td class="q-cell">What command lists all installed packages using DNF?</td>
+          <td class="a-cell"><code>dnf list --installed</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">147</td>
+          <td class="q-cell">What command finds which package provides a specific file using DNF?</td>
+          <td class="a-cell"><code>dnf provides FILENAME</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">148</td>
+          <td class="q-cell">What command searches for a package with zypper?</td>
+          <td class="a-cell"><code>zypper se PACKAGENAME</code> (or <code>zypper search</code>)</td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">149</td>
+          <td class="q-cell">What zypper command disables a repository called <code>repo-extras</code>?</td>
+          <td class="a-cell"><code>zypper modifyrepo -d repo-extras</code></td></tr>
+
+        <tr data-tags="rpm"><td class="id-cell">150</td>
+          <td class="q-cell">What zypper command finds which package provides <code>/usr/sbin/swapon</code>?</td>
+          <td class="a-cell"><code>zypper se --provides /usr/sbin/swapon</code></td></tr>
+
+        <!-- ── 102.6 VIRTUALIZATION ────────────────────────────────────── -->
+
+        <tr data-tags="vm"><td class="id-cell">151</td>
+          <td class="q-cell">What is a <strong>hypervisor</strong>?</td>
+          <td class="a-cell">A software platform that runs processes containing fully emulated computer systems (virtual machines), managing the host's physical hardware resources among guest VMs</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">152</td>
+          <td class="q-cell">What is the difference between a Type-1 and Type-2 hypervisor?</td>
+          <td class="a-cell">Type-1 (bare-metal) runs directly on hardware without an underlying OS (e.g. Xen). Type-2 requires a host OS to run (e.g. VirtualBox).</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">153</td>
+          <td class="q-cell">What type of hypervisor is <strong>KVM</strong>?</td>
+          <td class="a-cell">Both Type-1 and Type-2 — it is a Linux kernel module that integrates with a running Linux installation but can perform as a hypervisor independently</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">154</td>
+          <td class="q-cell">What is a <strong>fully virtualized</strong> guest?</td>
+          <td class="a-cell">A guest that is completely unaware it is a virtual machine. Requires Intel VT-x or AMD-V CPU extensions on x86 hardware.</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">155</td>
+          <td class="q-cell">What is a <strong>paravirtualized</strong> guest?</td>
+          <td class="a-cell">A guest that is aware it is a virtual machine and uses a modified kernel and special guest drivers to communicate more efficiently with the hypervisor — often faster than full virtualization</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">156</td>
+          <td class="q-cell">What CPU extensions are required for full virtualization on x86 hardware?</td>
+          <td class="a-cell">Intel VT-x or AMD-V (AMD SVM)</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">157</td>
+          <td class="q-cell">What disk image format does KVM use by default? What type is it?</td>
+          <td class="a-cell"><code>qcow2</code> — QEMU Copy-on-Write format (thin-provisioned: disk file grows as data is written)</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">158</td>
+          <td class="q-cell">What is a <strong>raw</strong> disk image?</td>
+          <td class="a-cell">A disk image with all space pre-allocated. A 10 GB raw image consumes 10 GB on the hypervisor immediately. Offers better write performance than COW images.</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">159</td>
+          <td class="q-cell">What is the <strong>D-Bus machine ID</strong> and where is it stored?</td>
+          <td class="a-cell">A unique machine identification number generated at install time. Stored at <code>/var/lib/dbus/machine-id</code>, symbolically linked to <code>/etc/machine-id</code>.</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">160</td>
+          <td class="q-cell">Why must a new D-Bus machine ID be generated when cloning a VM?</td>
+          <td class="a-cell">No two Linux systems on the same hypervisor should share a D-Bus machine ID, as it is used to direct system resources to the correct guest</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">161</td>
+          <td class="q-cell">What command verifies that a D-Bus machine ID exists on the system?</td>
+          <td class="a-cell"><code>dbus-uuidgen --ensure</code></td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">162</td>
+          <td class="q-cell">What command displays the current D-Bus machine ID?</td>
+          <td class="a-cell"><code>dbus-uuidgen --get</code></td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">163</td>
+          <td class="q-cell">What commands regenerate a new D-Bus machine ID on a cloned VM?</td>
+          <td class="a-cell"><code>sudo rm -f /etc/machine-id</code> then <code>sudo dbus-uuidgen --ensure=/etc/machine-id</code></td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">164</td>
+          <td class="q-cell">What command generates an SSH key pair for accessing cloud VMs?</td>
+          <td class="a-cell"><code>ssh-keygen</code> — private key stored in <code>~/.ssh/</code>, public key copied to the remote host</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">165</td>
+          <td class="q-cell">What command copies your SSH public key to a remote cloud server?</td>
+          <td class="a-cell"><code>ssh-copy-id -i user@cloud_server</code></td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">166</td>
+          <td class="q-cell">What are the required file permissions for SSH private and public keys?</td>
+          <td class="a-cell">Private key: <code>0600</code> — Public key: <code>0644</code></td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">167</td>
+          <td class="q-cell">What is <strong>cloud-init</strong>?</td>
+          <td class="a-cell">A vendor-neutral utility for pre-configuring cloud VMs and containers on first boot. Uses YAML (cloud-config) files to set hostname, packages, SSH keys, users, locale, and more.</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">168</td>
+          <td class="q-cell">What YAML syntax does cloud-init use, and what must be on the first line?</td>
+          <td class="a-cell">The syntax is called <strong>cloud-config</strong>. The first line must be <code>#cloud-config</code> (no space between <code>#</code> and <code>cloud-config</code>).</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">169</td>
+          <td class="q-cell">What Linux kernel mechanism do containers use to partition system resources?</td>
+          <td class="a-cell">Control groups (cgroups) — used to limit memory, processor time, disk and network bandwidth for individual applications</td></tr>
+
+        <tr data-tags="vm"><td class="id-cell">170</td>
+          <td class="q-cell">What command can be used to verify if CPU virtualization extensions are enabled?</td>
+          <td class="a-cell"><code>grep --color -E "vmx|svm" /proc/cpuinfo</code> — <code>vmx</code> = Intel VT-x, <code>svm</code> = AMD-V</td></tr>
+
+      </tbody>
+    </table>
+    <div class="no-results" id="no-results">No questions match your search.</div>
+  </div>
+
+</main>
+
+<script>
+  const root   = document.documentElement;
+  const toggle = document.getElementById('theme-toggle');
+  const icon   = document.getElementById('theme-icon');
+  const saved  = localStorage.getItem('theme') || 'dark';
+  root.setAttribute('data-theme', saved);
+  icon.textContent = saved === 'dark' ? '☀︎' : '☾';
+  toggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    icon.textContent = next === 'dark' ? '☀︎' : '☾';
+    localStorage.setItem('theme', next);
+  });
+
+  const rows    = Array.from(document.querySelectorAll('#tbody tr'));
+  const searchEl = document.getElementById('search');
+  const countEl  = document.getElementById('count');
+  const noRes    = document.getElementById('no-results');
+  let activeTag  = 'all';
+
+  function applyFilters() {
+    const q = searchEl.value.toLowerCase().trim();
+    let n = 0;
+    rows.forEach(row => {
+      const tags = row.dataset.tags || '';
+      const text = row.textContent.toLowerCase();
+      const tagOk  = activeTag === 'all' || tags.includes(activeTag);
+      const qOk    = !q || text.includes(q);
+      const show   = tagOk && qOk;
+      row.classList.toggle('hidden', !show);
+      if (show) n++;
+    });
+    countEl.textContent = n;
+    noRes.style.display = n === 0 ? 'block' : 'none';
+  }
+
+  searchEl.addEventListener('input', applyFilters);
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTag = btn.dataset.tag;
+      applyFilters();
+    });
+  });
+
+  document.getElementById('count').textContent = rows.length;
+</script>
+
+</body>
+</html>
