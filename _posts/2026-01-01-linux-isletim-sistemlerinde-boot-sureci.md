@@ -3,6 +3,7 @@ layout: post
 title: Linux İşletim Sistemlerinde Boot Süreci
 tags: [Linux, Boot]
 resources: [LPIC Books]
+toc: true
 ---
 
 ![dmesg](https://csariyildiz.github.io/images/img024.png)
