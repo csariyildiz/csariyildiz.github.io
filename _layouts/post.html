@@ -89,7 +89,7 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // ── THEME TOGGLE (Mevcut kodun)
+  /* ── 1. TEMA DEĞİŞTİRİCİ (THEME TOGGLE) ── */
   const root = document.documentElement;
   const toggle = document.getElementById('theme-toggle');
   const icon = document.getElementById('theme-icon');
@@ -107,29 +107,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ── TOC ACTIVE HIGHLIGHT (Yeni eklenen kısım)
-  // NOT: Eğer yazıların .prose içinde değilse aşağıdaki '.prose h2, .prose h3' kısmını kendine göre güncelle.
-  const headings = Array.from(document.querySelectorAll('.prose h2, .prose h3'));
+  /* ── 2. TOC AKTİF BAŞLIK VURGULAMA (SCROLLSPY) ── */
+  // İçeriği tutan ana alanı belirle
+  const contentArea = document.querySelector('article') || document.querySelector('.post-content') || document.body;
+  
+  // Başlıkları ve TOC linklerini seç
+  const headings = Array.from(contentArea.querySelectorAll('h2, h3'));
   const tocLinks = Array.from(document.querySelectorAll('#toc-list a'));
+
+  // Eğer sayfa çok kısaysa veya başlık yoksa dur
+  if (headings.length === 0 || tocLinks.length === 0) return;
+
+  const observerOptions = {
+    // rootMargin: Başlık ekranın neresindeyken tetiklenecek?
+    // '-100px 0px -60% 0px' -> Üstten 100px geçince ve ekranın alt %60'ındayken
+    rootMargin: '-100px 0px -60% 0px',
+    threshold: 0
+  };
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      // Başlık ekranın üst kısmına girdiğinde aktif yap
       if (entry.isIntersecting) {
-        tocLinks.forEach(l => l.classList.remove('active'));
-        const id = entry.target.getAttribute('id');
-        const active = tocLinks.find(l => l.getAttribute('href') === '#' + id);
-        if (active) active.classList.add('active');
+        const id = entry.target.id;
+        
+        tocLinks.forEach(link => {
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
       }
     });
-  }, { 
-    // rootMargin ayarı: Başlığın ekranın neresindeyken tetikleneceğini belirler.
-    // '-60px 0px -70% 0px' başlık sayfanın üst çeyreğine geldiğinde tetiklenmesini sağlar.
-    rootMargin: '-60px 0px -70% 0px', 
-    threshold: 0 
-  });
+  }, observerOptions);
 
-  headings.forEach(h => observer.observe(h));
+  // Sadece ID'si olan başlıkları gözlemle
+  headings.forEach(h => {
+    if (h.id) {
+      observer.observe(h);
+    }
+  });
 });
 </script>
 
