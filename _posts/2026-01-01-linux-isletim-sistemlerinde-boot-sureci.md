@@ -222,7 +222,7 @@ Not: Modern sistemlerde hem GRUB hem de systemd-boot dosyalarının aynı anda b
 
 GRUB (Grand Unified Bootloader) x86 mimarisindeki Linux cihazlar için en popüler bootloader'dır. UEFI ve BIOS tarafından çağrılan GRUB boot için elverişli işletim sistemlerinin bir listesini ekrana getirir. Kimi zaman liste otomatik olarak gösterilmeyecek şekilde konfigüre edilmiş olabilir. Böyle bir durumda GRUB çağrılırken BIOS için Shift UEFI için Esc tuşuna basılabilir.
 
->  #### Kernel Parametreleri
+#### Kernel Parametreleri
 
 GRUB menüsü üzerinden, hangi kernel’in hangi parametrelerle başlatılacağı belirlenebilir. Bu parametreler genellikle `option=value` formatında tanımlanır ve hem **kernel parametreleri** hem de daha genel bir ifadeyle **boot parametreleri** olarak adlandırılır. Aslında bu parametreler, bootloader tarafından kernel’e komut satırı argümanı olarak iletilir ve kernel açılış davranışını buna göre şekillendirir.
 
@@ -261,13 +261,14 @@ linux /boot/vmlinuz-linux root=/dev/sda1 ro 1
 
 Bu kullanım, sistemin belirli bir runlevel ile başlatılmasını sağlar. Geleneksel SysV init sisteminde kullanılan bu numerik değerler, systemd tarafından da desteklenmeye devam eder ve uygun target’lara dönüştürülür. Örneğin runlevel 1, single-user mode’a karşılık gelirken systemd’de `rescue.target` olarak ifade edilir; runlevel 3 `multi-user.target`, runlevel 5 ise `graphical.target` ile eşleşir.
 
-![GRUB Settings](https://csariyildiz.github.io/images/img022.png)
 
 Kernel parametreleri genellikle günlük kullanımda değiştirilmez; ancak sistem açılış sorunlarını teşhis etmek, donanım uyumsuzluklarını gidermek veya farklı açılış senaryolarını test etmek için oldukça önemlidir. Parametrelerin kalıcı olması isteniyorsa `/etc/default/grub` dosyasındaki `GRUB_CMDLINE_LINUX` satırına eklenmesi gerekir. Bu dosyada yapılan değişikliklerin geçerli olabilmesi için yeni bir GRUB konfigürasyonu oluşturulmalıdır:
 
 ```bash
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
+![GRUB Settings](https://csariyildiz.github.io/images/img022.png)
 
 Alternatif olarak, GRUB menüsünde `e` tuşuna basılarak parametreler tek seferlik olarak değiştirilebilir. Çalışan bir sistemde kullanılan mevcut kernel parametreleri ise `/proc/cmdline` dosyasından okunabilir:
 
