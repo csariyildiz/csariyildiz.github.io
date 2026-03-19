@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux Sistem Mimarisi
+title: Linux Sistemlerde Boot, Partitioning ve Kütüphane Yönetimi
 tags: [Disk layout, Boot manager, Shared libraries, Package management, Virtualization]
 resources: [LPIC Books]
 ---
