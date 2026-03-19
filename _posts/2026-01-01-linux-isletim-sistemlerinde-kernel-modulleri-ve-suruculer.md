@@ -5,31 +5,30 @@ tags: [Linux, Driver, Kernel]
 toc: true
 ---
 
-
 ## Donanım ve Kernel İlişkisi
 
 Bir bilgisayar donanımı temel olarak aşağıdaki bileşenlerden oluşur:
-* İşlemci (CPU) – Komutları çalıştırır.
-* Bellek (RAM) – Çalışan programların geçici verilerini tutar.
-* Disk (SSD / HDD / NVMe) – Kalıcı veri depolama alanıdır.
-* Giriş aygıtları – Klavye, mouse gibi kullanıcı etkileşim araçları.
-* Çıkış aygıtları – Ekran (GPU üzerinden), hoparlör vb.
-* Ağ arayüzü – Ethernet ya da Wi-Fi kartı.
 
-* Uygulamaların Donanıma Erişimi : Bir uygulama ekrana yazı yazmak, dosya okumak ya da ağ üzerinden veri göndermek istediğinde sistem çağrıları (system calls) aracılığıyla çekirdeğe (kernel) başvurur. Kernel, bu isteği alır ve ilgili sürücü (driver) üzerinden donanımla iletişim kurar. Kernel uygun driver’ı belirler. Driver donanımın teknik seviyesinde işlem yapar. Sonuç tekrar kernel üzerinden uygulamaya döner. Bu yapı sayesinde sistem hem güvenli hem de donanımdan bağımsız çalışabilir.
+* `İşlemci (CPU)` – Komutları çalıştırır.
+* `Bellek (RAM)` – Çalışan programların geçici verilerini tutar.
+* `Disk (SSD / HDD / NVMe)` – Kalıcı veri depolama alanıdır.
+* `Giriş aygıtları` – Klavye, mouse gibi kullanıcı etkileşim araçları.
+* `Çıkış aygıtları` – Ekran (GPU üzerinden), hoparlör vb.
+* `Ağ arayüzü` – Ethernet ya da Wi-Fi kartı.
 
-* Driver ve Kernel İlişkisi: Linux’ta her sürücü ya kernel içine gömülü olarak derlenmiştir ya da yüklenebilir bir kernel modülü olarak bulunur. Eğer ilgili driver kernel’e gömülü değilse ve modül olarak derlenmişse, burada: Gerekirse ilgili driver (kernel modülü) devreye girer. Bu modül zaten yüklüyse kullanılır; değilse sistem modprobe mekanizması ile yükleyebilir.
+**Uygulamaların Donanıma Erişimi:** Bir uygulama ekrana yazı yazmak, dosya okumak ya da ağ üzerinden veri göndermek istediğinde sistem çağrıları (system calls) aracılığıyla çekirdeğe (kernel) başvurur. Kernel, bu isteği alır ve ilgili sürücü (driver) üzerinden donanımla iletişim kurar. Kernel uygun driver’ı belirler. Driver donanımın teknik seviyesinde işlem yapar. Sonuç tekrar kernel üzerinden uygulamaya döner. Bu yapı sayesinde sistem hem güvenli hem de donanımdan bağımsız çalışabilir.
 
-* Kernel modülleri çalışan bir sistemde yüklenip kaldırılabileceği gibi kalıcı olarak da yüklenip kaldırılması sağlanabilir. 
+**Driver ve Kernel İlişkisi:** Linux’ta her sürücü ya kernel içine gömülü olarak derlenmiştir ya da yüklenebilir bir kernel modülü olarak bulunur. Eğer ilgili driver kernel’e gömülü değilse ve modül olarak derlenmişse, burada: Gerekirse ilgili driver (kernel modülü) devreye girer. Bu modül zaten yüklüyse kullanılır; değilse sistem modprobe mekanizması ile yükleyebilir.
 
+Kernel modülleri çalışan bir sistemde yüklenip kaldırılabileceği gibi kalıcı olarak da yüklenip kaldırılması sağlanabilir. 
 
 ### Kernel Uygun Driver’ı Nasıl Belirler?
 
 Bir donanım sistemi üzerinde bulunduğunda (örneğin PCI aygıtı, USB cihazı veya disk), kernel bu donanımı algılar ve kimliğini belirler. Bu kimlik, aygıtın bağlı olduğu veri yoluna göre farklı şekilde tanımlanır:
 
-* PCI cihazları → Vendor ID ve Device ID ile
-* USB cihazları → VID / PID ile
-* Platform cihazları → ACPI veya Device Tree ile tanımlanır.
+* `PCI cihazları` – Vendor ID ve Device ID ile
+* `USB cihazları` – VID / PID ile
+* `Platform cihazları` – ACPI veya Device Tree ile tanımlanır.
 
 Platform cihazları, fiziksel olarak sistem üzerinde sabit bulunan ve varlığı firmware (ACPI ya da Device Tree) tarafından bildirilen entegre bileşenlerdir. Örneğin güç yönetimi denetleyicileri, dahili kontrol birimleri veya anakart üzerindeki bazı yerleşik donanımlar bu kapsama (ACPI) girer.
 
@@ -289,8 +288,6 @@ Device Descriptor:
 
 Sonuç olarak İlgili modülü görüntülemenin en kolay yolunun `lsusb -t` komutu olduğunu gördük. 
 
----
-
 ### USB Cihazların Farklılığı
 
 Doğal olarak USB cihazları ve PCI cihazları arasında farklılıklar bulunur. USB cihazları dinamik olarak (hotplug) bağlanıp çıkarılabilir. 
@@ -303,10 +300,7 @@ Bir USB aygıt takıldığında süreç şu şekilde işler:
 * Gerekirse modül yüklenir (modprobe)
 * Cihaz kullanılabilir hale gelir
 
----
-
 ### Device Class Nedir?
-
 
 `lsusb` komutlarında gördüğümüz `Class` alanı cihazın genel kategorisini belirtir. 
  
@@ -317,8 +311,6 @@ Bir USB aygıt takıldığında süreç şu şekilde işler:
 - **Vendor Specific Class** → Üreticiye özel cihazlar
 
 Bu bilgi usb cihazları sınıflandırmanın yanında hangi tür driver’ın gerekli olabileceğini anlamaya yardımcı olur.
-
----
 
 ## Kernel Modüllerinin İncelenmesi
 
@@ -362,7 +354,6 @@ sudo modprobe btusb enable_autosuspend=N  # Parametreyle geri yükle
 
 
 ## lsmod ve kmod Araçları
-
 
 Standart bir Linux sisteminde genellikle çok sayıda kernel modülü yüklü durumdadır.
 
@@ -411,8 +402,6 @@ Bu çıktı genellikle şu bilgileri içerir:
 - **Size**: Bellekte kapladığı alan  
 - **Used by**: Kaç bileşen tarafından kullanıldığı  
 
----
-
 ### Belirli Bir Modülü Arama
 
 Belirtilen modülün yüklü olup olmadığını kontrol etmek için `fgrep` aracını kullanabiliriz.
@@ -420,8 +409,6 @@ Belirtilen modülün yüklü olup olmadığını kontrol etmek için `fgrep` ara
 ```
 lsmod | fgrep -i snd_hda_intel
 ```
-
-
 
 ### Modülleri Boyutuna Göre Sıralama
 
@@ -432,21 +419,20 @@ Modülleri boyutlarına göre büyükten küçüğe sıramak için `sort` aracı
 lsmod | sort -k2,2nr | head
 ```
 
----
 
 ### Modül Kaldırma (Canlı Sistemden)
+
+Belirtilen modülü ve ona bağlı modülleri sistemden kaldırmak için `sudo modprobe -r <modul_adi>` komutu kullanılır. Örneğin:
 
 ```
 sudo modprobe -r snd_hda_intel
 ```
 
-Belirtilen modülü ve ona bağlı modülleri sistemden kaldırır.  
-Bu işlem canlı sistem üzerinde yapılır (live unload).
-
----
+Bu işlem başarılı ise canlı sistem üzerinde ilgili modülü kaldırır. (live unload).
 
 ### Modül Hakkında Bilgi Alma
 
+Örnek olarak `nouveau` modülü hakkında bilgi almak için:
 
 ```
 [acs@archlinux ~]$ modinfo nouveau
@@ -461,6 +447,7 @@ firmware:       nvidia/gm200/acr/ucode_load.bin
 firmware:       nvidia/gm200/acr/bl.bin
 ```
 
+Daha detaylı bilgi:
 
 ```
 [acs@archlinux ~]$ modinfo -p nouveau
@@ -486,16 +473,15 @@ NVreg_RegistryDwords:A semicolon-separated list of key=integer pairs of GSP-RM r
 keep_gsp_logging:Migrate the GSP-RM logging debugfs entries upon exit (bool)
 ```
 
-Belirtilen modülün:
+Böylelikle belirtilen modülün:
 
 - Parametrelerini
 - Açıklamalarını
 - Versiyon bilgisini
 - Lisans bilgisini
 
-gösterir.
+görüntülemiş olduk.
 
----
 
 ### Kalıcı Ayarlar (Persistent Configuration)
 
