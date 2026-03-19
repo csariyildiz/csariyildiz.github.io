@@ -155,7 +155,7 @@ Bu sürecin ilk kısmı (BIOS + MBR) oldukça sınırlı ve düşük seviyeli ol
 Önyükleme, özel bir bölüm olan EFI System Partition (ESP) üzerinden yapılır
 UEFI, bu bölümde bulunan .efi uzantılı yürütülebilir dosyaları (örneğin grubx64.efi veya bootmgfw.efi) doğrudan çalıştırarak çok daha esnek ve güçlü bir başlatma süreci sunar.
 
-#### Modern UEFI Sistemlerde Boot Süreci
+### Modern UEFI Sistemlerde Boot Süreci
 
 UEFI (Unified Extensible Firmware Interface) BIOS dan bazı alanlarda farklılaşır. UEFI da BIOS gibi firmware'dir fakat ek özellikler taşır. UEFI partition ları tanımlayabilir, onlar üzerindeki birden farklı dosya sistemini okuyabilir. UEFI BIOS gibi MBR a dayanmaz. Bunun yerine anakartın içerisinde bulunan kendi NVRAM'ı (non-volatile memory) üzerindeki ayarları kullanılır. Bu tanımlar UEFI ile uyumlu programların yerini gösterir. Bu programlara EFI denir. Bunlar otomatik olarak çağrılır ya da menüden düzenlenebilir. EFI uygulamaları bootloader olabilir. İşletim sistemi seçmeye yarayan araçlar olabilir ya da sistem bilgi ve kurtarma yazılımları olabilirler.
 
@@ -175,7 +175,7 @@ Genel olarak UEFI ile beraber sistemi başlatmak için kullanılan ön operasyon
 UEFI standardı Secure Boot adı verilen bir özelliği de barındırır. Bu özellik ile sadece imzalanmış EFI uygulamaları çağrılabilir. Bu imzalanmış EFI uygulamaları donanım sağlayıcısı tarafından yetkilendirilmiştir. Bu özellik sayesinde zararlı yazılım içerebilecek işletim sistemlerini yüklemeyi zorlaştırarak güvenlik sağlar. Kimi zararlı yazılımlar sistemlerde kalıcılık sağlamak (persistance) için yüklenme adımlarını etkilemeyi hedefler. Böyle bir durumda işletim sistemi tekrar yüklense bile zararlı yazılım etkisini sürdürebilir.
 
 
-#### UEFI Sistemlerde Örnek Önyükleme (Boot) Dizini Yapısı
+### UEFI Sistemlerde Örnek Önyükleme (Boot) Dizini Yapısı
 
 Modern bir Linux sisteminde (örneğin Arch Linux), /boot dizini hem çekirdek dosyalarını hem de donanım seviyesinde çalışan EFI dosyalarını barındırır. Aşağıda bu yapının tipik bir örneği ve bileşenlerin detaylı açıklamaları yer almaktadır.
 
@@ -222,7 +222,7 @@ Bu dizin, UEFI Firmware'in (anakart yazılımının) doğrudan erişebildiği FA
 
 Not: Modern sistemlerde hem GRUB hem de systemd-boot dosyalarının aynı anda bulunması normaldir. Ancak sistem bunlardan sadece NVRAM'de (BIOS ayarlarında) en üst sırada olanı kullanarak açılır.
 
-#### Bootloader
+### Bootloader
 
 GRUB (Grand Unified Bootloader) x86 mimarisindeki Linux cihazlar için en popüler bootloader'dır. UEFI ve BIOS tarafından çağrılan GRUB boot için elverişli işletim sistemlerinin bir listesini ekrana getirir. Kimi zaman liste otomatik olarak gösterilmeyecek şekilde konfigüre edilmiş olabilir. Böyle bir durumda GRUB çağrılırken BIOS için Shift UEFI için Esc tuşuna basılabilir.
 
