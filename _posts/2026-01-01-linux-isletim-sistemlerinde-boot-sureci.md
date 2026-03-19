@@ -175,7 +175,7 @@ Genel olarak UEFI ile beraber sistemi başlatmak için kullanılan ön operasyon
 UEFI standardı Secure Boot adı verilen bir özelliği de barındırır. Bu özellik ile sadece imzalanmış EFI uygulamaları çağrılabilir. Bu imzalanmış EFI uygulamaları donanım sağlayıcısı tarafından yetkilendirilmiştir. Bu özellik sayesinde zararlı yazılım içerebilecek işletim sistemlerini yüklemeyi zorlaştırarak güvenlik sağlar. Kimi zararlı yazılımlar sistemlerde kalıcılık sağlamak (persistance) için yüklenme adımlarını etkilemeyi hedefler. Böyle bir durumda işletim sistemi tekrar yüklense bile zararlı yazılım etkisini sürdürebilir.
 
 
-### UEFI Sistemlerde Örnek Önyükleme (Boot) Dizini Yapısı
+**UEFI Sistemlerde Örnek Önyükleme (Boot) Dizini Yapısı:**
 
 Modern bir Linux sisteminde (örneğin Arch Linux), /boot dizini hem çekirdek dosyalarını hem de donanım seviyesinde çalışan EFI dosyalarını barındırır. Aşağıda bu yapının tipik bir örneği ve bileşenlerin detaylı açıklamaları yer almaktadır.
 
@@ -198,26 +198,22 @@ Modern bir Linux sisteminde (örneğin Arch Linux), /boot dizini hem çekirdek d
 └── loader/                    # systemd-boot yapılandırma dosyaları          
 ```
 
-##### Ana Boot Bileşenleri (/boot Altındakiler)
+#### Ana Boot Bileşenleri (/boot Altındakiler)
 Bu dosyalar, önyükleyici (GRUB/systemd-boot) tarafından okunur ve işletim sistemini ayağa kaldırır:
 
 * vmlinuz-linux: İşletim sisteminin kalbi olan Linux Çekirdeği (Kernel). Sıkıştırılmış ve çalıştırılabilir bir dosyadır.
 * initramfs-linux.img: Çekirdek tam olarak yüklenmeden önce RAM'e açılan geçici dosya sistemi. Diski bağlamak (mount) için gerekli olan sürücüleri (LVM, RAID, şifreli disk anahtarları vb.) barındırır.
 * intel-ucode.img: Intel işlemcilerdeki donanımsal hataları (bug fix) kapatmak için çekirdekten önce yüklenen güvenlik ve kararlılık yamalarıdır.
 
-##### EFI Sistem Bölümü (/boot/EFI - ESP)
+#### EFI Sistem Bölümü (/boot/EFI - ESP)
 Bu dizin, UEFI Firmware'in (anakart yazılımının) doğrudan erişebildiği FAT32 formatındaki özel alandır. Her işletim sistemi burada kendi "klasörünü" oluşturur.
 
-###### Önemli EFI Klasörleri:
+##### Önemli EFI Klasörleri:
 
 * `arch_grub/`: Arch Linux kurulumu sırasında oluşturulan özel yoldur. `grub-install` komutuyla NVRAM'e kaydedilen bu dosya, anakart tarafından doğrudan tanınır.
-
 * `BOOT/BOOTX64.EFI`: Bu, sistemin "Can Simidi" (Fallback) dosyasıdır. Eğer anakartın belleğindeki (NVRAM) kayıtlar silinirse, UEFI doğrudan bu klasöre bakar ve buradaki dosyayı çalıştırır. Taşınabilir disklerdeki önyükleme buradan sağlanır.
-
 * `Microsoft/`: Windows'un önyükleme dosyalarını içerir. Linux ile Dual-Boot (Çift Önyükleme) yaparken bu klasöre dokunulmamalıdır; aksi takdirde Windows açılmaz.
-
 * `systemd/: Eğer GRUB yerine daha hafif bir çözüm olan `systemd-boot` kullanıyorsanız, ana önyükleyici dosyası burada bulunur.
-
 * `Linux/`: Modern sistemlerde UKI (Unified Kernel Image) yapısı için kullanılır. Çekirdek, initramfs ve komut satırı parametrelerinin tek bir `.efi` dosyası içinde birleştirilmiş halidir.
 
 Not: Modern sistemlerde hem GRUB hem de systemd-boot dosyalarının aynı anda bulunması normaldir. Ancak sistem bunlardan sadece NVRAM'de (BIOS ayarlarında) en üst sırada olanı kullanarak açılır.
