@@ -222,12 +222,11 @@ Not: Modern sistemlerde hem GRUB hem de systemd-boot dosyalarının aynı anda b
 
 GRUB (Grand Unified Bootloader) x86 mimarisindeki Linux cihazlar için en popüler bootloader'dır. UEFI ve BIOS tarafından çağrılan GRUB boot için elverişli işletim sistemlerinin bir listesini ekrana getirir. Kimi zaman liste otomatik olarak gösterilmeyecek şekilde konfigüre edilmiş olabilir. Böyle bir durumda GRUB çağrılırken BIOS için Shift UEFI için Esc tuşuna basılabilir.
 
-> ## 🔧 Kernel Parametreleri
+>  #### Kernel Parametreleri
 
-GRUB menüsü üzerinden, hangi kernel’in hangi parametrelerle başlatılacağı belirlenebilir.  
-Kernel parametreleri genellikle `option=value` formatında tanımlanır ve **kernel parametreleri** veya **boot parametreleri** olarak adlandırılır.
+GRUB menüsü üzerinden, hangi kernel’in hangi parametrelerle başlatılacağı belirlenebilir. Bu parametreler genellikle `option=value` formatında tanımlanır ve hem **kernel parametreleri** hem de daha genel bir ifadeyle **boot parametreleri** olarak adlandırılır. Aslında bu parametreler, bootloader tarafından kernel’e komut satırı argümanı olarak iletilir ve kernel açılış davranışını buna göre şekillendirir.
 
-### 📌 Örnek GRUB Konfigürasyonu
+Aşağıda örnek bir GRUB konfigürasyonu yer almaktadır:
 
 ```bash
 GRUB_TIMEOUT=5
@@ -238,115 +237,46 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet"
 GRUB_CMDLINE_LINUX="crashkernel=auto rd.lvm.lv=rhel/root rd.lvm.lv=rhel/swap resume=/dev/mapper/rhel-swap"
 ```
 
----
+Kernel parametreleri sistemin donanım yönetimini, başlatma sürecini ve dosya sistemi davranışını doğrudan etkileyebilir. Örneğin `acpi` parametresi, işletim sisteminin donanım ve güç yönetimini kontrol etmesini sağlayan ACPI desteğini yönetir. `acpi=off` verilmesi durumunda bu destek devre dışı bırakılır; ancak bu genellikle sadece eski donanımlar için tercih edilir. Modern sistemlerde ACPI’nin kapatılması, Wi-Fi, pil yönetimi, USB aygıtları ve uyku modları gibi birçok özelliğin çalışmamasına neden olabilir. Buna rağmen bazı hatalı donanım durumlarında ACPI davranışını değiştirmek için bu parametre kullanılabilir.
 
-## ⚙️ Yaygın Kernel Parametreleri
+Benzer şekilde `init` parametresi, sistemin başlatılması sırasında kullanılacak alternatif bir init programı tanımlamaya olanak sağlar. Örneğin `init=/bin/bash` verilirse, sistem klasik init süreci yerine doğrudan bir shell ile açılır. `systemd.unit` parametresi ise systemd tabanlı sistemlerde hangi target’ın aktif edileceğini belirler; örneğin `systemd.unit=graphical.target` grafik arayüzle açılışı sağlar.
 
-### 🔹 Sistem / Donanım
+Bazı kernel parametreleri sistem kaynaklarını sınırlamak için kullanılır. `mem` parametresi RAM kullanımını belirli bir değerle sınırlar (örneğin `mem=512M`), `maxcpus` ise sistemde görülecek işlemci veya çekirdek sayısını kısıtlar (örneğin `maxcpus=2`). Bu tür parametreler özellikle sanal makinelerde ve test ortamlarında faydalıdır.
 
-- `acpi`  
-  ACPI desteğini açar/kapatır.  
-  `acpi=off` → güç yönetimi devre dışı (genelde sadece eski donanımda kullanılır)
+Görsel ve boot çıktısı ile ilgili parametreler de mevcuttur. `quiet` parametresi boot sırasında ekrana yazılan mesajların çoğunu gizleyerek daha sade bir açılış sağlar. `vga` parametresi ise video modunu belirlemek için kullanılır; `vga=ask` verilmesi durumunda kullanıcıya seçilebilir modlar listelenir.
 
-- `vga`  
-  Video modunu belirler  
-  `vga=ask` → seçilebilir modları listeler
-
----
-
-### 🔹 Başlatma Davranışı
-
-- `quiet`  
-  Boot mesajlarını gizler
-
-- `init`  
-  Alternatif init programı belirler  
-  `init=/bin/bash` → doğrudan shell açar (debug için)
-
-- `systemd.unit`  
-  Hangi systemd target ile açılacağını belirler  
-  `systemd.unit=graphical.target`
-
----
-
-### 🔹 Kaynak Sınırlama
-
-- `mem`  
-  RAM kullanımını sınırlar  
-  `mem=512M`
-
-- `maxcpus`  
-  CPU/core sayısını sınırlar  
-  `maxcpus=2`
-
----
-
-### 🔹 Dosya Sistemi / Root
-
-- `root`  
-  Root partition’u belirler  
-  `root=/dev/sda3`
-
-- `rootflags`  
-  Root dosya sistemi mount seçeneklerini belirler  
+Dosya sistemi ile ilgili parametreler, sistemin hangi disk üzerinden ve nasıl açılacağını belirler. `root` parametresi, kök (`/`) dosya sisteminin bulunduğu bölümü tanımlar. Örneğin `root=/dev/sda3` ifadesi, root dosya sisteminin bu bölümden mount edileceğini belirtir. `rootflags` parametresi ise bu dosya sisteminin hangi mount seçenekleriyle bağlanacağını belirler. Bu seçenekler kullanılan dosya sistemine (ext4, xfs, btrfs vb.) göre değişiklik gösterebilir. Örneğin:
 
 ```bash
 root=/dev/sda1 rootfstype=ext4 rootflags=errors=remount-ro,data=ordered
 ```
 
-- `ro` → root filesystem read-only mount edilir  
-- `rw` → root filesystem writable mount edilir  
+Burada root dosya sistemi ext4 olarak tanımlanmış ve hata durumunda read-only moda geçmesi sağlanmıştır. Ayrıca `ro` ve `rw` parametreleri, root dosya sisteminin başlangıçta sırasıyla salt-okunur veya yazılabilir olarak mount edilmesini belirler.
 
----
-
-## Numerik Boot Parametreleri (Runlevel)
-
-Kernel parametresi olarak sayısal değerler verilerek açılış modu belirlenebilir:
+Boot parametreleri içerisinde sayısal değerler de kullanılabilir. Örneğin aşağıdaki satırda `1` parametresi verilmiştir:
 
 ```bash
 linux /boot/vmlinuz-linux root=/dev/sda1 ro 1
 ```
 
-### Karşılıkları:
+Bu kullanım, sistemin belirli bir runlevel ile başlatılmasını sağlar. Geleneksel SysV init sisteminde kullanılan bu numerik değerler, systemd tarafından da desteklenmeye devam eder ve uygun target’lara dönüştürülür. Örneğin runlevel 1, single-user mode’a karşılık gelirken systemd’de `rescue.target` olarak ifade edilir; runlevel 3 `multi-user.target`, runlevel 5 ise `graphical.target` ile eşleşir.
 
-| Runlevel | Anlamı              | systemd karşılığı     |
-|----------|-------------------|----------------------|
-| 1        | Single-user mode  | rescue.target        |
-| 3        | Multi-user (CLI)  | multi-user.target    |
-| 5        | Graphical         | graphical.target     |
+![GRUB Settings](https://csariyildiz.github.io/images/img022.png)
 
-systemd bu numerik değerleri otomatik olarak uygun **target**'a çevirir.
+Kernel parametreleri genellikle günlük kullanımda değiştirilmez; ancak sistem açılış sorunlarını teşhis etmek, donanım uyumsuzluklarını gidermek veya farklı açılış senaryolarını test etmek için oldukça önemlidir. Parametrelerin kalıcı olması isteniyorsa `/etc/default/grub` dosyasındaki `GRUB_CMDLINE_LINUX` satırına eklenmesi gerekir. Bu dosyada yapılan değişikliklerin geçerli olabilmesi için yeni bir GRUB konfigürasyonu oluşturulmalıdır:
 
----
-
-
-- Kernel parametreleri genellikle:
-  - Debug
-  - Recovery
-  - Performans ayarı  
-  için kullanılır.
-
-- Kalıcı olması için:
-```bash
-/etc/default/grub
-```
-dosyasındaki `GRUB_CMDLINE_LINUX` satırına eklenmelidir.
-
-- Değişiklik sonrası:
 ```bash
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-- Geçici değişiklik:
-  → GRUB menüsünde `e` tuşu ile yapılabilir
+Alternatif olarak, GRUB menüsünde `e` tuşuna basılarak parametreler tek seferlik olarak değiştirilebilir. Çalışan bir sistemde kullanılan mevcut kernel parametreleri ise `/proc/cmdline` dosyasından okunabilir:
 
-- Mevcut parametreleri görmek:
-  
 ```bash
 cat /proc/cmdline
 ```
 
-### Örnek çıktı:
+Örnek çıktı:
+
 ```bash
 initrd=\initramfs-linux.img root=/dev/sdb4 rw
 ```
