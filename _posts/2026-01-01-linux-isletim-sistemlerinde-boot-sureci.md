@@ -112,35 +112,48 @@ BIOS/UEFI ve MBR/GPT Eşleşmesi:
 
 Modern sistemlerde firmware tarafında UEFI ve disk tarafında GPT ikilisi kullanılır.
 
-### Geleneksel BIOS ve Modern UEFI Farkı
-Geleneksel BIOS Sistemlerinde (Eski Usul) sistemlerde Bootstrap kodu fiziksel bir zorunluluktur. MBR İçinde diskin ilk 512 baytlık sektöründe (Master Boot Record) çok küçük bir "Bootstrap" kodu bulunur.
-Bootstrap kodu BIOS, işlemciyi uyandırdıktan sonra bu 512 baytlık kodu RAM'e yükler ve kontrolü ona devreder. Bu kodun tek işi, asıl işletim sistemi yükleyicisini (bootloader) bulup getirmektir.
-
-Modern UEFI sistemlerde, diskteki o kısıtlı 512 baytlık sektöre hapsolmuş bir "Bootstrap" kodu yoktur. Yerine UEFI, diskteki dosyaları (dosya sistemini) doğrudan okuyabilir. MBR içindeki o minik koda ihtiyaç duymak yerine, diskteki özel bir bölüme ( EFI System Partition - ESP ) gider ve oradaki .efi uzantılı dosyaları (örneğin: grubx64.efi veya bootmgfw.efi) doğrudan çalıştırır.
-
-Modern "Bootstrap" Artık Bir Dosyadır: Eskiden disk sektörlerine "kazınmış" olan o ilkel kod, günümüzde bildiğimiz anlamda bir dosya (Firmware Application) haline gelmiştir.
-
 ### Legacy BIOS Sistemlerde Boot Süreci
 
-**Bootstrap Kodu**: BIOS tabanlı sistemlerde sitemi başlatmak için kullanılır. BIOS firmware ile çalışan bir makinede, bootstrap kodu BIOS yapılandırmasında belirtilen ilk önyükleme aygıtının MBR (Master Boot Record) alanında yer alır. Bu kod, disk üzerinden okunan ilk çalıştırılabilir ilk program olur.
+Legacy BIOS tabanlı sistemlerde önyükleme süreci, diskin en kritik noktası olan MBR (Master Boot Record) ile başlar. Diskin ilk 512 baytlık sektöründe yer alan bu yapı, hem bölümleme bilgilerini hem de son derece küçük bir bootstrap kodunu barındırır.
 
-MBR içerisindeki bootstrap kodu, yine aynı alanda bulunan partition tablosunu okuyarak aktif (bootable) bölümü tespit eder. Bu bilgiler kullanılarak, diskte yer alan ve işletim sistemini yüklemekten sorumlu olan asıl önyükleyici yazılımın (bootloader) ikinci aşaması belleğe yüklenir ve çalıştırılır.
+Sistem açıldığında BIOS, POST (Power-On Self Test) sürecini tamamladıktan sonra yapılandırılmış boot sıralamasına göre bir önyükleme aygıtı seçer. Ardından seçilen diskin ilk sektörünü (MBR) RAM’e yükler ve işlemci kontrolünü doğrudan buradaki bootstrap koduna devreder. Böylece çalıştırılan ilk program, diskin içindeki bu küçük kod parçası olur.
 
-* MBR içindeki kod genelde stage 1 olarak adlandırılır.
-* Yüklenen ikinci kısım stage 1.5 / stage 2 olabilir (örneğin GRUB için).
+Ancak bu kodun kapasitesi son derece sınırlıdır. Bu nedenle tek görevi, daha gelişmiş bir önyükleyiciyi (bootloader) bulmak ve çalıştırmaktır.
 
-BIOS, işletim sistemini başlatabilmek için `önyüklenebilir bir cihaz` arar. BIOS konfigürasyonunda tanımlanan `boot sıralamasına` göre diskleri sırayla dener. Herhangi bir ek yapılandırma yoksa, seçilen diskin `ilk 440 baytlık alanını` önyükleyicinin ilk aşaması olan `bootstrap kodu` olarak kabul eder. Bu kod çalıştırılamazsa veya geçerli değilse, BIOS listedeki bir sonraki cihaza geçer.
+MBR içindeki bootstrap kodu, aynı sektör içerisinde bulunan partition table bilgisini okuyarak aktif (bootable) bölümü tespit eder. Ardından bu bölümde bulunan asıl önyükleyicinin devamını (genellikle disk üzerinde daha geniş bir alana yayılmış olan ikinci aşama) belleğe yükler.
 
-BIOS, klasik `DOS (MBR) bölümleme şemasına` göre diskin `ilk 512 baytının` MBR (Master Boot Record) olmasını bekler. Bu alan, `bootstrap kodunu` ve `partition table` bilgisini içerir. Bootstrap süreci buradan başlatılır. Eğer MBR geçerli bir önyükleme kodu içermiyorsa ve alternatif bir önyükleme yöntemi kullanılmıyorsa, sistem başlatılamaz.
+Bu yapı genellikle şu şekilde katmanlanır:
 
-Genel olarak BIOS ile beraber sistemi başlatmak için kullanılan ön operasyon adımları aşağıdaki gibi sıralanabilir:
+Stage 1: MBR içindeki bootstrap kodu (çok küçük, sadece yönlendirici)
 
-1.  POST (power on self-test) temel bir donanım taraması yapar.
-2.  Video çıktısı klavye ve diskler gibi sistemi yüklemek için gerekli temel bileşenler aktive edilir.
-3.  BIOS bootloader ın ilk aşamasını (bootstrap)'ı MBR içerisinden yükler.
-4.  Bootloader ın ilk aşaması ikinci aşamasını çağırır. Bu ikinci kısım boot seçeneklerini sunar ve kerneli çalıştırır.
+Stage 1.5 / Stage 2: Gelişmiş bootloader (örneğin GRUB), kullanıcıya seçenek sunabilir ve çekirdeği (kernel) yükler
 
-Bootloaderın ikinci kısmına kadar olan süreçte hem BIOS'da hem de MBR kısmında yapılandırma bulunur ve burada değişiklikler yapılabilir.
+BIOS, seçilen diskte geçerli bir önyükleme kodu bulamazsa veya kod çalıştırılamazsa, sıradaki önyükleme aygıtına geçer. Eğer hiçbir aygıtta geçerli bir yapı bulunamazsa, sistem başlatılamaz.
+
+Klasik BIOS mimarisi, diskin ilk 512 baytının MBR yapısında olmasını varsayar. Bu alan:
+
+* Bootstrap kodunu
+* Partition table bilgisini
+
+içerir ve tüm önyükleme sürecinin başlangıç noktasıdır.
+
+**Sürecin Özet Akışı:**
+* POST ile temel donanım kontrol edilir
+* Gerekli bileşenler (disk, klavye, ekran) aktif hale getirilir
+* BIOS, seçilen diskin MBR’ını RAM’e yükler
+* Bootstrap kodu çalışır (Stage 1)
+* Bootloader’ın gelişmiş aşaması yüklenir (Stage 2)
+* İşletim sistemi çekirdeği (kernel) başlatılır
+
+Bu sürecin ilk kısmı (BIOS + MBR) oldukça sınırlı ve düşük seviyeli olduğu için, yapılandırma seçenekleri de kısıtlıdır. Asıl esneklik ve kontrol, bootloader’ın ikinci aşamasında ortaya çıkar.
+
+**UEFI İle Farkı:**
+* Modern sistemlerde kullanılan UEFI yaklaşımı, bu sınırlamaları tamamen ortadan kaldırır. Artık:
+* Diskin ilk 512 baytına sıkışmış bir bootstrap kodu yoktur
+* Firmware, dosya sistemini doğrudan okuyabilir
+
+Önyükleme, özel bir bölüm olan EFI System Partition (ESP) üzerinden yapılır
+UEFI, bu bölümde bulunan .efi uzantılı yürütülebilir dosyaları (örneğin grubx64.efi veya bootmgfw.efi) doğrudan çalıştırarak çok daha esnek ve güçlü bir başlatma süreci sunar.
 
 #### Modern UEFI Sistemlerde Boot Süreci
 
