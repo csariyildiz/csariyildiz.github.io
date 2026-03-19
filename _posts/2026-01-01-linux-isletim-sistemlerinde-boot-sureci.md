@@ -435,3 +435,74 @@ journalctl -D /mnt/backup/journal/ -b -1
 journalctl -k -f
 ~~~
 
+Kullanıcı markdown belgesi içindeki "Özet: Komut Referansı" kısmını doldurmamı istiyor. Belgeyi dikkatlice inceleyerek tüm komutları toplayıp tabloları oluşturacağım. Bu bir .md dosyası güncelleme değil, sadece tablo içeriği oluşturma isteği — dosya çıktısı gerekmez.
+
+İşte belgeden derlenen komut referans tabloları:
+
+---
+
+## Özet: Komut Referansı
+
+### GRUB ve Kernel Parametreleri
+
+| Komut / Parametre | Açıklama |
+|---|---|
+| `grub-mkconfig -o /boot/grub/grub.cfg` | GRUB yapılandırmasını yeniden oluşturur |
+| `cat /proc/cmdline` | Çalışan sistemde aktif kernel parametrelerini gösterir |
+| `GRUB_CMDLINE_LINUX` | `/etc/default/grub` içinde kalıcı kernel parametrelerini tanımlar |
+| `quiet` |  Parametre, Boot sırasında ekran çıktısını azaltır (yalnızca kritik hatalar gösterilir) |
+| `root=/dev/sdXN` |  Parametre, Kök dosya sisteminin bulunduğu bölümü tanımlar |
+| `ro` / `rw` |  Parametre, Root dosya sistemini salt-okunur / yazılabilir olarak mount eder |
+| `init=/bin/bash` |  Parametre, Klasik init yerine doğrudan shell ile sistemi başlatır |
+| `systemd.unit=graphical.target` | systemd tabanlı sistemde hedef target'ı belirler |
+| `mem=512M` | Parametre, Kullanılacak RAM miktarını sınırlar |
+| `maxcpus=2` |  Parametre, Görünür işlemci/çekirdek sayısını kısıtlar |
+| `acpi=off` |  Parametre, ACPI desteğini devre dışı bırakır |
+| `vga=ask` |  Parametre, Boot sırasında video modunu kullanıcıya seçtirir |
+| `1` / `3` / `5` |  Parametre, Runlevel belirtir (systemd'de rescue / multi-user / graphical target) |
+
+### dmesg
+
+| Komut | Açıklama |
+|---|---|
+| `dmesg` | Kernel ring buffer içindeki tüm mesajları gösterir |
+| `dmesg --clear` | Kernel ring buffer içindeki tüm mesajları temizler |
+
+### journalctl
+
+| Komut | Açıklama |
+|---|---|
+| `journalctl -b` | Mevcut önyükleme loglarını gösterir |
+| `journalctl --boot` | Mevcut önyükleme loglarını gösterir (`-b` ile aynı) |
+| `journalctl -k` | Yalnızca kernel mesajlarını gösterir |
+| `journalctl --dmesg` | dmesg benzeri kernel mesajlarını gösterir |
+| `journalctl --list-boots` | Kayıtlı önyüklemeleri listeler (numara, hash, zaman damgası) |
+| `journalctl -b 0` | Geçerli önyükleme logları |
+| `journalctl -b -1` | Bir önceki önyükleme logları |
+| `journalctl -b -2` | İki önceki önyükleme logları |
+| `journalctl -k -f` | Kernel mesajlarını anlık olarak takip eder |
+| `journalctl -p 3` | Belirtilen öncelik seviyesindeki mesajları gösterir (2=crit, 3=err, 4=warn…) |
+| `journalctl -D /var/log/journal/` | Belirtilen dizindeki journal loglarını okur |
+| `journalctl -D /mnt/backup/journal/ -b -1` | Alternatif dizinden önceki boot loglarını okur |
+
+### Log Öncelik Seviyeleri (`-p`)
+
+| Seviye | Numara |
+|---|---|
+| critical | 2 |
+| error | 3 |
+| warning | 4 |
+| notice | 5 |
+| info | 6 |
+| debug | 7 |
+
+### Runlevel, systemd Target Eşleşmesi
+
+| Runlevel | systemd Target |
+|---|---|
+| 0 | poweroff.target |
+| 1 | rescue.target |
+| 3 | multi-user.target |
+| 5 | graphical.target |
+| 6 | reboot.target |
+
